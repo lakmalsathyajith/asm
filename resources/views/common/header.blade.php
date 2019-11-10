@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-0">
                 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
-                    <a class="navbar-brand" href="./index.html">
+                    <a class="navbar-brand" href="/">
                         <img class="nav-img" src="{{asset('images/main-logo.png')}}" alt="" srcset="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#asnavsupportcontent" aria-controls="asnavsupportcontent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,30 +14,30 @@
                     <div class="collapse navbar-collapse" id="asnavsupportcontent">
                         <ul class="navbar-nav left-nav ml-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="./index.html">
+                                <a class="nav-link" href="/">
                                     <img src="{{asset('images/home-icon-silhouette.svg')}}" alt="" srcset="">
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./apartment-listing.html">RATES & AVAILABILITY</a>
+                                <a class="nav-link" href="/apartment-listing">RATES & AVAILABILITY</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./typicle-aparment.html">OUR TYPICAL APARTMENTS</a>
+                                <a class="nav-link" href="/typical-apartment">OUR TYPICAL APARTMENTS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./my-shortlist.html">SHORTLIST</a>
+                                <a class="nav-link" href="/my-shortlist">SHORTLIST</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./faq.html">FAQ</a>
+                                <a class="nav-link" href="/faq">FAQ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./about.html">ABOUT</a>
+                                <a class="nav-link" href="/about">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./list-with-us.html">LIST WITH US</a>
+                                <a class="nav-link" href="/list-with-us">LIST WITH US</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./contact.html">CONTACT</a>
+                                <a class="nav-link" href="/contact">CONTACT</a>
                             </li>
                         </ul>
 
@@ -68,11 +68,9 @@
                                     <a class="dropdown-item" href="#">Another</a>
                                 </div>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
-
             </div>
         </div>
     </div>

@@ -14326,13 +14326,6 @@ window.Vue = __webpack_require__(11);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
-
-
 window.Vue = __webpack_require__(11);
 
 
@@ -14344,6 +14337,13 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 
 Vue.component('example-component', __webpack_require__(41));
 Vue.component('home', __webpack_require__(44));
+Vue.component('apartment-list', __webpack_require__(52));
+Vue.component('short-list', __webpack_require__(55));
+Vue.component('typical-apartment', __webpack_require__(58));
+Vue.component('faq', __webpack_require__(61));
+Vue.component('about', __webpack_require__(64));
+Vue.component('list-with-us', __webpack_require__(67));
+Vue.component('contact', __webpack_require__(70));
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({ mode: 'history' });
 var app = new Vue(Vue.util.extend({ router: router })).$mount('#app');
@@ -52890,7 +52890,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "content-img" }, [
                   _c("img", {
                     staticClass: "modile-hide",
-                    attrs: { src: "images/compare.png'" }
+                    attrs: { src: "images/compare.png" }
                   }),
                   _vm._v(" "),
                   _c("img", {
@@ -52968,7 +52968,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-md-4" }, [
                 _c("div", { staticClass: "apartment-box" }, [
                   _c("div", { staticClass: "aprtment-img" }, [
-                    _c("img", { attrs: { src: "'images/aptment-01.png" } })
+                    _c("img", { attrs: { src: "images/aptment-01.png" } })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "apartment-text text-center" }, [
@@ -53451,6 +53451,6449 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ApartmentList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2e49d249", Component.options)
+  } else {
+    hotAPI.reload("data-v-2e49d249", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "apartments",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "top-search-wrap padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c(
+            "div",
+            { staticClass: "row nav-top-path-wrap bottom-full-width-border" },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "nav-top-path" }, [
+                    _c("ul", { staticClass: "list-inline" }, [
+                      _c("li", { staticClass: "list-inline-item" }, [
+                        _vm._v("Home\n                                    "),
+                        _c("span", [_vm._v(" >")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "list-inline-item" }, [
+                        _vm._v(
+                          "\n                                    Melbourne - Northern Region\n                                "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row bottom-full-width-border filter-middle" },
+            [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-md-6 p-0 filter-left-border " },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn dropdown-toggle flter-button filter-border-none-btn",
+                                attrs: {
+                                  type: "button",
+                                  id: "dropdownMenuButton",
+                                  "data-toggle": "dropdown",
+                                  "aria-haspopup": "true",
+                                  "aria-expanded": "false"
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "ti-location-pin" }),
+                                _c("span", [_vm._v(" City/Region")])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "dropdown-menu filter-widget-dropdown",
+                                attrs: {
+                                  "aria-labelledby": "dropdownMenuButton"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "filter-widget-inner" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Action")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Another action")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Something else here")]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-6 p-0 filter-left-border" },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn dropdown-toggle flter-button filter-border-none-btn",
+                                attrs: {
+                                  type: "button",
+                                  id: "dropdownMenuButton",
+                                  "data-toggle": "dropdown",
+                                  "aria-haspopup": "true",
+                                  "aria-expanded": "false"
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "ti-location-pin" }),
+                                _c("span", [_vm._v(" City/Region")])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "dropdown-menu filter-widget-dropdown",
+                                attrs: {
+                                  "aria-labelledby": "dropdownMenuButton"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "filter-widget-inner" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Action")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Another action")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "#" }
+                                      },
+                                      [_vm._v("Something else here")]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row bottom-full-width-border filter-bottom-wrap" },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Apartment Type")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "dropdown-item",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Action")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "dropdown-item",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Another action")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "dropdown-item",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_vm._v("Something else here")]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Check-In/Out")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkin" }
+                                              },
+                                              [_vm._v("Check-In")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "form-control asm-input",
+                                              attrs: {
+                                                id: "checkin",
+                                                type: "text",
+                                                placeholder: "Check In"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkout" }
+                                              },
+                                              [_vm._v("Check-Out")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "form-control asm-input",
+                                              attrs: {
+                                                id: "checkout",
+                                                type: "text",
+                                                placeholder: "Check Out"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Guest Number")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkin" }
+                                              },
+                                              [_vm._v("Adults")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "form-control asm-input",
+                                                attrs: { id: "Adults" }
+                                              },
+                                              [
+                                                _c("option", [
+                                                  _vm._v("Select")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("1")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("2")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("3")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("4")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("5")])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkout" }
+                                              },
+                                              [_vm._v("Children")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "form-control asm-input",
+                                                attrs: { id: "Children" }
+                                              },
+                                              [
+                                                _c("option", [
+                                                  _vm._v("Select")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("1")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("2")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("3")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("4")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("5")])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Beds Min-Max")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkin" }
+                                              },
+                                              [_vm._v("Min. Bed")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "form-control asm-input",
+                                                attrs: { id: "Min-beds" }
+                                              },
+                                              [
+                                                _c("option", [_vm._v("Any")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("1")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("2")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("3")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("4")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("5")])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkout" }
+                                              },
+                                              [_vm._v("Max. Bed")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "form-control asm-input",
+                                                attrs: { id: "Max-beds" }
+                                              },
+                                              [
+                                                _c("option", [_vm._v("Any")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("1")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("2")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("3")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("4")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("5")])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-money" }),
+                              _c("span", [_vm._v(" Price Min/Max")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkin" }
+                                              },
+                                              [_vm._v("Price Min")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "form-control asm-input",
+                                              attrs: {
+                                                id: "checkin",
+                                                type: "text",
+                                                placeholder: "Check In"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-6 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "checkout" }
+                                              },
+                                              [_vm._v("Price Max")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "form-control asm-input",
+                                              attrs: {
+                                                id: "checkout",
+                                                type: "text",
+                                                placeholder: "Check Out"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col  p-0 filter-top-widget filter-left-border"
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn dropdown-toggle flter-button filter-border-none-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Location")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-12 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "Location" }
+                                              },
+                                              [_vm._v("Building")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                staticClass:
+                                                  "form-control asm-input",
+                                                attrs: { id: "Building" }
+                                              },
+                                              [
+                                                _c("option", [_vm._v("Any")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("1")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("2")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("3")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("4")]),
+                                                _vm._v(" "),
+                                                _c("option", [_vm._v("5")])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-12 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "Location" }
+                                              },
+                                              [_vm._v("More Features")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("div", { staticClass: "row" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "class col-md-12"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "form-check form-check-inline"
+                                                    },
+                                                    [
+                                                      _c("input", {
+                                                        staticClass:
+                                                          "form-check-input",
+                                                        attrs: {
+                                                          type: "checkbox",
+                                                          id: "inlineCheckbox1",
+                                                          value: "Balcony"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "form-check-label",
+                                                          attrs: {
+                                                            for: "Balcony"
+                                                          }
+                                                        },
+                                                        [_vm._v("Balcony")]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "form-check form-check-inline"
+                                                    },
+                                                    [
+                                                      _c("input", {
+                                                        staticClass:
+                                                          "form-check-input",
+                                                        attrs: {
+                                                          type: "checkbox",
+                                                          id: "inlineCheckbox1",
+                                                          value: "Parking"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "form-check-label",
+                                                          attrs: {
+                                                            for: "Parking"
+                                                          }
+                                                        },
+                                                        [_vm._v("Parking")]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col  p-0 filter-top-widget" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "filter-widget" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn booking-btn filter-border-none-btn"
+                          },
+                          [_vm._v("Search")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "listing-result" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "listing-result-head" }, [
+                  _c("div", { staticClass: "first-result-head" }, [
+                    _c("h3", [
+                      _vm._v("Results for Melbourne - Northern Region")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "second-result-head" }, [
+                    _c("p", [_vm._v("Showing 1 - 6 of 18 total results")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group form-inline order-select" },
+                  [
+                    _c("ul", { staticClass: "list-inline" }, [
+                      _c("li", { staticClass: "list-inline-item your-entry" }, [
+                        _vm._v("Sort by")
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "list-inline-item" }, [
+                        _c("div", { staticClass: "dropdown" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn dropdown-toggle sort-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                            Default\n                                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Action")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Another action")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Something else here")]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "pagination-listing-wrap" }, [
+                  _c(
+                    "nav",
+                    {
+                      attrs: {
+                        "aria-label":
+                          "Page navigation example pagination-listing"
+                      }
+                    },
+                    [
+                      _c("ul", { staticClass: "pagination" }, [
+                        _c("li", { staticClass: "page-item active" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("1")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("2")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("3")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("Next")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "listing-wrap" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6 apartment-listing-widget-left-col"
+                      },
+                      [
+                        _c("div", { staticClass: "listing-swipe-slider" }, [
+                          _c("div", { staticClass: "swipeslider" }, [
+                            _c("div", { staticClass: "swiper-container" }, [
+                              _c("div", { staticClass: "slide-shortlist" }, [
+                                _c("i", { staticClass: "ti-tag" }),
+                                _vm._v(" Save to Shortlist")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "swiper-wrapper" }, [
+                                _c("div", {
+                                  staticClass: "swiper-slide slide1"
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-prev ti-angle-left"
+                              }),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-next ti-angle-right"
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "price-tag" }, [
+                            _vm._v(
+                              "\n                                            A$305"
+                            ),
+                            _c("sup", [_vm._v("pw")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "apartment-owner" }, [
+                            _c("div", { staticClass: "owner-icon" }, [
+                              _c("i", { staticClass: "ti ti-user" })
+                            ]),
+                            _vm._v(
+                              "\n                                            Mathew cahill\n                                        "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          { attrs: { href: "./apartment-listing-inner.html" } },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "bottom-desc-behind-wrap" },
+                              [
+                                _c("h3", [_vm._v("Apartment 404")]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Melbourne - Northern Region")])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "listing-bottom-icons-wrap" },
+                          [
+                            _c("ul", { staticClass: "list-inline" }, [
+                              _c(
+                                "li",
+                                { staticClass: "list-inline-item apart-type" },
+                                [_vm._v("Studio")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(" 2")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-car" }),
+                                  _vm._v(" 2")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(" 1")
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6  apartment-listing-widget-right-col"
+                      },
+                      [
+                        _c("div", { staticClass: "facility-wrap" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "row pagination-listing-wrap" }, [
+                  _c(
+                    "nav",
+                    {
+                      attrs: {
+                        "aria-label":
+                          "Page navigation example pagination-listing ",
+                        id: "bottom-pagination"
+                      }
+                    },
+                    [
+                      _c("ul", { staticClass: "pagination" }, [
+                        _c("li", { staticClass: "page-item active" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("1")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("2")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("3")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("Next")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2e49d249", module.exports)
+  }
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(56)
+/* template */
+var __vue_template__ = __webpack_require__(57)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Shortlist.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-652e39f3", Component.options)
+  } else {
+    hotAPI.reload("data-v-652e39f3", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "shortlist",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "shortlist-section padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: " bottom-full-width-border" }, [
+                  _c("div", { staticClass: "head-name" }, [
+                    _c("h3", [_vm._v("My Shortlist")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row myentry-shortlist" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group form-inline order-select" },
+                  [
+                    _c("ul", { staticClass: "list-inline" }, [
+                      _c("li", { staticClass: "list-inline-item your-entry" }, [
+                        _vm._v("Your Entries by")
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "list-inline-item" }, [
+                        _c("div", { staticClass: "dropdown" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn dropdown-toggle sort-btn",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                            Default\n                                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "dropdown-menu",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Action")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Another action")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v("Something else here")]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "pagination-listing-wrap" }, [
+                  _c(
+                    "nav",
+                    {
+                      attrs: {
+                        "aria-label":
+                          "Page navigation example pagination-listing"
+                      }
+                    },
+                    [
+                      _c("ul", { staticClass: "pagination" }, [
+                        _c("li", { staticClass: "page-item active" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("1")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("2")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("3")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v("Next")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "listing-wrap" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6 apartment-listing-widget-left-col"
+                      },
+                      [
+                        _c("div", { staticClass: "listing-swipe-slider" }, [
+                          _c("div", { staticClass: "swipeslider" }, [
+                            _c("div", { staticClass: "swiper-container" }, [
+                              _c("div", { staticClass: "slide-shortlist" }, [
+                                _c("i", { staticClass: "ti-tag" }),
+                                _vm._v(
+                                  " Save to\n                                                    Shortlist\n                                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "swiper-wrapper" }, [
+                                _c("div", {
+                                  staticClass: "swiper-slide slide1"
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-prev ti-angle-left"
+                              }),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-next ti-angle-right"
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "price-tag" }, [
+                            _vm._v(
+                              "\n                                            A$305"
+                            ),
+                            _c("sup", [_vm._v("pw")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "apartment-owner" }, [
+                            _c("div", { staticClass: "owner-icon" }, [
+                              _c("i", { staticClass: "ti ti-user" })
+                            ]),
+                            _vm._v(
+                              "\n                                            Mathew cahill\n                                        "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          { attrs: { href: "./apartment-listing-inner.html" } },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "bottom-desc-behind-wrap" },
+                              [
+                                _c("h3", [_vm._v("Apartment 404")]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Melbourne - Northern Region")])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "listing-bottom-icons-wrap" },
+                          [
+                            _c("ul", { staticClass: "list-inline" }, [
+                              _c(
+                                "li",
+                                { staticClass: "list-inline-item apart-type" },
+                                [_vm._v("Studio")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(
+                                    " 2\n                                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-car" }),
+                                  _vm._v(" 2")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(
+                                    " 1\n                                            "
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6  apartment-listing-widget-right-col"
+                      },
+                      [
+                        _c("div", { staticClass: "facility-wrap" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "listing-wrap" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6 apartment-listing-widget-left-col"
+                      },
+                      [
+                        _c("div", { staticClass: "listing-swipe-slider" }, [
+                          _c("div", { staticClass: "swipeslider" }, [
+                            _c("div", { staticClass: "swiper-container" }, [
+                              _c("div", { staticClass: "slide-shortlist" }, [
+                                _c("i", { staticClass: "ti-tag" }),
+                                _vm._v(
+                                  " Save to\n                                                    Shortlist\n                                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "swiper-wrapper" }, [
+                                _c("div", {
+                                  staticClass: "swiper-slide slide1"
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-prev ti-angle-left"
+                              }),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "swiper-button-next ti-angle-right"
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "price-tag" }, [
+                            _vm._v(
+                              "\n                                            A$305"
+                            ),
+                            _c("sup", [_vm._v("pw")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "apartment-owner" }, [
+                            _c("div", { staticClass: "owner-icon" }, [
+                              _c("i", { staticClass: "ti ti-user" })
+                            ]),
+                            _vm._v(
+                              "\n                                            Mathew cahill\n                                        "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          { attrs: { href: "./apartment-listing-inner.html" } },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "bottom-desc-behind-wrap" },
+                              [
+                                _c("h3", [_vm._v("Apartment 404")]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Melbourne - Northern Region")])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "listing-bottom-icons-wrap" },
+                          [
+                            _c("ul", { staticClass: "list-inline" }, [
+                              _c(
+                                "li",
+                                { staticClass: "list-inline-item apart-type" },
+                                [_vm._v("Studio")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(
+                                    " 2\n                                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-car" }),
+                                  _vm._v(" 2")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item apart-options"
+                                },
+                                [
+                                  _c("i", { staticClass: "ti-envelope" }),
+                                  _vm._v(
+                                    " 1\n                                            "
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-6  apartment-listing-widget-right-col"
+                      },
+                      [
+                        _c("div", { staticClass: "facility-wrap" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-4" }, [
+                              _c("div", { staticClass: "facility" }, [
+                                _c("i", { staticClass: "ti-briefcase" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "facility-name" }, [
+                                _c("p", [_vm._v("Swimming Pool")])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-652e39f3", module.exports)
+  }
+}
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(60)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/TypicalApartments.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-333175ca", Component.options)
+  } else {
+    hotAPI.reload("data-v-333175ca", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "typicalApartment",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "section",
+      { staticClass: "typical-apartment-section background-img padding-tb-60" },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-12 text-center" },
+              [
+                _c("h2", { staticClass: "main-heading head-type-apart" }, [
+                  _vm._v("Our Typical Apartments")
+                ]),
+                _vm._v(" "),
+                _c("P", [
+                  _vm._v(
+                    "Apartment Stays Melbourne offers a range of premium Studio, 1 Bedroom and 2 Bedroom"
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    " apartments to suit different budgets. Our apartments are situated centrally at several locations"
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    " within Melbourne and the inner suburbs Richmond\n                        and South Yarra."
+                  )
+                ])
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row apartment-type-row" }, [
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "apartment-box" }, [
+          _c("a", { attrs: { href: "./studio-apartment.html" } }, [
+            _c("div", { staticClass: "aprtment-img" }, [
+              _c("img", { attrs: { src: "images/aptment-01.png" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "apartment-text text-center" }, [
+            _c("h3", { staticClass: "sub-heading" }, [
+              _vm._v("Studio Apartments")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "paraf-small" }, [
+              _vm._v("Starting from $620pw")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "typcl-hr" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "apartment-box" }, [
+          _c("a", { attrs: { href: "./one-bedroom-apartment.html" } }, [
+            _c("div", { staticClass: "aprtment-img" }, [
+              _c("img", { attrs: { src: "images/aptment-02.png" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "apartment-text text-center" }, [
+            _c("h3", { staticClass: "sub-heading" }, [
+              _vm._v("One Bedroom Apartments")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "paraf-small" }, [
+              _vm._v("Starting from $700pw")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "typcl-hr" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "apartment-box" }, [
+          _c("a", { attrs: { href: "./two-bedroom-apartment.html" } }, [
+            _c("div", { staticClass: "aprtment-img" }, [
+              _c("img", { attrs: { src: "images/aptment-01.png" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "apartment-text text-center" }, [
+            _c("h3", { staticClass: "sub-heading" }, [
+              _vm._v("Two Bedroom Apartments")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "paraf-small" }, [
+              _vm._v("Starting from $965pw")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "typcl-hr" })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-333175ca", module.exports)
+  }
+}
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(62)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Faq.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-a359d6a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-a359d6a2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "faq",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "shortlist-section padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-9" }, [
+                _c("div", { staticClass: " bottom-full-width-border" }, [
+                  _c("div", { staticClass: "head-name" }, [
+                    _c("h3", [_vm._v("FAQ")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row myentry-shortlist" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "faq-sub-heading" }, [
+                  _c("p", [_vm._v("Do you have some questions?")])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "faq-tab-wrap" }, [
+                  _c("nav", [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "nav nav-tabs nav-fill mobile-hide faq-mobile-hide",
+                        attrs: { id: "nav-tab", role: "tablist" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-item nav-link active",
+                            attrs: {
+                              id: "nav-home-tab",
+                              "data-toggle": "tab",
+                              href: "#nav-home",
+                              role: "tab",
+                              "aria-controls": "nav-home",
+                              "aria-selected": "true"
+                            }
+                          },
+                          [_vm._v("Reservation Process")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-item nav-link",
+                            attrs: {
+                              id: "nav-payment-tab",
+                              "data-toggle": "tab",
+                              href: "#nav-payment",
+                              role: "tab",
+                              "aria-controls": "nav-profile",
+                              "aria-selected": "false"
+                            }
+                          },
+                          [_vm._v("Payment")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-item nav-link",
+                            attrs: {
+                              id: "nav-apart-tab",
+                              "data-toggle": "tab",
+                              href: "#nav-apart",
+                              role: "tab",
+                              "aria-controls": "nav-contact",
+                              "aria-selected": "false"
+                            }
+                          },
+                          [_vm._v("Apartment Inclusions")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-item nav-link",
+                            attrs: {
+                              id: "nav-check-tab",
+                              "data-toggle": "tab",
+                              href: "#nav-check",
+                              role: "tab",
+                              "aria-controls": "nav-about",
+                              "aria-selected": "false"
+                            }
+                          },
+                          [_vm._v("Check In/Out Information")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-item nav-link",
+                            attrs: {
+                              id: "nav-other-tab",
+                              "data-toggle": "tab",
+                              href: "#nav-other",
+                              role: "tab",
+                              "aria-controls": "nav-about",
+                              "aria-selected": "false"
+                            }
+                          },
+                          [_vm._v("Other FAQ questions")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "faq-mobile-nav mobile-only" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "dropdown filter-widget" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-secondary dropdown-toggle flter-button",
+                              attrs: {
+                                type: "button",
+                                id: "dropdownMenuButton",
+                                "data-toggle": "dropdown",
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "ti-location-pin" }),
+                              _c("span", [_vm._v(" Location")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu filter-widget-dropdown",
+                              attrs: { "aria-labelledby": "dropdownMenuButton" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "filter-widget-inner" },
+                                [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-12 filter-widget-col"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass:
+                                                  "filter-widget-sublabel",
+                                                attrs: { for: "Location" }
+                                              },
+                                              [_vm._v("Location")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "form-control asm-input",
+                                              attrs: {
+                                                id: "location",
+                                                type: "text",
+                                                placeholder: "Select Location"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "tab-content py-3 px-3 px-sm-0 faq-tab-content",
+                      attrs: { id: "nav-tabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active",
+                          attrs: {
+                            id: "nav-home",
+                            role: "tabpanel",
+                            "aria-labelledby": "nav-home-tab"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "panel-group",
+                              attrs: { id: "accordion" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "panel panel-default active" },
+                                [
+                                  _c("div", { staticClass: "panel-heading" }, [
+                                    _c("h4", { staticClass: "panel-title" }, [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "accordion-toggle faq-content-head active",
+                                          attrs: {
+                                            "data-toggle": "collapse",
+                                            "data-parent": "#accordion",
+                                            href: "#collapseOne",
+                                            "aria-expanded": "true"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                        Do I need to provide a confirmed check-out date, what if I wish to extend?\n                                                    "
+                                          )
+                                        ]
+                                      ),
+                                      _c("i", {
+                                        staticClass:
+                                          "indicator pull-right ti-angle-up"
+                                      })
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "panel-collapse in collapse show",
+                                      attrs: { id: "collapseOne" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "panel-body faq-content-desciption"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                    Option 1: Confirm your vacate date on your license to occupy; should you wish to extend your booking you will need to confirm with us that the apartment is still available. If still available we would be happy to extend your stay. We can always help you\n                                                    find another option should it have already been booked.\n                                                "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "panel panel-default" },
+                                [
+                                  _c("div", { staticClass: "panel-heading" }, [
+                                    _c("h4", { staticClass: "panel-title" }, [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "accordion-toggle faq-content-head",
+                                          attrs: {
+                                            "data-toggle": "collapse",
+                                            "data-parent": "#accordion",
+                                            href: "#collapseTwo"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                        What is the minimum length of stay in your apartments?\n                                                    "
+                                          )
+                                        ]
+                                      ),
+                                      _c("i", {
+                                        staticClass:
+                                          "indicator ti-angle-down pull-right"
+                                      })
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "panel-collapse collapse",
+                                      attrs: { id: "collapseTwo" }
+                                    },
+                                    [
+                                      _c("div", {
+                                        staticClass:
+                                          "panel-body faq-content-desciption"
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "panel panel-default" },
+                                [
+                                  _c("div", { staticClass: "panel-heading" }, [
+                                    _c("h4", { staticClass: "panel-title" }, [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "accordion-toggle faq-content-head",
+                                          attrs: {
+                                            "data-toggle": "collapse",
+                                            "data-parent": "#accordion",
+                                            href: "#collapseThree"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                        How do I make a reservation?\n                                                    "
+                                          )
+                                        ]
+                                      ),
+                                      _c("i", {
+                                        staticClass:
+                                          "indicator ti-angle-down pull-right"
+                                      })
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "panel-collapse collapse",
+                                      attrs: { id: "collapseThree" }
+                                    },
+                                    [
+                                      _c("div", {
+                                        staticClass:
+                                          "panel-body faq-content-desciption"
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "panel panel-default" },
+                                [
+                                  _c("div", { staticClass: "panel-heading" }, [
+                                    _c("h4", { staticClass: "panel-title" }, [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "accordion-toggle faq-content-head",
+                                          attrs: {
+                                            "data-toggle": "collapse",
+                                            "data-parent": "#accordion",
+                                            href: "#collapsefour"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                        I am a private individual looking to book one of your apartments, am I eligible?\n                                                    "
+                                          )
+                                        ]
+                                      ),
+                                      _c("i", {
+                                        staticClass:
+                                          "indicator ti-angle-down pull-right"
+                                      })
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "panel-collapse collapse",
+                                      attrs: { id: "collapsefour" }
+                                    },
+                                    [
+                                      _c("div", {
+                                        staticClass:
+                                          "panel-body faq-content-desciption"
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "nav-payment",
+                            role: "tabpanel",
+                            "aria-labelledby": "nav-profile-tab"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt\n                                    irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit\n                                    do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "nav-apart",
+                            role: "tabpanel",
+                            "aria-labelledby": "nav-contact-tab"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt\n                                    irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit\n                                    do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "nav-check",
+                            role: "tabpanel",
+                            "aria-labelledby": "nav-about-tab"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt\n                                    irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit\n                                    do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "nav-other",
+                            role: "tabpanel",
+                            "aria-labelledby": "nav-about-tab"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt\n                                    irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit\n                                    do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-a359d6a2", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(65)
+/* template */
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/About.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-10e9c534", Component.options)
+  } else {
+    hotAPI.reload("data-v-10e9c534", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "about",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "about-section padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "banner-img" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "top-contents" }, [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-top-nav faq-tab-wrap" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "nav nav-tabs nav-fill mobile-hide faq-mobile-hide",
+                          attrs: { id: "nav-tab", role: "tablist" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link active",
+                              attrs: { href: "/about" }
+                            },
+                            [_vm._v("About Us")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link",
+                              attrs: { href: "/list-with-us" }
+                            },
+                            [_vm._v("List with Us")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link",
+                              attrs: { href: "/latest-property" }
+                            },
+                            [_vm._v("Latest Property News")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-nav-divider" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-main-head" }, [
+                      _c("h3", [_vm._v("About Us")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-8" }, [
+                    _c("div", { staticClass: "top-about-para-wrap" }, [
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        We offer quality fully furnished, centrally located and affordable apartments for medium or long term stays in Melbourne.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        Our apartments are at least 50% larger and offer residential and corporate living solutions with savings of hundreds of dollars compared to serviced apartments and hotels.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        Apartments Stays Melbourne apartments are situated in the lively and dynamic suburbs of Melbourne, South Yarra and Richmond.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        All our apartments are within 200 metres of a tram and or train stop and in close proximity to other public transport, a range of major shopping precincts and multiple dining and entertainment choices in the pulsating heart of Melbourne’s cosmopolitan\n                                        districts.\n                                    "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "about-right-wrap" }, [
+                      _c("div", { staticClass: "about-download-wrap" }, [
+                        _c("div", { staticClass: "head-name" }, [
+                          _c("h4", [_vm._v("Download")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "content" }, [
+                          _c("a", [
+                            _c("i", { staticClass: "ti-import" }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "download-text" }, [
+                              _vm._v("Corporate Profile")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "about-follow-wrap" }, [
+                        _c("div", { staticClass: "head-name" }, [
+                          _c("h4", [_vm._v("Follow Us")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "content" }, [
+                          _c("a", [_c("i", { staticClass: "ti-facebook" })]),
+                          _vm._v(" "),
+                          _c("a", [_c("i", { staticClass: "ti-twitter-alt" })]),
+                          _vm._v(" "),
+                          _c("a", [_c("i", { staticClass: "ti-youtube" })])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "about-latest-news-wrap" }, [
+                        _c("div", { staticClass: "head-name" }, [
+                          _c("h4", [_vm._v("Latest News")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "content" }, [
+                          _c("div", { staticClass: "sub-content" }, [
+                            _c("div", { staticClass: "content" }, [
+                              _c("h6", { staticClass: "sub-content-head" }, [
+                                _vm._v("Lorem Ipsum is simply dummy.")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "sub-content-date" }, [
+                                _vm._v("21, Sep 2019")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "content" }, [
+                              _c("h6", { staticClass: "sub-content-head" }, [
+                                _vm._v("Lorem Ipsum is simply dummy.")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "sub-content-date" }, [
+                                _vm._v("21, Sep 2019")
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "middle-quality-contents" }, [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "middle-leftsec" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "images/about-us/about-img.jpg",
+                        width: "100%"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "div",
+                    { staticClass: "d-table w-100 h-100 middle-right-content" },
+                    [
+                      _c("div", { staticClass: "d-table-cell align-middle" }, [
+                        _c("h3", [_vm._v("Quality Assurance")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it\n                                        to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "about-bottom-wrap" }, [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-8" }, [
+                    _c("div", { staticClass: "bottom-descript section-para" }, [
+                      _c("p", [
+                        _vm._v(
+                          "Apartment Stays Melbourne provides a number of different furnished apartment configurations to suit all needs. Studios, One and Two Bedrooms and are therefore ideally suited for the business traveler, academics, students,\n                                        professionals, long term travelers,families and others simply in the need for medium term accommodation.\n                                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "bottom-listing" }, [
+                      _c(
+                        "div",
+                        { staticClass: "apartment-includes head-name" },
+                        [
+                          _c("h4", [
+                            _vm._v(
+                              "\n                                            Our Apartments Include;\n                                        "
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "about-bottom-left-list about-bottom-check-lists"
+                            },
+                            [
+                              _c(
+                                "ul",
+                                {
+                                  staticClass: "about-bottom-left-ul list-bold"
+                                },
+                                [
+                                  _c("li", [
+                                    _vm._v("Quality contemporary furniture")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [_vm._v(" All homewares ")]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v("Fully equipped modern kitchen")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v(
+                                      "All utilities connection and usage changes"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v(
+                                      "Linen and towels 55” LCD television Heating & Cooling"
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "about-bottom-left-list about-bottom-check-lists"
+                            },
+                            [
+                              _c(
+                                "ul",
+                                {
+                                  staticClass: "about-bottom-right-ul list-bold"
+                                },
+                                [
+                                  _c("li", [_vm._v("Laundry")]),
+                                  _vm._v(" "),
+                                  _c("li", [_vm._v("CCTV security*")]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v("On-site building manager*")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v(
+                                      "Security access to building foyer/lobby,lifts and building areas*"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v(
+                                      "Unlimited Wi-Fi internet (optional extra)"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _vm._v(
+                                      "Housekeeping services (optional extra)"
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [_vm._v(" Majority of locations")])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "right-bottom-image-wrap" }, [
+                      _c("div", { staticClass: "d-table w-100 h-100" }, [
+                        _c(
+                          "div",
+                          { staticClass: "d-table-cell align-middle" },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: "images/about-us/about-circle.png",
+                                width: "100%"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-10e9c534", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ListWithUs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3deba68e", Component.options)
+  } else {
+    hotAPI.reload("data-v-3deba68e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "listWithUs",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: " list-with-us padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "banner-img" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "top-contents" }, [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-top-nav faq-tab-wrap" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "nav nav-tabs nav-fill mobile-hide faq-mobile-hide",
+                          attrs: { id: "nav-tab", role: "tablist" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link ",
+                              attrs: { href: "/about" }
+                            },
+                            [_vm._v("About Us")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link active",
+                              attrs: { href: "/list-with-us" }
+                            },
+                            [_vm._v("List with Us")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-item nav-link",
+                              attrs: { href: "./latest-property.html" }
+                            },
+                            [_vm._v("Latest Property News")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-nav-divider" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "about-main-head" }, [
+                      _c("h3", [
+                        _vm._v("List your serviced apartment/hotel with us")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-8" }, [
+                    _c("div", { staticClass: "top-about-para-wrap" }, [
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        We offer quality fully furnished, centrally located and affordable apartments for medium or long term stays in Melbourne.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        Our apartments are at least 50% larger and offer residential and corporate living solutions with savings of hundreds of dollars compared to serviced apartments and hotels.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        Apartments Stays Melbourne apartments are situated in the lively and dynamic suburbs of Melbourne, South Yarra and Richmond.\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-para about-para" }, [
+                        _vm._v(
+                          "\n                                        All our apartments are within 200 metres of a tram and or train stop and in close proximity to other public transport, a range of major shopping precincts and multiple dining and entertainment choices in the pulsating heart of Melbourne’s cosmopolitan\n                                        districts.\n                                    "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4" })
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "middle-quality-contents list-with-us-middle-wrap" },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "list-with-bottom-first-wrap" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("div", { staticClass: "middle-leftsec" }, [
+                        _c("div", { staticClass: "head-name" }, [
+                          _c("h3", [_vm._v("Individual Property Owners")])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "content-para padding-right-para" },
+                          [
+                            _c("p", [
+                              _vm._v(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\n                                            it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n                                            sheets containing Lorem Ipsum passages."
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("div", { staticClass: "d-table w-100 h-100" }, [
+                        _c(
+                          "div",
+                          { staticClass: "d-table-cell align-middle" },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: "images/about-us/list-with-us-1.jpg",
+                                width: "100%"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "list-with-bottom-second-wrap" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("div", { staticClass: "d-table w-100 h-100" }, [
+                        _c(
+                          "div",
+                          { staticClass: "d-table-cell align-middle" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "d-table-cell align-middle" },
+                              [
+                                _c("img", {
+                                  attrs: {
+                                    src: "images/about-us/list-with-us-2.jpg",
+                                    width: "100%"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("div", { staticClass: "middle-leftsec" }, [
+                        _c("div", { staticClass: "head-name" }, [
+                          _c("h3", [_vm._v("Property Developers")])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "content-para padding-right-para" },
+                          [
+                            _c("p", [
+                              _vm._v(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\n                                            it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n                                            sheets containing Lorem Ipsum passages."
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3deba68e", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Contact.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43b63039", Component.options)
+  } else {
+    hotAPI.reload("data-v-43b63039", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "contact",
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "shortlist-section padding-tb-60" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-8" }, [
+                _c("div", { staticClass: " bottom-full-width-border" }, [
+                  _c("div", { staticClass: "head-name" }, [
+                    _c("h3", [_vm._v("Contact us")])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row contact-form-wrap flex-column-reverse flex-md-row"
+              },
+              [
+                _c("div", { staticClass: "col-md-8" }, [
+                  _c("div", { staticClass: "contact-form-left-wrap" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "filter-widget-sublabel",
+                                attrs: { for: "checkin" }
+                              },
+                              [_vm._v("First Name* ")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control flter-button",
+                              attrs: { type: "text" }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "filter-widget-sublabel",
+                                attrs: { for: "checkin" }
+                              },
+                              [_vm._v("Email* ")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control flter-button",
+                              attrs: { type: "email" }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "filter-widget-sublabel",
+                                attrs: { for: "checkin" }
+                              },
+                              [_vm._v("Last Name* ")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control flter-button",
+                              attrs: { type: "text" }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "filter-widget-sublabel",
+                                attrs: { for: "checkin" }
+                              },
+                              [
+                                _vm._v(
+                                  "Phone (mobile number\n                                                preferred)* "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control flter-button",
+                              attrs: { type: "text" }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown filter-widget general-boking-inqure-wrap"
+                            },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "filter-widget-sublabel",
+                                  attrs: { for: "checkin" }
+                                },
+                                [_vm._v("Enquiry Type")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn dropdown-toggle flter-button",
+                                  attrs: {
+                                    type: "button",
+                                    id: "dropdownMenuButton",
+                                    "data-toggle": "dropdown",
+                                    "aria-haspopup": "true",
+                                    "aria-expanded": "true"
+                                  }
+                                },
+                                [_c("span", [_vm._v(" General Enquiry")])]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "dropdown-menu filter-widget-dropdown general-boking-inqure",
+                                  staticStyle: {
+                                    position: "absolute",
+                                    "will-change": "transform",
+                                    top: "0px",
+                                    left: "0px",
+                                    transform: "translate3d(0px, 70px, 0px)"
+                                  },
+                                  attrs: {
+                                    "aria-labelledby": "dropdownMenuButton",
+                                    "x-placement": "bottom-start"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "filter-widget-inner" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: {
+                                            href: "#",
+                                            value: "General Enquiry"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "General\n                                                        Enquiry"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: {
+                                            href: "#",
+                                            value: "Booking Enquiry"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "Booking\n                                                        Enquiry"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "accommondation-wrap" }, [
+                          _c(
+                            "div",
+                            { staticClass: "accomond-head head-name" },
+                            [_c("h4", [_vm._v("Accommodation Requirements")])]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "dropdown filter-widget" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "filter-widget-sublabel",
+                                        attrs: { for: "checkin" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Preferred\n                                                            Location* "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn dropdown-toggle flter-button",
+                                        attrs: {
+                                          type: "button",
+                                          id: "dropdownMenuButton",
+                                          "data-toggle": "dropdown",
+                                          "aria-haspopup": "true",
+                                          "aria-expanded": "true"
+                                        }
+                                      },
+                                      [_c("span", [_vm._v(" Please Select")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "dropdown-menu filter-widget-dropdown",
+                                        staticStyle: {
+                                          position: "absolute",
+                                          "will-change": "transform",
+                                          top: "0px",
+                                          left: "0px",
+                                          transform:
+                                            "translate3d(0px, 70px, 0px)"
+                                        },
+                                        attrs: {
+                                          "aria-labelledby":
+                                            "dropdownMenuButton",
+                                          "x-placement": "bottom-start"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "filter-widget-inner"
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Another action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Something else\n                                                                    here"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "dropdown filter-widget" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "filter-widget-sublabel",
+                                        attrs: { for: "checkin" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Apartment\n                                                            Type* "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn dropdown-toggle flter-button",
+                                        attrs: {
+                                          type: "button",
+                                          id: "dropdownMenuButton",
+                                          "data-toggle": "dropdown",
+                                          "aria-haspopup": "true",
+                                          "aria-expanded": "true"
+                                        }
+                                      },
+                                      [_c("span", [_vm._v(" Please Select")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "dropdown-menu filter-widget-dropdown",
+                                        staticStyle: {
+                                          position: "absolute",
+                                          "will-change": "transform",
+                                          top: "0px",
+                                          left: "0px",
+                                          transform:
+                                            "translate3d(0px, 70px, 0px)"
+                                        },
+                                        attrs: {
+                                          "aria-labelledby":
+                                            "dropdownMenuButton",
+                                          "x-placement": "bottom-start"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "filter-widget-inner"
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Another action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Something else\n                                                                    here"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "dropdown filter-widget" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "filter-widget-sublabel",
+                                        attrs: { for: "checkin" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Check-in\n                                                            and Check-out* "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn dropdown-toggle flter-button",
+                                        attrs: {
+                                          type: "button",
+                                          id: "dropdownMenuButton",
+                                          "data-toggle": "dropdown",
+                                          "aria-haspopup": "true",
+                                          "aria-expanded": "true"
+                                        }
+                                      },
+                                      [_c("span", [_vm._v(" Please Select")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "dropdown-menu filter-widget-dropdown",
+                                        staticStyle: {
+                                          position: "absolute",
+                                          "will-change": "transform",
+                                          top: "0px",
+                                          left: "0px",
+                                          transform:
+                                            "translate3d(0px, 70px, 0px)"
+                                        },
+                                        attrs: {
+                                          "aria-labelledby":
+                                            "dropdownMenuButton",
+                                          "x-placement": "bottom-start"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "filter-widget-inner"
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Another action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Something else\n                                                                    here"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "dropdown filter-widget" },
+                                  [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "filter-widget-sublabel",
+                                        attrs: { for: "checkin" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Number\n                                                            of Bedrooms* "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn dropdown-toggle flter-button",
+                                        attrs: {
+                                          type: "button",
+                                          id: "dropdownMenuButton",
+                                          "data-toggle": "dropdown",
+                                          "aria-haspopup": "true",
+                                          "aria-expanded": "true"
+                                        }
+                                      },
+                                      [_c("span", [_vm._v(" Please Select")])]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "dropdown-menu filter-widget-dropdown",
+                                        staticStyle: {
+                                          position: "absolute",
+                                          "will-change": "transform",
+                                          top: "0px",
+                                          left: "0px",
+                                          transform:
+                                            "translate3d(0px, 70px, 0px)"
+                                        },
+                                        attrs: {
+                                          "aria-labelledby":
+                                            "dropdownMenuButton",
+                                          "x-placement": "bottom-start"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "filter-widget-inner"
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [_vm._v("Another action")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: { href: "#" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Something else\n                                                                    here"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "budget-head" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "filter-widget-sublabel",
+                                    attrs: { for: "checkin" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Weekly\n                                                        Budget "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "budget-two-col" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "dropdown filter-widget"
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control flter-button",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Min"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "dropdown filter-widget"
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control flter-button",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Max"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "budget-head" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "filter-widget-sublabel",
+                                    attrs: { for: "checkin" }
+                                  },
+                                  [_vm._v("Occupants ")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "budget-two-col" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "dropdown filter-widget"
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control flter-button",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Min"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "dropdown filter-widget"
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control flter-button",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Max"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "dropdown filter-widget" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "filter-widget-sublabel",
+                                attrs: { for: "checkin" }
+                              },
+                              [_vm._v("Your Message")]
+                            ),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              staticClass: "form-control flter-button",
+                              attrs: {
+                                id: "exampleFormControlTextarea1",
+                                rows: "5"
+                              }
+                            })
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-8" }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c("div", { staticClass: "send-inquery-wrap" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("div", { staticClass: "filter-widget" }, [
+                              _c("a", { staticClass: "btn booking-btn" }, [
+                                _vm._v("Send Message")
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "contact-form-right-wrap" }, [
+                    _c("div", { staticClass: "main-head-name" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("Apartment Stays Melbourne Pty Ltd")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-office-wrap" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("OFFICE")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content contact-address" }, [
+                        _c("p", [
+                          _vm._v(
+                            "10 St Andrews Place East Melbourne 3002 Australia"
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-mail-wrap" }, [
+                      _c("div", { staticClass: "head-name " }, [
+                        _c("h4", [_vm._v("MAIL")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content contact-address" }, [
+                        _c("p", [
+                          _vm._v(
+                            "Po Box 1205 Carton, Victoria, 3053 Australia."
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-phone-wrap" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("PHONE")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content" }, [
+                        _c("p", [_vm._v("03 9242 0468 (int.+61 3 9242 0468)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-mobile-wrap" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("MOBILE")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content" }, [
+                        _c("p", [_vm._v("0405 780 780 (int. +61 405 780 780)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-email-wrap" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("EMAIL")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content" }, [
+                        _c(
+                          "a",
+                          { staticClass: "emial", attrs: { href: "#" } },
+                          [_c("p", [_vm._v("reservations@asmelb.com.au")])]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "contact-ABN-wrap" }, [
+                      _c("div", { staticClass: "head-name" }, [
+                        _c("h4", [_vm._v("ABN")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content" }, [
+                        _c("p", [_vm._v("31 615 764 362")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43b63039", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

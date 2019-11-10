@@ -15,13 +15,6 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
-
-
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
@@ -33,6 +26,13 @@ Vue.use(VueRouter);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('home', require('./components/Home.vue'));
+Vue.component('apartment-list', require('./components/ApartmentList.vue'));
+Vue.component('short-list', require('./components/Shortlist.vue'));
+Vue.component('typical-apartment', require('./components/TypicalApartments.vue'));
+Vue.component('faq', require('./components/Faq.vue'));
+Vue.component('about', require('./components/About.vue'));
+Vue.component('list-with-us', require('./components/ListWithUs.vue'));
+Vue.component('contact', require('./components/Contact.vue'));
 
 const router = new VueRouter({ mode: 'history'});
 const app = new Vue(Vue.util.extend({ router })).$mount('#app');

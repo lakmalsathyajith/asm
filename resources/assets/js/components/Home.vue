@@ -152,7 +152,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="content-img">
-                            <img class="modile-hide" src="images/compare.png'">
+                            <img class="modile-hide" src="images/compare.png">
                             <img class="mobile-only mobile-img" src="images/mobile-compare.png">
 
                         </div>
@@ -203,7 +203,7 @@
                     <div class="col-md-4">
                         <div class="apartment-box">
                             <div class="aprtment-img">
-                                <img src="'images/aptment-01.png">
+                                <img src="images/aptment-01.png">
 
                             </div>
                             <div class="apartment-text text-center">

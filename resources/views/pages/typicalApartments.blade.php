@@ -1,4 +1,4 @@
 @extends('layouts.main');
 @section('content')
-    <home></home>
+    <typical-apartment></typical-apartment>
 @stop

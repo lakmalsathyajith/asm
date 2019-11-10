@@ -1,4 +1,4 @@
 @extends('layouts.main');
 @section('content')
-    <home></home>
+    <list-with-us></list-with-us>
 @stop
