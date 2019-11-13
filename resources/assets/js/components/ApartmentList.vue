@@ -534,13 +534,30 @@
             </div>
         </section>
         <br>
+
+        <button @click="changeValue('see it changed')">click here to test store</button>
+        <p>{{title}}</p>
     </div>
+
 </template>
 <script>
+    import {mapState, mapActions} from 'vuex';
+
     export default {
         name: "apartments",
+        created(){
+            console.log('Component created.',this.$store);
+            this.updateValue({test:'test'});
+        },
         mounted() {
+
             console.log('Component mounted.')
+        },
+        methods:{
+            ...mapActions('ratesAndAvailability', ['updateValue','changeValue'])
+        },
+        computed:{
+            ...mapState('ratesAndAvailability', ['title'])
         }
     }
 </script>

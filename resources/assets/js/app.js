@@ -14,15 +14,20 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
+console.log('before -')
+
+import store from './store/store'
 Vue.use(VueRouter);
 
 // import VueAxios from 'vue-axios';
 // import axios from 'axios';
 // Vue.use(VueAxios, axios);
+
+console.log('-')
+
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('home', require('./components/Home.vue'));
@@ -35,4 +40,4 @@ Vue.component('list-with-us', require('./components/ListWithUs.vue'));
 Vue.component('contact', require('./components/Contact.vue'));
 
 const router = new VueRouter({ mode: 'history'});
-const app = new Vue(Vue.util.extend({ router })).$mount('#app');
+const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');
