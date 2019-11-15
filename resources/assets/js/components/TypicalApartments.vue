@@ -5,8 +5,10 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h2 class="main-heading head-type-apart">Our Typical Apartments</h2>
-                        <P>Apartment Stays Melbourne offers a range of premium Studio, 1 Bedroom and 2 Bedroom<br> apartments to suit different budgets. Our apartments are situated centrally at several locations<br> within Melbourne and the inner suburbs Richmond
-                            and South Yarra.</p>
+                        <P>Apartment Stays Melbourne offers a range of quality Studio, 1 Bedroom and 2 Bedroom 
+                            apartments to suit different budgets and different needs. Our apartments are situated 
+                            centrally all over Melbourne’s Central Business District (CBD) and the inner city fringes of  
+                            Richmond, South Yarra, East Melbourne and Carlton.</p>
                     </div>
                 </div>
                 <div class="row apartment-type-row">
@@ -39,7 +41,7 @@
                             </a>
                             <div class="apartment-text text-center">
                                 <h3 class="sub-heading">One Bedroom Apartments</h3>
-                                <p class="paraf-small">Starting from $700pw</p>
+                                <p class="paraf-small">Starting from $699pw</p>
                             </div>
                         </div>
 

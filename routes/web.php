@@ -17,9 +17,34 @@ Route::get('/', function () {
 Route::get('/apartment-listing', function () {
     return view('pages.apartments');
 });
+Route::get('/apartment-inner-listing', function () {
+    return view('pages.apartmentInner');
+});
 Route::get('/typical-apartment', function () {
     return view('pages.typicalApartments');
 });
+Route::get('/booking-first', function () {
+    return view('pages.bookingFirst');
+});
+Route::get('/booking-second', function () {
+    return view('pages.bookingSecond');
+});
+Route::get('/booking-third', function () {
+    return view('pages.bookingThird');
+});
+Route::get('/latest-property', function () {
+    return view('pages.latestProperty');
+});
+Route::get('/studio-aprt', function () {
+    return view('pages.studioAprt');
+});
+Route::get('/one-bed-aprt', function () {
+    return view('pages.oneBedAprt');
+});
+Route::get('/two-bed-aprt', function () {
+    return view('pages.twobedApat');
+});
+
 Route::get('/my-shortlist', function () {
     return view('pages.shortlist');
 });

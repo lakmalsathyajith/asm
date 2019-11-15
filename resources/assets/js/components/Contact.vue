@@ -338,7 +338,7 @@
                                     </div>
                                     <div class="content">
 
-                                        <a href="#" class="emial">
+                                        <a href="mailto:reservations@asmelb.com.au" class="emial">
                                             <p>reservations@asmelb.com.au</p>
                                         </a>
                                     </div>

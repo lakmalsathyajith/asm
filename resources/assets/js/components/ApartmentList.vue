@@ -380,7 +380,7 @@
                                         <div class="listing-swipe-slider">
                                             <div class="swipeslider">
                                                 <div class="swiper-container">
-                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to Shortlist</div>
+                                                    <!-- <div class="slide-shortlist"><i class="ti-tag"></i> Save to Shortlist</div> -->
 
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide slide1"></div>
@@ -398,8 +398,8 @@
                                         </div> -->
                                                     <!-- Add Arrows -->
 
-                                                    <div class="swiper-button-prev ti-angle-left"></div>
-                                                    <div class="swiper-button-next ti-angle-right"></div>
+                                                    <div class="swiper-button-prev"></div>
+                                                    <div class="swiper-button-next"></div>
                                                 </div>
                                             </div>
                                             <div class="price-tag">
@@ -410,7 +410,7 @@
                                                 Mathew cahill
                                             </div>
                                         </div>
-                                        <a href="./apartment-listing-inner.html">
+                                        <a href="/apartment-inner-listing">
                                             <div class="bottom-desc-behind-wrap">
                                                 <h3>Apartment 404</h3>
                                                 <p>Melbourne - Northern Region</p>
@@ -538,11 +538,9 @@
         <button @click="changeValue('see it changed')">click here to test store</button>
         <p>{{title}}</p>
     </div>
-
 </template>
 <script>
     import {mapState, mapActions} from 'vuex';
-
     export default {
         name: "apartments",
         created(){
@@ -550,7 +548,6 @@
             this.updateValue({test:'test'});
         },
         mounted() {
-
             console.log('Component mounted.')
         },
         methods:{
