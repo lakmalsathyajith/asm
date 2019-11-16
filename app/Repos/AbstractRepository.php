@@ -30,10 +30,19 @@ class AbstractRepository
     }
 
 
-    // update record in the database
-    public function update(array $data, $id)
+    // update given model
+    public function update(Model $model,array $data = [])
     {
-        $record = $this->find($id);
+        if(isset($data) && is_array($data) && count($data) > 0) {
+            return $model->update($data);
+        }
+        return $model->save();
+    }
+
+    // find and update record in the database
+    public function findAndUpdate($id, array $data)
+    {
+        $record = $this->model->findOrFail($id);
         return $record->update($data);
     }
 
@@ -45,8 +54,8 @@ class AbstractRepository
     }
 
 
-    // show the record with the given id
-    public function show($id)
+    // get the record with the given id
+    public function get($id)
     {
         return $this->model->findOrFail($id);
     }
@@ -71,5 +80,10 @@ class AbstractRepository
     public function with($relations)
     {
         return $this->model->with($relations);
+    }
+
+    // return for select
+    public function pluck($field1, $field2 = 'id') {
+        return $this->model->pluck($field1, $field2);
     }
 }

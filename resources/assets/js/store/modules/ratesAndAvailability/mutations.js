@@ -1,16 +1,13 @@
-import { UPDATE_VALUE, UPDATE_VALUE2} from './types.js'
+import { GET_APARTMENTS_LIST, SELECTED_APARTMENT} from './types.js'
 
 export default {
 
-    [UPDATE_VALUE](state, payload) {
-        console.log('payload',payload);
-
-
-        state.title = payload.test;
+    [GET_APARTMENTS_LIST](state, payload) {
+        state.apartmentsList = payload.data;
     },
-    [UPDATE_VALUE2](state, payload) {
+    [SELECTED_APARTMENT](state, payload) {
 
-        state.title = payload;
+        state.selectedApartment = payload;
     }
 
 }

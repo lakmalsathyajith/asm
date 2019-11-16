@@ -317,7 +317,6 @@
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-md-12">
                             <div class="listing-result-head">
                                 <div class="first-result-head">
@@ -329,13 +328,10 @@
                             </div>
                             <hr/>
                         </div>
-
                     </div>
-
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group form-inline order-select">
-
                                 <ul class="list-inline">
                                     <li class="list-inline-item your-entry">Sort by</li>
                                     <li class="list-inline-item">
@@ -351,9 +347,6 @@
                                         </div>
                                     </li>
                                 </ul>
-
-
-
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -372,7 +365,8 @@
                         </div>
                     </div>
 
-                    <div class="row">
+
+                    <div class="row" v-for="apartment in apartmentsList">
                         <div class="col-md-12">
                             <div class="listing-wrap">
                                 <div class="row">
@@ -380,24 +374,12 @@
                                         <div class="listing-swipe-slider">
                                             <div class="swipeslider">
                                                 <div class="swiper-container">
-                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to Shortlist</div>
-
+                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to
+                                                        Shortlist
+                                                    </div>
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide slide1"></div>
-
                                                     </div>
-
-                                                    <!-- <div class="price-user-slide-bottom">
-                                            <div class="price">
-                                                A$305pw
-                                            </div>
-                                            <div class="user">
-                                                <img src="./assets/images/listing/user-silhouette.svg">
-                                                <p>Mathew chill</p>
-                                            </div>
-                                        </div> -->
-                                                    <!-- Add Arrows -->
-
                                                     <div class="swiper-button-prev ti-angle-left"></div>
                                                     <div class="swiper-button-next ti-angle-right"></div>
                                                 </div>
@@ -410,18 +392,20 @@
                                                 Mathew cahill
                                             </div>
                                         </div>
-                                        <a href="./apartment-listing-inner.html">
+                                        <a href="./apartment/">
                                             <div class="bottom-desc-behind-wrap">
-                                                <h3>Apartment 404</h3>
-                                                <p>Melbourne - Northern Region</p>
+                                                <h3>{{apartment.name}}</h3>
+                                                <p>{{apartment.address}}</p>
                                             </div>
                                         </a>
                                         <div class="listing-bottom-icons-wrap">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item apart-type">Studio</li>
-                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 2</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 2
+                                                </li>
                                                 <li class="list-inline-item apart-options"><i class="ti-car"></i> 2</li>
-                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 1</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 1
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -500,18 +484,15 @@
                                                         <p>Swimming Pool</p>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+
+
 
 
                     <div class="row">
@@ -545,19 +526,14 @@
 
     export default {
         name: "apartments",
-        created(){
-            console.log('Component created.',this.$store);
-            this.updateValue({test:'test'});
-        },
         mounted() {
-
-            console.log('Component mounted.')
+            this.getApartmentsList();
         },
         methods:{
-            ...mapActions('ratesAndAvailability', ['updateValue','changeValue'])
+            ...mapActions('ratesAndAvailability', ['getApartmentsList','changeValue'])
         },
         computed:{
-            ...mapState('ratesAndAvailability', ['title'])
+            ...mapState('ratesAndAvailability', ['apartmentsList'])
         }
     }
 </script>

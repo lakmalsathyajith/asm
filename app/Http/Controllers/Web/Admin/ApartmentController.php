@@ -3,17 +3,25 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Contracts\RepoInterfaces\ApartmentInterface;
+use App\Contracts\RepoInterfaces\ContentInterface;
+use App\Entities\Apartment;
 use App\Http\Controllers\AbstractController;
 use Illuminate\Http\Request;
 
 class ApartmentController extends AbstractController
 {
 
+    private $content;
+
     function __construct(
-        ApartmentInterface $apartmentRepoInstance
+        ApartmentInterface $apartmentRepoInstance,
+        ContentInterface $contentRepository
     )
     {
+        $this->middleware('auth');
+
         $this->activeRepo = $apartmentRepoInstance;
+        $this->content = $contentRepository;
     }
 
     /**
@@ -23,7 +31,9 @@ class ApartmentController extends AbstractController
      */
     public function index()
     {
-        //
+        $data['title'] = 'Apartment';
+        $data['records'] = $this->activeRepo->all();
+        return view('admin.pages.apartment.index', $data);
     }
 
     /**
@@ -33,7 +43,11 @@ class ApartmentController extends AbstractController
      */
     public function create()
     {
-        return view('admin.pages.apartment.create');
+        $data['route'] = route('apartment.store');
+        $data['title'] = 'Apartment';
+        $data['action'] = 'Create';
+        $data['contents'] = $this->content->pluck('name');
+        return view('admin.pages.apartment.create', $data);
     }
 
     /**
@@ -52,15 +66,14 @@ class ApartmentController extends AbstractController
         ];
 
         $data =  $this->activeRepo->create($data);
+        $data->contents()->sync($requestData['contents']);
+        $error = false;
 
-        dd($data);
+       if ($error) {
+           return view('admin.pages.apartment.create', $data);
+       }
 
-//        return $this->returnResponse(
-//            $this->getResponseStatus('SUCCESS'),
-//            'user added successfully',
-//            $data,
-//            200
-//        );
+       return redirect(route('apartment.index'));
     }
 
     /**
@@ -77,24 +90,51 @@ class ApartmentController extends AbstractController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Apartment $apartment
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+        $data['route'] = route('apartment.update', [
+            'apartment' => $apartment->id
+        ]);
+        $data['title'] = 'Apartment';
+        $data['action'] = 'Update';
+        $data['method'] = 'PUT';
+        $data['record'] = $apartment->load('contents');
+        $data['contents'] = $this->content->pluck('name');
+        return view('admin.pages.apartment.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+
+        $requestData = $request->all();
+
+        $data = [
+            'name' => $requestData['name'],
+            'address' => $requestData['address'],
+        ];
+
+        $apartment = $this->activeRepo->get($id);
+        $this->activeRepo->update($apartment, $data);
+        $apartment->contents()->sync($requestData['contents']);
+        $error = false;
+
+        $data['record'] = $this->activeRepo->get($id);
+        if ($error) {
+            return view('admin.pages.apartment.edit', $data);
+        }
+
+        return redirect(route('apartment.index'));
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('pages.home');
 });
 Route::get('/apartment-listing', function () {
-    return view('pages.apartments');
+    return view('pages.apartments.apartments');
 });
+
+Route::get('/apartment/{id}', function (Request $request) {
+    $params = $request->route()->parameters;
+    return view('pages.apartments.detail',['params'=>$params['id']]);
+});
+
 Route::get('/typical-apartment', function () {
     return view('pages.typicalApartments');
 });
@@ -36,6 +42,7 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+
 //Auth::routes();
 Route::get('admin/login', 'Web\Admin\Auth\LoginController@showLoginForm')->name('login');
 Route::post('admin/login', 'Web\Admin\Auth\LoginController@login');
@@ -51,14 +58,14 @@ Route::post('admin/password/email', 'Web\Admin\Auth\ForgotPasswordController@sen
 Route::get('admin/password/reset/{token}', 'Web\Admin\Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('admin/password/reset', 'Web\Admin\Auth\ResetPasswordController@reset');
 
-
-Route::get('admin/dashboard', 'Web\Admin\DashboardController@index')->name('home');
+Route::get('admin', 'Web\Admin\DashboardController@index')->name('admin');
+Route::get('admin/dashboard', 'Web\Admin\DashboardController@index')->name('dashboard');
 Route::resources([
     'admin/apartment' => 'Web\Admin\ApartmentController',
 ]);
-
-//Route::get('admin/apartments', 'Web\Admin\ApartmentController@index')->name('home');
-//Route::get('admin/apartment/{$id}', 'Web\Admin\ApartmentController@show')->name('home');
-//Route::get('admin/apartment/create', 'Web\Admin\ApartmentController@create')->name('home');
-//Route::get('admin/apartment/updates', 'Web\Admin\ApartmentController@edit')->name('home');
-//Route::post('admin/apartment/delete', 'Web\Admin\ApartmentController@delete')->name('home');
+Route::resources([
+    'admin/content' => 'Web\Admin\ContentController',
+]);
+Route::resources([
+    'admin/file' => 'Web\Admin\FileController',
+]);

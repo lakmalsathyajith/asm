@@ -1,2 +1,2 @@
-export const UPDATE_VALUE = 'updateValue';
-export const UPDATE_VALUE2 = 'updateValue2';
+export const GET_APARTMENTS_LIST = 'GET_APARTMENTS_LIST';
+export const SELECTED_APARTMENT = 'SELECTED_APARTMENT';

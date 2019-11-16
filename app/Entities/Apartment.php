@@ -9,4 +9,9 @@ class Apartment extends Model
     protected $fillable = [
         'name', 'address'
     ];
+
+    public function contents()
+    {
+        return $this->morphToMany('App\Entities\Content', 'contentable');
+    }
 }
