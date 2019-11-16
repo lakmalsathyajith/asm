@@ -45,8 +45,9 @@
                     <div class="swipeslider">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide slide1"></div>
-
+                                <div class="swiper-slide studio-slide3"></div>
+                                <div class="swiper-slide studio-slide2"></div>
+                                <div class="swiper-slide studio-slide1"></div>
                             </div>
                             <!-- Add Arrows -->
 
@@ -74,7 +75,7 @@
 
                         <div class="form-group">
                             <div class="dropdown filter-widget">
-                                <button class="btn btn-secondary dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="ti-location-pin"></i><span> Location</span> 
                                         </button>
                                 <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
@@ -100,7 +101,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <div class="dropdown filter-widget">
-                                <button class="btn btn-secondary dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                        <i class="ti-location-pin"></i><span> Check-In/Out</span> 
                                                 </button>
                                 <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
@@ -109,13 +110,13 @@
                                             <div class="col-md-6 filter-widget-col">
                                                 <div class="form-group">
                                                     <label for="checkin" class="filter-widget-sublabel">Check-In</label>
-                                                    <input id="checkin" type="text" class="form-control asm-input" placeholder="Check In">
+                                                    <input id="checkin" data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check In">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 filter-widget-col">
                                                 <div class="form-group">
                                                     <label for="checkout" class="filter-widget-sublabel">Check-Out</label>
-                                                    <input id="checkout" type="text" class="form-control asm-input" placeholder="Check Out">
+                                                    <input id="checkout" data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check Out">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +129,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <div class="dropdown filter-widget">
-                                <button class="btn btn-secondary dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                <i class="ti-money"></i><span> Price Min/Max</span> 
                                                         </button>
                                 <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">

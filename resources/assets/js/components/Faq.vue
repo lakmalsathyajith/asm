@@ -36,7 +36,7 @@
                                     <div class="faq-mobile-nav mobile-only">
                                         <div class="form-group">
                                             <div class="dropdown filter-widget">
-                                                <button class="btn btn-secondary dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="btn dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ti-location-pin"></i><span> Location</span>
                                                 </button>
                                                 <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">

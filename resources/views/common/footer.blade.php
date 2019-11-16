@@ -58,7 +58,7 @@
                                 <div class="widget-icon"><img src="{{asset('images/call-answer.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <a href="tel:123-456-7890p123">1300 267 767 / +61 3 9279 7200</a>
+                                   <span> <a href="tel:1300 267 767">1300 267 767 </a>/<a href="tel:1300 267 767">+61 3 9279 7200</a></span>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,9 @@
     </div>
 </footer>
 
+<script src="{{ asset('js/app.js?v=1.4') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script href="{{asset('js/script.js?v=1.5')}}"></script>
 
 <script>
@@ -178,5 +180,13 @@ prevEl: '.swiper-button-prev'
 });
 }
 
+});
+
+
+$(function () {
+  $(".datepicker").datepicker({ 
+        autoclose: true, 
+        todayHighlight: true
+  }).datepicker('update', new Date());
 });
 </script>

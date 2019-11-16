@@ -15,7 +15,7 @@
                     <div class="col-md-4">
 
                         <div class="apartment-box">
-                            <a href="./studio-apartment.html">
+                            <a href="/studio-aprt">
                                 <div class="aprtment-img">
                                     <img src="images/aptment-01.png">
 
@@ -33,7 +33,7 @@
                     <div class="col-md-4">
 
                         <div class="apartment-box">
-                            <a href="./one-bedroom-apartment.html">
+                            <a href="/one-bed-aprt">
                                 <div class="aprtment-img">
                                     <img src="images/aptment-02.png">
 
@@ -50,7 +50,7 @@
                     <div class="col-md-4">
 
                         <div class="apartment-box">
-                            <a href="./two-bedroom-apartment.html">
+                            <a href="/two-bed-aprt">
                                 <div class="aprtment-img">
                                     <img src="images/aptment-01.png">
 

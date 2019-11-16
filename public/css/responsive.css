@@ -545,6 +545,10 @@ i.fa.fa-mobile-phone {
     .about-top-nav {
         width: 80%;
     }
+
+    .top-search-wrap .dropdown-menu{
+        width: 100% !important;
+    }
 }
 
 @media only screen and (min-device-width: 359px) and (max-device-width: 640px) {
@@ -576,6 +580,9 @@ i.fa.fa-mobile-phone {
     }
     .contact-form-right-wrap .content {
         width: 100%;
+    }
+    .top-search-wrap .dropdown-menu{
+        width: 100% !important;
     }
 }
 
@@ -859,6 +866,10 @@ i.fa.fa-mobile-phone {
     .about-top-nav {
         width: 80%;
     }
+
+    .top-search-wrap .dropdown-menu{
+        width: 100% !important;
+    }
 }
 
 
@@ -903,6 +914,10 @@ i.fa.fa-mobile-phone {
     /*about page wrap*/
     .about-top-nav {
         width: 80%;
+    }
+
+    .top-search-wrap .dropdown-menu{
+        width: 100% !important;
     }
 }
 
