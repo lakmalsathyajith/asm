@@ -2,7 +2,8 @@ import * as actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    title : "this is the title 1"
+    apartmentsList : [],
+    selectedApartment : {}
 };
 const getters = {};
 

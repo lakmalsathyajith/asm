@@ -1,17 +1,26 @@
-import { UPDATE_VALUE, UPDATE_VALUE2 } from './types.js'
+import {GET_APARTMENTS_LIST, SELECTED_APARTMENT} from './types.js'
 
-export const updateValue = ({commit},payload) => {
+export const getApartmentsList = ({commit}) => {
 
-       // some API call here
-       console.log('called.', payload);
+    // some API call here
 
-       commit(UPDATE_VALUE,payload) ;
+    Vue.axios.get('/apartments').then(res => {
+           commit(GET_APARTMENTS_LIST, res.data);
+    }).catch(err => {
+        console.log('---err----', err)
+    })
+
+    //commit(GET_APARTMENTS_LIST, payload);
 }
 
-export const changeValue = ({commit},payload) => {
+export const getApartment = ({commit}, payload) => {
 
-       // some API call here
-       console.log('changeValue called.');
 
-       commit(UPDATE_VALUE2,payload) ;
+    console.log('payload==',payload)
+    // some API call here
+    Vue.axios.get('/apartments/'+payload).then(res => {
+        commit(SELECTED_APARTMENT, res.data);
+    }).catch(err => {
+        console.log('---err----', err)
+    })
 }

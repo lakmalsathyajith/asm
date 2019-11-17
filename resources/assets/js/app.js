@@ -16,14 +16,24 @@ window.Vue = require('vue');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
-console.log('before -');
+//import axios from 'axios';
 
 import store from './store/store';
 Vue.use(VueRouter);
+// Vue.use({
+//     install (Vue) {
+//         Vue.prototype.$api = axios.create({
+//             baseURL: process.env.MIX_APP_API_URL
+//         })
+//     }
+// })
 
-// import VueAxios from 'vue-axios';
-// import axios from 'axios';
-// Vue.use(VueAxios, axios);
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, axios);
+Vue.axios.defaults.baseURL = process.env.MIX_APP_API_URL;
 
 console.log('-');
 
@@ -50,6 +60,10 @@ Vue.component('latest-property', require('./components/LatestProperty.vue'));
 Vue.component('one-bed-aprt', require('./components/oneBedAprt.vue'));
 Vue.component('studio-aprt', require('./components/StudioAprt.vue'));
 Vue.component('two-bed-aprt', require('./components/TwoBedAprt.vue'));
+Vue.component(
+  'apartment-details',
+  require('./components/ApartmentDetails.vue')
+);
 
 const router = new VueRouter({ mode: 'history' });
 const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');

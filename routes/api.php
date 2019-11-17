@@ -26,6 +26,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::put('users/{id}', 'Api\V1\UsersController@update')->name('users.update');
     Route::delete('users/{id}', 'Api\V1\UsersController@destroy')->name('users.destroy');
 
+    Route::get('apartments', 'Api\V1\ApartmentController@index')->name('apartments.index');
+    Route::get('apartments/{id}', 'Api\V1\ApartmentController@show')->name('apartments.show');
+
     // a demo api to test rms endpoints
     Route::post('test', 'Api\V1\UsersController@test')->name('test.index');
 });
