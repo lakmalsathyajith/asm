@@ -30,11 +30,12 @@
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide slide1"></div>
-                                            <div class="swiper-slide slide1"></div>
+                                            <div class="swiper-slide slide2"></div>
+                                            <div class="swiper-slide slide3"></div>
                                         </div>
                                         <!-- Add Arrows -->
-                                        <div class="swiper-button-prev ti-angle-left"></div>
-                                        <div class="swiper-button-next ti-angle-right"></div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
                                     </div>
                                 </div>
                             </div>
