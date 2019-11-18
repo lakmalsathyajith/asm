@@ -35,7 +35,7 @@
                                                 <i class="ti-location-pin"></i><span> City/Region</span>
                                             </button>
                                             <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                                <div class="filter-widget-inner">
+                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
 
                                                     <a class="dropdown-item" href="#">Action</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
@@ -52,10 +52,10 @@
                                     <div class="form-group">
                                         <div class="dropdown filter-widget">
                                             <button class="btn dropdown-toggle flter-button filter-border-none-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ti-location-pin"></i><span> City/Region</span>
+                                                <i class="ti-location-pin"></i><span> Suburb</span>
                                             </button>
                                             <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                                <div class="filter-widget-inner">
+                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
 
                                                     <a class="dropdown-item" href="#">Action</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
@@ -84,11 +84,11 @@
                                             <i class="ti-location-pin"></i><span> Apartment Type</span>
                                         </button>
                                         <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                            <div class="filter-widget-inner">
+                                            <div class="filter-widget-inner filter-widget-inner-drop-list">
 
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <a class="dropdown-item" href="#">Studio Apartment</a>
+                                                <a class="dropdown-item" href="#">One Bedroom Apartment</a>
+                                                <a class="dropdown-item" href="#">Two Bedroom Apartment</a>
 
 
                                             </div>
@@ -110,13 +110,13 @@
                                                     <div class="col-md-6 filter-widget-col">
                                                         <div class="form-group">
                                                             <label for="checkin" class="filter-widget-sublabel">Check-In</label>
-                                                            <input id="checkin" type="text" class="form-control asm-input" placeholder="Check In">
+                                                            <input data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check In">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 filter-widget-col">
                                                         <div class="form-group">
                                                             <label for="checkout" class="filter-widget-sublabel">Check-Out</label>
-                                                            <input id="checkout" type="text" class="form-control asm-input" placeholder="Check Out">
+                                                            <input id="checkout" data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check Out">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -339,10 +339,11 @@
                                             <button class="btn dropdown-toggle sort-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Default
                                             </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">A-Z Price</a>
+                                                <a class="dropdown-item" href="#">Z-A Price</a>
+                                                <a class="dropdown-item" href="#">A-Z Apartment Name</a>
+                                                <a class="dropdown-item" href="#">Z-A Apartment Name</a>
                                             </div>
                                         </div>
                                     </li>
@@ -374,11 +375,10 @@
                                         <div class="listing-swipe-slider">
                                             <div class="swipeslider">
                                                 <div class="swiper-container">
-                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to
-                                                        Shortlist
-                                                    </div>
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide slide1"></div>
+                                                        <div class="swiper-slide slide2"></div>
+                                                        <div class="swiper-slide slide3"></div>
                                                     </div>
                                                     <div class="swiper-button-prev ti-angle-left"></div>
                                                     <div class="swiper-button-next ti-angle-right"></div>
@@ -516,11 +516,9 @@
         </section>
         <br>
     </div>
-
 </template>
 <script>
     import {mapState, mapActions} from 'vuex';
-
     export default {
         name: "apartments",
         mounted() {
