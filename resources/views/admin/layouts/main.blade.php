@@ -17,6 +17,6 @@
             </section>
         </div>
     </div>
-    @include('admin.layouts.scripts')
+    @include('admin.layouts.partials.scripts')
 </body>
 </html>

@@ -63,7 +63,13 @@
         });
 
         $('.multi-select').select2({
-//            theme: 'bootstrap4'
+            theme: 'bootstrap4'
+        });
+
+        $('.custom-file-input').on('change',function(){
+            const fileName = $(this).val().replace('C:\\fakepath\\', " ");
+            console.log(fileName);
+            $(this).next('.custom-file-label').html(fileName);
         })
     });
 </script>

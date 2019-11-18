@@ -14,4 +14,20 @@ class ApartmentController extends AbstractController
     {
         $this->activeRepo = $apartmentRepoInstance;
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return $this->activeRepo
+            ->with('contents')
+            ->with('files')
+            ->findOrFail($id);
+    }
+
+
 }

@@ -14,17 +14,19 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    @if(!$records)
-                        <div class="alert alert-danger" role="alert">
-                            No Records Found
-                        </div>
+                    @if(!isset($records) || (isset($records) && $records->isEmpty()))
+                        @include('admin.common.alerts.infoNoRecords');
                     @else
                         <table class="table table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Apartment</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Address</th>
+                                <th scope="col">Parking</th>
+                                <th scope="col">Beds</th>
+                                <th scope="col">RMS Key</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>
                             </tr>
@@ -34,7 +36,11 @@
                                 <tr>
                                     <th scope="row">{{ $record->id }}</th>
                                     <td>{{ $record->name }}</td>
+                                    <td>{{ $record->type->name }}</td>
                                     <td>{{ $record->address }}</td>
+                                    <td>{{ $record->parking_slots }}</td>
+                                    <td>{{ $record->beds }}</td>
+                                    <td>{{ $record->rms_key }}</td>
                                     <td>{{ $record->created_at }}</td>
                                     <td>
                                         <div class="float-right">

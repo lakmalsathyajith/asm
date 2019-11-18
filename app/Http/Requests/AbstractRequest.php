@@ -6,6 +6,7 @@ use App\Exceptions\CustomException;
 use App\Traits\ResponseTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class AbstractRequest extends FormRequest
 {
@@ -24,14 +25,18 @@ class AbstractRequest extends FormRequest
     // validation fail response
     public function failedValidation(Validator $validator)
     {
-        throw new CustomException(
-            $this->returnResponse(
-                $this->getResponseStatus("ERROR"),
-                'Validation Failed',
-                $this->input(),
-                $validator->errors(),
-                422
-            )
-        );
+        if (Request::is('api*')) {
+            throw new CustomException(
+                $this->returnResponse(
+                    $this->getResponseStatus("ERROR"),
+                    'Validation Failed',
+                    $this->input(),
+                    $validator->errors(),
+                    422
+                )
+            );
+        }
+
+        parent::failedValidation($validator);
     }
 }

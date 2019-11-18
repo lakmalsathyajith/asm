@@ -392,7 +392,7 @@
                                                 Mathew cahill
                                             </div>
                                         </div>
-                                        <a href="./apartment/">
+                                        <a :href="'./apartment/'+ apartment.id">
                                             <div class="bottom-desc-behind-wrap">
                                                 <h3>{{apartment.name}}</h3>
                                                 <p>{{apartment.address}}</p>
@@ -515,9 +515,6 @@
             </div>
         </section>
         <br>
-
-        <button @click="changeValue('see it changed')">click here to test store</button>
-        <p>{{title}}</p>
     </div>
 
 </template>

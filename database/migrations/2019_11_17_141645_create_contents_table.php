@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDependantTable extends Migration
+class CreateContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateUserDependantTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_dependant', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('dependant_id');
+            $table->string('name', 100);
+            $table->string('slug', 100);
+            $table->string('type', 100);
+            $table->text('content');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +31,6 @@ class CreateUserDependantTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_dependant');
+        Schema::dropIfExists('contents');
     }
 }

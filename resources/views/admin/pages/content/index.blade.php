@@ -14,10 +14,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    @if(!$records)
-                        <div class="alert alert-danger" role="alert">
-                            No Records Found
-                        </div>
+                    @if(!isset($records) || (isset($records) && $records->isEmpty()))
+                        @include('admin.common.alerts.infoNoRecords');
                     @else
                         <table class="table table-sm">
                             <thead>

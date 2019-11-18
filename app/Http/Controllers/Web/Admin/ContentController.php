@@ -6,6 +6,8 @@ use App\Contracts\RepoInterfaces\ContentInterface;
 use App\Entities\Apartment;
 use App\Entities\Content;
 use App\Http\Controllers\AbstractController;
+use App\Http\Requests\Content\StoreContentRequest;
+use App\Http\Requests\Content\UpdateContentRequest;
 use Illuminate\Http\Request;
 
 class ContentController extends AbstractController
@@ -31,7 +33,7 @@ class ContentController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Content';
+        $data['title'] = 'Content Manager';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.content.index', $data);
     }
@@ -44,7 +46,7 @@ class ContentController extends AbstractController
     public function create()
     {
         $data['route'] = route('content.store');
-        $data['title'] = 'Content';
+        $data['title'] = 'Content Manager';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
         return view('admin.pages.content.create', $data);
@@ -53,24 +55,27 @@ class ContentController extends AbstractController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param StoreContentRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreContentRequest $request)
     {
         $requestData = $request->all();
-        $data = [
-            'name' => $requestData['name'],
-            'slug' => $requestData['slug'],
-            'type' => $requestData['type'],
-            'content' => $requestData['content'],
-        ];
 
-        $data = $this->activeRepo->create($data);
-        $error = false;
+        try {
+            $data = [
+                'name' => $requestData['name'],
+                'slug' => $requestData['slug'],
+                'type' => $requestData['type'],
+                'content' => $requestData['content'],
+            ];
 
-        if ($error) {
-            return view('admin.pages.content.create', $data);
+            $this->activeRepo->create($data);
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('alertError', $e->getMessage());
         }
 
         return redirect(route('content.index'));
@@ -99,7 +104,7 @@ class ContentController extends AbstractController
         $data['route'] = route('content.update', [
             'content' => $content->id
         ]);
-        $data['title'] = 'Content';
+        $data['title'] = 'Content Manager';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $content;
@@ -111,27 +116,28 @@ class ContentController extends AbstractController
      * Update the specified resource in storage.
      *
      * @param $id
-     * @param Request $request
+     * @param UpdateContentRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function update($id, Request $request)
+    public function update($id, UpdateContentRequest $request)
     {
 
         $requestData = $request->all();
 
-        $data = [
-            'name' => $requestData['name'],
-            'slug' => $requestData['slug'],
-            'type' => $requestData['type'],
-            'content' => $requestData['content'],
-        ];
+        try {
+            $data = [
+                'name' => $requestData['name'],
+                'slug' => $requestData['slug'],
+                'type' => $requestData['type'],
+                'content' => $requestData['content'],
+            ];
 
-        $this->activeRepo->findAndUpdate($id, $data);
-        $error = false;
-
-        $data['record'] = $this->activeRepo->get($id);
-        if ($error) {
-            return view('admin.pages.content.edit', $data);
+            $this->activeRepo->findAndUpdate($id, $data);
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('alertError', $e->getMessage());
         }
 
         return redirect(route('content.index'));

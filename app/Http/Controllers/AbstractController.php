@@ -47,7 +47,7 @@ class AbstractController extends Controller
     function show($id)
     {
         try {
-            $data = $this->activeRepo->show($id);
+            $data = $this->activeRepo->get($id);
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'record fetched successfully',

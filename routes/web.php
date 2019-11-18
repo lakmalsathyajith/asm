@@ -60,12 +60,14 @@ Route::post('admin/password/reset', 'Web\Admin\Auth\ResetPasswordController@rese
 
 Route::get('admin', 'Web\Admin\DashboardController@index')->name('admin');
 Route::get('admin/dashboard', 'Web\Admin\DashboardController@index')->name('dashboard');
-Route::resources([
-    'admin/apartment' => 'Web\Admin\ApartmentController',
-]);
-Route::resources([
-    'admin/content' => 'Web\Admin\ContentController',
-]);
-Route::resources([
-    'admin/file' => 'Web\Admin\FileController',
-]);
+
+Route::resources(['admin/apartment' => 'Web\Admin\ApartmentController']);
+Route::resources(['admin/content' => 'Web\Admin\ContentController']);
+Route::resources(['admin/file' => 'Web\Admin\FileController']);
+Route::resources(['admin/option' => 'Web\Admin\OptionController']);
+Route::resources(['admin/type' => 'Web\Admin\TypeController']);
+//    ->only(['index', 'create']);
+
+//Route::resource('photos', 'PhotoController')->only([
+//    'index', 'show'
+//]);

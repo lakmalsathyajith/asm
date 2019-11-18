@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Contracts\RepoInterfaces\ContentInterface;
-use App\Entities\Apartment;
+use App\Contracts\RepoInterfaces\FileInterface;
 use App\Entities\Content;
 use App\Http\Controllers\AbstractController;
+use App\Http\Requests\File\StoreFileRequest;
+use App\Traits\FileTrait;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends AbstractController
 {
 
-    private $content;
+    use FileTrait;
 
     function __construct(
-        ContentInterface $contentRepoInstance,
-        Content $content
+        FileInterface $fileRepoInstance
     )
     {
         $this->middleware('auth');
 
-        $this->activeRepo = $contentRepoInstance;
-        $this->content = $content;
+        $this->activeRepo = $fileRepoInstance;
     }
 
     /**
@@ -31,9 +33,13 @@ class FileController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Content';
+        $data['route'] = route('file.store');
+        $data['action'] = 'Upload';
+        $data['title'] = 'File Manager';
         $data['records'] = $this->activeRepo->all();
-        return view('admin.pages.content.index', $data);
+        $data['view'] = request()->get('view', 'detailed');
+
+        return view('admin.pages.file.index', $data);
     }
 
     /**
@@ -43,37 +49,40 @@ class FileController extends AbstractController
      */
     public function create()
     {
-        $data['route'] = route('content.store');
-        $data['title'] = 'Content';
-        $data['action'] = 'Create';
-        $data['contentTypes'] = $this->content->getTypes();
-        return view('admin.pages.content.create', $data);
+        $data['route'] = route('file.store');
+        $data['title'] = 'File Manager';
+        $data['action'] = 'Upload';
+        return view('admin.pages.file.create', $data);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param StoreFileRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFileRequest $request)
     {
-        $requestData = $request->all();
-        $data = [
-            'name' => $requestData['name'],
-            'slug' => $requestData['slug'],
-            'type' => $requestData['type'],
-            'content' => $requestData['content'],
-        ];
+        try {
+            $data = $this->getUploadedFileMeta();
+            $data['user_id'] = Auth::id();
 
-        $data = $this->activeRepo->create($data);
-        $error = false;
+            $fileName = $data['uuid'] . '.' . $data['extension'];
+            $relativePath = Storage::disk('s3')
+                ->putFileAs(null, new File($data['path']), $fileName, 'public');
+            $url = Storage::disk('s3')
+                ->url($relativePath);
 
-        if ($error) {
-            return view('admin.pages.content.create', $data);
+            $data['url'] = $url;
+            $this->activeRepo->create($data);
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('alertError', $e->getMessage());
         }
 
-        return redirect(route('content.index'));
+        return redirect(route('file.index'));
     }
 
     /**
@@ -96,15 +105,7 @@ class FileController extends AbstractController
      */
     public function edit(Content $content)
     {
-        $data['route'] = route('content.update', [
-            'content' => $content->id
-        ]);
-        $data['title'] = 'Content';
-        $data['action'] = 'Update';
-        $data['method'] = 'PUT';
-        $data['record'] = $content;
-        $data['contentTypes'] = $this->content->getTypes();
-        return view('admin.pages.content.edit', $data);
+
     }
 
     /**
@@ -117,24 +118,6 @@ class FileController extends AbstractController
     public function update($id, Request $request)
     {
 
-        $requestData = $request->all();
-
-        $data = [
-            'name' => $requestData['name'],
-            'slug' => $requestData['slug'],
-            'type' => $requestData['type'],
-            'content' => $requestData['content'],
-        ];
-
-        $this->activeRepo->findAndUpdate($id, $data);
-        $error = false;
-
-        $data['record'] = $this->activeRepo->get($id);
-        if ($error) {
-            return view('admin.pages.content.edit', $data);
-        }
-
-        return redirect(route('content.index'));
     }
 
     /**

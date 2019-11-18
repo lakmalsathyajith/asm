@@ -19,8 +19,10 @@ class Content extends Model
      * @var array
      */
     protected $types = [
+        'General' => 'GENERAL',
         'Apartment' => 'APARTMENT',
-        'Page' => 'PAGE',
+        'Option' => 'OPTION',
+        'Page' => 'PAGE'
     ];
 
     /**

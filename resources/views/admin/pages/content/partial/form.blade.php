@@ -4,6 +4,8 @@
         @method($method)
     @endif
 
+    @include('admin.common.alerts.error')
+
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -34,9 +36,9 @@
                        required
                        autofocus>
 
-                @if ($errors && $errors->has('name'))
+                @if ($errors && $errors->has('slug'))
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('name') }}</strong>
+                    <strong>{{ $errors->first('slug') }}</strong>
                 </span>
                 @endif
             </div>
@@ -98,90 +100,4 @@
             </div>
         </div>
     </div>
-
-    {{--<div class="form-group row">--}}
-        {{--<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>--}}
-        {{--<div class="col-md-6">--}}
-            {{--<input id="name"--}}
-                   {{--type="text"--}}
-                   {{--class="form-control{{ $errors && $errors->has('name') ? ' is-invalid' : '' }}"--}}
-                   {{--name="name"--}}
-                   {{--value="{{ isset($record) && $record->name ? $record->name : old('name') }}"--}}
-                   {{--required--}}
-                   {{--autofocus>--}}
-
-            {{--@if ($errors && $errors->has('name'))--}}
-                {{--<span class="invalid-feedback" role="alert">--}}
-                    {{--<strong>{{ $errors->first('name') }}</strong>--}}
-                {{--</span>--}}
-            {{--@endif--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group row">--}}
-        {{--<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>--}}
-        {{--<div class="col-md-6">--}}
-            {{--<input id="name"--}}
-                   {{--type="text"--}}
-                   {{--class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}"--}}
-                   {{--name="slug"--}}
-                   {{--value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}"--}}
-                   {{--required--}}
-                   {{--autofocus>--}}
-
-            {{--@if ($errors && $errors->has('slug'))--}}
-                {{--<span class="invalid-feedback" role="alert">--}}
-                    {{--<strong>{{ $errors->first('slug') }}</strong>--}}
-                {{--</span>--}}
-            {{--@endif--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group row">--}}
-        {{--<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>--}}
-        {{--<div class="col-md-6">--}}
-            {{--<select--}}
-                    {{--id="type"--}}
-                    {{--class="form-control {{ $errors && $errors->has('type') ? ' is-invalid' : '' }}"--}}
-                    {{--name="type">--}}
-                    {{--@foreach($contentTypes as $label => $value)--}}
-                        {{--<option--}}
-                                {{--{{isset($record) && isset($record->type) && $record->type === $value ? 'selected="selected"' : ''}}--}}
-                                {{--value="{{ $value }}">{{ $label }}--}}
-                        {{--</option>--}}
-                    {{--@endforeach--}}
-            {{--</select>--}}
-
-            {{--@if ($errors && $errors->has('type'))--}}
-                {{--<span class="invalid-feedback" role="alert">--}}
-                    {{--<strong>{{ $errors->first('type') }}</strong>--}}
-                {{--</span>--}}
-            {{--@endif--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group row">--}}
-        {{--<div class="col-md-12">--}}
-            {{--<textarea--}}
-                    {{--id="content"--}}
-                    {{--class="tmce form-control{{ $errors && $errors->has('content') ? ' is-invalid' : '' }}"--}}
-                    {{--name="content">--}}
-                {{--{{ isset($record) && $record->content ? $record->content : old('content') }}--}}
-            {{--</textarea>--}}
-        {{--</div>--}}
-
-        {{--@if ($errors && $errors->has('type'))--}}
-            {{--<span class="invalid-feedback" role="alert">--}}
-                {{--<strong>{{ $errors->first('type') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group row mb-0">--}}
-        {{--<div class="col-md-6 offset-md-4">--}}
-            {{--<button type="submit" class="btn btn-primary">--}}
-                {{--{{ __($action) }}--}}
-            {{--</button>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 </form>
