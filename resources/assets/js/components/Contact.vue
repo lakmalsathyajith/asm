@@ -105,7 +105,7 @@
                                                                  aria-labelledby="dropdownMenuButton"
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
-                                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                                <div class="filter-widget-inner">
                                                                     <a class="dropdown-item" href="#">Action</a>
                                                                     <a class="dropdown-item" href="#">Another action</a>
                                                                     <a class="dropdown-item" href="#">Something else
@@ -130,7 +130,7 @@
                                                                  aria-labelledby="dropdownMenuButton"
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
-                                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                                <div class="filter-widget-inner">
                                                                     <a class="dropdown-item" href="#">Action</a>
                                                                     <a class="dropdown-item" href="#">Another action</a>
                                                                     <a class="dropdown-item" href="#">Something else
@@ -157,7 +157,7 @@
                                                                  aria-labelledby="dropdownMenuButton"
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
-                                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                                <div class="filter-widget-inner">
                                                                     <a class="dropdown-item" href="#">Action</a>
                                                                     <a class="dropdown-item" href="#">Another action</a>
                                                                     <a class="dropdown-item" href="#">Something else
@@ -182,7 +182,7 @@
                                                                  aria-labelledby="dropdownMenuButton"
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
-                                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                                <div class="filter-widget-inner">
                                                                     <a class="dropdown-item" href="#">Action</a>
                                                                     <a class="dropdown-item" href="#">Another action</a>
                                                                     <a class="dropdown-item" href="#">Something else
@@ -320,7 +320,7 @@
                                     </div>
                                     <div class="content">
 
-                                        <a href="tel:+61 3 9242 0468"><p>03 9242 0468 (int.+61 3 9242 0468)</p></a>
+                                        <p>03 9242 0468 (int.+61 3 9242 0468)</p>
                                     </div>
                                 </div>
                                 <div class="contact-mobile-wrap">
@@ -328,8 +328,8 @@
                                         <h4>MOBILE</h4>
                                     </div>
                                     <div class="content">
-                                        <a href="tel:+61 405 780 780"><p>0405 780 780 (int. +61 405 780 780)</p></a>
-                                        
+
+                                        <p>0405 780 780 (int. +61 405 780 780)</p>
                                     </div>
                                 </div>
                                 <div class="contact-email-wrap">
@@ -338,7 +338,7 @@
                                     </div>
                                     <div class="content">
 
-                                        <a href="mailto:reservations@asmelb.com.au" class="emial">
+                                        <a href="#" class="emial">
                                             <p>reservations@asmelb.com.au</p>
                                         </a>
                                     </div>

@@ -12,7 +12,7 @@ class StoreContentRequest extends AbstractRequest
     {
         return [
             'name'              => 'required|min:3|max:100|unique:contents,name',
-            'slug'              => 'required|min:3|max:100|unique:contents,slug',
+            'slug'              => 'required|min:3|max:100,slug',
             'type'              => 'required',
             'content'           => 'required',
         ];

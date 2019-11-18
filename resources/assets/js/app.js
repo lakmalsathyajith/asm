@@ -1,3 +1,4 @@
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -16,10 +17,12 @@ window.Vue = require('vue');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
+import BootstrapVue from 'bootstrap-vue'
 //import axios from 'axios';
 
-import store from './store/store';
+import store from './store/store'
 Vue.use(VueRouter);
+Vue.use(BootstrapVue);
 // Vue.use({
 //     install (Vue) {
 //         Vue.prototype.$api = axios.create({
@@ -28,42 +31,26 @@ Vue.use(VueRouter);
 //     }
 // })
 
-import Vue from 'vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios);
 Vue.axios.defaults.baseURL = process.env.MIX_APP_API_URL;
 
-console.log('-');
+console.log('-')
 
-Vue.component(
-  'example-component',
-  require('./components/ExampleComponent.vue')
-);
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('apartment-list', require('./components/ApartmentList.vue'));
 Vue.component('short-list', require('./components/Shortlist.vue'));
-Vue.component(
-  'typical-apartment',
-  require('./components/TypicalApartments.vue')
-);
+Vue.component('typical-apartment', require('./components/TypicalApartments.vue'));
 Vue.component('faq', require('./components/Faq.vue'));
 Vue.component('about', require('./components/About.vue'));
 Vue.component('list-with-us', require('./components/ListWithUs.vue'));
 Vue.component('contact', require('./components/Contact.vue'));
-Vue.component('apartmentinner', require('./components/ApartmentInner.vue'));
-Vue.component('booking-first', require('./components/BookingFirst.vue'));
-Vue.component('booking-second', require('./components/BookingSecond.vue'));
-Vue.component('booking-third', require('./components/BookingThird.vue'));
-Vue.component('latest-property', require('./components/LatestProperty.vue'));
-Vue.component('one-bed-aprt', require('./components/oneBedAprt.vue'));
-Vue.component('studio-aprt', require('./components/StudioAprt.vue'));
-Vue.component('two-bed-aprt', require('./components/TwoBedAprt.vue'));
-Vue.component(
-  'apartment-details',
-  require('./components/ApartmentDetails.vue')
-);
+Vue.component('apartment-details', require('./components/ApartmentDetails.vue'));
 
-const router = new VueRouter({ mode: 'history' });
+const router = new VueRouter({ mode: 'history'});
 const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');

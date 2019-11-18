@@ -23,80 +23,17 @@
 }
 
 .swipeslider .slide1 {
-    background-image: url(../images/listing/sample-Image1.jpg);
+    background-image: url(../images/studio-apartment/Image-slider.png);
     background-position: center;
     background-size: cover;
     width: 100%;
     height: auto !important;
-    min-height: 360px;
-    background-repeat: no-repeat;
-}
-.swipeslider .slide2 {
-    background-image: url(../images/listing/sample-Image2.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 360px;
-    background-repeat: no-repeat;
-}
-.swipeslider .slide3 {
-    background-image: url(../images/listing/sample-Image3.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 360px;
+    min-height: 541px;
     background-repeat: no-repeat;
 }
 
 .swipeslider .onebed-slide1 {
-    background-image: url(../images/listing/sample-Image1.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .onebed-slide2 {
-    background-image: url(../images/listing/sample-Image2.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .onebed-slide3 {
-    background-image: url(../images/listing/sample-Image3.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .studio-slide1 {
-    background-image: url(../images/listing/sample-Image1.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .studio-slide2 {
-    background-image: url(../images/listing/sample-Image2.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .studio-slide3 {
-    background-image: url(../images/listing/sample-Image3.jpg);
+    background-image: url(../images/onebed-apartment/Image-slider.png);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -106,25 +43,7 @@
 }
 
 .swipeslider .twobed-slide1 {
-    background-image: url(../images/listing/sample-Image1.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .twobed-slide2 {
-    background-image: url(../images/listing/sample-Image2.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto !important;
-    min-height: 541px;
-    background-repeat: no-repeat;
-}
-.swipeslider .twobed-slide3 {
-    background-image: url(../images/listing/sample-Image3.jpg);
+    background-image: url(../images/twobed-apartment/Image-slider.png);
     background-position: center;
     background-size: cover;
     width: 100%;

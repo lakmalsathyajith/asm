@@ -15,6 +15,23 @@ class ApartmentController extends AbstractController
         $this->activeRepo = $apartmentRepoInstance;
     }
 
+    function index()
+    {
+        try {
+            $data = $this->activeRepo
+                ->with('files')
+                ->with('options')
+                ->with('type')
+                ->get();
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'records fetched successfully',
+                $data);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }
+    }
+
     /**
      * Display the specified resource.
      *
@@ -26,8 +43,13 @@ class ApartmentController extends AbstractController
         return $this->activeRepo
             ->with('contents')
             ->with('files')
+            ->with('options')
+            ->with('type')
             ->findOrFail($id);
     }
 
+    public function getApartmentDetails(){
 
+
+    }
 }

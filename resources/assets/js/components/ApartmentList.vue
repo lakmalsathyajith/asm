@@ -35,7 +35,7 @@
                                                 <i class="ti-location-pin"></i><span> City/Region</span>
                                             </button>
                                             <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                <div class="filter-widget-inner">
 
                                                     <a class="dropdown-item" href="#">Action</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
@@ -52,10 +52,10 @@
                                     <div class="form-group">
                                         <div class="dropdown filter-widget">
                                             <button class="btn dropdown-toggle flter-button filter-border-none-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ti-location-pin"></i><span> Suburb</span>
+                                                <i class="ti-location-pin"></i><span> City/Region</span>
                                             </button>
                                             <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                                <div class="filter-widget-inner">
 
                                                     <a class="dropdown-item" href="#">Action</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
@@ -84,11 +84,11 @@
                                             <i class="ti-location-pin"></i><span> Apartment Type</span>
                                         </button>
                                         <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                                            <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                            <div class="filter-widget-inner">
 
-                                                <a class="dropdown-item" href="#">Studio Apartment</a>
-                                                <a class="dropdown-item" href="#">One Bedroom Apartment</a>
-                                                <a class="dropdown-item" href="#">Two Bedroom Apartment</a>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
 
 
                                             </div>
@@ -110,13 +110,13 @@
                                                     <div class="col-md-6 filter-widget-col">
                                                         <div class="form-group">
                                                             <label for="checkin" class="filter-widget-sublabel">Check-In</label>
-                                                            <input data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check In">
+                                                            <input id="checkin" type="text" class="form-control asm-input" placeholder="Check In">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 filter-widget-col">
                                                         <div class="form-group">
                                                             <label for="checkout" class="filter-widget-sublabel">Check-Out</label>
-                                                            <input id="checkout" data-date-format="mm-dd-yyyy" type="text" class="form-control datepicker asm-input date"  placeholder="Check Out">
+                                                            <input id="checkout" type="text" class="form-control asm-input" placeholder="Check Out">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -323,7 +323,7 @@
                                     <h3>Results for Melbourne - Northern Region</h3>
                                 </div>
                                 <div class="second-result-head">
-                                    <p>Showing 1 - 6 of 18 total results</p>
+                                    <p>Showing {{currentPage*pageSize-pageSize+1}} - {{currentPage*pageSize}} of {{apartmentsList.length}} total results</p>
                                 </div>
                             </div>
                             <hr/>
@@ -339,11 +339,10 @@
                                             <button class="btn dropdown-toggle sort-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Default
                                             </button>
-                                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">A-Z Price</a>
-                                                <a class="dropdown-item" href="#">Z-A Price</a>
-                                                <a class="dropdown-item" href="#">A-Z Apartment Name</a>
-                                                <a class="dropdown-item" href="#">Z-A Apartment Name</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
                                             </div>
                                         </div>
                                     </li>
@@ -354,20 +353,17 @@
                             <div class="pagination-listing-wrap">
                                 <nav aria-label="Page navigation example pagination-listing">
                                     <ul class="pagination">
-
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        <template v-for="i in (Math.ceil(apartmentsList.length/pageSize))">
+                                            <li class="page-item active" v-if="i === currentPage" @click="setCurrentPage(i)"><a class="page-link" href="#">{{i}}</a></li>
+                                            <li class="page-item" @click="setCurrentPage(i)" v-else><a class="page-link" href="#">{{i}}</a></li>
+                                        </template>
                                     </ul>
                                 </nav>
                             </div>
-
                         </div>
                     </div>
-
-
-                    <div class="row" v-for="apartment in apartmentsList">
+                    <template v-for="(apartment, i) in apartmentsList">
+                       <div class="row" v-if="i>=((currentPage-1)*pageSize) && i<currentPage*pageSize">
                         <div class="col-md-12">
                             <div class="listing-wrap">
                                 <div class="row">
@@ -375,10 +371,25 @@
                                         <div class="listing-swipe-slider">
                                             <div class="swipeslider">
                                                 <div class="swiper-container">
+                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to
+                                                        Shortlist
+                                                    </div>
                                                     <div class="swiper-wrapper">
-                                                        <div class="swiper-slide slide1"></div>
-                                                        <div class="swiper-slide slide2"></div>
-                                                        <div class="swiper-slide slide3"></div>
+                                                        <b-carousel
+                                                                id="carousel-1"
+                                                                v-model="slide"
+                                                                :interval="4000"
+                                                                background="#ababab"
+                                                                img-width="auto"
+                                                                img-height="auto"
+                                                                style="text-shadow: 1px 1px 2px #333;"
+                                                                @sliding-start="onSlideStart"
+                                                                @sliding-end="onSlideEnd"
+                                                        >
+                                                            <b-carousel-slide v-for="(file,i) in apartment.files" v-bind:key="file.id+i"
+                                                                              :img-src="file.url">
+                                                            </b-carousel-slide>
+                                                        </b-carousel>
                                                     </div>
                                                     <div class="swiper-button-prev ti-angle-left"></div>
                                                     <div class="swiper-button-next ti-angle-right"></div>
@@ -400,10 +411,10 @@
                                         </a>
                                         <div class="listing-bottom-icons-wrap">
                                             <ul class="list-inline">
-                                                <li class="list-inline-item apart-type">Studio</li>
-                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 2
+                                                <li class="list-inline-item apart-type">{{apartment.type.tag}}</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> {{apartment.beds}}
                                                 </li>
-                                                <li class="list-inline-item apart-options"><i class="ti-car"></i> 2</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-car"></i> {{apartment.parking_slots}}</li>
                                                 <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 1
                                                 </li>
                                             </ul>
@@ -411,77 +422,13 @@
                                     </div>
                                     <div class="col-md-6  apartment-listing-widget-right-col">
                                         <div class="facility-wrap">
-                                            <div class="row">
-                                                <div class="col-md-4">
+                                            <div class="row" >
+                                                <div class="col-md-4" v-for="option in apartment.options">
                                                     <div class="facility">
                                                         <i class="ti-briefcase"></i>
                                                     </div>
                                                     <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="facility">
-                                                        <i class="ti-briefcase"></i>
-                                                    </div>
-                                                    <div class="facility-name">
-                                                        <p>Swimming Pool</p>
+                                                        <p>{{option.name}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -491,9 +438,82 @@
                             </div>
                         </div>
                     </div>
-
-
-
+                    </template>
+                    <!--<div class="row" v-for="(apartment, i) in apartmentsList">
+                        <div class="col-md-12">
+                            <div class="listing-wrap">
+                                <div class="row">
+                                    <div class="col-md-6 apartment-listing-widget-left-col">
+                                        <div class="listing-swipe-slider">
+                                            <div class="swipeslider">
+                                                <div class="swiper-container">
+                                                    <div class="slide-shortlist"><i class="ti-tag"></i> Save to
+                                                        Shortlist
+                                                    </div>
+                                                    <div class="swiper-wrapper">
+                                                                <b-carousel
+                                                                        id="carousel-1"
+                                                                        v-model="slide"
+                                                                        :interval="4000"
+                                                                        background="#ababab"
+                                                                        img-width="auto"
+                                                                        img-height="auto"
+                                                                        style="text-shadow: 1px 1px 2px #333;"
+                                                                        @sliding-start="onSlideStart"
+                                                                        @sliding-end="onSlideEnd"
+                                                                >
+                                                                    <b-carousel-slide v-for="file in apartment.files"
+                                                                            :img-src="file.url">
+                                                                    </b-carousel-slide>
+                                                                </b-carousel>
+                                                    </div>
+                                                    <div class="swiper-button-prev ti-angle-left"></div>
+                                                    <div class="swiper-button-next ti-angle-right"></div>
+                                                </div>
+                                            </div>
+                                            <div class="price-tag">
+                                                A$305<sup>pw</sup>
+                                            </div>
+                                            <div class="apartment-owner">
+                                                <div class="owner-icon"><i class="ti ti-user"></i></div>
+                                                Mathew cahill
+                                            </div>
+                                        </div>
+                                        <a :href="'./apartment/'+ apartment.id">
+                                            <div class="bottom-desc-behind-wrap">
+                                                <h3>{{apartment.name}}</h3>
+                                                <p>{{apartment.address}}</p>
+                                            </div>
+                                        </a>
+                                        <div class="listing-bottom-icons-wrap">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item apart-type">{{apartment.type.tag}}</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> {{apartment.beds}}
+                                                </li>
+                                                <li class="list-inline-item apart-options"><i class="ti-car"></i> {{apartment.parking_slots}}</li>
+                                                <li class="list-inline-item apart-options"><i class="ti-envelope"></i> 1
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6  apartment-listing-widget-right-col">
+                                        <div class="facility-wrap">
+                                            <div class="row" >
+                                                <div class="col-md-4" v-for="option in apartment.options">
+                                                    <div class="facility">
+                                                        <i class="ti-briefcase"></i>
+                                                    </div>
+                                                    <div class="facility-name">
+                                                        <p>{{option.name}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
 
                     <div class="row">
                         <div class="col-md-6"></div>
@@ -501,11 +521,10 @@
                             <div class="row pagination-listing-wrap">
                                 <nav aria-label="Page navigation example pagination-listing " id="bottom-pagination">
                                     <ul class="pagination">
-
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        <template v-for="i in (Math.ceil(apartmentsList.length/pageSize))">
+                                            <li class="page-item active" v-if="i === currentPage" @click="setCurrentPage(i)"><a class="page-link" href="#">{{i}}</a></li>
+                                            <li class="page-item" @click="setCurrentPage(i)" v-else><a class="page-link" href="#">{{i}}</a></li>
+                                        </template>
                                     </ul>
                                 </nav>
                             </div>
@@ -516,15 +535,34 @@
         </section>
         <br>
     </div>
+
 </template>
 <script>
     import {mapState, mapActions} from 'vuex';
+
     export default {
         name: "apartments",
+        data() {
+            return {
+                slide: 0,
+                sliding: null,
+                pageSize : 6,
+                currentPage : 1
+            }
+        },
         mounted() {
             this.getApartmentsList();
         },
         methods:{
+            onSlideStart(slide) {
+                this.sliding = true
+            },
+            onSlideEnd(slide) {
+                this.sliding = false
+            },
+            setCurrentPage(pageNo){
+                this.currentPage = pageNo
+            },
             ...mapActions('ratesAndAvailability', ['getApartmentsList','changeValue'])
         },
         computed:{
