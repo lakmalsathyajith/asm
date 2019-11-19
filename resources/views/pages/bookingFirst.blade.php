@@ -1,4 +1,5 @@
+
 @extends('layouts.main')
 @section('content')
-    <faq></faq>
+    <booking-first></booking-first>
 @stop

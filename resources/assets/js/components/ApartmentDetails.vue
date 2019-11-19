@@ -29,26 +29,12 @@
                                 <div class="swipeslider">
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
-                                            <!--<div class="swiper-slide slide1"></div>
-                                            <div class="swiper-slide slide1"></div>-->
-                                            <b-carousel
-                                                    id="carousel-1"
-                                                    v-model="slide"
-                                                    :interval="4000"
-                                                    background="#ababab"
-                                                    img-width="auto"
-                                                    img-height="auto"
-                                                    style="text-shadow: 1px 1px 2px #333;"
-                                                    @sliding-start="onSlideStart"
-                                                    @sliding-end="onSlideEnd">
-                                                <b-carousel-slide v-for="(file,i) in selectedApartment.files" v-bind:key="file.id+i"
-                                                                  :img-src="file.url" style="min-height: 542px" >
-                                                </b-carousel-slide>
-                                            </b-carousel>
+                                            <div class="swiper-slide slide" v-for="(file,i) in selectedApartment.files" v-bind:key="file.id+i" 
+                                                        :style="{ backgroundImage: 'url(\'' + file.url + '\')' }"></div>
                                         </div>
                                         <!-- Add Arrows -->
-                                        <div class="swiper-button-prev ti-angle-left"></div>
-                                        <div class="swiper-button-next ti-angle-right"></div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
                                     </div>
                                 </div>
                             </div>
