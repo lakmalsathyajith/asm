@@ -26,7 +26,7 @@
                     <span> ></span>
                   </li>
                   <li class="list-inline-item">
-                    Melbourne - Northern Region
+                    Rates & Availability
                   </li>
                 </ul>
               </div>
@@ -204,7 +204,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Guest Number</span>
+                      <i class="ti-location-pin"></i><span> Occupants</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -215,41 +215,31 @@
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
                               <label
-                                for="checkin"
+                                for="min_occupants"
                                 class="filter-widget-sublabel"
-                                >Adults</label
+                                >Min. Occupants</label
                               >
-                              <select
+                              <input
+                                id="min_occupants"
+                                type="number"
                                 class="form-control asm-input"
-                                id="Adults"
-                              >
-                                <option>Select</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
+                                placeholder="Check In"
+                              />
                             </div>
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
                               <label
-                                for="checkout"
+                                for="max_occupants"
                                 class="filter-widget-sublabel"
-                                >Children</label
+                                >Max. Occupants</label
                               >
-                              <select
+                              <input
+                                id="max_occupants"
+                                type="number"
                                 class="form-control asm-input"
-                                id="Children"
-                              >
-                                <option>Select</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
+                                placeholder="Check In"
+                              />
                             </div>
                           </div>
                         </div>
@@ -258,7 +248,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col p-0 filter-top-widget filter-left-border">
+              <!-- <div class="col p-0 filter-top-widget filter-left-border">
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
@@ -322,7 +312,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col p-0 filter-top-widget filter-left-border">
                 <div class="form-group">
                   <div class="dropdown filter-widget">
@@ -379,7 +369,7 @@
                 </div>
               </div>
 
-              <div class="col p-0 filter-top-widget filter-left-border">
+              <!-- <div class="col p-0 filter-top-widget filter-left-border">
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
@@ -464,7 +454,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col p-0 filter-top-widget">
                 <div class="form-group">
                   <div class="filter-widget">
@@ -1211,7 +1201,7 @@
               <div class="col-md-12">
                 <div class="listing-wrap">
                   <div class="row">
-                    <div class="col-md-6 apartment-listing-widget-left-col">
+                    <div class="col-md-7 apartment-listing-widget-left-col">
                       <div class="listing-swipe-slider">
                         <div class="swipeslider">
                           <div class="swiper-container">
@@ -1260,7 +1250,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="col-md-6  apartment-listing-widget-right-col">
+                    <div class="col-md-5  apartment-listing-widget-right-col">
                       <div class="facility-wrap">
                         <div class="row">
                           <div
@@ -1314,7 +1304,6 @@
         </div>
       </div>
     </section>
-    <br />
   </div>
 </template>
 <script>
