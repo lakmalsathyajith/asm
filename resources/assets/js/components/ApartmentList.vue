@@ -169,6 +169,7 @@
                                 v-model="filter.checkIn"
                                 placeholder="Check In"
                                 class="form-control asm-input"
+                                :disabledDates="{ to: new Date(Date.now() - 8640000)}"
                               ></Datepicker>
                             </div>
                           </div>
@@ -183,6 +184,7 @@
                                 v-model="filter.checkOut"
                                 placeholder="Check Out"
                                 class="form-control asm-input"
+                                :disabledDates="{ to: (filter.checkIn !== '') ? filter.checkIn : new Date(Date.now())}"
                               ></Datepicker>
                             </div>
                           </div>
@@ -1258,7 +1260,7 @@
                             v-for="(option, i) in apartment.options"
                             v-bind:key="i"
                           >
-                            <div class="facility">
+                            <div :class="'facility '+ slugify(option.name)">
                               <i class="ti-briefcase"></i>
                             </div>
                             <div class="facility-name">
@@ -1338,6 +1340,13 @@ export default {
     },
     submitFilter() {
       this.getFilteredApartments(this.filter);
+    },
+    slugify(text)
+    {
+      return text
+              .toLowerCase()
+              .replace(/[^\w ]+/g,'')
+              .replace(/ +/g,'-');
     },
     ...mapActions('ratesAndAvailability', [
       'getApartmentsList',
