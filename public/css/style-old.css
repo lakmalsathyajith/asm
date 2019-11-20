@@ -222,7 +222,7 @@ h4.sub-heading-01 {
     font-family: 'Oxygen', sans-serif;
     font-size: 16px;
     color: #525252;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 25px;
     letter-spacing: 0.16px;
     margin-bottom: 15px !important;
@@ -512,6 +512,7 @@ section.booking-form-section {
 
 /*typical-apartment-section changes*/
 
+
 .carousel-indicators {
     position: relative;
     margin-top: 45px;
@@ -755,7 +756,7 @@ section.booking-form-section {
 
 .class-top-text-wrap .panel-heading {
     background: #103F4D;
-    padding: 15px 0px 15px 25px;
+    padding: 15px 0px 15px 0px;
     border-radius: 12px 12px 0px 0px;
     min-height: 125px;
 }
@@ -782,6 +783,7 @@ section.booking-form-section {
     letter-spacing: 0.16px;
     color: #FFFFFF;
     font-weight: 300;
+    text-align: center;
     line-height: 20px;
 }
 
@@ -792,33 +794,25 @@ section.booking-form-section {
     color: #525252;
 }
 
-.class-top-text-wrap {
+.class-top-text-wrap{
     padding-top: 25px;
 }
-
-.class-top-text-wrap .top-para-wrap p {
+.class-top-text-wrap .top-para-wrap p{
     font-size: 16px;
     letter-spacing: 0.16px;
     color: #525252;
     opacity: 1;
 }
-
 .class-top-text-wrap .include-list-wrap ul {
     list-style-type: none;
 }
-
 .class-top-text-wrap .include-list-wrap ul li::before {
     /* list-style-type: disc; */
     content: "\2022";
     color: #00BAFF;
     font-weight: bolder;
-    font-size: 21px;
-    position: absolute;
-    left: 0;
-    top: 10px;
-    height: 0;
-    display: block;
-    line-height: 0;
+    font-size: 16px;
+    padding-right: 10px;
 }
 
 .superior-list ul {
@@ -831,55 +825,46 @@ section.booking-form-section {
 .class-top-text-wrap .panel-body ul {
     padding-left: 0px;
 }
-
-.building-ameniti-sec {
+.building-ameniti-sec{
     background: #F7F8F9;
     margin-top: 30px;
 }
-
-.building-ameniti-sec .ameniti-list-wrap {
+.building-ameniti-sec .ameniti-list-wrap{
     background: #003241;
     border-radius: 12px 0px 0px 12px;
 }
-
-.building-ameniti-sec .ameniti-list-wrap ul li a {
+.building-ameniti-sec .ameniti-list-wrap ul li a{
     color: #fff;
     padding: 5px 0px 15px 25px;
 }
-
-.building-ameniti-sec .ameniti-list-wrap ul li {
+.building-ameniti-sec .ameniti-list-wrap ul li{
     /* line-height: 30px; */
     padding: 5px 0px;
 }
-
-.building-ameniti-sec .ameniti-list-wrap ul li:hover {
+.building-ameniti-sec .ameniti-list-wrap ul li:hover{
     background-color: #00BAFF;
     color: #fff;
 }
-
-.building-ameniti-sec .ameniti-list-wrap ul li.active {
+.building-ameniti-sec .ameniti-list-wrap ul li.active{
     background-color: #00BAFF;
     color: #fff;
 }
-
-.ameniti-list-wrap li:hover:after {
+.ameniti-list-wrap li:hover:after{
     content: "";
     background-image: url(../images/studio-apartment/next-white.svg) !important;
     width: 10px;
     height: 8px;
+    
 }
-
-.emeniti-ul {
+.emeniti-ul{
     padding-top: 20px;
     padding-bottom: 40px;
     margin-bottom: 60px;
 }
-
-.ameniti-image-slider-wrap .swipeslider .slide {
-    min-height: 502px !important;
-    border-radius: 0px 12px 12px 0px;
+.ameniti-image-slider-wrap .swipeslider .slide{
+min-height: 502px !important;
+border-radius: 0px 12px 12px 0px;
 }
-
 /*head apartment css*/
 
 .studio-apartment-section {
@@ -1061,8 +1046,6 @@ section.booking-form-section {
     opacity: 1;
 }
 
-/*studio css changes*/
-
 .studio-bottom-wrap hp {
     padding-top: 18px;
     text-align: center;
@@ -1084,13 +1067,15 @@ section.booking-form-section {
     padding-top: 10px;
     max-width: 77%;
     margin: 0px auto;
-    
 }
-
+.studio-furnish-para{
+    max-width: 80%;
+    margin: 0px auto;
+}
 .studio-bottom-view-apartment {
     text-align: center;
     padding-top: 12px;
-    padding-bottom: 18px;
+    padding-bottom: 78px;
 }
 
 .studio-bottom-view-apartment .colorles-btn {
@@ -1105,80 +1090,6 @@ section.booking-form-section {
     padding: 8px 12px;
     /* height: 46px; */
     text-align: center;
-}
-
-.studio-middle-panel-wrap .panel-heading {
-    min-height: 0px;
-    padding: 15px 0px 12px 25px;
-}
-
-.studio-middle-panel-wrap .divider {
-    border-bottom: 1px solid #C2CAD1;
-}
-
-.studio-middle-panel-wrap .panel-body {
-    padding-left: 0px;
-}
-
-.studio-middle-panel-wrap .studio-benifit-list {
-    padding-left: 25px;
-    padding-bottom: 10px;
-}
-.studio-benifit-list ul li::before{
-    font-size: 20px !important;
-}
-.bottom-after-border-wrap {
-    padding-left: 25px;
-    padding-top: 19px;
-}
-
-.bedding-config-heading h3 {
-    text-align: left !important;
-    
-}
-.bedding-config-wrap .available-head{
-padding-top: 5px !important;
-padding-bottom: 4px !important;
-}
-.studio-furnish-para{
-    max-width: 77%;
-    margin: 0px auto;
-}
-.studio-bottom-furnish-image-wrap img{
-    max-height: 560px;
-    border-radius: 12px;
-}
-.studio-bottom-furnish-image-wrap{
-    margin-bottom: 50px;
-}
-.config-label-wrap {
-    max-width: 50%;
-    padding-bottom: 20px;
-}
-.config-label-wrap .col {
-    padding-right: 0px !important;
-    flex-basis: unset;
-    display: inline-block;
-    flex-grow: unset;
-    width: auto;
-}
-.config-label-wrap button {
-    margin-top: 10px;
-    background: #FFFFFF;
-    border: 1px solid #00BAFF;
-    color: #003241;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-}
-.config-label-wrap button i{
-    color: #8DC718;
-    font-size: 12px;
-
-}
-.config-label-wrap  .col{
-    padding-right: 0px !important;
-    flex-grow: 0;
 }
 
 /*apartment listing*/
@@ -1903,9 +1814,7 @@ section.top-search-wrap .dropdown.filter-widget button {
     width: 100%;
     padding-bottom: 25px;
 }
-.about-section .top-contents {
-    border-bottom: 0px solid #E3E3E3;
-}
+
 .content i {
     font-size: 15px;
     padding-right: 10px;
@@ -1971,19 +1880,16 @@ section.top-search-wrap .dropdown.filter-widget button {
     color: #525252;
     opacity: 1;
 }
-/*about section css*/
+
 .about-bottom-wrap {
     background-image: url(../images/about-us/about-bg-2.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: auto;
+    height: 434px;
 }
-.about-middle-paraf-wrap{
-    background-color: #F7F8F9;
-    padding: 30px 0px;
-}
+
 .about-bottom-wrap {
     padding-top: 55px;
 }
@@ -2015,85 +1921,7 @@ section.top-search-wrap .dropdown.filter-widget button {
     margin-left: -18px;
     color: #00BAFF;
 }
-.quality-wrap{
-    background: #003241;
-    padding: 15px;
-}
-.quality-wrap h3{
-    color: #00BAFF;
 
-}
-.quality-para-wrap{
-    padding: 30px 0px;
-}
-.aprt-col-wrap{
-    padding-left: 25px;
-}
-.aprt-col-wrap .txt-smallest{
-    text-decoration: underline;
-    font-size: 11px;
-    letter-spacing: 0;
-    color: #00BAFF; 
-}
-.apartment-panel .head-paraf{
-    
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.16px;
-    color: #FFFFFF; 
-}
-.aprt-col-wrap .border-right-white:after{
-background-color: #E3E3E3;
-}
-.apartment-panel .panel-body{
-    min-height: 90px;
-}
-.panel-body-onebed,.panel-body-twobed{
-    padding-left: 20px;
-}
-.after-apart-panel-para-wrap{
-    padding: 20px 0px;
-}
-.about-class-arap .panel-heading{
-    background-color:#00BAFF;
-   
-    min-height: 0px !important;
-    padding: 18px 0px;
-}
-.about-class-arap .panel-body{
-    min-height: 550px;
-}
-.about-class-arap .sub-heading{
-    
-    color: #fff !important;
-    font-weight: 700;
-    
-}
-.about-class-arap .include-list-wrap ul li::before{
-    font-size: 21px;
-    position: absolute;
-    left: 0;
-    top: 15px;
-    height: 0;
-    display: block;
-    line-height: 0;
-}
-.about-class-arap .include-list-wrap ul li{
-    line-height: 40px;
-}
-.include-list-wrap ul li{
-    position: relative;
-    padding-left: 20px;
-}
-.after-business-class-wrap{
-    padding-top: 35px;
-}
-.apartment-includes h4{
-    color: #00BAFF;
-}
-.about-bottom-left-list ul li{
-    line-height: 40px;
-}
 /*list with us*/
 
 .list-with-us {

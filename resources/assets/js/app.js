@@ -48,18 +48,20 @@ Vue.component(
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('apartment-list', require('./components/ApartmentList.vue'));
 Vue.component('short-list', require('./components/Shortlist.vue'));
-Vue.component(
-  'typical-apartment',
-  require('./components/TypicalApartments.vue')
-);
+Vue.component('typical-apartment',require('./components/TypicalApartments.vue'));
 Vue.component('faq', require('./components/Faq.vue'));
 Vue.component('about', require('./components/About.vue'));
+Vue.component('one-bed-room-apartments', require('./components/OneBedAprt.vue'));
+
+Vue.component('studio-apartments', require('./components/StudioAprt.vue'));
+
+Vue.component('two-bed-room-apartments', require('./components/TwoBedAprt.vue'));
 Vue.component('list-with-us', require('./components/ListWithUs.vue'));
 Vue.component('contact', require('./components/Contact.vue'));
-Vue.component(
-  'apartment-details',
-  require('./components/ApartmentDetails.vue')
-);
+Vue.component('apartment-details',require('./components/ApartmentDetails.vue'));
+Vue.component('booking-first', require('./components/BookingFirst.vue'));
+Vue.component('booking-second', require('./components/BookingSecond.vue'));
+Vue.component('booking-third', require('./components/BookingThird.vue'));
 
 const router = new VueRouter({ mode: 'history' });
 const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');

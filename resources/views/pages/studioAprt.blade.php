@@ -1,4 +1,4 @@
 @extends('layouts.main')
 @section('content')
-    <studio-aprt></studio-aprt>
+    <studio-apartments></studio-apartments>
 @stop

@@ -39,13 +39,13 @@ Route::get('/booking-third', function () {
 Route::get('/latest-property', function () {
     return view('pages.latestProperty');
 });
-Route::get('/studio-aprt', function () {
+Route::get('/studio-apartments', function () {
     return view('pages.studioAprt');
 });
-Route::get('/one-bed-aprt', function () {
+Route::get('/one-bed-room-apartments', function () {
     return view('pages.oneBedAprt');
 });
-Route::get('/two-bed-aprt', function () {
+Route::get('/two-bed-room-apartments', function () {
     return view('pages.twobedApat');
 });
 Route::get('/my-shortlist', function () {
