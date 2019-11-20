@@ -71,5 +71,51 @@
             console.log(fileName);
             $(this).next('.custom-file-label').html(fileName);
         })
+
+        $('.dlt-record').click(function () {
+            const confirmed = confirm("Do you really want to delete this record?");
+            const segment = $(this).attr('data-segment');
+            const id = $(this).attr('data-id');
+            const appUrl = "{{env('APP_URL')}}";
+            const token = $('#csrf-token').attr('content');
+
+            console.log(token);
+
+            if(confirmed && segment && id) {
+                $.post( `${appUrl}/admin/${segment}/${id}`, {
+                    _token: token,
+                    _method: 'DELETE'
+                }).done(function( data ) {
+                    if(data) {
+                        const parsed = JSON.parse(data);
+                        if (parsed.status
+                        && parsed.status.toLowerCase() === 'success') {
+                            if (parsed.errors
+                                && parsed.errors.length === 0) {
+                                $("#" + segment + "_" + id).fadeOut();
+                                alert(parsed.message);
+                                location.reload();
+                                return true;
+                            } else if (parsed.errors && parsed.errors.length > 0) {
+                                alert(parsed.errors[0].message);
+                                return true;
+                            }
+                        }
+                    }
+                    alert("Something went wrong");
+                });
+            }
+        });
+        
+        $('#type').on('change', function() {
+            const selected = $(this).val();
+            if(selected === "APARTMENT") {
+                $( "#sub_type" ).prop( "disabled", false );
+            } else {
+                $( "#sub_type" ).prop( "disabled", true );
+                $( "#sub_type" ).val($("#sub_type option:first").val());
+            }
+            
+        })
     });
 </script>

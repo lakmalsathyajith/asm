@@ -112,7 +112,6 @@ class TypeController extends AbstractController
      */
     public function update($id, UpdateTypeRequest $request)
     {
-
         $requestData = $request->all();
 
         try {
@@ -136,11 +135,28 @@ class TypeController extends AbstractController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return string
      */
     public function destroy($id)
     {
-        //
+        $error = [];
+        try {
+            $model = $this->activeRepo->get($id);
+            if (!$model->apartments()->exists()) {
+                return parent::destroy($id);
+            }
+            $error['message'] = "Can't delete the record since this option is already assigned. ".
+                "Please remove the relationship before deleting this record";
+        } catch (\Exception $e) {
+            $error['message'] = $e->getMessage();
+        }
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Something went wrong',
+            null,
+            [$error],
+            200
+        );
     }
 }

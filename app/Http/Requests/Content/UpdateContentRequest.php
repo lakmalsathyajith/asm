@@ -14,6 +14,7 @@ class UpdateContentRequest extends AbstractRequest
             'name'              => "required|min:3|max:100|unique:contents,name,{$this->route()->content},id",
             'slug'              => "required|min:3|max:100|unique:contents,slug,{$this->route()->content},id",
             'type'              => 'required',
+            'sub_type'          => 'required_if:type,APARTMENT',
             'content'           => 'required',
         ];
     }

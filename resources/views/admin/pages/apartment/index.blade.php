@@ -33,7 +33,7 @@
                             </thead>
                             <tbody>
                             @foreach($records as $record)
-                                <tr>
+                                <tr id="apartment_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
                                     <td>{{ $record->name }}</td>
                                     <td>{{ $record->type->name }}</td>
@@ -49,8 +49,10 @@
                                                     <i class="fas fa-edit"></i>
                                                 </div>
                                             </a>
-                                            <a href="{{ route('apartment.destroy', ['apartment' => $record->id]) }}">
-                                                <div class="btn btn-xs">
+                                            <a href="#">
+                                                <div class="btn btn-xs dlt-record"
+                                                     data-segment="apartment"
+                                                     data-id="{{ $record->id }}">
                                                     <i class="fas fa-trash"></i>
                                                 </div>
                                             </a>

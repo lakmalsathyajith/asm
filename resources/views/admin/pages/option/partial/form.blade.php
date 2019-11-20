@@ -22,6 +22,22 @@
                 @endif
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="class_name" class="col-form-label ">{{ __('Class Name') }}</label>
+                <input id="class_name"
+                       type="text"
+                       class="form-control{{ $errors && $errors->has('class_name') ? ' is-invalid' : '' }}"
+                       name="class_name"
+                       value="{{ isset($record) && $record->class_name ? $record->class_name : old('class_name') }}">
+
+                @if ($errors && $errors->has('class_name'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('class_name') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
     </div>
 
     <div class="row">

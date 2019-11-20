@@ -49,6 +49,7 @@ class ContentController extends AbstractController
         $data['title'] = 'Content Manager';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
+        $data['contentSubTypes'] = $this->content->getSubTypes();
         return view('admin.pages.content.create', $data);
     }
 
@@ -67,6 +68,7 @@ class ContentController extends AbstractController
                 'name' => $requestData['name'],
                 'slug' => $requestData['slug'],
                 'type' => $requestData['type'],
+                'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
             ];
 
@@ -89,7 +91,7 @@ class ContentController extends AbstractController
      */
     public function show($id)
     {
-        //
+        //getSubTypes
     }
 
     /**
@@ -109,6 +111,7 @@ class ContentController extends AbstractController
         $data['method'] = 'PUT';
         $data['record'] = $content;
         $data['contentTypes'] = $this->content->getTypes();
+        $data['contentSubTypes'] = $this->content->getSubTypes();
         return view('admin.pages.content.edit', $data);
     }
 
@@ -121,7 +124,6 @@ class ContentController extends AbstractController
      */
     public function update($id, UpdateContentRequest $request)
     {
-
         $requestData = $request->all();
 
         try {
@@ -129,6 +131,7 @@ class ContentController extends AbstractController
                 'name' => $requestData['name'],
                 'slug' => $requestData['slug'],
                 'type' => $requestData['type'],
+                'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
             ];
 
@@ -146,11 +149,28 @@ class ContentController extends AbstractController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return string
      */
     public function destroy($id)
     {
-        //
+        $error = [];
+        try {
+            $model = \App\Entities\Content::find($id);
+            if (!$model->hasRelationship()) {
+                return parent::destroy($id);
+            }
+            $error['message'] = "Can't delete the record since this option is already assigned. ".
+                "Please remove the relationship before deleting this record";
+        } catch (\Exception $e) {
+            $error['message'] = $e->getMessage();
+        }
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Something went wrong',
+            null,
+            [$error],
+            200
+        );
     }
 }

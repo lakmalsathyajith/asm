@@ -63,7 +63,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($records as $record)
-                                            <tr>
+                                            <tr id="file_{{ $record->id }}">
                                                 <th scope="row">{{ $record->id }}</th>
                                                 <td>{{ $record->name }}</td>
                                                 <td>{{ $record->user_id }}</td>
@@ -72,8 +72,10 @@
                                                 <td>{{ $record->created_at }}</td>
                                                 <td>
                                                     <div class="float-right">
-                                                        <a href="{{ route('file.destroy', ['file' => $record->id]) }}">
-                                                            <div class="btn btn-xs">
+                                                        <a href="#">
+                                                            <div class="btn btn-xs dlt-record"
+                                                                 data-segment="file"
+                                                                 data-id="{{ $record->id }}">
                                                                 <i class="fas fa-trash"></i>
                                                             </div>
                                                         </a>
