@@ -1,4 +1,4 @@
 @extends('layouts.main')
 @section('content')
-    <faq></faq>
+    <latest-property></latest-property>
 @stop

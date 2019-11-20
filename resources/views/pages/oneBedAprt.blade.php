@@ -1,4 +1,4 @@
 @extends('layouts.main')
 @section('content')
-    <faq></faq>
+    <one-bed-aprt></one-bed-aprt>
 @stop

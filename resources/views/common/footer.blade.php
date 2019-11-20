@@ -36,7 +36,12 @@
                 </div>
                 <div class="row ftrloct">
                     <div class="col-md-3">
+
                         <div class="footer-widget">
+                            <div class="footer-widget-icon-wrap desktop-hide tab-hide">
+                                <div class="widget-icon"><img src="{{asset('images/maps-and-flags.svg')}}"
+                                        alt="apartmentstays"></div>
+                            </div>
                             <div class="widget-title">
                                 Locate Us
                             </div>
@@ -50,13 +55,18 @@
                     </div>
                     <div class="col-md-3">
                         <div class="footer-widget">
+                            <div class="footer-widget-icon-wrap desktop-hide tab-hide">
+                                <div class="widget-icon"><img src="{{asset('images/call-answer.svg')}}"
+                                        alt="apartmentstays"></div>
+                            </div>
                             <div class="widget-title">
                                 Call us
                             </div>
                             <div class="widget-body">
                                 <div class="widget-icon"><img src="{{asset('images/call-answer.svg')}}" alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <a href="tel:123-456-7890p123">1300 267 767 / +61 3 9279 7200</a>
+                                    <span> <a href="tel:1300 267 767">1300 267 767 </a>/<a href="tel:1300 267 767">+61 3
+                                            9279 7200</a></span>
                                 </div>
                             </div>
                         </div>
@@ -64,6 +74,11 @@
                     </div>
                     <div class="col-md-3">
                         <div class="footer-widget">
+                            <div class="footer-widget-icon-wrap desktop-hide tab-hide">
+                                <div class="widget-icon"><img
+                                        src="{{asset('images/black-back-closed-envelope-shape.svg')}}"
+                                        alt="apartmentstays"></div>
+                            </div>
                             <div class="widget-title">
                                 Mail us
                             </div>
@@ -73,12 +88,28 @@
                                     <a href="mailto:info@apartmentstays.com.au" target="_top">info@apartmentstays.com.au</a>
                                 </div>
                             </div>
+
+                            <div class="mobile-footer-social-wrap">
+                                <ul class="list-inline desktop-hide tab-hide">
+
+                                    <li class="list-inline-item li-social"><a href="#"><i class="ti-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item li-social"><a href="#"><i
+                                                class="ti-twitter-alt"></i></a></li>
+                                    <li class="list-inline-item li-social"><a href="#"><i class="ti-youtube"></i></a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
 
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -121,22 +152,90 @@
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        spaceBetween: 30,
-        centeredSlides: true,
-        // autoplay: {
-        //     delay: 2500,
-        //     disableOnInteraction: false,
-        // },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+    $(document).ready(function() {
+
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+
+setTimeout(function() {
+$('.site-loading-wrap').fadeOut('slow');
+}, 800);
+
+$('.carousel').carousel({
+interval: 2000,
+pause: true
+});
+
+$('.dropdown-menu .filter-widget-inner a').click(function() {
+$(this)
+.parents('.dropdown')
+.find('.btn')
+.html($(this).text() + ' <span class="caret"></span>');
+$(this)
+.parents('.dropdown')
+.find('.btn')
+.val($(this).data('value'));
+
+if ($(this).attr('value') == 'General Enquiry') {
+// $('.accommondation-wrap').hide();
+$('.accommondation-wrap').css('display', 'none');
+} else {
+$('.accommondation-wrap').css('display', 'block');
+// $('.accommondation-wrap').show();
+}
+});
+
+//---------------- swiper slider code. remove it if you dont want it --------------
+if ($('.swiper-container').length) {
+var swiper = new Swiper('.swiper-container', {
+effect: 'fade',
+fadeEffect: {
+crossFade: true
+},
+loop: true,
+speed: 1000,
+centeredSlides: true,
+autoplay: {
+delay: 3000,
+disableOnInteraction: false
+},
+pagination: {
+el: '.swiper-pagination',
+clickable: true
+},
+navigation: {
+nextEl: '.swiper-button-next',
+prevEl: '.swiper-button-prev'
+}
+});
+}
+
+});
+
+
+$(function () {
+  $(".datepicker").datepicker({ 
+        autoclose: true, 
+        todayHighlight: true
+  }).datepicker('update', new Date());
+});
+
+/*mobile filter view js*/
+$(document).ready(function(){
+  $("#mobile-filter-close").click(function(){
+    $(".filter-mob-nav-wrap").toggle("hide");
+  });
+
+  $("#filter-toggle").click(function(){
+
+    $(".filter-mob-nav-wrap").toggle("show");
+  });
+});
+
+
 </script>
 
 

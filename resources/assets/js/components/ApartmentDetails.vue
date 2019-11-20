@@ -29,10 +29,8 @@
                                 <div class="swipeslider">
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide slide1" v-for="(file,i) in selectedApartment.files"
-                                                 v-bind:key="file.id+i"
-                                                 :style="{ backgroundImage: `url(${file.url})` }">
-                                            </div>
+                                            <div class="swiper-slide slide" v-for="(file,i) in selectedApartment.files" v-bind:key="file.id+i"
+                                                        :style="{ backgroundImage: 'url(\'' + file.url + '\')' }"></div>
                                         </div>
                                         <!-- Add Arrows -->
                                         <div class="swiper-button-prev ti-angle-left"></div>
