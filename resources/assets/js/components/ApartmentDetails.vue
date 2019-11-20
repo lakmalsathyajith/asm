@@ -29,7 +29,7 @@
                                 <div class="swipeslider">
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide slide" v-for="(file,i) in selectedApartment.files" v-bind:key="file.id+i" 
+                                            <div class="swiper-slide slide" v-for="(file,i) in selectedApartment.files" v-bind:key="file.id+i"
                                                         :style="{ backgroundImage: 'url(\'' + file.url + '\')' }"></div>
                                         </div>
                                         <!-- Add Arrows -->

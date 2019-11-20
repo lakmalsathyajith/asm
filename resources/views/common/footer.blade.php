@@ -234,12 +234,17 @@ $(document).ready(function(){
   $("#mobile-filter-close").click(function(){
     $(".filter-mob-nav-wrap").toggle("hide");
   });
-  
+
   $("#filter-toggle").click(function(){
-   
+
     $(".filter-mob-nav-wrap").toggle("show");
   });
 });
 
 
 </script>
+
+
+</body>
+
+</html>
