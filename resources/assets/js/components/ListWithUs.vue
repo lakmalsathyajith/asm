@@ -19,7 +19,7 @@
                                         <div class="nav nav-tabs nav-fill mobile-hide faq-mobile-hide" id="nav-tab" role="tablist">
                                             <a class="nav-item nav-link " href="/about">About Us</a>
                                             <a class="nav-item nav-link active" href="/list-with-us">List with Us</a>
-                                            <!-- <a class="nav-item nav-link" href="/latest-property">Latest Property News</a> -->
+                                            <a class="nav-item nav-link" href="./latest-property.html">Latest Property News</a>
                                         </div>
                                     </div>
                                 </div>

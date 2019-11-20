@@ -75,9 +75,16 @@ class UsersController extends AbstractApiController
      * remove this after the implementation
      */
     public function test(){
-        $response1 = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
+        //$response1 = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
         $response2 = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
-        \Log::debug($response1);
-        \Log::debug($response2);
+
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'user added successfully',
+            $response2,
+            200
+        );
+       // \Log::debug($response1);
+       // \Log::debug($response2);
     }
 }

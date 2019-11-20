@@ -32,19 +32,11 @@ Trait XmlTrait
             'stripLineBrakesIfString' => true,
             'removeXmlTagIfString' => true
         ];
+
         $config = array_merge($defaultConfig, $config);
         $object = new \SimpleXMLElement("<$root/>");
-        foreach ($array as $key => $value) {
-            if (is_array($value)) {
-                $new_object = $object->addChild($key);
-                $this->arrayToXml($new_object, $value, $config);
-            } else {
-                if ($key == (int)$key) {
-                    $key = "$key";
-                }
-                $object->addChild($key, $value);
-            }
-        }
+
+        $this->generateXml($array, $object);
 
         if ($config['returnType'] === 'string') {
             $string = $object->asXML();
@@ -58,5 +50,33 @@ Trait XmlTrait
         }
 
         return $object;
+    }
+
+    public function generateXml($array, &$node, $parent = null)
+    {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $split = explode('_', $key,2);
+
+                $parentNode = null;
+                if((is_array($split) && isset($split[1]) && isset($split[0]) && $split[0] === 'key')) {
+                    $parentNode = $split[1];
+                }
+
+                if (!is_numeric($key)) {
+                    if(!$parentNode) {
+                        $subNode = $node->addChild("$key");
+                    }
+                    $theNode = isset($subNode) ? $subNode : $node;
+                    $this->generateXml($value, $theNode, $parentNode);
+                } else {
+                    $childNode = isset($parent) ? $parent :"item$key";
+                    $subNode = $node->addChild($childNode);
+                    $this->generateXml($value, $subNode);
+                }
+            } else {
+                $node->addChild("$key", htmlspecialchars("$value"));
+            }
+        }
     }
 }

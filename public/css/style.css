@@ -8,10 +8,6 @@ body {}
     display: none;
 } */
 
-a {
-    text-decoration: none !important;
-}
-
 section.desktop-nav {
     position: relative;
     display: block;
@@ -34,89 +30,6 @@ section.desktop-nav {
     transition: 0.2s all ease-in-out;
 } */
 
-
-/*start navbar toogle button custom designs*/
-.home-flag-nav{
-    margin-left: -43px;
-}
-.navbar-light .dropdown-toggle::after {
-    background-image: url(../images/studio-apartment/next-white.svg);
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active {
-    outline: 0;
-}
-
-.navbar-light .navbar-nav .nav-link:focus {
-    color: rgb(0, 186, 255);
-}
-
-.navbar-toggler {
-    position: absolute;
-    right: 0;
-}
-
-.navbar-toggler span {
-    display: block;
-    background-color: #444;
-    height: 3px;
-    width: 25px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    position: relative;
-    left: 0;
-    opacity: 1;
-}
-
-.navbar-toggler span:nth-child(1),
-.navbar-toggler span:nth-child(3) {
-    -webkit-transition: transform .35s ease-in-out;
-    -moz-transition: transform .35s ease-in-out;
-    -o-transition: transform .35s ease-in-out;
-    transition: transform .35s ease-in-out;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(1) {
-    position: absolute;
-    left: 12px;
-    top: 10px;
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
-    transform: rotate(135deg);
-    opacity: 0.9;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(2) {
-    height: 12px;
-    visibility: hidden;
-    background-color: transparent;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(3) {
-    position: absolute;
-    left: 12px;
-    top: 10px;
-    -webkit-transform: rotate(-135deg);
-    -moz-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-    opacity: 0.9;
-}
-
-.navbar-light .navbar-toggler {
-    border: none;
-    outline: none;
-}
-
-
-/*End navbar toogle button custom designs*/
-
 .nav-img-reduce-height {
     height: 60px;
 }
@@ -126,7 +39,7 @@ section.desktop-nav {
 }
 
 .desktop-nav .nav-item .nav-link:hover {
-    color: #00baff;
+    color: #ffff;
 }
 
 .desktop-nav .navbar-brand {
@@ -166,7 +79,7 @@ section.desktop-nav .navbar {
     line-height: 22px;
     letter-spacing: 0.5px;
     margin: 0px;
-    padding: 0px 13px;
+    padding: 0px 12px;
     text-transform: uppercase;
     transition: 0.5s;
     color: #ffff;
@@ -285,9 +198,7 @@ span.gap-01 {
     color: #000;
     background-color: #ffffff;
     border-color: #ffffff;
-    text-align: left;
     outline: 0px;
-    width: 100% !important;
     box-shadow: none;
 }
 
@@ -303,7 +214,7 @@ span.gap-01:after {
     position: absolute;
     content: "";
     width: 1px;
-    height: 75px;
+    height: 87px;
     background-color: rgba(0, 186, 255, 0.20);
     right: -10px;
     top: -30px;
@@ -347,7 +258,7 @@ span.gap-01 {
 }
 
 .padding-tb-60 {
-    padding: 40px 0px;
+    padding: 60px 0px;
 }
 
 .inline-flex {
@@ -383,11 +294,7 @@ span.gap-01 {
 
 .booking-form-section .form-group {
     margin-bottom: 0rem;
-    /* padding: 0px 15px; */
-}
-
-.booking-form-section form {
-    margin-bottom: 0rem;
+    padding: 0px 15px;
 }
 
 section.booking-form-section {
@@ -418,11 +325,6 @@ section.booking-form-section {
 
 
 /*dev sameera 2019.10.30 */
-
-.slider-green-text::after {
-    content: "\a";
-    white-space: pre;
-}
 
 .apartment-text {
     padding-top: 17px;
@@ -463,7 +365,7 @@ section.booking-form-section {
     width: 5%;
     color: #BABABA;
     background-image: none;
-    bottom: 50%;
+    bottom: 26%;
 }
 
 .carousel-control-next i,
@@ -509,7 +411,7 @@ section.booking-form-section {
     width: 100%;
     z-index: 9;
     height: 100%;
-    top: 45%;
+    top: 50%;
     left: 45%;
     font-size: 30px;
     color: #FFFFFF;
@@ -624,11 +526,11 @@ section.booking-form-section {
 }
 
 .ftr-top-lst .list-inline-item a:hover {
-    color: #00BAFF;
+    color: #ffffff;
 }
 
 .ftr-top-lst ul li {
-    padding: 28px 12px 23px 0px;
+    padding: 28px 6px 23px 0px;
 }
 
 .ftr-top-lst .rightul {
@@ -638,12 +540,7 @@ section.booking-form-section {
 .divider {
     border-bottom: 1px solid #ffff;
 }
-.dropdown-item{
-    padding: 0px 0px 3px 10px !important;
-}
-.dropdown-item:active {
-    background-color: #00baff !important;
-}
+
 .widget-title {
     text-align: left;
     font-weight: 500;
@@ -688,7 +585,7 @@ section.booking-form-section {
     bottom: 0px;
     background: #00181C;
     width: 100%;
-    padding: 23px 0px 5px 0px;
+    padding: 23px 0px 20px 0px;
 }
 
 .copyright-sec p {
@@ -705,11 +602,6 @@ section.booking-form-section {
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 0.6;
-}
-
-.copyright-sec .creat p a {
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
 .copyright-sec .creat p:hover::after {
@@ -840,7 +732,7 @@ section.booking-form-section {
     background-image: url(../images/studio-apartment/next.svg);
     background-position: center;
     border: none !important;
-    margin-top: 10px;
+    margin-top: 6px;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
 }
@@ -854,7 +746,7 @@ section.booking-form-section {
     background-image: url(../images/studio-apartment/next-hover.svg) !important;
     background-position: center;
     border: none !important;
-    margin-top: 10px;
+    margin-top: 6px;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
 }
@@ -896,11 +788,6 @@ section.booking-form-section {
 
 .filter-widget-inner {
     padding: 5px 13px 13px 13px;
-   
-}
-.filter-widget-inner-drop-list {
-    /* padding: 5px 13px 13px 13px; */
-    padding: 5px 5px 10px 5px !important;
 }
 
 .filter-widget-inner .row .col-md-6.filter-widget-col:first-child {
@@ -1198,10 +1085,7 @@ select {
 .container-fluid-white-background {
     padding-top: 20px;
 }
-.apart-full-description-section{
-    padding-top: 20px;
-    padding-bottom: 35px;
-}
+
 .listing-bottom-icons-wrap .apart-options {
     text-align: left;
     font-size: 14px;
@@ -1507,7 +1391,7 @@ section.top-search-wrap .dropdown.filter-widget button {
     border-radius: 50%;
     margin: auto;
     color: #757575;
-    padding-top: 12px;
+    padding-top: 9px;
     box-shadow: 0px 3px 6px #00000029;
 }
 
@@ -1565,9 +1449,6 @@ section.top-search-wrap .dropdown.filter-widget button {
     font-weight: 500;
     letter-spacing: 0;
     color: #707070;
-}
-.faq-tab-content i{
-    padding-top: 5px;
 }
 
 .faq-tab-content .panel-default.active {
@@ -1627,7 +1508,6 @@ section.top-search-wrap .dropdown.filter-widget button {
 
 .about-section {
     padding-bottom: 0px;
-    padding-top: 38px ;
 }
 
 .banner-img {
@@ -1658,7 +1538,7 @@ section.top-search-wrap .dropdown.filter-widget button {
 }
 
 .about-top-nav {
-    width: 25%;
+    width: 45%;
 }
 
 .head-name h4 {
@@ -1802,9 +1682,7 @@ section.top-search-wrap .dropdown.filter-widget button {
 
 
 /*list with us*/
-.list-with-us{
-    padding-top: 38px;
-}
+
 .accommondation-wrap {
     display: none;
 }

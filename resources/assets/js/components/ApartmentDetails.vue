@@ -29,13 +29,14 @@
                                 <div class="swipeslider">
                                     <div class="swiper-container">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide slide1"></div>
-                                            <div class="swiper-slide slide2"></div>
-                                            <div class="swiper-slide slide3"></div>
+                                            <div class="swiper-slide slide1" v-for="(file,i) in selectedApartment.files"
+                                                 v-bind:key="file.id+i"
+                                                 :style="{ backgroundImage: `url(${file.url})` }">
+                                            </div>
                                         </div>
                                         <!-- Add Arrows -->
-                                        <div class="swiper-button-prev"></div>
-                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev ti-angle-left"></div>
+                                        <div class="swiper-button-next ti-angle-right"></div>
                                     </div>
                                 </div>
                             </div>
@@ -244,8 +245,8 @@
         <section class="apart-full-description-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6" v-html="selectedApartment.contents[0].content"></div>
-                    <div class="col-md-6" v-html="selectedApartment.contents[1].content"></div>
+                    <div class="col-md-6" v-html="getContentBySlug('details')"></div>
+                    <div class="col-md-6" v-html="getContentBySlug('How Much')"></div>
                 </div>
             </div>
         </section>
@@ -258,12 +259,28 @@
     export default {
 
         name: "apartmentDetails",
+        data() {
+            return {
+                slide: 0,
+                sliding: null
+            }
+        },
         mounted() {
             this.getApartment(this.$attrs.id);
         },
         methods:{
             log(message){
                 console.log('-----',message)
+            },
+            getContentBySlug(slug){
+                let contentObj = this.selectedApartment && this.selectedApartment.contents && this.selectedApartment.contents.filter((c)=>{ return c.slug===slug})
+                return contentObj ? contentObj[0].content : "";
+            },
+            onSlideStart(slide) {
+                this.sliding = true
+            },
+            onSlideEnd(slide) {
+                this.sliding = false
             },
             ...mapActions('ratesAndAvailability', ['getApartment'])
         },

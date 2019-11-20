@@ -6,10 +6,6 @@
     display: block !important;
 }
 
-.desktop-hide {
-    display: none !important;
-}
-
 
 /* ## Block Landscape. Paste this HTML to body top*/
 
@@ -51,9 +47,6 @@ i.fa.fa-mobile-phone {
 @media (min-width: 1025px) {
     /* .city-region {
         /* min-width: 300px; */
-    .desktop-hide {
-        display: none !important;
-    }
 }
 
 
@@ -71,20 +64,11 @@ i.fa.fa-mobile-phone {
     .nav-img {
         height: 60px !important;
     }
-    .desktop-hide {
-        display: none;
-    }
-    .list-with-us {
-        padding: 40px 0px;
-    }
 }
 
 @media (min-width: 1900px) {
     .nav-img {
         height: 60px !important;
-    }
-    .desktop-hide {
-        display: none;
     }
     /* .about-section .banner-img {
         background-image: url(../images/about-us/about-banner.jpg);
@@ -104,13 +88,10 @@ i.fa.fa-mobile-phone {
     .nav-img {
         height: 60px;
     }
-    .desktop-hide {
-        display: none;
-    }
     .left-nav li.nav-item a.nav-link,
     .right-nav a.right-link {
-        font-size: 12px;
-        padding: 0px 12px;
+        font-size: 11px;
+        padding: 0px 10px;
     }
     .right-nav a.trans-btn {
         padding: 6px 16px;
@@ -130,9 +111,6 @@ i.fa.fa-mobile-phone {
         width: 100%;
         height: 240px;
     }
-    .list-with-us {
-        padding: 40px 0px;
-    }
 }
 
 
@@ -145,9 +123,6 @@ i.fa.fa-mobile-phone {
     .nav-img {
         height: 60px;
     }
-    .mobile-nav-wrap {
-        display: none;
-    }
     .banner-img {
         background-image: url(../images/about-us/about-banner.jpg);
         background-position: center center;
@@ -155,9 +130,6 @@ i.fa.fa-mobile-phone {
         background-repeat: no-repeat;
         width: 100%;
         height: 240px;
-    }
-    .list-with-us {
-        padding: 40px 0px;
     }
 }
 
@@ -167,19 +139,7 @@ i.fa.fa-mobile-phone {
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .aprtment-img img {
-        width: 100%;
-        min-height: 180px;
-        border-radius: 12px;
-    }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
-    }
-    .desktop-hide {
-        display: none !important;
-    }
-}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {}
 
 
 /* 
@@ -187,14 +147,7 @@ i.fa.fa-mobile-phone {
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    section.desktop-nav .navbar {
-        background: #FFF !important;
-    }
-    .desktop-hide {
-        display: none !important;
-    }
-}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
 
 
 /* 
@@ -209,15 +162,6 @@ i.fa.fa-mobile-phone {
     .modile-hide {
         display: none !important;
     }
-    .desktop-hide {
-        display: none !important;
-    }
-    .banner_content {
-        max-width: 100% !important;
-    }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
-    }
     .aprtment-details {
         height: auto;
     }
@@ -253,11 +197,6 @@ i.fa.fa-mobile-phone {
     .contact-form-right-wrap .content {
         width: 100%;
     }
-    .aprtment-img img {
-        width: 100%;
-        min-height: 180px;
-        border-radius: 12px;
-    }
 }
 
 
@@ -265,138 +204,14 @@ i.fa.fa-mobile-phone {
   ##Device = iPad Portrait
 */
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .mobile-view-hide {
-        display: none !important;
-    }
-    .desktop-hide {
-        display: block !important;
-    }
-    .navbar-brand {
-        width: 100%;
-    }
-    .mobile-nav-wrap .dropdown-toggle::after {
-        background-image: url(../images/studio-apartment/next-white.svg) !important;
-    }
-    .mobile-nav-wrap {
-        background: #003241;
-    }
-    .mobi-nav {
-        position: absolute;
-        top: 92px;
-        width: 400px;
-    }
-    .top-nav-wrap {
-        padding-top: 20px;
-    }
-    .top-nav-wrap ul {
-        padding-bottom: 20px;
-    }
-    .mobile-nav-list-wrap ul {
-        padding: 20px 0px;
-    }
-    .mobile-nav-wrap .left-nav li.nav-item a.nav-link {
-        padding: 15px 0px;
-    }
-    .mobile-nav-bottom-list {
-        padding: 20px 0px;
-    }
-    .navbar-collapse.collapsing {
-        height: auto;
-        -webkit-transition: left 0.3s ease;
-        -o-transition: left 0.3s ease;
-        -moz-transition: left 0.3s ease;
-        transition: left 0.3s ease;
-        left: -100%;
-    }
-    .desktop-home-filter .row .col {
-        padding-right: 7px !important;
-        padding-left: 7px !important;
-    }
-    .navbar-collapse.show {
-        left: 0;
-        -webkit-transition: left 0.3s ease-in;
-        -o-transition: left 0.3s ease-in;
-        -moz-transition: left 0.3s ease-in;
-        transition: left 0.3s ease-in;
-    }
-    /*End Mobile nav changes*/
-    /*Home filter wrap*/
-    .desktop-home-filter .btn {
-        padding: 6px !important;
-    }
-    .booking-form-section .dropdown button.btn {
-        font-size: 12px;
-    }
-    .booking-form-section .form-group .booking-btn {
-        width: 100%;
-        height: auto;
-        font-size: 14px;
-    }
-    .aprtment-details .content-box {
-        margin: 30px 0px;
-    }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 30%;
-    }
-    /*footer wrap*/
-    .ftr-top-lst ul li {
-        padding: 28px 0px 23px 0px;
-    }
-}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {}
 
 
 /* 
   ##Device = iPad Landscape
 */
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .navbar-brand img {
-        height: 40px;
-    }
-    section.desktop-nav .navbar {
-        background-color: #003241 !important;
-    }
-    .left-nav li.nav-item a.nav-link,
-    .right-nav a.right-link {
-        font-size: 10px;
-        font-weight: 600;
-        padding: 0px 8px;
-    }
-    .right-nav {
-        margin-top: -5px !important;
-    }
-    .right-nav span.gap-01 {
-        margin: 0px 5px !important;
-    }
-    .right-nav a.trans-btn {
-        font-size: 10px;
-        font-weight: 600;
-        padding: 3px 7px;
-        margin: 0px;
-    }
-    .right-nav span.gap-01:after {
-        right: -3px;
-        top: -57px;
-    }
-    .padding-tb-60 {
-        padding: 18px 0px;
-    }
-    /*Home filter wrap*/
-    .booking-form-section .dropdown button.btn {
-        padding: 8px 18px;
-        font-size: 14px;
-    }
-    .booking-form-section .form-group .booking-btn {
-        width: 100%;
-        height: auto;
-    }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 30%;
-    }
-}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {}
 
 
 /* ## Device = Most of the Smartphones Mobiles - Portrait and Landscape Both */
@@ -411,9 +226,6 @@ i.fa.fa-mobile-phone {
     section.desktop-nav .navbar {
         background: #FFF !important;
     }
-    .banner_content {
-        max-width: 100% !important;
-    }
     .aprtment-details {
         height: auto;
     }
@@ -453,9 +265,6 @@ i.fa.fa-mobile-phone {
     .contact-form-right-wrap .content {
         width: 100%;
     }
-    .desktop-hide {
-        display: block !important;
-    }
 }
 
 
@@ -467,12 +276,6 @@ i.fa.fa-mobile-phone {
     }
     .modile-hide {
         display: none !important;
-    }
-    .banner_content {
-        max-width: 100% !important;
-    }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
     }
     .aprtment-details {
         height: auto;
@@ -496,10 +299,6 @@ i.fa.fa-mobile-phone {
     .padding-right-para {
         padding-right: 0px;
     }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
-    }
 }
 
 
@@ -511,9 +310,6 @@ i.fa.fa-mobile-phone {
     }
     .modile-hide {
         display: none !important;
-    }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
     }
     .mobile-rotate-wrap {
         display: block !important;
@@ -541,14 +337,6 @@ i.fa.fa-mobile-phone {
     .padding-right-para {
         padding-right: 0px;
     }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
-    }
-
-    .top-search-wrap .dropdown-menu{
-        width: 100% !important;
-    }
 }
 
 @media only screen and (min-device-width: 359px) and (max-device-width: 640px) {
@@ -557,12 +345,6 @@ i.fa.fa-mobile-phone {
     }
     .padding-right-para {
         padding-right: 0px;
-    }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
-    }
-    .banner_content {
-        max-width: 100% !important;
     }
     /*contact section*/
     .contact-form-right-wrap {
@@ -581,9 +363,6 @@ i.fa.fa-mobile-phone {
     .contact-form-right-wrap .content {
         width: 100%;
     }
-    .top-search-wrap .dropdown-menu{
-        width: 100% !important;
-    }
 }
 
 
@@ -591,136 +370,8 @@ i.fa.fa-mobile-phone {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
     .desktop-nav .navbar .nav-img {
-        height: 45px;
-        padding-left: 10px;
+        height: 40px;
     }
-    section.desktop-nav .navbar {
-        background: #FFF !important;
-    }
-    .banner_content {
-        max-width: 283px;
-        padding-top: 65px;
-    }
-    .border-right-white:after {
-        background-color: transparent !important;
-    }
-    .slider-green-text::after {
-        content: " ";
-        white-space: pre;
-    }
-    .desktop-nav .navbar {
-        height: 60px !important;
-    }
-    .devide {
-        color: #fff;
-        font-size: 30px;
-    }
-    .carousel-control-next,
-    .carousel-control-prev {
-        width: 15%;
-    }
-    .navbar-light .navbar-toggler {
-        color: rgb(0, 0, 0);
-        border-color: rgba(0, 0, 0, 0);
-    }
-    h1.banner-text-content {
-        line-height: 36px;
-    }
-    .mobile-home-filter .dropdown button.btn {
-        font-size: 12px;
-        text-align: left;
-        padding: 14px 10px 14px 10px;
-    }
-    .mobile-home-filter .dropdown button.btn i {
-        padding-right: 4px;
-    }
-    .mobile-home-filter .booking-btn {
-        padding: 11px 10px 11px 10px;
-        height: auto;
-    }
-    .mobile-width-100 {
-        width: 100% !important;
-        text-align: center;
-    }
-    .news-box {
-        display: block;
-        margin: 0px auto;
-        text-align: center;
-    }
-    .news-box .sub-heading,
-    .news-box .nws-para,
-    .news-content h6 {
-        text-align: center;
-    }
-    .content-box {
-        margin-top: 0px !important;
-    }
-    .news-box .news-content {
-        padding-right: 0px;
-    }
-    .main-ftr {
-        padding: 20px;
-    }
-    /*mobile nav*/
-    .mobi-nav {
-        width: 100% !important;
-    }
-    .mobile-nav-wrap {
-        background: #003241;
-        margin-top: 15px;
-        padding: 5px 0px;
-        height: calc(100vh - 60px);
-        overflow-y: scroll;
-        width: 0;
-        z-index: 1;
-        top: 0;
-        right: 0;
-    }
-    .mobile-nav-wrap .left-nav li.nav-item a.nav-link {
-        padding: 14px 0px;
-    }
-    .top-nav-wrap ul {
-        padding-bottom: 10px;
-    }
-    .mobile-nav-list-wrap {
-        padding: 10px 0px 10px 0px;
-    }
-    .mobile-nav-list-wrap ul {
-        padding-bottom: 25px;
-    }
-    .navbar-collapse {
-        left: 0;
-        width: 100%;
-    }
-    .navbar-collapse.collapsing {
-        height: auto;
-        -webkit-transition: left 0.3s ease;
-        -o-transition: left 0.3s ease;
-        -moz-transition: left 0.3s ease;
-        transition: left 0.3s ease;
-        left: -100%;
-    }
-    .navbar-collapse.show {
-        left: 0;
-        -webkit-transition: left 0.3s ease-in;
-        -o-transition: left 0.3s ease-in;
-        -moz-transition: left 0.3s ease-in;
-        transition: left 0.3s ease-in;
-    }
-    .mobile-nav-wrap .dropdown-toggle::after {
-        background-image: url(../images/studio-apartment/next-white.svg) !important;
-    }
-    /*End Mobile nav changes*/
-    /*start list with us*/
-    .list-with-us {
-        padding: 35px 0px;
-    }
-    .list-with-us .banner-img {
-        width: 100%;
-        height: 150px;
-    }
-    /*end list with us*/
-    /*complete*/
     section.desktop-nav .navbar {
         background: #FFF !important;
     }
@@ -737,10 +388,10 @@ i.fa.fa-mobile-phone {
         display: inline-block;
     }
     .welcome-paraf-box {
-        margin-top: 200px;
+        margin-top: 280px;
     }
     .booking-form-section {
-        margin-top: 70px;
+        margin-top: 75px;
         opacity: 1;
     }
     .booking-form-section .form-group {
@@ -862,14 +513,6 @@ i.fa.fa-mobile-phone {
         padding-top: 0px;
         text-align: center;
     }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
-    }
-
-    .top-search-wrap .dropdown-menu{
-        width: 100% !important;
-    }
 }
 
 
@@ -910,14 +553,6 @@ i.fa.fa-mobile-phone {
     }
     .contact-form-right-wrap .content {
         width: 100%;
-    }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
-    }
-
-    .top-search-wrap .dropdown-menu{
-        width: 100% !important;
     }
 }
 
@@ -961,10 +596,6 @@ i.fa.fa-mobile-phone {
     .contact-form-right-wrap .content {
         width: 100%;
     }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
-    }
 }
 
 
@@ -990,10 +621,6 @@ i.fa.fa-mobile-phone {
     }
     .contact-form-right-wrap .content {
         width: 100%;
-    }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
     }
 }
 
@@ -1026,10 +653,6 @@ i.fa.fa-mobile-phone {
     }
     .contact-form-right-wrap .content {
         width: 100%;
-    }
-    /*about page wrap*/
-    .about-top-nav {
-        width: 80%;
     }
 }
 
