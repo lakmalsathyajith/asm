@@ -20,4 +20,6 @@ interface AbstractInterface
     public function get($id);
 
     public function pluck($field1, $field2 = null);
+
+    public function getMany($ids);
 }

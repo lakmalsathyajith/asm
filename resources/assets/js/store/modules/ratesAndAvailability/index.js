@@ -2,6 +2,7 @@ import * as actions from './actions';
 import mutations from './mutations';
 
 const state = {
+    isLoading : false,
     apartmentsList : [],
     selectedApartment : {}
 };

@@ -15,8 +15,7 @@ class UsersController extends AbstractApiController
 
     function __construct(
         UserInterface $userRepoInstance
-    )
-    {
+    ) {
         $this->activeRepo = $userRepoInstance;
     }
 
@@ -32,7 +31,7 @@ class UsersController extends AbstractApiController
         $data = [
             'name' => $requestData['name'],
             'email' => $requestData['email'],
-            'password'=> Hash::make($requestData['password'])
+            'password' => Hash::make($requestData['password'])
         ];
 
         $data =  $this->activeRepo->create($data);
@@ -74,17 +73,18 @@ class UsersController extends AbstractApiController
      * This is a test function to demo rms api request
      * remove this after the implementation
      */
-    public function test(){
-        $response1 = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
-        //$response2 = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
+    public function test()
+    {
+        //$response1 = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
+        $response2 = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
 
         return $this->returnResponse(
             $this->getResponseStatus('SUCCESS'),
             'user added successfully',
-            $response1,
+            $response2,
             200
         );
-       // \Log::debug($response1);
-       // \Log::debug($response2);
+        // \Log::debug($response1);
+        // \Log::debug($response2);
     }
 }

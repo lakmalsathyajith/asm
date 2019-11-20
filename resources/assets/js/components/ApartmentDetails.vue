@@ -33,8 +33,8 @@
                                                         :style="{ backgroundImage: 'url(\'' + file.url + '\')' }"></div>
                                         </div>
                                         <!-- Add Arrows -->
-                                        <div class="swiper-button-prev"></div>
-                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev ti-angle-left"></div>
+                                        <div class="swiper-button-next ti-angle-right"></div>
                                     </div>
                                 </div>
                             </div>

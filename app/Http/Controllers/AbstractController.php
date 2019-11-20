@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Traits\ResponseTrait;
 use App\Traits\XmlTrait;
+use Illuminate\Http\Request;
 
 class AbstractController extends Controller
 {
@@ -55,5 +56,24 @@ class AbstractController extends Controller
         } catch (\Exception $e) {
             return $this->returnResponse();
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return string
+     */
+    function showMany(Request $request)
+    {
+        /*try {
+            $data = $this->activeRepo->getMany($ids);
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'records fetched successfully',
+                $data);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }*/
     }
 }

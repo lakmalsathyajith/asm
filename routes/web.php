@@ -18,10 +18,12 @@ Route::get('/', function () {
 Route::get('/apartment-listing', function () {
     return view('pages.apartments.apartments');
 });
+
 Route::get('/apartment/{id}', function (Request $request) {
     $params = $request->route()->parameters;
     return view('pages.apartments.detail', ['params' => $params['id']]);
 });
+
 Route::get('/typical-apartment', function () {
     return view('pages.typicalApartments');
 });
@@ -46,9 +48,11 @@ Route::get('/one-bed-aprt', function () {
 Route::get('/two-bed-aprt', function () {
     return view('pages.twobedApat');
 });
-
 Route::get('/my-shortlist', function () {
-    return view('pages.shortlist');
+    Route::get('/my-shortlist', function () {
+        return view('pages.shortlist');
+        return view('pages.shortlist');
+    });
 });
 Route::get('/faq', function () {
     return view('pages.faq');
