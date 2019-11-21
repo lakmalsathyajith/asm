@@ -254,6 +254,8 @@
 <script>
 
     import {mapState, mapActions} from 'vuex';
+    import Swiper from 'swiper';
+
     export default {
 
         name: "apartmentDetails",
@@ -262,6 +264,29 @@
                 slide: 0,
                 sliding: null
             }
+        },
+        updated(){
+            let swiper = new Swiper('.swiper-container', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                loop: true,
+                speed: 1000,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            });
         },
         mounted() {
             this.getApartment(this.$attrs.id);
