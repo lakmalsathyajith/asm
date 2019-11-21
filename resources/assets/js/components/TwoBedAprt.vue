@@ -198,7 +198,7 @@
        </template>
        <script>
     export default {
-        name: "two-bed-aprt",
+        name: "two-bed-room-apartments",
         mounted() {
             console.log('Component mounted.')
         }

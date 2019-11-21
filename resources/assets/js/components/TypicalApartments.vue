@@ -16,7 +16,7 @@
         <div class="row apartment-type-row">
           <div class="col-md-4">
             <div class="apartment-box">
-              <a href="/studio-aprt">
+              <a href="/studio-apartments">
                 <div class="aprtment-img">
                   <img src="images/aptment-01.png" />
                 </div>
@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-4">
             <div class="apartment-box">
-              <a href="/one-bed-aprt">
+              <a href="/one-bed-room-apartments">
                 <div class="aprtment-img">
                   <img src="images/aptment-02.png" />
                 </div>
@@ -46,7 +46,7 @@
           </div>
           <div class="col-md-4">
             <div class="apartment-box">
-              <a href="/two-bed-aprt">
+              <a href="/two-bed-room-apartments">
                 <div class="aprtment-img">
                   <img src="images/aptment-01.png" />
                 </div>
@@ -187,61 +187,61 @@
             <div class="ameniti-list-wrap" role="tabpanel">
               <div class="emeniti-ul">
                 <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav active">
-                    <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Swimming Pool</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab1" v-on:click="sliderselect"  aria-controls="tab1" role="tab" data-toggle="tab" class="active">Swimming Pool</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Gymnasium</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab2" v-on:click="sliderselect"  aria-controls="tab2" role="tab" data-toggle="tab">Gymnasium</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Spa</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab3" v-on:click="sliderselect"  aria-controls="tab3" role="tab" data-toggle="tab">Spa</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Sauna</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab4" v-on:click="sliderselect"  aria-controls="tab4" role="tab" data-toggle="tab">Sauna</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Steam Room</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab5" v-on:click="sliderselect"  aria-controls="tab5" role="tab" data-toggle="tab">Steam Room</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Tennis Court</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab6" v-on:click="sliderselect"  aria-controls="tab4" role="tab" data-toggle="tab">Tennis Court</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Theatre Room</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab7" v-on:click="sliderselect"  aria-controls="tab4" role="tab" data-toggle="tab">Theatre Room</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
+                  <li role="presentation" class="brand-nav ameniti-nav">
                     <a
-                      href="#tab4"
-                      aria-controls="tab4"
+                      href="#tab8"
+                      v-on:click="sliderselect"  aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
                     >Resident BBQ Area</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
+                  <li role="presentation" class="brand-nav ameniti-nav">
                     <a
-                      href="#tab4"
-                      aria-controls="tab4"
+                      href="#tab9"
+                      v-on:click="sliderselect"  aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
                     >Resident’s Loungeroom</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Concierge</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab10" v-on:click="sliderselect"  aria-controls="tab4" role="tab" data-toggle="tab">Concierge</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
-                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Rock Climbing</a>
+                  <li role="presentation" class="brand-nav ameniti-nav">
+                    <a href="#tab11" v-on:click="sliderselect"  aria-controls="tab4" role="tab" data-toggle="tab">Rock Climbing</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
+                  <li role="presentation" class="brand-nav ameniti-nav">
                     <a
-                      href="#tab4"
-                      aria-controls="tab4"
+                      href="#tab12"
+                      v-on:click="sliderselect"  aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
                     >Amazing Building Lobby</a>
                   </li>
-                  <li role="presentation" v-on:click="sliderselect" class="brand-nav">
+                  <li role="presentation" class="brand-nav ameniti-nav">
                     <a
-                      href="#tab4"
-                      aria-controls="tab4"
+                      href="#tab13"
+                      v-on:click="sliderselect"  aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
                     >Bicycle Storage</a>
@@ -301,34 +301,255 @@
                     </div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="tab3">
-                  <p>
-                    Lorem ipsizzle dolor away amizzle, consectetuer pizzle elizzle. Nullizzle yo velizzle, check it out volutpizzle, quis, gravida vel, yo.
-                    Ma nizzle eget tortor. Sizzle eros. My shizz izzle dolizzle gizzle turpis tempizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle.
-                    Maurizzle pellentesque nibh izzle own yo'. Check it out in tortor. Pellentesque fizzle rhoncizzle nisi.
-                  </p>
-                  <p>
-                    In hac habitasse platea dictumst. Shizzlin dizzle dapibus. You son of a bizzle tellizzle urna, pretizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle,
-                    ghetto ac, check it out vitae, nunc. Shizzlin dizzle suscipizzle. Integizzle sempizzle velit sizzle dizzle.
-                  </p>
+                <div role="tabpanel" class="tab-pane" id="tab3"> 
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tab4">
-                  <p>
-                    Collaboratively administrate empowered markets via plug-and-play networks.
-                    Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without
-                    revolutionary ROI.
-                  </p>
-                  <p>
-                    Efficiently unleash cross-media information without cross-media value.
-                    Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
-                    solutions without functional solutions.
-                  </p>
-                  <p>
-                    Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate
-                    one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service
-                    for state of the art customer service.
-                  </p>
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="tab5">  
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab6">
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab7"> 
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>               
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="tab8">
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="tab9"> 
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab10">
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab11"> 
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab12">
+                  <div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab13">
+<div class="ameniti-swipe-slider">
+                    <div class="swipeslider">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/studio-apartment/Image-slider.png')"
+                          ></div>
+                          <div
+                            class="swiper-slide slide"
+                            style="background-image:url('../images/onebed-apartment/Image-slider.png')"
+                          ></div>
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -344,7 +565,9 @@ export default {
     console.log("Component mounted.");
   },
   methods: {
-    sliderselect: function() {
+    sliderselect: function(event) {
+      $("li.brand-nav.ameniti-nav a").removeClass('active');
+      event.target.className = "active";
       setTimeout(function() {
         var swiper = new Swiper(".swiper-container", {
           effect: "fade",
