@@ -203,7 +203,7 @@
        </template>
        <script>
     export default {
-        name: "one-bed-aprt",
+        name: "one-bed-room-apartments",
         mounted() {
             console.log('Component mounted.')
         }

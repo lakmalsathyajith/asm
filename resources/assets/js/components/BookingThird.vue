@@ -62,9 +62,9 @@
                             <div class="col-md-12">
                                 <ul class="nav nav-wizard">
 
-                                    <li><a href="./booking1.html"> Step 1</a></li>
-                                    <li><a href="./booking2.html">Step 2</a></li>
-                                    <li class="active"><a href="./booking3.html">Step 3</a></li>
+                                    <li><a href="/booking-first"> Step 1</a></li>
+                                    <li><a href="/booking-second">Step 2</a></li>
+                                    <li class="active"><a href="/booking-third">Step 3</a></li>
 
 
                                 </ul>
@@ -315,7 +315,7 @@
        </template>
        <script>
     export default {
-        name: "booking-Third",
+        name: "booking-third",
         mounted() {
             console.log('Component mounted.')
         }

@@ -49,10 +49,10 @@ Route::get('/two-bed-room-apartments', function () {
     return view('pages.twobedApat');
 });
 Route::get('/my-shortlist', function () {
-    Route::get('/my-shortlist', function () {
+    
+        
         return view('pages.shortlist');
-        return view('pages.shortlist');
-    });
+   
 });
 Route::get('/faq', function () {
     return view('pages.faq');

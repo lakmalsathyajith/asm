@@ -918,6 +918,9 @@ i.fa.fa-mobile-phone {
     .top-search-wrap .dropdown-menu{
         width: 100% !important;
     }
+    .wizard-row .nav-wizard>li>a{
+        padding: 6px 15px 10px 10px !important;
+    }
 }
 
 

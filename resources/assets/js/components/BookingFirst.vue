@@ -910,7 +910,7 @@
        </template>
        <script>
     export default {
-        name: "booking-first",
+        name: "BookingFirst",
         mounted() {
             console.log('Component mounted.')
         }

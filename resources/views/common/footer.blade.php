@@ -235,4 +235,38 @@ $(document).ready(function(){
 });
 
 
+
+</script>
+
+<script>
+    function toggleChevron(e) {
+        $(e.target)
+            .prev('.panel-heading')
+            .find("i.indicator")
+            .toggleClass('ti-angle-up ti-angle-down');
+    }
+    $('#accordion').on('hidden.bs.collapse', toggleChevron);
+    $('#accordion').on('shown.bs.collapse', toggleChevron);
+</script>
+
+<script>
+    $(document).ready(function() {
+
+        $('.worker-info-radio').on('change', function() {
+            $('.student-info').css("display", "none");
+            $('.radio-label-work').css("color", "#00BAFF");
+            $('.radio-label-student').css("color", "#414141");
+            $('.worker-info').css("display", "block");
+        })
+        $('.student-info-radio').on('change', function() {
+            $('.worker-info').css("display", "none");
+            $('.radio-label-student').css("color", "#00BAFF");
+            $('.radio-label-work').css("color", "#414141");
+            $('.student-info').css("display", "block");
+        })
+    });
+
+    $('#apartment-review-Indicators').carousel({
+    interval: 5000
+});
 </script>
