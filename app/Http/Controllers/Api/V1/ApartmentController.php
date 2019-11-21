@@ -12,7 +12,8 @@ class ApartmentController extends AbstractApiController
 {
     function __construct(
         ApartmentInterface $apartmentRepoInstance
-    ) {
+    )
+    {
         $this->activeRepo = $apartmentRepoInstance;
     }
 
@@ -27,8 +28,7 @@ class ApartmentController extends AbstractApiController
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'records fetched successfully',
-                $data
-            );
+                $data);
         } catch (\Exception $e) {
             return $this->returnResponse();
         }
@@ -67,8 +67,7 @@ class ApartmentController extends AbstractApiController
             ->whereIn('rms_key', $ids)->get();
     }
 
-    public function getAvailableRoomTypes()
-    {
+    public function getAvailableRoomTypes(){
 
         $response = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
         return $this->returnResponse(

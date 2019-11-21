@@ -13,6 +13,7 @@ class StoreOptionRequest extends AbstractRequest
         return [
             'name'              => 'required|min:3|max:100|unique:options,name',
             'description'       => 'required',
+            'class_name'        => 'max:25',
         ];
     }
 

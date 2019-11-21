@@ -29,7 +29,7 @@
                             </thead>
                             <tbody>
                             @foreach($records as $record)
-                                <tr>
+                                <tr id="option_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
                                     <td>{{ $record->name }}</td>
                                     <td>{{ $record->description }}</td>
@@ -41,8 +41,10 @@
                                                     <i class="fas fa-edit"></i>
                                                 </div>
                                             </a>
-                                            <a href="{{ route('option.destroy', ['option' => $record->id]) }}">
-                                                <div class="btn btn-xs">
+                                            <a href="#">
+                                                <div class="btn btn-xs dlt-record"
+                                                     data-segment="option"
+                                                     data-id="{{ $record->id }}">
                                                     <i class="fas fa-trash"></i>
                                                 </div>
                                             </a>

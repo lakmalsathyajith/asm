@@ -64,7 +64,8 @@ class OptionController extends AbstractController
             $requestData = $request->all();
             $data = [
                 'name' => $requestData['name'],
-                'description' => $requestData['description']
+                'description' => $requestData['description'],
+                'class_name' => $requestData['class_name']
             ];
 
             $this->activeRepo->create($data);
@@ -118,13 +119,13 @@ class OptionController extends AbstractController
      */
     public function update($id, UpdateOptionRequest $request)
     {
-
         try {
             $requestData = $request->all();
 
             $data = [
                 'name' => $requestData['name'],
                 'description' => $requestData['description'],
+                'class_name' => $requestData['class_name'],
             ];
 
             $this->activeRepo->findAndUpdate($id, $data);
@@ -141,11 +142,28 @@ class OptionController extends AbstractController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return string
      */
     public function destroy($id)
     {
-        //
+        $error = [];
+        try {
+            $model = $this->activeRepo->get($id);
+            if (!$model->apartments()->exists()) {
+                return parent::destroy($id);
+            }
+            $error['message'] = "Can't delete the record since this option is already assigned. ".
+            "Please remove the relationship before deleting this record";
+        } catch (\Exception $e) {
+            $error['message'] = $e->getMessage();
+        }
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Something went wrong',
+            null,
+            [$error],
+            200
+        );
     }
 }

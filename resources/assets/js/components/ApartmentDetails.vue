@@ -243,8 +243,8 @@
         <section class="apart-full-description-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6" v-html="getContentBySlug('details')"></div>
-                    <div class="col-md-6" v-html="getContentBySlug('How Much')"></div>
+                    <div class="col-md-6" v-html="getContentBySubType('DETAILS')"></div>
+                    <div class="col-md-6" v-html="getContentBySubType('HOW_MUCH')"></div>
                 </div>
             </div>
         </section>
@@ -270,9 +270,11 @@
             log(message){
                 console.log('-----',message)
             },
-            getContentBySlug(slug){
-                let contentObj = this.selectedApartment && this.selectedApartment.contents && this.selectedApartment.contents.filter((c)=>{ return c.slug===slug})
-                return contentObj ? contentObj[0].content : "";
+            getContentBySubType(subType){
+                let contentObj = this.selectedApartment && this.selectedApartment.contents && this.selectedApartment.contents.filter((c)=>{
+                    return c.sub_type===subType
+                });
+                return contentObj && contentObj[0] ? contentObj[0].content : "";
             },
             onSlideStart(slide) {
                 this.sliding = true

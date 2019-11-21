@@ -186,11 +186,27 @@ class ApartmentController extends AbstractController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return string
      */
     public function destroy($id)
     {
-        //
+        $error = [];
+        try {
+            $model = $this->activeRepo->get($id);
+            $model->contents()->detach();
+            $model->files()->detach();
+            $model->options()->detach();
+            return parent::destroy($id);
+        } catch (\Exception $e) {
+            $error['message'] = $e->getMessage();
+        }
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Something went wrong',
+            null,
+            [$error],
+            200
+        );
     }
 }

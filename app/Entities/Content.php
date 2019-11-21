@@ -3,13 +3,17 @@
 namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Content extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'name',
         'slug',
         'type',
+        'sub_type',
         'content'
     ];
 
@@ -23,6 +27,14 @@ class Content extends Model
         'Apartment' => 'APARTMENT',
         'Option' => 'OPTION',
         'Page' => 'PAGE'
+    ];
+
+    protected $subTypes = [
+        'APARTMENT' => [
+            'Select Sub Type'   => null,
+            'Details'   => 'DETAILS',
+            'How Much'  => 'HOW_MUCH',
+        ]
     ];
 
     /**
@@ -49,5 +61,19 @@ class Content extends Model
         }
 
         return null;
+    }
+
+    public function getSubTypes($category = 'APARTMENT')
+    {
+        return $this->subTypes[$category];
+    }
+
+    public function hasRelationship()
+    {
+        $count = Content::where('contents.id', $this->id)
+            ->join('contentables', 'contents.id', '=', 'contentables.content_id')
+            ->count();
+
+        return ($count > 0);
     }
 }

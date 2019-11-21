@@ -68,6 +68,29 @@
                 @endif
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="sub_type" class="col-form-label">{{ __('Sub Type') }}</label>
+                <select
+                        id="sub_type"
+                        class="form-control {{ $errors && $errors->has('sub_type') ? ' is-invalid' : '' }}"
+                        name="sub_type"
+                        {{isset($record) && isset($record->type) && $record->type !== "APARTMENT" ? 'disabled="disabled"' : ''}}>
+                    @foreach($contentSubTypes as $label => $value)
+                        <option
+                                {{isset($record) && isset($record->sub_type) && $record->sub_type === $value ? 'selected="selected"' : ''}}
+                                value="{{ $value }}">{{ $label }}
+                        </option>
+                    @endforeach
+                </select>
+
+                @if ($errors && $errors->has('sub_type'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('sub_type') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
     </div>
 
     <div class="row">
@@ -81,9 +104,9 @@
                     {{ isset($record) && $record->content ? $record->content : old('content') }}
                 </textarea>
 
-                @if ($errors && $errors->has('type'))
+                @if ($errors && $errors->has('content'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('type') }}</strong>
+                        <strong>{{ $errors->first('content') }}</strong>
                     </span>
                 @endif
             </div>

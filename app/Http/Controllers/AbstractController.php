@@ -59,6 +59,25 @@ class AbstractController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return string
+     */
+    function destroy($id)
+    {
+        try {
+            $data = $this->activeRepo->delete($id);
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'record deleted successfully',
+                $data);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param Request $request

@@ -14,6 +14,7 @@ class StoreContentRequest extends AbstractRequest
             'name'              => 'required|min:3|max:100|unique:contents,name',
             'slug'              => 'required|min:3|max:100,slug',
             'type'              => 'required',
+            'sub_type'          => 'required_if:type,APARTMENT',
             'content'           => 'required',
         ];
     }

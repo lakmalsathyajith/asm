@@ -13,6 +13,7 @@ class UpdateOptionRequest extends AbstractRequest
         return [
             'name'              => "required|min:3|max:100|unique:options,name,{$this->route()->option},id",
             'description'       => 'required',
+            'class_name'        => 'max:25',
         ];
     }
 
