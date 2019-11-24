@@ -84,59 +84,59 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                  <div class="dropdown filter-widget">
-                      <label for="checkin" class="filter-widget-sublabel"
+                      <div class="dropdown filter-widget">
+                        <label for="checkin" class="filter-widget-sublabel"
                           >Check-In</label
                         >
-                    <button
-                      class="btn dropdown-toggle flter-button"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="ti-location-pin"></i><span> Check-In</span>
-                    </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="checkin"
-                                class="filter-widget-sublabel"
-                                >Check-In</label
-                              >
-                              <Datepicker
-                                v-model="filter.checkIn"
-                                placeholder="Check In"
-                                class="form-control asm-input"
-                              ></Datepicker>
-                            </div>
-                          </div>
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="checkout"
-                                class="filter-widget-sublabel"
-                                >Check-Out</label
-                              >
-                              <Datepicker
-                                v-model="filter.checkOut"
-                                placeholder="Check Out"
-                                class="form-control asm-input"
-                              ></Datepicker>
+                        <button
+                          class="btn dropdown-toggle flter-button"
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="ti-location-pin"></i><span> Check-In</span>
+                        </button>
+                        <div
+                          class="dropdown-menu filter-widget-dropdown"
+                          aria-labelledby="dropdownMenuButton"
+                        >
+                          <div class="filter-widget-inner">
+                            <div class="row">
+                              <div class="col-md-6 filter-widget-col">
+                                <div class="form-group">
+                                  <label
+                                    for="checkin"
+                                    class="filter-widget-sublabel"
+                                    >Check-In</label
+                                  >
+                                  <Datepicker
+                                    v-model="filter.checkIn"
+                                    placeholder="Check In"
+                                    class="form-control asm-input"
+                                  ></Datepicker>
+                                </div>
+                              </div>
+                              <div class="col-md-6 filter-widget-col">
+                                <div class="form-group">
+                                  <label
+                                    for="checkout"
+                                    class="filter-widget-sublabel"
+                                    >Check-Out</label
+                                  >
+                                  <Datepicker
+                                    v-model="filter.checkOut"
+                                    placeholder="Check Out"
+                                    class="form-control asm-input"
+                                  ></Datepicker>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel"
@@ -184,7 +184,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                          <label for="checkin" class="filter-widget-sublabel"
+                        <label for="checkin" class="filter-widget-sublabel"
                           >Guest Number</label
                         >
                         <button
@@ -342,8 +342,8 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex';
-import moment from 'moment';
-import Datepicker from 'vuejs-datepicker';
+import Swiper from 'swiper';
+
 export default {
   name: 'apartmentDetails',
   data() {
@@ -356,10 +356,33 @@ export default {
         type: '',
         adults: 1,
         children: 0,
-        price_min:0,
-        price_max:0
+        price_min: 0,
+        price_max: 0
       }
     };
+  },
+  updated() {
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 1000,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
   },
   mounted() {
     this.getApartment(this.$attrs.id);
@@ -390,9 +413,6 @@ export default {
   },
   computed: {
     ...mapState('ratesAndAvailability', ['selectedApartment'])
-  },
-  components: {
-    Datepicker
   }
 };
 </script>

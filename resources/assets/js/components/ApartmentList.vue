@@ -2,7 +2,7 @@
   <div>
     <div
       class="preloader"
-      v-if="isLoading"
+      v-if="a"
       :style="{
         position: 'fixed',
         height: '100%',
@@ -57,7 +57,14 @@
                         <div
                           class="filter-widget-inner filter-widget-inner-drop-list"
                         >
-                          <a v-for="(state, i) in states" v-bind:key="i" class="dropdown-item" href="#." v-on:click="selectState(state)">{{state}}</a>
+                          <a
+                            v-for="(state, i) in states"
+                            v-bind:key="i"
+                            class="dropdown-item"
+                            href="#."
+                            v-on:click="selectState(state)"
+                            >{{ state }}</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -84,7 +91,14 @@
                         <div
                           class="filter-widget-inner filter-widget-inner-drop-list"
                         >
-                          <a v-for="(suburb, i) in suburbs" v-bind:key="i" class="dropdown-item" href="#." v-on:click="selectSuburb(suburb)">{{suburb}}</a>
+                          <a
+                            v-for="(suburb, i) in suburbs"
+                            v-bind:key="i"
+                            class="dropdown-item"
+                            href="#."
+                            v-on:click="selectSuburb(suburb)"
+                            >{{ suburb }}</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -116,18 +130,16 @@
                       aria-labelledby="dropdownMenuButton"
                     >
                       <div
-                              class="filter-widget-inner filter-widget-inner-drop-list"
-                            >
-                              <a class="dropdown-item studio-apartments" href="#.." v-on:click="selectType('studio-apartments')"
-                                >Studio Apartments</a
-                              >
-                              <a class="dropdown-item one-bed-room-apartments" href="#.." v-on:click="selectType('one-bed-room-apartments')"
-                                >One Bedroom Apartments</a
-                              >
-                              <a class="dropdown-item two-bed-room-apartments" href="#.." v-on:click="selectType('two-bed-room-apartments')"
-                                >Two Bedroom Apartments</a
-                              >
-                            </div>
+                        class="filter-widget-inner filter-widget-inner-drop-list"
+                      >
+                        <a class="dropdown-item" href="#">Studio Apartment</a>
+                        <a class="dropdown-item" href="#"
+                          >One Bedroom Apartment</a
+                        >
+                        <a class="dropdown-item" href="#"
+                          >Two Bedroom Apartment</a
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -163,7 +175,9 @@
                                 v-model="filter.checkIn"
                                 placeholder="Check In"
                                 class="form-control asm-input"
-                                :disabledDates="{ to: new Date(Date.now() - 8640000)}"
+                                :disabledDates="{
+                                  to: new Date(Date.now() - 8640000)
+                                }"
                               ></Datepicker>
                             </div>
                           </div>
@@ -178,7 +192,12 @@
                                 v-model="filter.checkOut"
                                 placeholder="Check Out"
                                 class="form-control asm-input"
-                                :disabledDates="{ to: (filter.checkIn !== '') ? filter.checkIn : new Date(Date.now())}"
+                                :disabledDates="{
+                                  to:
+                                    filter.checkIn !== ''
+                                      ? filter.checkIn
+                                      : new Date(Date.now())
+                                }"
                               ></Datepicker>
                             </div>
                           </div>
@@ -249,70 +268,70 @@
                 </div>
               </div>
               <!-- <div class="col p-0 filter-top-widget filter-left-border">
-                <div class="form-group">
-                  <div class="dropdown filter-widget">
-                    <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="ti-location-pin"></i><span>Beds Min-Max</span>
-                    </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="checkin"
-                                class="filter-widget-sublabel"
-                                >Min. Bed</label
-                              >
-                              <select
-                                class="form-control asm-input"
-                                id="Min-beds"
-                              >
-                                <option>Any</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="checkout"
-                                class="filter-widget-sublabel"
-                                >Max. Bed</label
-                              >
-                              <select
-                                class="form-control asm-input"
-                                id="Max-beds"
-                              >
-                                <option>Any</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+                              <div class="form-group">
+                                <div class="dropdown filter-widget">
+                                  <button
+                                    class="btn dropdown-toggle flter-button filter-border-none-btn"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                  >
+                                    <i class="ti-location-pin"></i><span>Beds Min-Max</span>
+                                  </button>
+                                  <div
+                                    class="dropdown-menu filter-widget-dropdown"
+                                    aria-labelledby="dropdownMenuButton"
+                                  >
+                                    <div class="filter-widget-inner">
+                                      <div class="row">
+                                        <div class="col-md-6 filter-widget-col">
+                                          <div class="form-group">
+                                            <label
+                                              for="checkin"
+                                              class="filter-widget-sublabel"
+                                              >Min. Bed</label
+                                            >
+                                            <select
+                                              class="form-control asm-input"
+                                              id="Min-beds"
+                                            >
+                                              <option>Any</option>
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6 filter-widget-col">
+                                          <div class="form-group">
+                                            <label
+                                              for="checkout"
+                                              class="filter-widget-sublabel"
+                                              >Max. Bed</label
+                                            >
+                                            <select
+                                              class="form-control asm-input"
+                                              id="Max-beds"
+                                            >
+                                              <option>Any</option>
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> -->
               <div class="col p-0 filter-top-widget filter-left-border">
                 <div class="form-group">
                   <div class="dropdown filter-widget">
@@ -374,91 +393,91 @@
               </div>
 
               <!-- <div class="col p-0 filter-top-widget filter-left-border">
-                <div class="form-group">
-                  <div class="dropdown filter-widget">
-                    <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="ti-location-pin"></i><span>Location</span>
-                    </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-12 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="Location"
-                                class="filter-widget-sublabel"
-                                >Building</label
-                              >
-                              <select
-                                class="form-control asm-input"
-                                id="Building"
-                              >
-                                <option>Any</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12 filter-widget-col">
-                            <div class="form-group">
-                              <label
-                                for="Location"
-                                class="filter-widget-sublabel"
-                                >More Features</label
-                              >
-                              <div class="row">
-                                <div class="class col-md-12">
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="checkbox"
-                                      id="inlineCheckbox1"
-                                      value="Balcony"
-                                    />
-                                    <label
-                                      class="form-check-label"
-                                      for="Balcony"
-                                      >Balcony</label
-                                    >
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="checkbox"
-                                      id="inlineCheckbox1"
-                                      value="Parking"
-                                    />
-                                    <label
-                                      class="form-check-label"
-                                      for="Parking"
-                                      >Parking</label
-                                    >
+                              <div class="form-group">
+                                <div class="dropdown filter-widget">
+                                  <button
+                                    class="btn dropdown-toggle flter-button filter-border-none-btn"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                  >
+                                    <i class="ti-location-pin"></i><span>Location</span>
+                                  </button>
+                                  <div
+                                    class="dropdown-menu filter-widget-dropdown"
+                                    aria-labelledby="dropdownMenuButton"
+                                  >
+                                    <div class="filter-widget-inner">
+                                      <div class="row">
+                                        <div class="col-md-12 filter-widget-col">
+                                          <div class="form-group">
+                                            <label
+                                              for="Location"
+                                              class="filter-widget-sublabel"
+                                              >Building</label
+                                            >
+                                            <select
+                                              class="form-control asm-input"
+                                              id="Building"
+                                            >
+                                              <option>Any</option>
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 filter-widget-col">
+                                          <div class="form-group">
+                                            <label
+                                              for="Location"
+                                              class="filter-widget-sublabel"
+                                              >More Features</label
+                                            >
+                                            <div class="row">
+                                              <div class="class col-md-12">
+                                                <div class="form-check form-check-inline">
+                                                  <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="inlineCheckbox1"
+                                                    value="Balcony"
+                                                  />
+                                                  <label
+                                                    class="form-check-label"
+                                                    for="Balcony"
+                                                    >Balcony</label
+                                                  >
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                  <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="inlineCheckbox1"
+                                                    value="Parking"
+                                                  />
+                                                  <label
+                                                    class="form-check-label"
+                                                    for="Parking"
+                                                    >Parking</label
+                                                  >
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+                            </div> -->
               <div class="col p-0 filter-top-widget">
                 <div class="form-group">
                   <div class="filter-widget">
@@ -540,7 +559,7 @@
                           <div
                             class="filter-widget-inner filter-widget-inner-drop-list"
                           >
-                            <a href="#." class="dropdown-item">Action</a>
+                           <a href="#." class="dropdown-item">Action</a>
                             <a href="#." class="dropdown-item">Another action</a>
                             <a href="#." class="dropdown-item"
                               >Something else here</a
@@ -1043,7 +1062,7 @@
                       type="button"
                       id="filter-toggle"
                       data-toggle="collapse"
-                      data-target="#.filterCollapse"
+                      data-target="#filterCollapse"
                       aria-controls="navbarCollapse"
                       aria-expanded="false"
                       aria-label="Toggle navigation"
@@ -1213,8 +1232,11 @@
                               <div
                                 class="swiper-slide slide"
                                 v-for="(file, i) in apartment.files"
-                                v-bind:key="file.id + i"
-                                :style="{ backgroundImage: `url(${file.url})` }"
+                                v-bind:key="file.url + i"
+                                v-bind:style="{
+                                  color: 'red',
+                                  backgroundImage: `url(${file.url})`
+                                }"
                               ></div>
                             </div>
                             <div class="swiper-button-prev"></div>
@@ -1262,7 +1284,7 @@
                             v-bind:key="i"
                           >
                             <div :class="'facility icon '+ option.class_name">
-                              
+
                             </div>
                             <div class="facility-name">
                               <p>{{ option.name }}</p>
@@ -1312,13 +1334,15 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import Datepicker from 'vuejs-datepicker';
+import Swiper from 'swiper';
+
 export default {
   name: 'apartments',
   data() {
     return {
       slide: 0,
       sliding: null,
-      pageSize: 6,
+      pageSize: 3,
       currentPage: 1,
       states:[],
       suburbs:[],
@@ -1379,7 +1403,30 @@ export default {
         this.getApartmentsList(); 
       }
   },
-  methods: {
+  updated() {
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 1000,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  },
+methods: {
     selectType(type){
       this.filter.type = type;
     },
@@ -1399,6 +1446,9 @@ export default {
         .catch(err => {
           console.log('---err----', err);
         });
+    },
+    log(message) {
+      console.log('-----', message);
     },
     onSlideStart(slide) {
       this.sliding = true;
@@ -1452,7 +1502,7 @@ export default {
 
 <style>
 .filter-widget-inner.filter-widget-inner-drop-list {
-    max-height: 250px;
-    overflow-y: auto;
+  max-height: 250px;
+  overflow-y: auto;
 }
 </style>
