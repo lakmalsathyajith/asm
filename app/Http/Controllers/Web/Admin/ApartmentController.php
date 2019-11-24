@@ -12,6 +12,8 @@ use App\Http\Controllers\AbstractController;
 use App\Http\Requests\Apartment\StoreApartmentRequest;
 use App\Http\Requests\Apartment\UpdateApartmentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ApartmentController extends AbstractController
 {
@@ -27,8 +29,7 @@ class ApartmentController extends AbstractController
         FileInterface $fileRepoInstance,
         OptionInterface $optionRepoInstance,
         TypeInterface $typeRepoInstance
-    )
-    {
+    ) {
         $this->middleware('auth');
 
         $this->activeRepo = $apartmentRepoInstance;
@@ -71,7 +72,8 @@ class ApartmentController extends AbstractController
                 array_push($data['counts'], $value);
             }
         }
-
+        $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray();
+        $data['states'] = $states;
         return view('admin.pages.apartment.create', $data);
     }
 
@@ -93,7 +95,9 @@ class ApartmentController extends AbstractController
                 'map_url' => $requestData['map_url'],
                 'parking_slots' => $requestData['parking_slots'],
                 'beds' => $requestData['beds'],
-                'rms_key' => $requestData['rms_key']
+                'rms_key' => $requestData['rms_key'],
+                'state' => $requestData['state'],
+                'suburb' => $requestData['suburb']
             ];
 
             $data = $this->activeRepo->create($data);
@@ -141,6 +145,8 @@ class ApartmentController extends AbstractController
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
         $data['options'] = $this->option->pluck('name');
+        $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray();
+        $data['states'] = $states;
         return view('admin.pages.apartment.edit', $data);
     }
 
@@ -163,7 +169,9 @@ class ApartmentController extends AbstractController
                 'map_url' => $requestData['map_url'],
                 'parking_slots' => $requestData['parking_slots'],
                 'beds' => $requestData['beds'],
-                'rms_key' => $requestData['rms_key']
+                'rms_key' => $requestData['rms_key'],
+                'state' => $requestData['state'],
+                'suburb' => $requestData['suburb']
             ];
 
             $apartment = $this->activeRepo->get($id);
@@ -208,5 +216,19 @@ class ApartmentController extends AbstractController
             [$error],
             200
         );
+    }
+
+    public function getSuburb(Request $request)
+    {
+        try {
+            $data = $request->all();
+            $states = DB::table('postal_codes')->where('state_name', $data['state'])->distinct('suburb')->pluck('suburb')->toArray() ;
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'records fetched successfully',
+                $states);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }
     }
 }

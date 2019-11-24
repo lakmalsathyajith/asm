@@ -41,9 +41,9 @@ i.fa.fa-mobile-phone {
     z-index: 999999999;
 }
 
-.availabilty {
+/* .availabilty {
     padding-top: 25px;
-}
+} */
 
 
 /*Devices larger than 1024*/
@@ -63,10 +63,10 @@ i.fa.fa-mobile-phone {
 
 @media (min-width: 1601px) {
     .head-stud-apart {
-        margin-top: 55px;
+        margin-top: 30px;
     }
     .head-type-apart {
-        padding-top: 55px;
+        padding-top: 30px;
     }
     .nav-img {
         height: 60px !important;
@@ -780,11 +780,16 @@ i.fa.fa-mobile-phone {
     h1.banner-text-content span {
         font-size: 30px;
     }
+    .banner-text-content{
+        margin-top: 34px;
+    
+    }
     h1.banner-text-content {
         font-size: 28px;
     }
     .banner-small-text-box {
         display: inline-block;
+        margin-top: 22px;
     }
     .welcome-paraf-box {
         margin-top: 200px;

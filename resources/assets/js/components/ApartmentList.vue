@@ -10,7 +10,7 @@
         top: 0,
         left: 0,
         opacity: 0.5,
-        background: '#FFF',
+        background: '#.FFF',
         'z-index': 9999
       }"
     ></div>
@@ -41,14 +41,14 @@
                   <div class="form-group">
                     <div class="dropdown filter-widget">
                       <button
-                        class="btn dropdown-toggle flter-button filter-border-none-btn"
+                        class="btn dropdown-toggle flter-button filter-border-none-btn apartment-states"
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <i class="ti-location-pin"></i><span> City/Region</span>
+                        <i class="ti-location-pin"></i><span> State</span>
                       </button>
                       <div
                         class="dropdown-menu filter-widget-dropdown"
@@ -57,11 +57,7 @@
                         <div
                           class="filter-widget-inner filter-widget-inner-drop-list"
                         >
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#"
-                            >Something else here</a
-                          >
+                          <a v-for="(state, i) in states" v-bind:key="i" class="dropdown-item" href="#." v-on:click="selectState(state)">{{state}}</a>
                         </div>
                       </div>
                     </div>
@@ -71,7 +67,7 @@
                   <div class="form-group">
                     <div class="dropdown filter-widget">
                       <button
-                        class="btn dropdown-toggle flter-button filter-border-none-btn"
+                        class="btn dropdown-toggle flter-button filter-border-none-btn apartment-suburb"
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
@@ -88,11 +84,7 @@
                         <div
                           class="filter-widget-inner filter-widget-inner-drop-list"
                         >
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#"
-                            >Something else here</a
-                          >
+                          <a v-for="(suburb, i) in suburbs" v-bind:key="i" class="dropdown-item" href="#." v-on:click="selectSuburb(suburb)">{{suburb}}</a>
                         </div>
                       </div>
                     </div>
@@ -109,7 +101,7 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
+                      class="btn dropdown-toggle flter-button filter-border-none-btn apartment-type"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
@@ -124,16 +116,18 @@
                       aria-labelledby="dropdownMenuButton"
                     >
                       <div
-                        class="filter-widget-inner filter-widget-inner-drop-list"
-                      >
-                        <a class="dropdown-item" href="#">Studio Apartment</a>
-                        <a class="dropdown-item" href="#"
-                          >One Bedroom Apartment</a
-                        >
-                        <a class="dropdown-item" href="#"
-                          >Two Bedroom Apartment</a
-                        >
-                      </div>
+                              class="filter-widget-inner filter-widget-inner-drop-list"
+                            >
+                              <a class="dropdown-item studio-apartments" href="#.." v-on:click="selectType('studio-apartments')"
+                                >Studio Apartments</a
+                              >
+                              <a class="dropdown-item one-bed-room-apartments" href="#.." v-on:click="selectType('one-bed-room-apartments')"
+                                >One Bedroom Apartments</a
+                              >
+                              <a class="dropdown-item two-bed-room-apartments" href="#.." v-on:click="selectType('two-bed-room-apartments')"
+                                >Two Bedroom Apartments</a
+                              >
+                            </div>
                     </div>
                   </div>
                 </div>
@@ -206,7 +200,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Occupants</span>
+                      <i class="ti-location-pin"></i><span> Guest Number</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -219,13 +213,15 @@
                               <label
                                 for="min_occupants"
                                 class="filter-widget-sublabel"
-                                >Min. Occupants</label
+                                >Adults</label
                               >
                               <input
                                 id="min_occupants"
                                 type="number"
                                 class="form-control asm-input"
-                                placeholder="Check In"
+                                placeholder="Adults"
+                                v-model="filter.adults"
+                                min="1"
                               />
                             </div>
                           </div>
@@ -234,13 +230,15 @@
                               <label
                                 for="max_occupants"
                                 class="filter-widget-sublabel"
-                                >Max. Occupants</label
+                                >Children</label
                               >
                               <input
                                 id="max_occupants"
                                 type="number"
                                 class="form-control asm-input"
-                                placeholder="Check In"
+                                placeholder="Children"
+                                v-model="filter.children"
+                                 min="1"
                               />
                             </div>
                           </div>
@@ -345,7 +343,9 @@
                                 id="checkin"
                                 type="text"
                                 class="form-control asm-input"
-                                placeholder="Check In"
+                                placeholder="Price Min"
+                                v-model="filter.price_min"
+                                min="0"
                               />
                             </div>
                           </div>
@@ -360,7 +360,9 @@
                                 id="checkout"
                                 type="text"
                                 class="form-control asm-input"
-                                placeholder="Check Out"
+                                placeholder="Price Max"
+                                v-model="filter.price_max"
+                                min="0"
                               />
                             </div>
                           </div>
@@ -538,9 +540,9 @@
                           <div
                             class="filter-widget-inner filter-widget-inner-drop-list"
                           >
-                            <a href="#" class="dropdown-item">Action</a>
-                            <a href="#" class="dropdown-item">Another action</a>
-                            <a href="#" class="dropdown-item"
+                            <a href="#." class="dropdown-item">Action</a>
+                            <a href="#." class="dropdown-item">Another action</a>
+                            <a href="#." class="dropdown-item"
                               >Something else here</a
                             >
                           </div>
@@ -572,9 +574,9 @@
                           <div
                             class="filter-widget-inner filter-widget-inner-drop-list"
                           >
-                            <a href="#" class="dropdown-item">Action</a>
-                            <a href="#" class="dropdown-item">Another action</a>
-                            <a href="#" class="dropdown-item"
+                            <a href="#." class="dropdown-item">Action</a>
+                            <a href="#." class="dropdown-item">Another action</a>
+                            <a href="#." class="dropdown-item"
                               >Something else here</a
                             >
                           </div>
@@ -608,9 +610,9 @@
                           <div
                             class="filter-widget-inner filter-widget-inner-drop-list"
                           >
-                            <a href="#" class="dropdown-item">Action</a>
-                            <a href="#" class="dropdown-item">Another action</a>
-                            <a href="#" class="dropdown-item"
+                            <a href="#." class="dropdown-item">Action</a>
+                            <a href="#." class="dropdown-item">Another action</a>
+                            <a href="#." class="dropdown-item"
                               >Something else here</a
                             >
                           </div>
@@ -737,11 +739,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -774,11 +776,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -814,11 +816,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -852,11 +854,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -891,11 +893,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -928,11 +930,11 @@
                             <div
                               class="filter-widget-inner filter-widget-inner-drop-list"
                             >
-                              <a href="#" class="dropdown-item">Action</a>
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item">Action</a>
+                              <a href="#." class="dropdown-item"
                                 >Another action</a
                               >
-                              <a href="#" class="dropdown-item"
+                              <a href="#." class="dropdown-item"
                                 >Something else here</a
                               >
                             </div>
@@ -1041,7 +1043,7 @@
                       type="button"
                       id="filter-toggle"
                       data-toggle="collapse"
-                      data-target="#filterCollapse"
+                      data-target="#.filterCollapse"
                       aria-controls="navbarCollapse"
                       aria-expanded="false"
                       aria-label="Toggle navigation"
@@ -1095,10 +1097,10 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#">A-Z Price</a>
-                        <a class="dropdown-item" href="#">Z-A Price</a>
-                        <a class="dropdown-item" href="#">A-Z Apartment Name</a>
-                        <a class="dropdown-item" href="#">Z-A Apartment Name</a>
+                        <a class="dropdown-item" href="#.">A-Z Price</a>
+                        <a class="dropdown-item" href="#.">Z-A Price</a>
+                        <a class="dropdown-item" href="#.">A-Z Apartment Name</a>
+                        <a class="dropdown-item" href="#.">Z-A Apartment Name</a>
                       </div>
                     </div>
                   </li>
@@ -1117,7 +1119,7 @@
             <div class="col-md-12">
               <div class="listing-result-head">
                 <div class="first-result-head  modile-hide">
-                  <h3>Results for Melbourne - Northern Region</h3>
+                  <h3 class="bold-700" v-if="searchText !== ''">Results for {{searchText}}</h3>
                 </div>
                 <div class="second-result-head  modile-hide">
                   <p>
@@ -1153,12 +1155,12 @@
                           class="dropdown-menu"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <a class="dropdown-item" href="#">A-Z Price</a>
-                          <a class="dropdown-item" href="#">Z-A Price</a>
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="#.">A-Z Price</a>
+                          <a class="dropdown-item" href="#.">Z-A Price</a>
+                          <a class="dropdown-item" href="#."
                             >A-Z Apartment Name</a
                           >
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="#."
                             >Z-A Apartment Name</a
                           >
                         </div>
@@ -1180,10 +1182,10 @@
                           v-if="i === currentPage"
                           @click="setCurrentPage(i)"
                         >
-                          <a class="page-link" href="#">{{ i }}</a>
+                          <a class="page-link" href="#.">{{ i }}</a>
                         </li>
                         <li class="page-item" @click="setCurrentPage(i)" v-else>
-                          <a class="page-link" href="#">{{ i }}</a>
+                          <a class="page-link" href="#.">{{ i }}</a>
                         </li>
                       </template>
                     </ul>
@@ -1210,7 +1212,6 @@
                             <div class="swiper-wrapper">
                               <div
                                 class="swiper-slide slide"
-                                v-bind:style="{ color: 'red' }"
                                 v-for="(file, i) in apartment.files"
                                 v-bind:key="file.id + i"
                                 :style="{ backgroundImage: `url(${file.url})` }"
@@ -1220,7 +1221,7 @@
                             <div class="swiper-button-next"></div>
                           </div>
                         </div>
-                        <div class="price-tag">A$305<sup>pw</sup></div>
+                        <div class="price-tag bold-700">A$305<sup>pw</sup></div>
                         <div class="apartment-owner">
                           <div class="owner-icon">
                             <i class="ti ti-user"></i>
@@ -1230,14 +1231,14 @@
                       </div>
                       <a :href="'./apartment/' + apartment.id">
                         <div class="bottom-desc-behind-wrap">
-                          <h3>{{ apartment.name }}</h3>
-                          <p>{{ apartment.address }}</p>
+                          <h3 class="bold-700">{{ apartment.name }}</h3>
+                          <p class="paraf-small"><span class="ti-location-pin"></span>{{ apartment.address }}</p>
                         </div>
                       </a>
                       <div class="listing-bottom-icons-wrap">
                         <ul class="list-inline">
                           <li class="list-inline-item apart-type">
-                            {{ apartment.type.tag }}
+                            {{ apartment.type.name }}
                           </li>
                           <li class="list-inline-item apart-options">
                             <i class="ti-envelope"></i> {{ apartment.beds }}
@@ -1260,8 +1261,8 @@
                             v-for="(option, i) in apartment.options"
                             v-bind:key="i"
                           >
-                            <div :class="'facility '+ slugify(option.name)">
-                              <i class="ti-briefcase"></i>
+                            <div :class="'facility icon '+ option.class_name">
+                              
                             </div>
                             <div class="facility-name">
                               <p>{{ option.name }}</p>
@@ -1292,10 +1293,10 @@
                         v-if="i === currentPage"
                         @click="setCurrentPage(i)"
                       >
-                        <a class="page-link" href="#">{{ i }}</a>
+                        <a class="page-link" href="#.">{{ i }}</a>
                       </li>
                       <li class="page-item" @click="setCurrentPage(i)" v-else>
-                        <a class="page-link" href="#">{{ i }}</a>
+                        <a class="page-link" href="#.">{{ i }}</a>
                       </li>
                     </template>
                   </ul>
@@ -1319,16 +1320,86 @@ export default {
       sliding: null,
       pageSize: 6,
       currentPage: 1,
+      states:[],
+      suburbs:[],
+      searchText:'',
       filter: {
         checkIn: '',
-        checkOut: ''
+        checkOut: '',
+        state: '',
+        suburb: '',
+        type: '',
+        adults: 1,
+        children: 0,
+        price_min:0,
+        price_max:0
       }
     };
   },
+  created(){
+    this.getStates();
+  },
   mounted() {
-    this.getApartmentsList();
+    if(this.$route.query.start){
+      var from = this.$route.query.start.split("-");
+      var fromdate = new Date(from[0], from[1] - 1, from[2]);
+      this.filter.checkIn = fromdate;
+    }
+    if(this.$route.query.end){
+      var to = this.$route.query.end.split("-");
+      var todate = new Date(from[0], from[1] - 1, from[2]);
+      this.filter.checkOut = todate;
+    }
+    if(this.$route.query.type){
+      this.filter.type = this.$route.query.type;
+      let text = $('.dropdown-item.'+this.$route.query.type).text();
+      $(".apartment-type").html(text+' <span class="caret"></span>');
+    }
+    if(this.$route.query.adults){
+      this.filter.adults = this.$route.query.adults;
+    }
+    if(this.$route.query.children){
+      this.filter.children = this.$route.query.children;
+    }
+    if(this.$route.query.price_min){
+      this.filter.price_min = this.$route.query.price_min;
+    }
+    if(this.$route.query.price_max){
+      this.filter.price_max = this.$route.query.price_max;
+    }
+    if (
+        this.filter.type != '' &&
+        this.filter.checkIn != '' &&
+        this.filter.checkOut != '' &&
+        this.filter.adults != '' &&
+        this.filter.children != ''
+      ) {
+        this.getFilteredApartments(this.filter);
+      }else{
+        this.getApartmentsList(); 
+      }
   },
   methods: {
+    selectType(type){
+      this.filter.type = type;
+    },
+    selectSuburb(suburb){
+      this.filter.suburb = suburb;
+       $(".apartment-suburb").html(suburb+' <span class="caret"></span>');
+    },
+    selectState(state){
+      this.filter.state = state;
+      $(".apartment-states").html(state+' <span class="caret"></span>');
+      Vue.axios
+        .get('/get-suburb?state='+state)
+        .then(res => {
+          this.suburbs = res.data.data;
+          $(".apartment-suburb").html('<i class="ti-location-pin"></i><span>Suburb</span>');
+        })
+        .catch(err => {
+          console.log('---err----', err);
+        });
+    },
     onSlideStart(slide) {
       this.sliding = true;
     },
@@ -1339,7 +1410,23 @@ export default {
       this.currentPage = pageNo;
     },
     submitFilter() {
+      if(this.filter.state !=='' && this.filter.suburb !==''){
+        this.searchText = this.filter.state + ' - ' + this.filter.suburb;
+      }else if(this.filter.type !==''){
+        let text = $('.dropdown-item.'+this.filter.type).text();
+        this.searchText =  text;
+      }
       this.getFilteredApartments(this.filter);
+    },
+    getStates(){
+      Vue.axios
+        .get('/get-states')
+        .then(res => {
+          this.states = res.data.data;
+        })
+        .catch(err => {
+          console.log('---err----', err);
+        });
     },
     slugify(text)
     {
@@ -1361,3 +1448,11 @@ export default {
   }
 };
 </script>
+
+
+<style>
+.filter-widget-inner.filter-widget-inner-drop-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+</style>

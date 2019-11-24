@@ -57,7 +57,7 @@
                                         aria-expanded="false">
                                         <span class="flag-icon flag-icon-au"> </span><span> English</span>
                                     </a>
-                                    <div class="dropdown-menu filter-widget-inner-drop-list home-flag-nav"
+                                    <div class="dropdown-menu filter-widget-inner-drop-list home-flag-nav default-nav-dropdown"
                                         aria-labelledby="dropdown09">
                                         <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-au">
                                             </span> English</a>
@@ -95,9 +95,9 @@
                                                                 href="http://example.com" id="navbarDropdownMenuLink"
                                                                 data-toggle="dropdown" aria-haspopup="true"
                                                                 aria-expanded="false">
-                                                                <span class="flag-icon flag-icon-au"> </span> English
+                                                            <span class="flag-icon flag-icon-au"> </span><span class="select-flag-name">English</span> 
                                                             </a>
-                                                            <div class="dropdown-menu filter-widget-inner-drop-list"
+                                                            <div class="dropdown-menu filter-widget-inner-drop-list default-nav-dropdown"
                                                                 aria-labelledby="dropdown09">
                                                                 <a class="dropdown-item" href="#fr"><span
                                                                         class="flag-icon flag-icon-au"> </span>

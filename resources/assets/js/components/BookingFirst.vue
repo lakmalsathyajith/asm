@@ -8,41 +8,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="nav-top-path">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><i class="ti-home"></i>
-                                        <span> ApartmentStay</span>
-                                    </li>
-
-                                </ul>
+                                
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="nav-right-lan-wrap pull-right">
-
-
-                                <ul class="list-inline">
-                                    <li class="list-inline-item dropdown">
-                                        <a class="right-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    English
-                                </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item dropdown">
-                                        <a class="right-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    AUD
-                                </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another</a>
-                                        </div>
-                                    </li>
-                                </ul>
-
-
-                            </div>
+                            
                         </div>
 
                     </div>
@@ -771,7 +741,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="filter-widget">
-                                                    <a class="btn booking-btn">Proceed to next step</a>
+                                                    <a class="btn booking-btn" v-on:click="nextStep">Proceed to next step</a>
                                                 </div>
 
 
@@ -913,6 +883,11 @@
         name: "BookingFirst",
         mounted() {
             console.log('Component mounted.')
+        },
+        methods:{
+            nextStep() {
+               window.location = './booking-second';
+            },
         }
     }
 </script>

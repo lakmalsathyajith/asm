@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,6 +92,7 @@ Route::resources(['admin/content' => 'Web\Admin\ContentController']);
 Route::resources(['admin/file' => 'Web\Admin\FileController']);
 Route::resources(['admin/option' => 'Web\Admin\OptionController']);
 Route::resources(['admin/type' => 'Web\Admin\TypeController']);
+Route::get('admin/suburbs', 'Web\Admin\ApartmentController@getSuburb');
 //    ->only(['index', 'create']);
 
 //Route::resource('photos', 'PhotoController')->only([

@@ -117,5 +117,19 @@
             }
             
         })
+
+        $('#state').on('change', function() {
+            const appUrl = "{{env('APP_URL')}}";
+            const selected = $(this).val();
+            $.get( `${appUrl}/admin/suburbs?state=${selected}`).done(function( data ) {
+                let response = JSON.parse(data);
+                    if(response.data) {
+                        $('#suburb').html('');
+                        $.each(response.data, function(key, value) {   
+                            $('#suburb').append($("<option></option>").attr("value",value).text(value)); 
+                        });
+                    }
+            });
+        })
     });
 </script>

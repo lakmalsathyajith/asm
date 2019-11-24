@@ -7,6 +7,7 @@ use App\Http\Controllers\AbstractController;
 use App\Http\Controllers\Api\AbstractApiController;
 use Illuminate\Http\Request;
 use App\Processors\Rms\GetAvailabilityRatesApiRequestProcessor;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends AbstractApiController
 {
@@ -58,13 +59,24 @@ class ApartmentController extends AbstractApiController
      */
     public function showMany(Request $request)
     {
-        $ids = $request->all();
-        return $this->activeRepo
+        $data = $request->all();
+        $query = $this->activeRepo
             ->with('contents')
             ->with('files')
             ->with('options')
-            ->with('type')
-            ->whereIn('rms_key', $ids)->get();
+            ->with('type');
+            if($data['type']){
+                $query = $query->whereHas('type', function ($q) use($data) {
+                    $q->where('tag', $data['type']);
+                 });
+            }
+            if($data['state']){
+                $query = $query->where('state',$data['state']);
+            }
+            if($data['suburb']){
+                $query = $query->where('suburb',$data['suburb']);
+            }
+        return $query->whereIn('rms_key',  $data['rms_ids'])->get();
     }
 
     public function getAvailableRoomTypes(){
@@ -76,5 +88,32 @@ class ApartmentController extends AbstractApiController
             $response,
             200
         );
+    }
+
+    public function getStates()
+    {
+        try {
+            $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray() ;
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'records fetched successfully',
+                $states);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }
+    }
+    
+    public function getSuburb(Request $request)
+    {
+        try {
+            $data = $request->all();
+            $states = DB::table('postal_codes')->where('state_name', $data['state'])->distinct('suburb')->pluck('suburb')->toArray() ;
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'records fetched successfully',
+                $states);
+        } catch (\Exception $e) {
+            return $this->returnResponse();
+        }
     }
 }

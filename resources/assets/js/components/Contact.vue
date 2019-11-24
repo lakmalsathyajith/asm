@@ -70,9 +70,9 @@
                                                      aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
                                                      style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
                                                     <div class="filter-widget-inner">
-                                                        <a class="dropdown-item" href="#" value="General Enquiry">General
+                                                        <a class="dropdown-item" href="#." value="General Enquiry">General
                                                             Enquiry</a>
-                                                        <a class="dropdown-item" href="#" value="Booking Enquiry">Booking
+                                                        <a class="dropdown-item" href="#." value="Booking Enquiry">Booking
                                                             Enquiry</a>
 
                                                     </div>
@@ -106,9 +106,9 @@
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
                                                                 <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                                                    <a class="dropdown-item" href="#">Action</a>
-                                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                                    <a class="dropdown-item" href="#">Something else
+                                                                    <a class="dropdown-item" href="#.">Action</a>
+                                                                    <a class="dropdown-item" href="#.">Another action</a>
+                                                                    <a class="dropdown-item" href="#.">Something else
                                                                         here</a>
                                                                 </div>
 
@@ -131,9 +131,9 @@
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
                                                                 <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                                                    <a class="dropdown-item" href="#">Action</a>
-                                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                                    <a class="dropdown-item" href="#">Something else
+                                                                    <a class="dropdown-item" href="#.">Action</a>
+                                                                    <a class="dropdown-item" href="#.">Another action</a>
+                                                                    <a class="dropdown-item" href="#.">Something else
                                                                         here</a>
                                                                 </div>
 
@@ -158,9 +158,9 @@
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
                                                                 <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                                                    <a class="dropdown-item" href="#">Action</a>
-                                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                                    <a class="dropdown-item" href="#">Something else
+                                                                    <a class="dropdown-item" href="#.">Action</a>
+                                                                    <a class="dropdown-item" href="#.">Another action</a>
+                                                                    <a class="dropdown-item" href="#.">Something else
                                                                         here</a>
                                                                 </div>
 
@@ -183,9 +183,9 @@
                                                                  x-placement="bottom-start"
                                                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">
                                                                 <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                                                    <a class="dropdown-item" href="#">Action</a>
-                                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                                    <a class="dropdown-item" href="#">Something else
+                                                                    <a class="dropdown-item" href="#.">Action</a>
+                                                                    <a class="dropdown-item" href="#.">Another action</a>
+                                                                    <a class="dropdown-item" href="#.">Something else
                                                                         here</a>
                                                                 </div>
 

@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <h2 class="main-heading head-type-apart">Our Typical Apartments</h2>
-            <p>
+            <p class="paraf">
               Apartment Stays Melbourne offers a range of premium Studio, 1 Bedroom and 2 Bedroom
               <br />apartments to suit different budgets. Our apartments are situated centrally at several locations
               <br />within Melbourne and the inner suburbs Richmond
@@ -18,12 +18,12 @@
             <div class="apartment-box">
               <a href="/studio-apartments">
                 <div class="aprtment-img">
-                  <img src="images/aptment-01.png" />
+                  <img src="images/home/studio-thumb.jpg" />
                 </div>
               </a>
               <div class="apartment-text text-center">
                 <h3 class="sub-heading">Studio Apartments</h3>
-                <p class="paraf-small">Starting from $620pw</p>
+                <p class="paraf">Starting from $620pw</p>
               </div>
             </div>
 
@@ -33,12 +33,12 @@
             <div class="apartment-box">
               <a href="/one-bed-room-apartments">
                 <div class="aprtment-img">
-                  <img src="images/aptment-02.png" />
+                  <img src="images/home/onebed-thumb.jpg" />
                 </div>
               </a>
               <div class="apartment-text text-center">
                 <h3 class="sub-heading">One Bedroom Apartments</h3>
-                <p class="paraf-small">Starting from $700pw</p>
+                <p class="paraf">Starting from $700pw</p>
               </div>
             </div>
 
@@ -48,12 +48,12 @@
             <div class="apartment-box">
               <a href="/two-bed-room-apartments">
                 <div class="aprtment-img">
-                  <img src="images/aptment-01.png" />
+                  <img src="images/home/twobed-thumb.jpg" />
                 </div>
               </a>
               <div class="apartment-text text-center">
                 <h3 class="sub-heading">Two Bedroom Apartments</h3>
-                <p class="paraf-small">Starting from $965pw</p>
+                <p class="paraf">Starting from $965pw</p>
               </div>
             </div>
 
@@ -70,11 +70,11 @@
             <div class="top-para-wrap">
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <p>
+                  <p class="paraf">
                     We offer a variety of solutions to cater for differing needs. Building quality, apartment quality, size, apartment amenities and
                     <br />building facilities all determine the category we attribute to each apartment.
                   </p>
-                  <p>
+                  <p class="paraf">
                     To help you compare our apartments and choose the one most suitable for your stay, we have categorized each into one of
                     <br />the following three classes: Business, Premium, Superior Economy
                   </p>
@@ -86,7 +86,7 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="sub-heading">Business Class</h3>
-                    <p class="paraf-small">
+                    <p class="paraf">
                       Business Class apartments are located in some of Melbourne’s
                       <br />most desirable residential apartment buildings.
                     </p>
@@ -114,7 +114,7 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="sub-heading">Premium Class</h3>
-                    <p class="paraf-small">
+                    <p class="paraf">
                       Premium Class apartments are a little older than our Business
                       <br />Class properties, but are also typically a little larger and more
                       <br />spacious than their newer counterparts.
@@ -143,7 +143,7 @@
                 <div class="panel panel-default superior-panel">
                   <div class="panel-heading">
                     <h3 class="sub-heading">Superior Economy</h3>
-                    <p class="paraf-small">
+                    <p class="paraf">
                       Superior Economy apartments are our studio apartments. Studios have the bedroom area either combined or only
                       <br />partially separated from the living area. Studio apartments are much larger than a student apartment or a typical hotel
                       <br />room and they always include a fully equipped kitchen suitable for a long term stay.

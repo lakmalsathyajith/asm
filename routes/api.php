@@ -32,4 +32,6 @@ Route::group(['prefix' => 'v1'], function () {
 
     // a demo api to test rms endpoints
     Route::post('get-available-room-types', 'Api\V1\ApartmentController@getAvailableRoomTypes')->name('apartments.getAvailableRoomTypes');
+    Route::get('get-states', 'Api\V1\ApartmentController@getStates')->name('apartments.getStates');
+    Route::get('get-suburb', 'Api\V1\ApartmentController@getSuburb')->name('apartments.getSuburb');
 });

@@ -16,7 +16,9 @@ class Apartment extends Model
         'map_url',
         'parking_slots',
         'beds',
-        'rms_key'
+        'rms_key',
+        'suburb',
+        'state'
     ];
 
     public function contents()

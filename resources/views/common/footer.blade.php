@@ -133,7 +133,8 @@
                 </diV>
                 <diV class="col-md-6">
                     <div class="creat">
-                        <p><a href="https://www.lilabs.com.au/" target="_blank">Created by</a></p>
+                        <p>Created by </p>
+                        <a href="https://www.lilabs.com.au/" target="_blank"></a>
                     </div>
 
                 </diV>
@@ -144,10 +145,10 @@
     </div>
 </footer>
 
-<script src="{{ asset('js/app.js?v=1.5') }}"></script>
+<script src="{{ asset('js/app.js?v=1.7') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-<script href="{{asset('js/script.js?v=1.5')}}"></script>
+<script href="{{asset('js/script.js?v=1.7')}}"></script>
 
 <script>
     $(document).ready(function() {
@@ -264,9 +265,21 @@ $(document).ready(function(){
             $('.radio-label-work').css("color", "#414141");
             $('.student-info').css("display", "block");
         })
+
+        setTimeout(function() { 
+            $('.flexbox').fadeOut();
+    }, 2000);
+       
     });
 
     $('#apartment-review-Indicators').carousel({
     interval: 5000
 });
+
+$('#apartment-review-Indicators').hover(function() {
+    $(this).carousel('pause');
+}, function() {
+    $(this).carousel('cycle');
+});
+
 </script>
