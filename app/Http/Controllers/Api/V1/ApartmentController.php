@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Contracts\RepoInterfaces\ApartmentInterface;
-use App\Http\Controllers\AbstractController;
 use App\Http\Controllers\Api\AbstractApiController;
 use Illuminate\Http\Request;
 use App\Processors\Rms\GetAvailabilityRatesApiRequestProcessor;
@@ -82,12 +81,15 @@ class ApartmentController extends AbstractApiController
     public function getAvailableRoomTypes(){
 
         $response = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
-        return $this->returnResponse(
-            $this->getResponseStatus('SUCCESS'),
-            'user added successfully',
-            $response,
-            200
-        );
+        try {
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'Booking request make successfully',
+                $response,
+                200
+            );
+        } catch (\Exception $e) {
+        }
     }
 
     public function getStates()

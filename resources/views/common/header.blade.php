@@ -47,7 +47,7 @@
                             <ul class="navbar-nav right-nav ml-auto mr-3">
 
                                 <li class="nav-item">
-                                    <a class="trans-btn blue-border-btn " href="#">Agent Login</a>
+                                    <a class="trans-btn blue-border-btn" href="#">Agent Login</a>
 
                                 </li>
                                 <span class="gap-01"></span>

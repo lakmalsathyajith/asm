@@ -41,14 +41,14 @@
                   <div class="form-group">
                     <div class="dropdown filter-widget">
                       <button
-                        class="btn dropdown-toggle flter-button filter-border-none-btn apartment-states"
+                        class="btn dropdown-toggle location-svg-button flter-button filter-border-none-btn apartment-states"
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <i class="ti-location-pin"></i><span> State</span>
+                       <span> State</span>
                       </button>
                       <div
                         class="dropdown-menu filter-widget-dropdown"
@@ -74,14 +74,14 @@
                   <div class="form-group">
                     <div class="dropdown filter-widget">
                       <button
-                        class="btn dropdown-toggle flter-button filter-border-none-btn apartment-suburb"
+                        class="btn dropdown-toggle location-svg-button flter-button filter-border-none-btn apartment-suburb"
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <i class="ti-location-pin"></i>
+                        
                         <span>Suburb</span>
                       </button>
                       <div
@@ -115,14 +115,14 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn apartment-type"
+                      class="btn dropdown-toggle apart-type-svg-button flter-button filter-border-none-btn apartment-type"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i>
+                    
                       <span>Apartment Type</span>
                     </button>
                     <div
@@ -149,14 +149,14 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
+                      class="btn check-svg-button dropdown-toggle flter-button filter-border-none-btn"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Check-In/Out</span>
+                      <span> Check-In/Out</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -212,14 +212,14 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
+                      class="btn dropdown-toggle guest-button-svg flter-button filter-border-none-btn"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Guest Number</span>
+                      <span> Guest Number</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -336,14 +336,14 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button filter-border-none-btn"
+                      class="btn dropdown-toggle price-svg-button flter-button filter-border-none-btn"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-money"></i><span>Price Min/Max</span>
+                      <span>Price Min/Max</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -482,7 +482,7 @@
                 <div class="form-group">
                   <div class="filter-widget">
                     <a
-                      class="btn booking-btn filter-border-none-btn"
+                      class="btn booking-btn filter-border-none-btn top-filter-search-btn"
                       @click="submitFilter"
                       >Search</a
                     >
@@ -1171,8 +1171,8 @@
                           Default
                         </button>
                         <div
-                          class="dropdown-menu"
-                          aria-labelledby="dropdownMenuButton"
+                          class="dropdown-menu top-filter-sort-button"
+                          aria-labelledby="dropdownMenuButton top-filter-sort-button"
                         >
                           <a class="dropdown-item" href="#.">A-Z Price</a>
                           <a class="dropdown-item" href="#.">Z-A Price</a>
@@ -1374,7 +1374,7 @@ export default {
     if(this.$route.query.type){
       this.filter.type = this.$route.query.type;
       let text = $('.dropdown-item.'+this.$route.query.type).text();
-      $(".apartment-type").html(text+' <span class="caret"></span>');
+      $(".apartment-type").html('<span>' +text+ '</span>');
     }
     if(this.$route.query.adults){
       this.filter.adults = this.$route.query.adults;
@@ -1429,16 +1429,16 @@ methods: {
     },
     selectSuburb(suburb){
       this.filter.suburb = suburb;
-       $(".apartment-suburb").html(suburb+' <span class="caret"></span>');
+       $(".apartment-suburb").html('<span>' +suburb+ '</span>');
     },
     selectState(state){
       this.filter.state = state;
-      $(".apartment-states").html(state+' <span class="caret"></span>');
+      $(".apartment-states").html('<span>' +state+ '</span>');
       Vue.axios
         .get('/get-suburb?state='+state)
         .then(res => {
           this.suburbs = res.data.data;
-          $(".apartment-suburb").html('<i class="ti-location-pin"></i><span>Suburb</span>');
+          $(".apartment-suburb").html('<span>Suburb</span>');
         })
         .catch(err => {
           console.log('---err----', err);

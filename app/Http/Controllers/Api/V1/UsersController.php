@@ -6,7 +6,10 @@ use App\Contracts\RepoInterfaces\UserInterface;
 use App\Http\Controllers\Api\AbstractApiController;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Processors\Rms\GetAvailabilityRatesApiRequestProcessor;
+use App\Processors\Rms\GetPropertyDetailsApiRequestProcessor;
 use App\Processors\Rms\GetRoomTypeApiRequestProcessor;
+use App\Processors\Rms\PostBookingApiRequestProcessor;
+use App\Processors\Rms\PostBookingQuotesApiRequestProcessor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -48,9 +51,9 @@ class UsersController extends AbstractApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return void
      */
     public function update(Request $request, $id)
     {
@@ -74,17 +77,15 @@ class UsersController extends AbstractApiController
      * This is a test function to demo rms api request
      * remove this after the implementation
      */
-    public function test(){
-        //$response1 = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
-        $response2 = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
-
-        return $this->returnResponse(
-            $this->getResponseStatus('SUCCESS'),
-            'user added successfully',
-            $response2,
-            200
-        );
-       // \Log::debug($response1);
-       // \Log::debug($response2);
+    public function test()
+    {
+       // $roomTypes = $this->makeRmsRequest(new GetRoomTypeApiRequestProcessor());
+        //$avalabilityRates = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
+        //$bookRequest = $this->makeRmsRequest(new PostBookingApiRequestProcessor());
+        //$propertyInfoRequest = $this->makeRmsRequest(new GetPropertyDetailsApiRequestProcessor());
+        $postbookingquote = $this->makeRmsRequest(new PostBookingQuotesApiRequestProcessor());
+        dd($postbookingquote);
+       // \Log::debug($postbookingquote);
+        //\Log::debug($response2);
     }
 }

@@ -172,7 +172,7 @@ $('.dropdown-menu .filter-widget-inner a').click(function() {
 $(this)
 .parents('.dropdown')
 .find('.btn')
-.html($(this).text() + ' <span class="caret"></span>');
+.html('<span>' +$(this).text() + '</span>');
 $(this)
 .parents('.dropdown')
 .find('.btn')
@@ -282,4 +282,32 @@ $('#apartment-review-Indicators').hover(function() {
     $(this).carousel('cycle');
 });
 
+
+$(function() {
+      $('.dropdown').on({
+          "click": function(event) {
+            if ($(event.target).closest('.dropdown-toggle').length) {
+              $(this).data('closable', true);
+            } else {
+              $(this).data('closable', false);
+            }
+          },
+          "hide.bs.dropdown": function(event) {
+            hide = $(this).data('closable');
+            $(this).data('closable', true);
+            return hide;
+          }
+      });
+  });
 </script>
+
+{{-- <script>
+    import VueHotelDatepicker from '@northwalker/vue-hotel-datepicker'
+    export default {
+      name: 'App'
+      components: {
+        VueHotelDatepicker
+      }
+      
+    }
+    </script> --}}

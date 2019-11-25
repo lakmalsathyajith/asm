@@ -47,21 +47,25 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
+              
+                <HotelDatePicker />
+                
               <form>
                 <div class="desktop-home-filter mobile-only modile-hide">
                   <div class="row">
                     <div class="col">
+                      
                       <div class="form-group">
                         <div class="dropdown filter-widget">
                           <button
-                            class="btn dropdown-toggle flter-button"
+                            class="btn dropdown-toggle apart-type-svg-button flter-button"
                             type="button"
                             id="dropdownMenuButton"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
                           >
-                            <i class="ti-location-pin"></i>
+                            
                             <span>Apartment Type</span>
                           </button>
                           <div
@@ -97,7 +101,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Check-In/Out</span>
+                     <span> Check-In/Out</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -144,14 +148,14 @@
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
-                      class="btn dropdown-toggle flter-button"
+                      class="btn dropdown-toggle guest-button-svg flter-button"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="ti-location-pin"></i><span> Guest Number</span>
+                      <span> Guest Number</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -1017,6 +1021,17 @@
                 <li data-target="#apartment-review-Indicators" data-slide-to="0" class="active"></li>
                 <li data-target="#apartment-review-Indicators" data-slide-to="1"></li>
                 <li data-target="#apartment-review-Indicators" data-slide-to="2"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="3"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="4"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="5"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="6"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="7"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="8"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="9"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="10"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="11"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="12"></li>
+                <li data-target="#apartment-review-Indicators" data-slide-to="13"></li>
               </ol>
             </div>
           </div>
@@ -1104,6 +1119,8 @@
 <script>
 import moment from 'moment';
 import Datepicker from 'vuejs-datepicker';
+import HotelDatePicker from 'vue-hotel-datepicker';
+
 export default {
   name: 'home',
   data() {
@@ -1152,7 +1169,7 @@ export default {
     }
   },
   components: {
-    Datepicker
+    Datepicker,HotelDatePicker
   }
 };
 </script>

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Apartment;
+namespace App\Http\Requests\Occupant;
 
 use App\Http\Requests\AbstractRequest;
 
-class StoreApartmentRequest extends AbstractRequest
+class StoreOccupantRequest extends AbstractRequest
 {
 
     // validation rules

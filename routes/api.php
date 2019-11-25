@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,6 +30,29 @@ Route::group(['prefix' => 'v1'], function () {
 
     // a demo api to test rms endpoints
     Route::post('get-available-room-types', 'Api\V1\ApartmentController@getAvailableRoomTypes')->name('apartments.getAvailableRoomTypes');
+    Route::post('book-quote', 'Api\V1\BookingController@getBookQuote')->name('booking.quote');
+
+
+    Route::get('bookings', 'Api\V1\BookingController@index')->name('bookings.index');
+    Route::get('bookings/{id}', 'Api\V1\BookingController@show')->name('bookings.show');
+    Route::get('bookings', 'Api\V1\BookingController@store')->name('bookings.store');
+    Route::put('bookings/{id}', 'Api\V1\BookingController@update')->name('bookings.update');
+    Route::delete('bookings/{id}', 'Api\V1\BookingController@destroy')->name('bookings.destroy');
+
+    Route::get('occupants', 'Api\V1\OccupantController@index')->name('occupants.index');
+    Route::get('occupants/{id}', 'Api\V1\OccupantController@show')->name('occupants.show');
+    Route::post('occupants', 'Api\V1\OccupantController@store')->name('occupants.store');
+
+    Route::post('dependants', 'Api\V1\OccupantController@storeDependant')->name('occupants.storedepend');
+    Route::post('relations', 'Api\V1\OccupantController@storeRelation')->name('occupants.storerelate');
+
+    Route::put('occupants/{id}', 'Api\V1\OccupantController@update')->name('occupants.update');
+    Route::delete('occupants/{id}', 'Api\V1\OccupantController@destroy')->name('occupants.destroy');
+
+    Route::get('rmstest', 'Api\V1\UsersController@test')->name('rms.test');
+
+
+
     Route::get('get-states', 'Api\V1\ApartmentController@getStates')->name('apartments.getStates');
     Route::get('get-suburb', 'Api\V1\ApartmentController@getSuburb')->name('apartments.getSuburb');
 });
