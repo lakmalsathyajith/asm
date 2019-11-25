@@ -1116,8 +1116,8 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#.">A-Z Price</a>
-                        <a class="dropdown-item" href="#.">Z-A Price</a>
+                        <a class="dropdown-item" href="#.">A-Z Apartment Price</a>
+                        <a class="dropdown-item" href="#.">Z-A Apartment Price</a>
                         <a class="dropdown-item" href="#.">A-Z Apartment Name</a>
                         <a class="dropdown-item" href="#.">Z-A Apartment Name</a>
                       </div>
@@ -1268,9 +1268,6 @@
                           <li class="list-inline-item apart-options">
                             <i class="ti-car"></i>
                             {{ apartment.parking_slots }}
-                          </li>
-                          <li class="list-inline-item apart-options">
-                            <i class="ti-envelope"></i> 1
                           </li>
                         </ul>
                       </div>
