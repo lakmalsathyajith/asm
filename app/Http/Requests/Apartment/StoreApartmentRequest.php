@@ -17,7 +17,7 @@ class StoreApartmentRequest extends AbstractRequest
             'map_url'           => 'required',
             'parking_slots'     => 'required|integer|max:99',
             'beds'              => 'required|integer|max:99',
-            'contents'          => 'required',
+            'bath_rooms'        => 'required|integer|max:99',
             'files'             => 'required',
             'options'           => 'required',
             'rms_key'           => 'required|max:50|unique:apartments,rms_key',

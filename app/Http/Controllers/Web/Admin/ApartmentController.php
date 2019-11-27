@@ -8,6 +8,7 @@ use App\Contracts\RepoInterfaces\FileInterface;
 use App\Contracts\RepoInterfaces\OptionInterface;
 use App\Contracts\RepoInterfaces\TypeInterface;
 use App\Entities\Apartment;
+use App\Entities\Content;
 use App\Http\Controllers\AbstractController;
 use App\Http\Requests\Apartment\StoreApartmentRequest;
 use App\Http\Requests\Apartment\UpdateApartmentRequest;
@@ -19,6 +20,7 @@ class ApartmentController extends AbstractController
 {
 
     private $content;
+    private $contentModel;
     private $file;
     private $option;
     private $type;
@@ -28,12 +30,14 @@ class ApartmentController extends AbstractController
         ContentInterface $contentRepoInstance,
         FileInterface $fileRepoInstance,
         OptionInterface $optionRepoInstance,
-        TypeInterface $typeRepoInstance
+        TypeInterface $typeRepoInstance,
+        Content $contentModel
     ) {
         $this->middleware('auth');
 
         $this->activeRepo = $apartmentRepoInstance;
         $this->content = $contentRepoInstance;
+        $this->contentModel = $contentModel;
         $this->file = $fileRepoInstance;
         $this->option = $optionRepoInstance;
         $this->type = $typeRepoInstance;
@@ -61,13 +65,12 @@ class ApartmentController extends AbstractController
         $data['route'] = route('apartment.store');
         $data['title'] = 'Apartment';
         $data['action'] = 'Create';
-        $data['contents'] = $this->content->pluck('name');
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
         $data['options'] = $this->option->pluck('name');
 
         $data['counts'] = [];
-        foreach (['content', 'file', 'type', 'option'] as $value) {
+        foreach (['file', 'type', 'option'] as $value) {
             if (count($data[$value . 's']) === 0) {
                 array_push($data['counts'], $value);
             }
@@ -86,6 +89,7 @@ class ApartmentController extends AbstractController
     public function store(StoreApartmentRequest $request)
     {
         $requestData = $request->all();
+        $data = null;
 
         try {
             $data = [
@@ -95,13 +99,13 @@ class ApartmentController extends AbstractController
                 'map_url' => $requestData['map_url'],
                 'parking_slots' => $requestData['parking_slots'],
                 'beds' => $requestData['beds'],
+                'bath_rooms' => $requestData['bath_rooms'],
                 'rms_key' => $requestData['rms_key'],
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb']
             ];
 
             $data = $this->activeRepo->create($data);
-            $data->contents()->sync($requestData['contents']);
             $data->files()->sync($requestData['files']);
             $data->options()->sync($requestData['options']);
         } catch (\Exception $e) {
@@ -111,7 +115,12 @@ class ApartmentController extends AbstractController
                 ->with('alertError', $e->getMessage());
         }
 
-        return redirect(route('apartment.index'));
+        $queryParams['contentable-id'] = $data->id;
+        $queryParams['contentable-type'] = 'apartment';
+        $queryParams['content-type'] = 'apartment';
+        $queryParams['content-sub-type'] = 'details';
+        $queryParams['step'] = 1;
+        return redirect()->route('content.create', $queryParams);
     }
 
     /**
@@ -141,7 +150,6 @@ class ApartmentController extends AbstractController
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $apartment->load('contents');
-        $data['contents'] = $this->content->pluck('name');
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
         $data['options'] = $this->option->pluck('name');
@@ -169,6 +177,7 @@ class ApartmentController extends AbstractController
                 'map_url' => $requestData['map_url'],
                 'parking_slots' => $requestData['parking_slots'],
                 'beds' => $requestData['beds'],
+                'bath_rooms' => $requestData['bath_rooms'],
                 'rms_key' => $requestData['rms_key'],
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb']
@@ -176,7 +185,6 @@ class ApartmentController extends AbstractController
 
             $apartment = $this->activeRepo->get($id);
             $this->activeRepo->update($apartment, $data);
-            $apartment->contents()->sync($requestData['contents']);
             $apartment->files()->sync($requestData['files']);
             $apartment->options()->sync($requestData['options']);
         } catch (\Exception $e) {

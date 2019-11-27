@@ -17,6 +17,8 @@ class FileController extends AbstractController
 
     use FileTrait;
 
+    private $disk = 'public';
+
     function __construct(
         FileInterface $fileRepoInstance
     )
@@ -68,9 +70,9 @@ class FileController extends AbstractController
             $data['user_id'] = Auth::id();
 
             $fileName = $data['uuid'] . '.' . $data['extension'];
-            $relativePath = Storage::disk('s3')
+            $relativePath = Storage::disk($this->disk)
                 ->putFileAs(null, new File($data['path']), $fileName, 'public');
-            $url = Storage::disk('s3')
+            $url = Storage::disk($this->disk)
                 ->url($relativePath);
 
             $data['url'] = $url;

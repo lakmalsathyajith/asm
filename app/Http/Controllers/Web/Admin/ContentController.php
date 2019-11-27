@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Contracts\RepoInterfaces\ApartmentInterface;
 use App\Contracts\RepoInterfaces\ContentInterface;
 use App\Entities\Apartment;
 use App\Entities\Content;
@@ -14,15 +15,18 @@ class ContentController extends AbstractController
 {
 
     private $content;
+    private $apartment;
 
     function __construct(
         ContentInterface $contentRepoInstance,
+        ApartmentInterface $apartmentRepoInstance,
         Content $content
     )
     {
         $this->middleware('auth');
 
         $this->activeRepo = $contentRepoInstance;
+        $this->apartment = $apartmentRepoInstance;
         $this->content = $content;
     }
 
@@ -45,11 +49,19 @@ class ContentController extends AbstractController
      */
     public function create()
     {
+        // if query params are defined
+        $params['contentable-type'] = request()->query('contentable-type', null);
+        $params['contentable-id'] = request()->query('contentable-id', null);
+        $params['content-type'] = request()->query('content-type', 'apartment');
+        $params['content-sub-type'] = request()->query('content-sub-type', null);
+        $params['step'] = request()->query('step', null);
+
         $data['route'] = route('content.store');
         $data['title'] = 'Content Manager';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
         $data['contentSubTypes'] = $this->content->getSubTypes();
+        $data['params'] = $params;
         return view('admin.pages.content.create', $data);
     }
 
@@ -72,7 +84,28 @@ class ContentController extends AbstractController
                 'content' => $requestData['content'],
             ];
 
-            $this->activeRepo->create($data);
+            $record = $this->activeRepo->create($data);
+
+            if(isset($requestData['params'])
+                && isset($requestData['params']['contentable-type'])
+                && isset($requestData['params']['contentable-id'])
+                && isset($requestData['params']['step'])){
+
+                if($requestData['params']['contentable-type'] === 'apartment') {
+                    $apartment = $this->apartment->get($requestData['params']['contentable-id']);
+                    $apartment->contents()->syncWithoutDetaching([$record->id]);
+                }
+
+                if(isset($requestData['params']['step'])) {
+                    $requestData['params']['content-sub-type'] = 'how much';
+                    $requestData['params']['step']++;
+                }
+
+                if($requestData['params']['step'] < 3) {
+                    return redirect()->route('content.create', $requestData['params']);
+                }
+            }
+
         } catch (\Exception $e) {
             return redirect()
                 ->back()

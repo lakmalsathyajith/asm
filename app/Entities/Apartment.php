@@ -15,6 +15,7 @@ class Apartment extends Model
         'type_id',
         'map_url',
         'parking_slots',
+        'bath_rooms',
         'beds',
         'rms_key',
         'suburb',

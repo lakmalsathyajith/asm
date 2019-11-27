@@ -15,4 +15,14 @@
             @include('admin/pages/apartment/partial/form')
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{{ __('Apartment Contents') }}</h3>
+        </div>
+
+        <div class="card-body">
+            @include('admin/pages/apartment/partial/contentTable')
+        </div>
+    </div>
 @endsection

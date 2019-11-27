@@ -97,7 +97,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="parking_slots" class="col-form-label ">{{ __('Parking Slots') }}</label>
                 <input id="parking_slots" type="text"
@@ -113,7 +113,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="beds" class="col-form-label">{{ __('Beds Count') }}</label>
                 <input id="beds" type="text"
@@ -123,6 +123,20 @@
                 @if ($errors && $errors->has('beds'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('beds') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="bath_rooms" class="col-form-label">{{ __('Bath Rooms') }}</label>
+                <input id="bath_rooms" type="text"
+                    class="form-control{{ $errors && $errors->has('bath_rooms') ? ' is-invalid' : '' }}" name="bath_rooms"
+                    value="{{ isset($record) && $record->bath_rooms ? $record->bath_rooms : old('bath_rooms') }}" required>
+
+                @if ($errors && $errors->has('bath_rooms'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('bath_rooms') }}</strong>
                 </span>
                 @endif
             </div>
@@ -170,22 +184,14 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="contents" class="col-form-label">{{ __('Contents') }}</label>
-                <select id="contents"
-                    class="select2bs4 multi-select form-control {{ $errors && $errors->has('contents') ? ' is-invalid' : '' }}"
-                    name="contents[]" multiple="multiple" data-placeholder="Select Contents for the Apartment">
-                    @foreach($contents as $value => $label)
-                    <option
-                        {{ isset($record) && \App\Traits\HelperTrait::isSelected($record->contents, $value) ? 'selected="selected"' : ''}}
-                        value="{{ $value }}">
-                        {{ $label }}
-                    </option>
-                    @endforeach
-                </select>
+                <label for="rms_key" class="col-form-label">{{ __('RMS Key') }}</label>
+                <input id="rms_key" type="text"
+                       class="form-control{{ $errors && $errors->has('rms_key') ? ' is-invalid' : '' }}" name="rms_key"
+                       value="{{ isset($record) && $record->rms_key ? $record->rms_key : old('rms_key') }}" required>
 
-                @if ($errors && $errors->has('contents'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('contents') }}</strong>
+                @if ($errors && $errors->has('rms_key'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('rms_key') }}</strong>
                 </span>
                 @endif
             </div>
@@ -233,20 +239,6 @@
                 @if ($errors && $errors->has('options'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('options') }}</strong>
-                </span>
-                @endif
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="rms_key" class="col-form-label">{{ __('RMS Key') }}</label>
-                <input id="rms_key" type="text"
-                    class="form-control{{ $errors && $errors->has('rms_key') ? ' is-invalid' : '' }}" name="rms_key"
-                    value="{{ isset($record) && $record->rms_key ? $record->rms_key : old('rms_key') }}" required>
-
-                @if ($errors && $errors->has('rms_key'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('rms_key') }}</strong>
                 </span>
                 @endif
             </div>

@@ -4,6 +4,15 @@
         @method($method)
     @endif
 
+    @if(isset($params))
+        @foreach($params as $param => $value)
+            <input type="hidden"
+                   id="{{$param}}"
+                   value="{{$value}}"
+                   name="{{"params[$param]"}}"/>
+        @endforeach
+    @endif
+
     @include('admin.common.alerts.error')
 
     <div class="row">
@@ -55,6 +64,7 @@
                         name="type">
                     @foreach($contentTypes as $label => $value)
                         <option
+                                {{isset($params) && isset($params['content-type']) && strtoupper(str_replace(' ', '_', $params['content-type'])) !== $value ? 'disabled' : ''  }}
                                 {{isset($record) && isset($record->type) && $record->type === $value ? 'selected="selected"' : ''}}
                                 value="{{ $value }}">{{ $label }}
                         </option>
@@ -78,6 +88,7 @@
                         {{isset($record) && isset($record->type) && $record->type !== "APARTMENT" ? 'disabled="disabled"' : ''}}>
                     @foreach($contentSubTypes as $label => $value)
                         <option
+                                {{isset($params) && isset($params['content-sub-type']) && strtoupper(str_replace(' ', '_', $params['content-sub-type'])) !== $value ? 'disabled' : ''  }}
                                 {{isset($record) && isset($record->sub_type) && $record->sub_type === $value ? 'selected="selected"' : ''}}
                                 value="{{ $value }}">{{ $label }}
                         </option>
@@ -100,9 +111,7 @@
                 <textarea
                         id="content"
                         class="tmce form-control{{ $errors && $errors->has('content') ? ' is-invalid' : '' }}"
-                        name="content">
-                    {{ isset($record) && $record->content ? $record->content : old('content') }}
-                </textarea>
+                        name="content">{{ isset($record) && $record->content ? $record->content : old('content') }}</textarea>
 
                 @if ($errors && $errors->has('content'))
                     <span class="invalid-feedback" role="alert">
