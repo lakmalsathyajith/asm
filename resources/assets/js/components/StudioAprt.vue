@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="studio-apartment-section background-img padding-tb-60">
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <div class="nav-top-path-wrap bottom-full-width-border">
           <div class="container">
             <div class="row">
@@ -10,11 +10,11 @@
                   <ul class="list-inline">
                     <li class="list-inline-item navigation-path-name">
                       <a href="/">Home</a>
-                      <span class="navigation-path"> ></span>
+                      <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item navigation-path-name">
                       <a href="/typical-apartment">Our Typical Apartments</a>
-                      <span class="navigation-path"> ></span>
+                      <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item">
                       <span class="current-page">Studio Apartments</span>
@@ -33,11 +33,12 @@
               <h2 class="main-heading">Studio Apartments</h2>
             </div>
             <div class="sub-head-stud-apart">
-              <P
-                >We offer quality fully furnished, centrally located and
-                affordable apartments for medium<br />or long term stays in
-                Melbourne.</P
-              >
+              <P>
+                We offer quality fully furnished, centrally located and
+                affordable apartments for medium
+                <br />or long term stays in
+                Melbourne.
+              </P>
             </div>
           </div>
         </div>
@@ -91,25 +92,35 @@
         <div class="container">
           <div class="row">
             <div class="available-head modile-hide">
-              <h2 class="main-heading">
-                Check the availability of Studio Apartments
-              </h2>
+              <h2 class="main-heading">Check the availability of Studio Apartments</h2>
               <!-- <h3>Check the availability of Studio Apartments</h3> -->
             </div>
           </div>
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
+                <div class="flter-button">
+                  <HotelDatePicker
+                    format="DD/MM/YYYY"
+                    @check-in-changed="setCheckinDate"
+                    @check-out-changed="setCheckoutDate"
+                  ></HotelDatePicker>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
                 <div class="dropdown filter-widget">
                   <button
-                    class="btn dropdown-toggle flter-button"
+                    class="btn dropdown-toggle guest-button-svg before-svg flter-button"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <i class="ti-location-pin"></i><span> Check-In/Out</span>
+                    <span>Guest Number</span>
                   </button>
                   <div
                     class="dropdown-menu filter-widget-dropdown"
@@ -119,26 +130,34 @@
                       <div class="row">
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
-                            <label for="checkin" class="filter-widget-sublabel"
-                              >Check-In</label
-                            >
-                            <Datepicker
-                              v-model="filter.checkIn"
-                              placeholder="Check In"
-                              class="form-control asm-input"
-                            ></Datepicker>
+                            <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                            <div class="quantity">
+                              <input
+                                id="min_occupants"
+                                v-model="filter.adults"
+                                type="number"
+                                min="1"
+                                max="5"
+                                step="1"
+                                value="1"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
-                            <label for="checkout" class="filter-widget-sublabel"
-                              >Check-Out</label
-                            >
-                            <Datepicker
-                              v-model="filter.checkOut"
-                              placeholder="Check Out"
-                              class="form-control asm-input"
-                            ></Datepicker>
+                            <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                            <div class="quantity">
+                              <input
+                                id="max_occupants"
+                                type="number"
+                                v-model="filter.children"
+                                min="1"
+                                max="5"
+                                step="1"
+                                value="1"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -152,14 +171,14 @@
               <div class="form-group">
                 <div class="dropdown filter-widget">
                   <button
-                    class="btn dropdown-toggle flter-button"
+                    class="btn dropdown-toggle price-svg-button before-svg flter-button"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <i class="ti-location-pin"></i><span> Guest Number</span>
+                    <span>Price Min/Max</span>
                   </button>
                   <div
                     class="dropdown-menu filter-widget-dropdown"
@@ -169,69 +188,7 @@
                       <div class="row">
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
-                            <label
-                              for="min_occupants"
-                              class="filter-widget-sublabel"
-                              >Adults</label
-                            >
-                            <input
-                              id="min_occupants"
-                              type="number"
-                              class="form-control asm-input"
-                              placeholder="Adults"
-                              v-model="filter.adults"
-                              min="1"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-md-6 filter-widget-col">
-                          <div class="form-group">
-                            <label
-                              for="max_occupants"
-                              class="filter-widget-sublabel"
-                              >Children</label
-                            >
-                            <input
-                              id="max_occupants"
-                              type="number"
-                              class="form-control asm-input"
-                              placeholder="Children"
-                              v-model="filter.children"
-                              min="1"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-group">
-                <div class="dropdown filter-widget">
-                  <button
-                    class="btn dropdown-toggle flter-button"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="ti-money"></i><span>Price Min/Max</span>
-                  </button>
-                  <div
-                    class="dropdown-menu filter-widget-dropdown"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <div class="filter-widget-inner">
-                      <div class="row">
-                        <div class="col-md-6 filter-widget-col">
-                          <div class="form-group">
-                            <label for="checkin" class="filter-widget-sublabel"
-                              >Price Min</label
-                            >
+                            <label for="checkin" class="filter-widget-sublabel">Price Min</label>
                             <input
                               id="checkin"
                               type="text"
@@ -244,9 +201,7 @@
                         </div>
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
-                            <label for="checkout" class="filter-widget-sublabel"
-                              >Price Max</label
-                            >
+                            <label for="checkout" class="filter-widget-sublabel">Price Max</label>
                             <input
                               id="checkout"
                               type="text"
@@ -280,9 +235,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="studio-bottom-wrap">
-              <div class="studio-bottom-view-apartment">
+              <!-- <div class="studio-bottom-view-apartment">
                 <a class="btn colorles-btn">View Apartments</a>
-              </div>
+              </div>-->
 
               <div class="studio-bottom-sub-heading1">
                 <p class="paraf">
@@ -324,9 +279,7 @@
                     <h3 class="sub-heading">Benefits &amp; Inclusions:</h3>
                   </div>
                   <div class="panel-body">
-                    <div
-                      class="include-list-wrap superior-list studio-benifit-list"
-                    >
+                    <div class="include-list-wrap superior-list studio-benifit-list">
                       <ul>
                         <li>Fully furnished</li>
                         <li>All utilities connection and usage charges</li>
@@ -359,7 +312,7 @@
                         <div class="bedding-config-heading available-head">
                           <h3>Bedding can be configured as:</h3>
                         </div>
-                        <div class="config-label-wrap ">
+                        <div class="config-label-wrap">
                           <div class="row">
                             <div class="col">
                               <button type="button" class="btn colorles-btn">
@@ -434,10 +387,7 @@
           <div class="studio-bottom-furnish-image-wrap">
             <div class="row">
               <div class="col-md-12">
-                <img
-                  src="images/studio-apartment/aprt-bottom-img-studio.jpg"
-                  width="100%"
-                />
+                <img src="images/studio-apartment/aprt-bottom-img-studio.jpg" width="100%" />
               </div>
             </div>
           </div>
@@ -447,17 +397,18 @@
   </div>
 </template>
 <script>
-import Datepicker from 'vuejs-datepicker';
-import moment from 'moment';
+import moment from "moment";
+import HotelDatePicker from "vue-hotel-datepicker";
+import Swiper from 'swiper';
 
 export default {
-  name: 'studio-apartments',
+  name: "studio-apartments",
   data() {
     return {
       filter: {
-        checkIn: '',
-        checkOut: '',
-        type: 'studio-apartments',
+        checkIn: "",
+        checkOut: "",
+        type: "studio-apartments",
         adults: 1,
         children: 0,
         price_min: 0,
@@ -466,35 +417,61 @@ export default {
     };
   },
   mounted() {
-    console.log('Component mounted.');
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 1000,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
   },
   methods: {
     search() {
       if (
-        this.filter.type != '' &&
-        this.filter.checkIn != '' &&
-        this.filter.checkOut != ''
+        this.filter.type != "" &&
+        this.filter.checkIn != "" &&
+        this.filter.checkOut != ""
       ) {
         window.location =
-          './apartment-listing?type=' +
+          "./apartment-listing?type=" +
           this.filter.type +
-          '&start=' +
-          moment(this.filter.checkIn).format('YYYY-MM-DD') +
-          '&end=' +
-          moment(this.filter.checkOut).format('YYYY-MM-DD') +
-          '&adults=' +
+          "&start=" +
+          moment(this.filter.checkIn).format("YYYY-MM-DD") +
+          "&end=" +
+          moment(this.filter.checkOut).format("YYYY-MM-DD") +
+          "&adults=" +
           this.filter.adults +
-          '&children=' +
+          "&children=" +
           this.filter.children +
-          '&price_min=' +
+          "&price_min=" +
           this.filter.price_min +
-          '&price_max=' +
+          "&price_max=" +
           this.filter.price_max;
       }
+    },
+    setCheckinDate(newDate) {
+      this.filter.checkIn = newDate;
+    },
+    setCheckoutDate(newDate) {
+      this.filter.checkOut = newDate;
     }
   },
   components: {
-    Datepicker
+    HotelDatePicker
   }
 };
 </script>

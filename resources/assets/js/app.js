@@ -36,10 +36,14 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
+
 Vue.use(VueAxios, axios);
 Vue.axios.defaults.baseURL = process.env.MIX_APP_API_URL;
 
 console.log('-');
+
+
+
 
 Vue.component(
   'example-component',

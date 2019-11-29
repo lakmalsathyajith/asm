@@ -49,7 +49,8 @@
                                 <div class="widget-icon"><img src="{{asset('images/maps-and-flags.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    K113/63 Turner St, Port Melbourne VIC 3207 Australia.
+                                    <a href="https://goo.gl/maps/w61whHKLkMBjfc1f7" target="_blank">K113/63 Turner St,
+                                        Port Melbourne VIC 3207 Australia.</a>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +148,6 @@
 
 <script src="{{ asset('js/app.js?v=1.7') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script href="{{asset('js/script.js?v=1.7')}}"></script>
 
 <script>
@@ -172,7 +172,7 @@ $('.dropdown-menu .filter-widget-inner a').click(function() {
 $(this)
 .parents('.dropdown')
 .find('.btn')
-.html($(this).text() + ' <span class="caret"></span>');
+.html('<span>' +$(this).text() + '</span>');
 $(this)
 .parents('.dropdown')
 .find('.btn')
@@ -187,41 +187,9 @@ $('.accommondation-wrap').css('display', 'block');
 }
 });
 
-//---------------- swiper slider code. remove it if you dont want it --------------
-if ($('.swiper-container').length) {
-    
-var swiper = new Swiper('.swiper-container', {
-effect: 'fade',
-fadeEffect: {
-crossFade: true
-},
-loop: true,
-speed: 1000,
-centeredSlides: true,
-autoplay: {
-delay: 3000,
-disableOnInteraction: false
-},
-pagination: {
-el: '.swiper-pagination',
-clickable: true
-},
-navigation: {
-nextEl: '.swiper-button-next',
-prevEl: '.swiper-button-prev'
-}
-});
-}
 
 });
 
-
-$(function () {
-  $(".datepicker").datepicker({ 
-        autoclose: true, 
-        todayHighlight: true
-  }).datepicker('update', new Date());
-});
 
 /*mobile filter view js*/
 $(document).ready(function(){
@@ -282,4 +250,110 @@ $('#apartment-review-Indicators').hover(function() {
     $(this).carousel('cycle');
 });
 
+
+$(function() {
+      $('.dropdown').on({
+          "click": function(event) {
+            if ($(event.target).closest('.filter-widget-inner-drop-list').length) {
+              $(this).data('closable', true);
+            } else {
+              $(this).data('closable', false);
+            }
+          },
+          "hide.bs.dropdown": function(event) {
+            hide = $(this).data('closable');
+            $(this).data('closable', true);
+            return hide;
+          }
+      });
+  });
+
+
+  $(document).ready(function(){
+ jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+    jQuery('.quantity').each(function() {
+      var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnUp = spinner.find('.quantity-up'),
+        btnDown = spinner.find('.quantity-down'),
+        min = input.attr('min'),
+        max = input.attr('max');
+
+      btnUp.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+      btnDown.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+    });
+
+
+    document.getElementById('numbersonly').addEventListener('keydown', function(e) {
+    var key   = e.keyCode ? e.keyCode : e.which;
+    
+    if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+         (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+         (key >= 35 && key <= 40) ||
+         (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+         (key >= 96 && key <= 105)
+       )) e.preventDefault();
+});
+
+
+function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+
+});
+
 </script>
+
+{{-- <script>
+    import VueHotelDatepicker from '@northwalker/vue-hotel-datepicker'
+    export default {
+      name: 'App'
+      components: {
+        VueHotelDatepicker
+      }
+      
+    }
+    </script> --}}

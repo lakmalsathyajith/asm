@@ -74,14 +74,14 @@
   opacity: 1;
 }
 
-.listing-swipe-slider .swipeslider .slide1 {
+/* .listing-swipe-slider .swipeslider .slide1 {
   min-height: 360px !important;
   border-radius: 0px;
   z-index: -1;
-}
+} */
 
 .listing-swipe-slider .swipeslider .slide {
-  min-height: 360px !important;
+  min-height: 360px;
   border-radius: 0px;
   z-index: -1;
 }

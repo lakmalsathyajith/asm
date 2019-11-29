@@ -2,64 +2,6 @@ $(document).ready(function() {
     setTimeout(function() {
         $(".site-loading-wrap").fadeOut("slow");
     }, 800);
-
-    //---------------- swiper slider code. remove it if you dont want it --------------
-    // if ($(".swiper-container").length) {
-    // 	var swiper = new Swiper(".swiper-container", {
-    // 		effect: "fade",
-    // 		fadeEffect: {
-    // 			crossFade: true
-    // 		},
-    // 		loop: true,
-    // 		speed: 1000,
-    // 		centeredSlides: true,
-    // 		autoplay: {
-    // 			delay: 3000,
-    // 			disableOnInteraction: false
-    // 		},
-    // 		pagination: {
-    // 			el: ".swiper-pagination",
-    // 			clickable: true
-    // 		},
-    // 		navigation: {
-    // 			nextEl: ".swiper-button-next",
-    // 			prevEl: ".swiper-button-prev"
-    // 		}
-    // 	});
-
-
-    // ----------- booking date from to. remove it if you dont want it  ------------------
-    // var date = new Date();
-    // date.setDate(date.getDate());
-
-    // var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    // $(".booking-from")
-    // 	.datepicker({
-    // 		setDate: 'now',
-    // 		startDate: date,
-    // 		format: "dd M. yyyy",
-    // 		maxViewMode: 2,
-    // 		autoclose: true,
-    // 		todayHighlight: true
-    // 	})
-    // 	.on("changeDate", function(selected) {
-    // 		var minDate = new Date(selected.date.valueOf());
-    // 		$(".booking-to").datepicker("setStartDate", minDate);
-    // 	});
-
-    // $(".booking-to")
-    // 	.datepicker({
-    // 		setDate: 'now',
-    // 		startDate: date,
-    // 		format: "dd M. yyyy",
-    // 		maxViewMode: 2,
-    // 		autoclose: true,
-    // 		todayHighlight: true
-    // 	})
-    // 	.on("changeDate", function(selected) {
-    // 		var maxDate = new Date(selected.date.valueOf());
-    // 		$(".booking-from").datepicker("setEndDate", maxDate);
-    // 	});
 });
 
 
