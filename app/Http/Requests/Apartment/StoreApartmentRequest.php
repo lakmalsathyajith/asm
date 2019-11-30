@@ -28,7 +28,7 @@ class StoreApartmentRequest extends AbstractRequest
     public function messages()
     {
         return [
-            'files'             => 'Images field is required'
+            'files' => 'Images field is required'
         ];
     }
 }
