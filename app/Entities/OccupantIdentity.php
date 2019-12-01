@@ -34,4 +34,9 @@ class OccupantIdentity extends Model
     {
         $this->hasMany('App\Entities\Occupant');
     }
+
+    public function files()
+    {
+        return $this->morphToMany('App\Entities\File', 'fileable');
+    }
 }
