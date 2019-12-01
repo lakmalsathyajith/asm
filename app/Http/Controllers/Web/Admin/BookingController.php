@@ -37,6 +37,15 @@ class BookingController extends AbstractController
      */
     public function show($id)
     {
-        //
+        $request = request()->all();
+        $record = $this->activeRepo->get($id);
+        $data['title'] = 'Show Booking';
+        $data['record'] = $record;
+        $data['occupant'] = isset($request['occupant'])
+            ? $record->occupants->find($request['occupant'])
+            : $record->occupants->first();
+        $data['occupantSelected'] = isset($request['occupant']);
+
+        return view('admin.pages.booking.show', $data);
     }
 }

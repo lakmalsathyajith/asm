@@ -48,8 +48,30 @@ class Occupant extends Model
         return null;
     }
 
+    // accessors
+
+    public function getFormattedTypeAttribute() {
+        return isset(array_flip($this->types)[$this->type]) ?
+            ucfirst(array_flip($this->types)[$this->type])
+            : null;
+    }
+
+
+    // relation sips
+
     public function booking()
     {
-        $this->belongsTo('App\Entities\Booking');
+        return $this->belongsTo('App\Entities\Booking');
     }
+
+    public function contacts()
+    {
+        return $this->hasOne('App\Entities\OccupantContact');
+    }
+
+    public function identity()
+    {
+        return $this->hasOne('App\Entities\OccupantIdentity');
+    }
+
 }
