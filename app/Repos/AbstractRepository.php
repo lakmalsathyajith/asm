@@ -82,10 +82,13 @@ class AbstractRepository
         return $this->model->with($relations);
     }
 
+
     // return for select
-    public function pluck($field1, $field2 = 'id') {
+    public function pluck($field1, $field2 = 'id')
+    {
         return $this->model->pluck($field1, $field2);
     }
+
 
     // get all records with the given ids
     public function getMany($ids)
