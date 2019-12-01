@@ -41,6 +41,7 @@ class OccupantController extends AbstractApiController
                     'booking_id'    => $requestData['booking_id'],
                     'first_name'    => $occupantData['first_name'],
                     'last_name'     => $occupantData['last_name'],
+                    'date_of_birth' => $occupantData['date_of_birth'],
                     'type'          => $occupantData['type'],
                     'is_primary'    => isset($occupantData['is_primary']) ? $occupantData['is_primary'] : null
                 ];

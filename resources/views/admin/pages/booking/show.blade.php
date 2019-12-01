@@ -143,7 +143,7 @@
                                             <th scope="col">First Name</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">Type</th>
-                                            <th scope="col">Booked By</th>
+                                            <th scope="col">Is Primary</th>
                                             <th scope="col"></th>
                                         </tr>
                                         </thead>
@@ -154,7 +154,7 @@
                                                 <td>{{ $occupant->first_name }}</td>
                                                 <td>{{ $occupant->last_name }}</td>
                                                 <td>{{ $occupant->formattedType }}</td>
-                                                <td>{{ $occupant->is_primary ? 'Yes' : null }}</td>
+                                                <td>{{ $occupant->is_primary ? 'Yes' : 'No' }}</td>
                                                 <td>
                                                     <a href="{{ route('booking.show', ['booking' => $record->id, 'occupant' => $occupant->id]) }}">
                                                         <div class="btn btn-xs">

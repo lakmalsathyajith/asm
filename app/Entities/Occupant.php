@@ -13,6 +13,7 @@ class Occupant extends Model
         'booking_id',
         'first_name',
         'last_name',
+        'date_of_birth',
         'type',
         'is_primary',
     ];
