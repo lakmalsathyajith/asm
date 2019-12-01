@@ -28,4 +28,13 @@ Trait HelperTrait
 
         return !!(count($inHaystack) > 0);
     }
+
+    public static function uuid($prefix = null)
+    {
+        if (!isset($prefix)) {
+            $prefix = strtolower(env('APP_NAME', 'salt')).'_';
+        }
+
+        return uniqid($prefix);
+    }
 }
