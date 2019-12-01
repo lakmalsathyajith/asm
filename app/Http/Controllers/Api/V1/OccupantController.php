@@ -2,27 +2,34 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Contracts\RepoInterfaces\FileInterface;
 use App\Contracts\RepoInterfaces\OccupantContactInterface;
 use App\Contracts\RepoInterfaces\OccupantIdentityInterface;
 use App\Contracts\RepoInterfaces\OccupantInterface;
 use App\Entities\Occupant;
 use App\Http\Controllers\Api\AbstractApiController;
 use App\Http\Requests\Occupant\StoreOccupantApiRequest;
+use App\Traits\FileTrait;
+use Illuminate\Support\Facades\DB;
 
 class OccupantController extends AbstractApiController
 {
+    use FileTrait;
 
+    private $fileRepo;
     private $occupantContactRepo;
     private $occupantIdentityRepo;
     private $occupant;
 
     function __construct(
+        FileInterface $fileRepoInstance,
         OccupantInterface $occupantRepoInstance,
         OccupantContactInterface $occupantContactRepoInstance,
         OccupantIdentityInterface $occupantIdentityRepoInstance,
         Occupant $occupant
     )
     {
+        $this->fileRepo = $fileRepoInstance;
         $this->activeRepo = $occupantRepoInstance;
         $this->occupantContactRepo = $occupantContactRepoInstance;
         $this->occupantIdentityRepo = $occupantIdentityRepoInstance;
@@ -35,7 +42,7 @@ class OccupantController extends AbstractApiController
         $data = null;
 
         try {
-
+            DB::beginTransaction();
             foreach ($requestData['occupants'] as $occupantData) {
                 $occupant = [
                     'booking_id'    => $requestData['booking_id'],
@@ -75,11 +82,19 @@ class OccupantController extends AbstractApiController
                             'kin_land_phone'        => isset($occupantData['kin_land_phone']) ? $occupantData['kin_land_phone'] : null,
                             'kin_mobile_phone'      => isset($occupantData['kin_mobile_phone']) ? $occupantData['kin_mobile_phone'] : null,
                         ];
-                        $this->occupantIdentityRepo->create($identity);
+
+                        $identity = $this->occupantIdentityRepo->create($identity);
+//                        $meta = $this->getUploadedFileMeta();
+//                        $meta['folder'] = 'confidential';
+//                        $uploaded = $this->uploadFile($meta);
+//                        $file = $this->fileRepo->create($uploaded);
+//                        $identity->files()->sync([$file->id]);
                     }
                 }
+                DB::commit();
             }
         } catch (\Exception $e) {
+            DB::rollBack();
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'Error Occurred while creating the booking',

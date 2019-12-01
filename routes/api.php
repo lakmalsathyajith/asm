@@ -36,6 +36,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('get-suburb', 'Api\V1\ApartmentController@getSuburb')->name('apartments.getSuburb');
 
     Route::post('booking', 'Api\V1\BookingController@store')->name('booking.store');
-    Route::get('booking/{id}', 'Api\V1\BookingController@show')->name('booking.store');
+    Route::get('booking/{id}', 'Api\V1\BookingController@show')->name('booking.show');
+    Route::put('booking/{id}', 'Api\V1\BookingController@update')->name('booking.update');
     Route::post('occupant', 'Api\V1\OccupantController@storeBulk')->name('occupant.storeBulk');
 });

@@ -21,16 +21,15 @@ class BookingController extends AbstractApiController
     {
         try {
             $where = [
-                [
-                    'key' => 'uuid',
-                    'op' => '=',
-                    'val' => $id
-                ]
+                ['key' => 'uuid', 'op' => '=', 'val' => $id]
             ];
 
             $data = $this->filter($where)
-                    ->with('occupants')
-                    ->firstOrFail();
+                ->with('apartment')
+                ->with('occupants')
+                ->with('occupants.contacts')
+                ->with('occupants.identity')
+                ->firstOrFail();
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'record fetched successfully',
@@ -75,5 +74,19 @@ class BookingController extends AbstractApiController
             [],
             200
         );
+    }
+
+    public function update($id)
+    {
+        $where = [
+            ['key' => 'uuid', 'op' => '=', 'val' => $id]
+        ];
+
+        $response = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
+
+        $model = $this->filter($where)
+            ->firstOrFail();
+
+
     }
 }
