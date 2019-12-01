@@ -29,7 +29,6 @@ class BookingController extends AbstractApiController
             ];
 
             $data = $this->filter($where)
-                    ->with('apartment')
                     ->with('occupants')
                     ->firstOrFail();
             return $this->returnResponse(
