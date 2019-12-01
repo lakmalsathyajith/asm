@@ -39,6 +39,7 @@ class AbstractRepository
         return $model->save();
     }
 
+
     // find and update record in the database
     public function findAndUpdate($id, array $data)
     {

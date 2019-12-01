@@ -3,17 +3,23 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Contracts\RepoInterfaces\BookingInterface;
+use App\Entities\Booking;
 use App\Http\Controllers\Api\AbstractApiController;
 use App\Http\Requests\Booking\StoreBookingApiRequest;
+use App\Processors\Rms\PostBookingApiRequestProcessor;
 use App\Traits\HelperTrait;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends AbstractApiController
 {
+    protected $booking;
+
     function __construct(
+        Booking $booking,
         BookingInterface $bookingRepoInstance
     )
     {
+        $this->booking = $booking;
         $this->activeRepo = $bookingRepoInstance;
     }
 
@@ -78,15 +84,45 @@ class BookingController extends AbstractApiController
 
     public function update($id)
     {
-        $where = [
-            ['key' => 'uuid', 'op' => '=', 'val' => $id]
-        ];
+        $data = null;
+        try {
+            $where = [
+                ['key' => 'uuid', 'op' => '=', 'val' => $id]
+            ];
 
-        $response = $this->makeRmsRequest(new GetAvailabilityRatesApiRequestProcessor());
+            $booking = $this->filter($where)
+                ->with('apartment')
+                ->with('occupants')
+                ->with('occupants.contacts')
+                ->with('occupants.identity')
+                ->firstOrFail();
 
-        $model = $this->filter($where)
-            ->firstOrFail();
+            $processor = new PostBookingApiRequestProcessor();
+            $processor->setCustomFields($booking->toArray());
+            $processor->refreshOptions();
+            $response = $this->makeRmsRequest($processor);
 
+            if(isset($response)
+                && isset($response['Bookings'])
+                && isset($response['Bookings']['Booking'])
+                && isset($response['Bookings']['Booking']['BookingReference'])) {
+                $booking->rms_reference = $response['Bookings']['Booking']['BookingReference'];
+                $booking->status = 'COMPLETE';
+                $booking->save();
+            }
 
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'Booked successfully',
+                $response);
+        } catch (\Exception $e) {
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'Error Occurred while updating the booking',
+                $data,
+                [$e->getMessage()]
+                ,200
+            );
+        }
     }
 }
