@@ -39,6 +39,7 @@ class StoreOccupantApiRequest extends AbstractRequest
             'occupants'                 => 'required|array',
             'occupants.*.first_name'    => 'required',
             'occupants.*.last_name'     => 'required',
+            'occupants.*.date_of_birth' => 'required',
             'occupants.*.type'          => 'required',
 
             // occupant contact details validations
