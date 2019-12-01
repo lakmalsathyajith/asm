@@ -17,6 +17,33 @@ class BookingController extends AbstractApiController
         $this->activeRepo = $bookingRepoInstance;
     }
 
+    public function show($id)
+    {
+        try {
+            $where = [
+                [
+                    'key' => 'uuid',
+                    'op' => '=',
+                    'val' => $id
+                ]
+            ];
+
+            $data = $this->filter($where)->firstOrFail();
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'record fetched successfully',
+                $data);
+        } catch (\Exception $e) {
+            return $this->returnResponse(
+                $this->getResponseStatus('SUCCESS'),
+                'Error Occurred while creating the booking',
+                $data,
+                [$e->getMessage()]
+                , 200
+            );
+        }
+    }
+
     public function store(StoreBookingApiRequest $request)
     {
         $requestData = $request->all();
