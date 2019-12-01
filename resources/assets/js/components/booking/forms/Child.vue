@@ -1,6 +1,6 @@
 <template>
     <div class="panel-group booking-panel" id="accordion">
-        <div class="panel panel-default">
+        <div class="panel panel-default" @focusout="updateBooking">
             <div
                     class="panel-heading accordion-toggle collapsed"
                     data-toggle="collapse"
@@ -20,7 +20,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">First Name*</label>
-                                        <input v-model="form.firstName" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.first_name" class="form-control flter-button" type="text"/>
                                     </div>
                                 </div>
                                 <div class="dateofbirth-wrap">
@@ -29,7 +29,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Date of Birth*</label>
-                                                    <input v-model="form.dob" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.date_of_birth" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Last Name*</label>
-                                        <input v-model="form.lastName" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.last_name" class="form-control flter-button" type="text"/>
                                     </div>
                                 </div>
                             </div>
@@ -69,11 +69,12 @@
             return {
                 formId: this.$attrs.formId,
                 form: {
-                    type: "child",
+                    is_primary: false,
+                    type: "CHILD",
                     key: "child" + this.$attrs.formId,
-                    firstName: "",
-                    lastName: "",
-                    dob: "",
+                    first_name: "",
+                    last_name: "",
+                    date_of_birth: "",
                     age: ""
                 }
             };

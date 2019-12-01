@@ -28,7 +28,10 @@ class BookingController extends AbstractApiController
                 ]
             ];
 
-            $data = $this->filter($where)->firstOrFail();
+            $data = $this->filter($where)
+                    ->with('apartment')
+                    ->with('occupants')
+                    ->firstOrFail();
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'record fetched successfully',

@@ -56,8 +56,8 @@
                                 <div class="booking-form-wrap">
                                     <div class="tab-content booking-form" id="nav-tabContent">
                                         <primary-booking-form/>
-                                        <adult-booking-form v-for="index in adults-1" :key="index" :formId="index+1"/>
-                                        <child-booking-form v-for="index in children" :key="'child '+index" :formId="adults+index"/>
+                                        <adult-booking-form v-for="index in selectedBooking.adults-1" :key="index" :formId="index+1"/>
+                                        <child-booking-form v-for="index in selectedBooking.children" :key="'child '+index" :formId="selectedBooking.adults+index"/>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -87,9 +87,9 @@
                                         <div class="col-md-12">
                                             <div class="bottom-desc-behind-wrap">
                                                 <div class="right-side-middle-content">
-                                                    <h3>Apartment 404</h3>
+                                                    <h3>{{selectedBooking.apartment.name}}</h3>
                                                     <p>
-                                                        <i class="ti-location-pin"></i> Melbourne - Northern Region
+                                                        <i class="ti-location-pin"></i> {{selectedBooking.apartment.address}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -102,15 +102,17 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="short-description">Check-In</div>
-                                                <div class="long-description">18, September 2019</div>
+                                                <div class="long-description">{{selectedBooking.check_in}}</div>
+                                                <!--<div class="long-description">18, September 2019</div>-->
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="short-description">Occupants</div>
-                                                <div class="long-description">2 Adults + 1 Child</div>
+                                                <div class="long-description">{{selectedBooking.adults}} Adults + {{selectedBooking.children}} Child</div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="short-description">Check-Out</div>
-                                                <div class="long-description">18, October 2019</div>
+                                                <div class="long-description">{{selectedBooking.check_in}}</div>
+                                                <!--<div class="long-description">18, October 2019</div>-->
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="short-description">Beds</div>
@@ -129,7 +131,7 @@
                                                 <div class="rent-wrap short-description">Rent</div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="rent-wrap-detail pull-right">$405 per week</div>
+                                                <div class="rent-wrap-detail pull-right">${{selectedBooking.rent}} per week</div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="days-wrap short-description">Total Days</div>
@@ -162,12 +164,12 @@
         name: "booking-step-one",
         data() {
             return {
-                adults: 3,
-                children: 3
+                //adults: 3,
+                //children: 3
             };
         },
         mounted() {
-            console.log("Component mounted.");
+            console.log("Component mounted.",this);
             this.getBooking(this.$attrs.id);
         },
         methods: {

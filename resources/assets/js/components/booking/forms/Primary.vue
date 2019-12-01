@@ -16,21 +16,21 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">First Name*</label>
-                                        <input v-model="form.firstName" class="form-control flter-button"
+                                        <input v-model="form.first_name" class="form-control flter-button"
                                                type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Date of Birth*</label>
-                                        <datepicker v-model="form.dob" class="form-control flter-button"></datepicker>
+                                        <datepicker v-model="form.date_of_birth" class="form-control flter-button"></datepicker>
                                         <!-- <input class="form-control flter-button" type="email"> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Telephone*</label>
-                                        <input v-model="form.telephone" class="form-control flter-button" type="email"/>
+                                        <input v-model="form.land_phone" class="form-control flter-button" type="email"/>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Last Name*</label>
-                                        <input v-model="form.lastName" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.last_name" class="form-control flter-button" type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Mobile*</label>
-                                        <input v-model="form.mobile" class="form-control flter-button" id="numbersonly"
+                                        <input v-model="form.mobile_phone" class="form-control flter-button" id="numbersonly"
                                                type="text"
                                         />
                                     </div>
@@ -71,23 +71,23 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input v-model="form.workerStudent"
+                                        <input v-model="form.emp_status"
                                                class="form-check-input worker-info-radio"
                                                type="radio"
                                                name="inlineRadioOptions"
                                                id="inlineRadio1"
-                                               value="option1"
+                                               value="EMPLOYEE"
                                                checked="checked"/>
                                         <label class="form-check-label radio-label-work inputradio-check-lable" for="inlineRadio1">I’m a Worker</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input
-                                                v-model="form.workerStudent"
+                                                v-model="form.emp_status"
                                                 class="form-check-input student-info-radio"
                                                 type="radio"
                                                 name="inlineRadioOptions"
                                                 id="inlineRadio2"
-                                                value="option2"/>
+                                                value="STUDENT"/>
                                         <label class="form-check-label radio-label-student inputradio-check-lable" for="inlineRadio2">I’m a Student</label>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Usual / Personal Address*</label>
-                                                    <input v-model="form.workPAddress" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Department</label>
-                                                    <input v-model="form.workDepartment" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Work Phone Number</label>
-                                                    <input v-model="form.workPhone" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +129,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Work Address</label>
-                                                    <input v-model="form.workAddress" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,7 +146,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Usual / Personal Address*</label>
-                                                    <input v-model="form.workPAddress" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +154,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Department</label>
-                                                    <input v-model="form.workDepartment" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Work Phone Number</label>
-                                                    <input v-model="form.workPhone" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,7 +170,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Work Address</label>
-                                                    <input v-model="form.workAddress" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input v-model="form.documentType"
+                                        <input v-model="form.identity_type"
                                                 class="form-check-input"
                                                 type="checkbox"
                                                 id="inlineCheckbox1"
@@ -199,14 +199,14 @@
                                         <label class="form-check-label inputradio-check-lable" for="inlineCheckbox1">Passport Details</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input v-model="form.documentType" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="driviers-licence"/>
+                                        <input v-model="form.identity_type" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="driviers-licence"/>
                                         <label
                                                 class="form-check-label inputradio-check-lable"
                                                 for="inlineCheckbox2"
                                         >Driver’s License</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input  v-model="form.documentType"
+                                        <input  v-model="form.identity_type"
                                                 class="form-check-input"
                                                 type="checkbox"
                                                 id="inlineCheckbox2"
@@ -226,7 +226,7 @@
                                                 for="checkin"
                                                 class="filter-widget-sublabel"
                                         >Passport Number*</label>
-                                        <input v-model="form.passportNo" class="form-control flter-button"
+                                        <input v-model="form.identity_number" class="form-control flter-button"
                                                type="text"/>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
                                                 for="checkin"
                                                 class="filter-widget-sublabel"
                                         >Passport Country of Issue*</label>
-                                        <input v-model="form.passportCountry" class="form-control flter-button"
+                                        <input v-model="form.identity_issued_by" class="form-control flter-button"
                                                type="text"/>
                                     </div>
                                 </div>
@@ -290,7 +290,7 @@
                                                 for="checkin"
                                                 class="filter-widget-sublabel"
                                         >Name of Next of Kin*</label>
-                                        <input v-model="form.kin_name" class="form-control flter-button"
+                                        <input v-model="form.next_of_kin" class="form-control flter-button"
                                                type="text"/>
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin"
                                                class="filter-widget-sublabel">Telephone*</label>
-                                        <input v-model="form.kin_telephone" class="form-control flter-button"
+                                        <input v-model="form.kin_land_phone" class="form-control flter-button"
                                                type="text"/>
                                     </div>
                                 </div>
@@ -314,7 +314,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Mobile*</label>
-                                        <input v-model="form.kin_mobile"
+                                        <input v-model="form.kin_mobile_phone"
                                                 class="form-control flter-button"
                                                 id="numbersonly"
                                                 type="text"/>
@@ -353,28 +353,29 @@
         data() {
             return {
                 form: {
-                    type: "primary",
+                    is_primary: true,
+                    type: "ADULT",
                     key: "adult1",
-                    firstName: "",
-                    lastName: "",
-                    dob: "",
+                    first_name: "",
+                    last_name: "",
+                    date_of_birth: "",
                     email: "",
-                    telephone: "",
-                    mobile: "",
+                    land_phone: "",
+                    mobile_phone: "",
                     address: "",
-                    workerStudent: "",
-                    workPAddress: "",
-                    workDepartment: "",
-                    workPhone: "",
-                    workAddress: "",
-                    documentType: "",
-                    passportNo: "",
-                    passportCountry: "",
+                    emp_status: "",
+                    emp_personal_address: "",
+                    emp_department: "",
+                    emp_phone: "",
+                    emp_address: "",
+                    identity_type: "",
+                    identity_number: "",
+                    identity_issued_by: "",
                     document: "",
-                    kin_name: "",
+                    next_of_kin: "",
                     kin_relationship: "",
-                    kin_telephone: "",
-                    kin_mobile: "",
+                    kin_land_phone: "",
+                    kin_mobile_phone: "",
                     kin_email: "",
                     kin_address: ""
                 }

@@ -37,7 +37,8 @@ export const booking = ({ commit }, payload) => {
         .post('/booking', params)
         .then(res => {
             console.log('-------booking2-------', res.data.data.uuid);
-            window.location = "../booking/step-one?id="+res.data.data.uuid;
+            let bookingId = res.data.data.uuid;
+            window.location = "../booking/"+bookingId+"/step-one";
             //commit(SELECTED_BOOKING, res);
         })
         .catch(err => {
@@ -51,12 +52,14 @@ export const booking = ({ commit }, payload) => {
  * @param payload
  */
 export const getBooking = ({ commit }, payload) => {
-    //commit(IS_LOADING, true);
+    commit(IS_LOADING, true);
     Vue.axios
         .get('/booking/' + payload)
         .then(res => {
+
+            console.log('-------getBooking-------', res.data.data);
             commit(SELECTED_BOOKING, res.data);
-            //commit(IS_LOADING, false);
+            commit(IS_LOADING, false);
         })
         .catch(err => {
             console.log('---err----', err);

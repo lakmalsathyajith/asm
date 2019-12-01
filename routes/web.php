@@ -69,8 +69,10 @@ Route::get('/contact', function () {
 });
 
 Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
-    Route::get('/step-one', function () {
-        return view('pages.bookingFirst');
+    Route::get('/{id}/step-one', function (Request $request) {
+        $params = $request->route()->parameters;
+        //dd($params['id']);
+        return view('pages.bookingFirst', ['params' => $params['id']]);
     });
     Route::get('/step-two', function () {
         return view('pages.bookingSecond');
