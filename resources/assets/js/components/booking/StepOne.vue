@@ -156,6 +156,7 @@
 </template>
 <script>
     import Datepicker from "vuejs-datepicker";
+    import { mapState, mapActions } from "vuex";
 
     export default {
         name: "booking-step-one",
@@ -167,11 +168,16 @@
         },
         mounted() {
             console.log("Component mounted.");
+            this.getBooking(this.$attrs.id);
         },
         methods: {
             nextStep() {
                 window.location = "./booking-second";
-            }
+            },
+            ...mapActions("booking", ["getBooking"]),
+        },
+        computed: {
+            ...mapState("booking", ["selectedBooking"])
         },
         components: {
             Datepicker

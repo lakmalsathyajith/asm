@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import ratesAndAvailability from './modules/ratesAndAvailability';
+import booking from './modules/booking';
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -18,7 +19,8 @@ const store = new Vuex.Store({
         // use to modify state asynchronously
     },
     modules:{
-        ratesAndAvailability
+        ratesAndAvailability,
+        booking
     }
 })
 

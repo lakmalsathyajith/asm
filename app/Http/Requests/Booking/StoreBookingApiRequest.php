@@ -11,7 +11,7 @@ class StoreBookingApiRequest extends AbstractRequest
     public function rules()
     {
         return [
-            'rms_reference'     => 'required|unique:bookings,rms_reference',
+            'rms_reference'     => 'unique:bookings,rms_reference',
             'apartment_id'      => 'required|integer',
             'adults'            => 'required|min:0|max:99|',
             'children'          => 'required|min:0|max:99|',

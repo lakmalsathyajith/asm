@@ -24,7 +24,7 @@ class BookingController extends AbstractApiController
 
         try {
             $data = [
-                'rms_reference' => $requestData['rms_reference'],
+                //'rms_reference' => $requestData['rms_reference'],
                 'uuid' => HelperTrait::uuid(),
                 'user_id' => Auth::id(),
                 'apartment_id' => $requestData['apartment_id'],

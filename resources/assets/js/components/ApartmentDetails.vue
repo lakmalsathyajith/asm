@@ -391,7 +391,9 @@ export default {
   },
   methods: {
     bookNow() {
-      window.location = "../booking-first";
+
+      this.booking();
+      //window.location = "../booking-first";
     },
     setCheckinDate(newDate) {
       this.filter.checkIn = newDate;
@@ -418,7 +420,8 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    ...mapActions("ratesAndAvailability", ["getApartment"])
+    ...mapActions("ratesAndAvailability", ["getApartment"]),
+    ...mapActions("booking", ["booking"])
   },
   computed: {
     ...mapState("ratesAndAvailability", ["selectedApartment"])
