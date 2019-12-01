@@ -11,8 +11,8 @@ class UpdateContentRequest extends AbstractRequest
     public function rules()
     {
         return [
-            'name'              => "required|min:3|max:100|unique:contents,name,{$this->route()->content},id",
-            'slug'              => "required|min:3|max:100|unique:contents,slug,{$this->route()->content},id",
+            'name'              => "required|min:3|max:100",
+            'slug'              => "required|min:3|max:100",
             'type'              => 'required',
             'sub_type'          => 'required_if:type,APARTMENT',
             'content'           => 'required',

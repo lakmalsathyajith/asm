@@ -11,7 +11,7 @@ class UpdateApartmentRequest extends AbstractRequest
     public function rules()
     {
         return [
-            'name'              => "required|min:3|max:100|unique:apartments,name,{$this->route()->apartment},id",
+            'name'              => "required|min:3|max:100",
             'address'           => 'required|max:255',
             'type'              => 'required',
             'map_url'           => 'required',

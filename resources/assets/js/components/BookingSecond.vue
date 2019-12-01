@@ -76,7 +76,7 @@
                                                 <div class="dropdown filter-widget general-boking-inqure-wrap">
                                                     <label for="checkin" class="filter-widget-sublabel">Bedding Conﬁguration*</label>
 
-                                                    <button class="btn dropdown-toggle flter-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <button class="btn dropdown-toggle flter-button enqury-svg-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                                                    <span> Choose</span> 
                                                                                             </button>
                                                     <div class="dropdown-menu filter-widget-dropdown general-boking-inqure" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);">

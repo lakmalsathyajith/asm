@@ -10,9 +10,7 @@
     display: none !important;
 }
 
-
 /* ## Block Landscape. Paste this HTML to body top*/
-
 
 /* <div class="mobile-rotate-wrap" style="display:none;">
         <p class="rotate"><i class="fa fa-mobile-phone"></i><br>Please Rotate Your Device.<br>[Portrait Mode]</p>
@@ -45,7 +43,6 @@ i.fa.fa-mobile-phone {
     padding-top: 25px;
 } */
 
-
 /*Devices larger than 1024*/
 
 @media (min-width: 1025px) {
@@ -55,7 +52,6 @@ i.fa.fa-mobile-phone {
         display: none !important;
     }
 }
-
 
 /* 
   ##Device = Large desktop and highresolution laptops
@@ -95,7 +91,6 @@ i.fa.fa-mobile-phone {
     } */
 }
 
-
 /* 
   ##Device = Small desktop and laptops
 */
@@ -107,8 +102,7 @@ i.fa.fa-mobile-phone {
     .desktop-hide {
         display: none;
     }
-    .left-nav li.nav-item a.nav-link,
-    .right-nav a.right-link {
+    .left-nav li.nav-item a.nav-link, .right-nav a.right-link {
         font-size: 12px;
         padding: 0px 12px;
     }
@@ -135,7 +129,6 @@ i.fa.fa-mobile-phone {
     }
 }
 
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -161,7 +154,6 @@ i.fa.fa-mobile-phone {
     }
 }
 
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -179,11 +171,10 @@ i.fa.fa-mobile-phone {
     .desktop-hide {
         display: none !important;
     }
-    .filter-mobi-nav .mobile-nav-wrap{
+    .filter-mobi-nav .mobile-nav-wrap {
         margin-top: 0px;
     }
 }
-
 
 /* 
   ##Device = Tablets, Ipads (landscape)
@@ -197,12 +188,10 @@ i.fa.fa-mobile-phone {
     .desktop-hide {
         display: none !important;
     }
-    .filter-mobi-nav .mobile-nav-wrap{
+    .filter-mobi-nav .mobile-nav-wrap {
         margin-top: 0px;
     }
-    
 }
-
 
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -253,8 +242,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -266,7 +254,6 @@ i.fa.fa-mobile-phone {
         border-radius: 12px;
     }
 }
-
 
 /* 
   ##Device = iPad Portrait
@@ -282,8 +269,14 @@ i.fa.fa-mobile-phone {
     .desktop-hide {
         display: block !important;
     }
-    .tab-hide{
+    .tab-hide {
         display: none !important;
+    }
+    .tab-view {
+        display: block !important;
+    }
+    .tab-landscape-view {
+        display: none;
     }
     .navbar-brand {
         width: 100%;
@@ -338,6 +331,9 @@ i.fa.fa-mobile-phone {
     .desktop-home-filter .btn {
         padding: 6px !important;
     }
+    .banner_content {
+        margin-top: 20px;
+    }
     .booking-form-section .dropdown button.btn {
         font-size: 12px;
     }
@@ -349,6 +345,18 @@ i.fa.fa-mobile-phone {
     .aprtment-details .content-box {
         margin: 30px 0px;
     }
+    .aprtment-details {
+        height: 330px;
+    }
+    #apartment-review-Indicators .carousel-item {
+        height: 450px;
+    }
+    .ftr-top-lst .list-inline-item a {
+        font-size: 10px;
+    }
+    .widget-body-text {
+        width: 162px;
+    }
     /*about page wrap*/
     .about-top-nav {
         width: 30%;
@@ -357,11 +365,31 @@ i.fa.fa-mobile-phone {
     .ftr-top-lst ul li {
         padding: 28px 0px 23px 0px;
     }
-    .filter-mobi-nav .mobile-nav-wrap{
+    .filter-mobi-nav .mobile-nav-wrap {
         margin-top: 0px;
     }
+    .booking-section {
+        margin-top: 30px;
+    }
+    .desktop-home-filter .datepicker--open {
+        margin-left: -160px;
+    }
+    .booking-form-section .container {
+        max-width: 100%;
+    }
+    .welcome-paraf-box {
+        padding: 40px 0px 50px 0px;
+    }
+    .filter-mob-nav-wrap {
+        width: 100vw;
+    }
+    .extras-wrap .col-md-4 {
+        padding: 0px 15px !important;
+    }
+    /* .wizard-row{
+        margin-top: 30px;
+    } */
 }
-
 
 /* 
   ##Device = iPad Landscape
@@ -371,14 +399,16 @@ i.fa.fa-mobile-phone {
     .modile-hide {
         display: none !important;
     }
+    .tab-view {
+        display: block !important;
+    }
     .navbar-brand img {
         height: 40px;
     }
     section.desktop-nav .navbar {
         background-color: #003241 !important;
     }
-    .left-nav li.nav-item a.nav-link,
-    .right-nav a.right-link {
+    .left-nav li.nav-item a.nav-link, .right-nav a.right-link {
         font-size: 10px;
         font-weight: 600;
         padding: 0px 8px;
@@ -402,10 +432,13 @@ i.fa.fa-mobile-phone {
     .padding-tb-60 {
         padding: 18px 0px;
     }
+    .extras-wrap .col-md-4 {
+        padding: 0px 15px !important;
+    }
     /*Home filter wrap*/
     .booking-form-section .dropdown button.btn {
         padding: 8px 18px;
-        font-size: 14px;
+        font-size: 12px;
     }
     .booking-form-section .form-group .booking-btn {
         width: 100%;
@@ -415,8 +448,31 @@ i.fa.fa-mobile-phone {
     .about-top-nav {
         width: 30%;
     }
+    section.top-search-wrap {
+        padding-top: 20px;
+    }
+    .datepicker__input:first-child {
+        text-indent: 4px !important;
+    }
+    .datepicker__input:last-child {
+        text-indent: -10px !important;
+    }
+    .datepicker__wrapper {
+        height: auto !important;
+        border-radius: 4px;
+        background-image: url(../images/svg/checking-black.svg) !important;
+        background-position: left 10px center !important;
+    }
+    .datepicker__input {
+        padding: 2px 25px 2px !important;
+    }
+    .aprtment-details .content-box {
+        margin: 115px 0px;
+    }
+    .content-img {
+        margin-top: 70px;
+    }
 }
-
 
 /* ## Device = Most of the Smartphones Mobiles - Portrait and Landscape Both */
 
@@ -465,8 +521,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -475,8 +530,18 @@ i.fa.fa-mobile-phone {
     .desktop-hide {
         display: block !important;
     }
+    .filter-widget-inner .row .col-md-6.filter-widget-col:first-child {
+        padding: 0px 30px !important;
+    }
+    .filter-widget-inner .row .col-md-6.filter-widget-col:last-child {
+        padding: 10px 30px !important;
+    }
+    .faq-section .head-name h3{
+       
+        padding-bottom: 0px !important;
+        text-align: left !important;
+    }
 }
-
 
 /* ## Device = Most of the Smartphones Mobiles - Portrait */
 
@@ -521,7 +586,6 @@ i.fa.fa-mobile-phone {
     }
 }
 
-
 /* ## Device = Most of the Smartphones Mobiles - Landscape */
 
 @media only screen and (max-width: 767px) and (min-aspect-ratio: 13/9) and (orientation: landscape) {
@@ -564,8 +628,7 @@ i.fa.fa-mobile-phone {
     .about-top-nav {
         width: 80%;
     }
-
-    .top-search-wrap .dropdown-menu{
+    .top-search-wrap .dropdown-menu {
         width: 100% !important;
     }
 }
@@ -596,18 +659,16 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
         width: 100%;
     }
-    .top-search-wrap .dropdown-menu{
+    .top-search-wrap .dropdown-menu {
         width: 100% !important;
     }
 }
-
 
 /* iPhone 5/5s only */
 
@@ -615,9 +676,85 @@ i.fa.fa-mobile-phone {
     .modile-hide {
         display: none !important;
     }
+    .mobile-padding-0 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .desktop-nav .navbar .nav-img {
         height: 60px;
         padding: 4px;
+    }
+    .mobile-nav-wrap .dropdown-toggle::after {
+        padding-left: 20px;
+        background-repeat: no-repeat;
+        margin-top: 8px !important;
+    }
+    .mobile-nav-wrap .dropdown-toggle:hover::after {
+        padding-left: 20px;
+        background-repeat: no-repeat;
+        margin-top: 8px;
+    }
+    ul.nav.nav-wizard li:first-child>a:before {
+        width: 0px;
+        height: 0px;
+        border-top: 10px inset transparent;
+        border-bottom: 10px inset transparent;
+        border-left: none !important;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+    }
+    .nav-wizard>li.active>a:after {
+        border: none !important;
+    }
+    .nav-wizard>li:not(:first-child)>a:before {
+        width: 0px;
+        height: 0px;
+        border-top: 20px inset transparent;
+        border-bottom: 20px inset transparent;
+        border-left: none !important;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+    }
+    .nav-wizard>li:not(:last-child)>a:after {
+        width: 0px;
+        height: 0px;
+        border-top: 20px inset transparent;
+        border-bottom: 20px inset transparent;
+        border-left: none !important;
+        position: absolute;
+        content: "";
+        top: 0;
+        right: -20px;
+        z-index: 2;
+    }
+    ul.nav.nav-wizard li:last-child>a:after {
+        width: 0px;
+        height: 0px;
+        border-top: 20px inset transparent;
+        border-bottom: 20px inset transparent;
+        border-left: none !important;
+        position: absolute;
+        content: "";
+        top: 0;
+        right: -20px;
+        z-index: 2;
+    }
+    ul.nav.nav-wizard li:last-child>a:hover:after {
+        border-left: none !important;
+    }
+    .flag-mob-list .nav-link {
+        padding-bottom: 5px !important;
+    }
+    .filter-widget-inner-drop-list {
+        padding: 5px 0px 5px 0px !important;
+        line-height: 25px;
+    }
+    .filter-widget-inner-drop-list a.dropdown-item:hover {
+        background-color: #197373;
     }
     section.desktop-nav .navbar {
         background: #FFF !important;
@@ -640,8 +777,7 @@ i.fa.fa-mobile-phone {
         color: #fff;
         font-size: 30px;
     }
-    .carousel-control-next,
-    .carousel-control-prev {
+    .carousel-control-next, .carousel-control-prev {
         width: 15%;
     }
     .navbar-light .navbar-toggler {
@@ -651,19 +787,48 @@ i.fa.fa-mobile-phone {
     h1.banner-text-content {
         line-height: 36px;
     }
+    .mobile-home-filter .datepicker__wrapper {
+        background-position: left 13px center !important;
+    }
+    .mobile-home-filter .datepicker__input:first-child {
+        text-indent: -2px;
+        background-size: 6px;
+    }
+    .datepicker--open {
+        box-shadow: none;
+        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-overflow-scrolling: touch!important;
+        position: fixed;
+        top: 45px !important;
+        width: 100%;
+    }
+    .mobile-home-filter .datepicker__input:last-child {
+        text-indent: -10px;
+    }
     .mobile-home-filter .dropdown button.btn {
         font-size: 12px;
         text-align: left;
-        padding: 14px 10px 14px 10px;
+        padding: 12px 10px 12px 10px;
+    }
+    .mobile-home-filter .datepicker__input {
+        font-size: 12px !important;
+        padding: 2px 0px 2px !important;
+        height: 40px !important;
     }
     .mobile-home-filter .dropdown button.btn i {
         padding-right: 4px;
     }
     .mobile-home-filter .booking-btn {
-        padding: 11px 10px 11px 10px;
+        padding: 12px 10px 12px 10px;
         height: auto;
     }
-    .mobile-width-100 {
+    .mobile-home-filter .datepicker__wrapper {
+        padding: 2px;
+    }
+    .mobile-home-filter .mobile-width-100 {
         width: 100% !important;
         text-align: center;
     }
@@ -672,23 +837,38 @@ i.fa.fa-mobile-phone {
         margin: 0px auto;
         text-align: center;
     }
-    .news-box .sub-heading,
-    .news-box .nws-para,
-    .news-content h6 {
+    .news-box .sub-heading, .news-box .nws-para, .news-content h6 {
         text-align: center;
     }
     .content-box {
         margin-top: 0px !important;
     }
+    .content-box h2, .content-box p {
+        width: 100%;
+        text-align: center;
+    }
     .news-box .news-content {
         padding-right: 0px;
     }
     .main-ftr {
-        padding: 20px;
+        padding: 20px 20px 40px 20px;
+    }
+    .extras-wrap .col-md-4 {
+        padding: 0px 15px !important;
+    }
+    .agreement-wrap input[type=checkbox]:after {
+        top: 7px;
     }
     /*mobile nav*/
     .mobi-nav {
         width: 100% !important;
+    }
+    .extras-wrap .col-md-1 .form-group {
+        margin-bottom: 0px !important;
+    }
+    .wizard-row .col-md-12 {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
     .mobile-nav-wrap {
         background: #003241;
@@ -735,7 +915,29 @@ i.fa.fa-mobile-phone {
     .mobile-nav-wrap .dropdown-toggle::after {
         background-image: url(../images/studio-apartment/next-white.svg) !important;
     }
+    .booking-upload .btn-choose {
+        padding: 8px;
+        color: #ffffff !important;
+        font-size: 12px;
+    }
+    .worker-info-head {
+        padding-bottom: 10px;
+    }
     /*End Mobile nav changes*/
+    /*Start Home Other changes*/
+    .aprtment-details .content-box {
+        margin: 40px 0px;
+    }
+    .content-img {
+        margin-top: 0px;
+    }
+    #apartment-review-Indicators {
+        padding: 0px;
+    }
+    .carousel-indicators li {
+        margin: 0px 3px !important;
+    }
+    /*End Home Other changes*/
     /*start list with us*/
     .list-with-us {
         padding: 35px 0px;
@@ -745,44 +947,105 @@ i.fa.fa-mobile-phone {
         height: 150px;
     }
     /*end list with us*/
-    
     /*start footer changes*/
-.mobile-footer-social-wrap ul{
-    padding-top: 15px;
-   margin-bottom: 0px;
-}
-.footer-widget{
-    padding-bottom: 10px;
-}
-.footer-widget .widget-title{
-    padding-bottom: 3px;
-}
-.footer-widget .widget-body .widget-icon{
-    display: none;
-}
-.footer-menu .main-ftr{
-    background-repeat: no-repeat;
-    background-position: bottom center;
-}
+    .mobile-footer-social-wrap ul {
+        padding-top: 15px;
+        margin-bottom: 0px;
+    }
+    .footer-widget {
+        padding-bottom: 10px;
+    }
+    .footer-widget .widget-title {
+        padding-bottom: 3px;
+    }
+    .footer-widget .widget-body .widget-icon {
+        display: none;
+    }
+    .footer-menu .main-ftr {
+        background-repeat: no-repeat;
+        background-position: bottom center;
+    }
+    .welcome-para {
+        max-width: 90%;
+    }
     /*End footer changes*/
-
-/*Start Apartment listing changes */
-
-/*End Apartment listing changes */
-
+    /*Start Apartment listing changes */
+    .mobile-filter-top-wrap-full .btn {
+        padding: 0px 15px;
+    }
+    .mobile-filter-top-wrap .filter-widget span {
+        margin-left: 14px;
+    }
+    .listing-wrap:last-child {
+        margin-bottom: 15px !important;
+    }
+    .pagination-listing-wrap {
+        float: unset !important;
+    }
+    #bottom-pagination {
+        margin: 0px auto !important;
+    }
+    #bottom-pagination .pagination {
+        margin-bottom: 10px !important;
+    }
+    .list-bottom-count-wrap p {
+        text-align: center;
+        padding-bottom: 17px;
+    }
+    /* .filter-widget span {
+    margin-left: 5px;
+} */
+    .col-md-7.apartment-listing-widget-left-col {
+        /* padding-right: 15px !important; */
+        padding-left: 15px !important;
+    }
+    .listing-wrap .row {
+        margin-right: 0px !important;
+    }
+    .listing-swipe-slider .swipeslider .slide, .listing-swipe-slider.inner .swipeslider .slide {
+        min-height: 230px !important;
+        width: 100% !important;
+    }
+    .listing-inner .container-fluid-white-background {
+        padding-top: 0px;
+    }
+    .listing-inner .datepicker__input {
+        font-size: 11px !important;
+        padding: 3px 0px 2px !important;
+        height: 40px !important;
+    }
+    .deatils, .inner-apart-para, .list-minute, .include, .good-know, .Bedding-wrap {
+        padding-left: 20px;
+    }
+    .list-include, .good-know-list-include {
+        width: 100%;
+    }
+    .main-options .sub-options {
+        list-style: none;
+        padding-left: 0px;
+    }
+    .apart-full-description-section {
+        padding-bottom: 0px;
+    }
+    .apart-full-description-section ul li {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        line-height: 2;
+    }
+    /*End Apartment listing changes */
     /*complete*/
     section.desktop-nav .navbar {
         background: #FFF !important;
     }
     section.booking-form-section {
         position: relative;
+        padding: 20px 0px 20px 0px;
     }
     h1.banner-text-content span {
         font-size: 30px;
     }
-    .banner-text-content{
+    .banner-text-content {
         margin-top: 34px;
-    
     }
     h1.banner-text-content {
         font-size: 28px;
@@ -791,20 +1054,15 @@ i.fa.fa-mobile-phone {
         display: inline-block;
         margin-top: 22px;
     }
-    .welcome-paraf-box {
-        margin-top: 200px;
-    }
-    .booking-form-section {
-        margin-top: 70px;
-        opacity: 1;
-    }
     .booking-form-section .form-group {
         padding: 10px;
         width: 100%;
     }
-    .booking-form-section .dropdown button.btn,
-    .booking-form-section .booking-btn {
+    .booking-form-section .dropdown button.btn, .booking-form-section .booking-btn {
         width: 100%;
+    }
+    .ftrloct {
+        padding-top: 20px;
     }
     .ftr-top-lst ul {
         display: block;
@@ -819,6 +1077,7 @@ i.fa.fa-mobile-phone {
     }
     .ftr-top-lst .rightul {
         text-align: left;
+        padding-bottom: 20px;
     }
     .ftr-top-lst .li-social {
         display: none;
@@ -826,10 +1085,20 @@ i.fa.fa-mobile-phone {
     .footer-menu .main-ftr {
         height: auto;
     }
-    .copyright-sec .creat p,
-    .copyright-sec p {
+    .copyright-sec .creat, .copyright-sec p {
         text-align: center !important;
     }
+    .copyright-sec {
+        padding: 20px 0px 20px 0px;
+    }
+    .head-para-apart-inner {
+        padding-top: 8px;
+    }
+    .mobile-filter-inner .datepicker__dummy-wrapper {
+        border: 1px solid #d7d9e2 !important;
+        padding: 5px 0px;
+    }
+    .mobile-filter-inner
     /*studio apartment*/
     .swipeslider .slide1 {
         width: 100%;
@@ -855,7 +1124,6 @@ i.fa.fa-mobile-phone {
     .head-stud-apart p {
         padding-top: 18px;
     }
-    
     .aprtment-details {
         height: auto;
     }
@@ -904,35 +1172,37 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
         width: 100%;
     }
     .shortlist-section .head-name h3 {
-        padding-top: 0px;
+        padding-top: 12px;
         text-align: center;
+    }
+    .contact-section{
+        padding-bottom: 0px !important;
     }
     /*about page wrap*/
     .about-top-nav {
         width: 80%;
     }
-
-    .top-search-wrap .dropdown-menu{
+    .top-search-wrap .dropdown-menu {
         width: 100% !important;
     }
-    .wizard-row .nav-wizard>li>a{
+    .wizard-row .nav-wizard>li>a {
         padding: 6px 15px 10px 10px !important;
     }
+    /*Start booking form*/
+    /*End booking form*/
 }
-
 
 /* iPhone 6/7 only */
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-    .modile-hide{
+    .modile-hide {
         display: none;
     }
     section.desktop-nav .navbar {
@@ -963,8 +1233,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -974,17 +1243,15 @@ i.fa.fa-mobile-phone {
     .about-top-nav {
         width: 80%;
     }
-
-    .top-search-wrap .dropdown-menu{
+    .top-search-wrap .dropdown-menu {
         width: 100% !important;
     }
 }
 
-
 /* iPhone 6/7 plus only */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
-    .modile-hide{
+    .modile-hide {
         display: none;
     }
     section.desktop-nav .navbar {
@@ -1016,8 +1283,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -1028,7 +1294,6 @@ i.fa.fa-mobile-phone {
         width: 80%;
     }
 }
-
 
 /* Nexus 5x */
 
@@ -1046,8 +1311,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -1063,11 +1327,10 @@ i.fa.fa-mobile-phone {
     .faq-mobile-hide {
         display: none;
     }
-    .modile-hide{
+    .modile-hide {
         display: none;
     }
 }
-
 
 /* Nexus 6p */
 
@@ -1075,7 +1338,7 @@ i.fa.fa-mobile-phone {
     .faq-mobile-hide {
         display: none;
     }
-    .modile-hide{
+    .modile-hide {
         display: none;
     }
     /*contact section*/
@@ -1088,8 +1351,7 @@ i.fa.fa-mobile-phone {
     .main-head-name .head-name h4 {
         text-align: center;
     }
-    .contact-form-right-wrap .head-name h4,
-    .contact-form-right-wrap .content p {
+    .contact-form-right-wrap .head-name h4, .contact-form-right-wrap .content p {
         text-align: center;
     }
     .contact-form-right-wrap .content {
@@ -1105,7 +1367,7 @@ i.fa.fa-mobile-phone {
     .faq-mobile-hide {
         display: none;
     }
-    .modile-hide{
+    .modile-hide {
         display: none;
     }
 }

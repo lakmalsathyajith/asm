@@ -68,6 +68,18 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
+    Route::get('/step-one', function () {
+        return view('pages.bookingFirst');
+    });
+    Route::get('/step-two', function () {
+        return view('pages.bookingSecond');
+    });
+    Route::get('/step-tree', function () {
+        return view('pages.bookingThird');
+    });
+});
+
 
 //Auth::routes();
 Route::get('admin/login', 'Web\Admin\Auth\LoginController@showLoginForm')->name('login');

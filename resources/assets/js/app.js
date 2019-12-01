@@ -36,10 +36,14 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
+
 Vue.use(VueAxios, axios);
 Vue.axios.defaults.baseURL = process.env.MIX_APP_API_URL;
 
 console.log('-');
+
+
+
 
 Vue.component(
   'example-component',
@@ -62,6 +66,11 @@ Vue.component('apartment-details',require('./components/ApartmentDetails.vue'));
 Vue.component('booking-first', require('./components/BookingFirst.vue'));
 Vue.component('booking-second', require('./components/BookingSecond.vue'));
 Vue.component('booking-third', require('./components/BookingThird.vue'));
+
+Vue.component('booking-step-one', require('./components/booking/StepOne'));
+Vue.component('primary-booking-form', require('./components/booking/forms/Primary'));
+Vue.component('adult-booking-form', require('./components/booking/forms/Adult'));
+Vue.component('child-booking-form', require('./components/booking/forms/Child'));
 
 const router = new VueRouter({ mode: 'history' });
 const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');

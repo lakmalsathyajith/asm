@@ -9,11 +9,9 @@
                 <ul class="list-inline">
                   <li class="list-inline-item">
                     Home
-                    <span> ></span>
+                    <span>></span>
                   </li>
-                  <li class="list-inline-item">
-                    {{ selectedApartment.name }}
-                  </li>
+                  <li class="list-inline-item">{{ selectedApartment.name }}</li>
                 </ul>
               </div>
             </div>
@@ -21,8 +19,8 @@
         </div>
       </div>
     </section>
-    <section class="listing-inner">
-      <div class="container-fluid container-fluid-white-background">
+    <section class="listing-inner listing-details-wrap">
+      <div class="container-fluid container-fluid-white-background mobile-padding-0">
         <div class="container">
           <div class="row listing-wrap">
             <div class="col-md-8 p-0">
@@ -52,197 +50,132 @@
                   {{ selectedApartment.address }}
                 </p>
               </div>
-              <div class="listing-bottom-icons-wrap">
+              <div class="listing-bottom-icons-wrap modile-hide">
                 <ul class="list-inline">
+                  <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
                   <li
                     class="list-inline-item apart-type"
                     v-if="selectedApartment.test && selectedApartment.test.name"
-                  >
-                    {{ selectedApartment.test.name }}
+                  >{{ selectedApartment.test.name }}</li>
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
+                    <i class="option-bed"></i>
+                    {{ selectedApartment.beds }}
                   </li>
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.parking_slots">
+                    <i class="option-car"></i>
+                    {{ selectedApartment.parking_slots }}
+                  </li>
+                  <li class="list-inline-item apart-options inner-other">&#124;</li>
+                  <li class="list-inline-item apart-options inner-other">Available now</li>
+                  <li class="list-inline-item apart-options inner-other">&#124;</li>
+                  <li class="list-inline-item apart-options inner-other">A$405 per week</li>
+                  <li class="list-inline-item apart-options inner-other">&#124;</li>
+                  <li class="list-inline-item apart-options inner-other"><i class="ti-email"></i> Email
+                 </li>
+                </ul>
+              </div>
+              <div class="listing-bottom-icons-wrap mobile-list-mobile desktop-hide">
+                <ul class="list-inline">
+                  <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
                   <li
-                    class="list-inline-item apart-options"
-                    v-if="selectedApartment.beds"
-                  >
-                    <i class="ti-envelope"></i> {{ selectedApartment.beds }}
+                    class="list-inline-item apart-type"
+                    v-if="selectedApartment.test && selectedApartment.test.name"
+                  >{{ selectedApartment.test.name }}</li>
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
+                    <i class="option-bed"></i>
+                    {{ selectedApartment.beds }}
                   </li>
-                  <li
-                    class="list-inline-item apart-options"
-                    v-if="selectedApartment.parking_slots"
-                  >
-                    <i class="ti-car"></i>{{ selectedApartment.parking_slots }}
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.parking_slots">
+                    <i class="option-car"></i>
+                    {{ selectedApartment.parking_slots }}
                   </li>
-                  <li class="list-inline-item apart-options">&#124;</li>
-                  <li class="list-inline-item apart-options">Available now</li>
-                  <li class="list-inline-item apart-options">&#124;</li>
-                  <li class="list-inline-item apart-options">A$405 per week</li>
+                </ul>
+
+                <ul class="list-inline">
+                  <li class="list-inline-item apart-options inner-other">Available now</li>
+                  <li class="list-inline-item apart-options inner-other">&#124;</li>
+                  <li class="list-inline-item apart-options inner-other">A$405 per week</li>
+                  <li class="list-inline-item apart-options inner-other">&#124;</li>
+                  <li class="list-inline-item apart-options inner-other"><i class="ti-email"></i> Email</li>
                 </ul>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 modile-hide">
               <div class="apartment-inner-left-wrap">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel"
-                          >Check-In</label
-                        >
-                        <button
-                          class="btn dropdown-toggle flter-button"
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="ti-location-pin"></i><span> Check-In</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                        >
-                          <div class="filter-widget-inner">
-                            <div class="row">
-                              <div class="col-md-6 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="checkin"
-                                    class="filter-widget-sublabel"
-                                    >Check-In</label
-                                  >
-                                  <Datepicker
-                                    v-model="filter.checkIn"
-                                    placeholder="Check In"
-                                    class="form-control asm-input"
-                                  ></Datepicker>
-                                </div>
-                              </div>
-                              <div class="col-md-6 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="checkout"
-                                    class="filter-widget-sublabel"
-                                    >Check-Out</label
-                                  >
-                                  <Datepicker
-                                    v-model="filter.checkOut"
-                                    placeholder="Check Out"
-                                    class="form-control asm-input"
-                                  ></Datepicker>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel"
-                          >Check-Out</label
-                        >
-                        <button
-                          class="btn btn-secondary dropdown-toggle flter-button"
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="ti-location-pin"></i><span> Check-Out</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                          x-placement="bottom-start"
-                          style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);"
-                        >
-                          <div class="filter-widget-inner">
-                            <div class="row">
-                              <div class="col-md-12 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="checkout"
-                                    class="filter-widget-sublabel"
-                                    >Check-Out</label
-                                  >
-                                  <input
-                                    id="checkout"
-                                    type="text"
-                                    class="form-control asm-input"
-                                    placeholder="Check Out"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <label for="checkin" class="filter-widget-sublabel">Check-In/Out</label>
+                      <HotelDatePicker
+                        format="DD/MM/YYYY"
+                        
+                        @check-in-changed="setCheckinDate"
+                        @check-out-changed="setCheckoutDate"
+                      ></HotelDatePicker>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel"
-                          >Guest Number</label
-                        >
-                        <button
-                          class="btn dropdown-toggle flter-button "
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="ti-location-pin"></i
-                          ><span> Guest Number</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                        >
-                          <div class="filter-widget-inner">
-                            <div class="row">
-                              <div class="col-md-6 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="min_occupants"
-                                    class="filter-widget-sublabel"
-                                    >Adults</label
-                                  >
-                                  <input
-                                    id="min_occupants"
-                                    type="number"
-                                    class="form-control asm-input"
-                                    placeholder="Adults"
-                                    v-model="filter.adults"
-                                    min="1"
-                                  />
-                                </div>
-                              </div>
-                              <div class="col-md-6 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="max_occupants"
-                                    class="filter-widget-sublabel"
-                                    >Children</label
-                                  >
-                                  <input
-                                    id="max_occupants"
-                                    type="number"
-                                    class="form-control asm-input"
-                                    placeholder="Children"
-                                    v-model="filter.children"
-                                    min="1"
-                                  />
+                          <div class="dropdown filter-widget">
+                            <button
+                              class="btn dropdown-toggle guest-button-svg flter-button"
+                              type="button"
+                              id="dropdownMenuButton"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <span>Guest Number</span>
+                            </button>
+                            <div
+                              class="dropdown-menu filter-widget-dropdown"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <div class="filter-widget-inner">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label
+                                        for="min_occupants"
+                                        class="filter-widget-sublabel"
+                                      >Adults</label>
+                                      <div class="quantity">
+                                        <input
+                                          id="min_occupants"
+                                          v-model="filter.adults"
+                                          type="number"
+                                          min="1"
+                                          max="5"
+                                          step="1"
+                                          value="1"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label
+                                        for="max_occupants"
+                                        class="filter-widget-sublabel"
+                                      >Children</label>
+                                      <div class="quantity">
+                                        <input
+                                          id="max_occupants"
+                                          type="number"
+                                          v-model="filter.children"
+                                          min="1"
+                                          max="5"
+                                          step="1"
+                                          value="1"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
                   </div>
                   <!-- <div class="col-md-12">
                     <div class="form-group">
@@ -288,34 +221,102 @@
                         </div>
                       </div>
                     </div>
-                  </div> -->
+                  </div>-->
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel"
-                        >Total Price</label
-                      >
+                      <label for="checkin" class="filter-widget-sublabel">Total Price</label>
                       <p class="amount">$1,620.00</p>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <div class="filter-widget">
-                        <a class="btn booking-btn" v-on:click="bookNow"
-                          >Book Now</a
-                        >
+                        <a class="btn booking-btn" v-on:click="bookNow">Book Now</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="send-email">
-                    <a class="btn email-btn"><i class="ti-email"></i> Email</a>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mobile-filter-inner-sect desktop-hide">
+      <div class="container-fluid mobile-filter-inner">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <HotelDatePicker
+                  format="DD/MM/YYYY"
+                 
+                  @check-in-changed="setCheckinDate"
+                  @check-out-changed="setCheckoutDate"
+                ></HotelDatePicker>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                  <div class="dropdown filter-widget">
+                    <button
+                      class="btn dropdown-toggle guest-button-svg before-svg flter-button filter-border-none-btn"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <span>Guest Number</span>
+                    </button>
+                    <div
+                      class="dropdown-menu filter-widget-dropdown"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <div class="filter-widget-inner">
+                        <div class="row">
+                          <div class="col-md-6 filter-widget-col">
+                            <div class="form-group">
+                              <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                              <div class="quantity">
+                                <input
+                                  id="min_occupants"
+                                  v-model="filter.adults"
+                                  type="number"
+                                  min="1"
+                                  max="5"
+                                  step="1"
+                                  value="1"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 filter-widget-col">
+                            <div class="form-group">
+                              <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                              <div class="quantity">
+                                <input
+                                  id="max_occupants"
+                                  type="number"
+                                  v-model="filter.children"
+                                  min="1"
+                                  max="5"
+                                  step="1"
+                                  value="1"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -337,29 +338,33 @@
         </div>
       </div>
     </section>
-    <br />
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from "vuex";
+import moment from "moment";
+import HotelDatePicker from "vue-hotel-datepicker";
 import Swiper from 'swiper';
 
 export default {
-  name: 'apartmentDetails',
+  name: "apartmentDetails",
   data() {
     return {
       slide: 0,
       sliding: null,
       filter: {
-        checkIn: '',
-        checkOut: '',
-        type: '',
+        checkIn: "",
+        checkOut: "",
+        type: "",
         adults: 1,
         children: 0,
         price_min: 0,
         price_max: 0
       }
     };
+  },
+  mounted() {
+    this.getApartment(this.$attrs.id);
   },
   updated() {
     let swiper = new Swiper('.swiper-container', {
@@ -384,15 +389,21 @@ export default {
       }
     });
   },
-  mounted() {
-    this.getApartment(this.$attrs.id);
-  },
   methods: {
     bookNow() {
-      window.location = '../booking-first';
+
+      this.booking();
+      //window.location = "../booking-first";
     },
+    setCheckinDate(newDate) {
+      this.filter.checkIn = newDate;
+    },
+    setCheckoutDate(newDate) {
+      this.filter.checkOut = newDate;
+    },
+
     log(message) {
-      console.log('-----', message);
+      console.log("-----", message);
     },
     getContentBySubType(subType) {
       let contentObj =
@@ -401,7 +412,7 @@ export default {
         this.selectedApartment.contents.filter(c => {
           return c.sub_type === subType;
         });
-      return contentObj && contentObj[0] ? contentObj[0].content : '';
+      return contentObj && contentObj[0] ? contentObj[0].content : "";
     },
     onSlideStart(slide) {
       this.sliding = true;
@@ -409,10 +420,14 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    ...mapActions('ratesAndAvailability', ['getApartment'])
+    ...mapActions("ratesAndAvailability", ["getApartment"]),
+    ...mapActions("booking", ["booking"])
   },
   computed: {
-    ...mapState('ratesAndAvailability', ['selectedApartment'])
+    ...mapState("ratesAndAvailability", ["selectedApartment"])
+  },
+  components: {
+    HotelDatePicker
   }
 };
 </script>

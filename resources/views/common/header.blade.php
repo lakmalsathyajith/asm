@@ -47,7 +47,7 @@
                             <ul class="navbar-nav right-nav ml-auto mr-3">
 
                                 <li class="nav-item">
-                                    <a class="trans-btn blue-border-btn " href="#">Agent Login</a>
+                                    <a class="trans-btn blue-border-btn" href="#">Agent Login</a>
 
                                 </li>
                                 <span class="gap-01"></span>
@@ -71,13 +71,14 @@
                         </div>
                         <!--mobile nav -->
                         <div class="desktop-hide mobi-nav">
+
                             <div class="collapse navbar-collapse bg-inverse mobile-nav-wrap" id="navbarCollapse">
 
                                 <div class="container">
                                     <div class="top-mob-nav">
                                         <div class="top-nav-wrap">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <ul class="navbar-nav left-nav">
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="/">
@@ -88,25 +89,38 @@
                                                     </ul>
                                                 </div>
 
-                                                <div class="col-6">
-                                                    <ul class="navbar-nav left-nav">
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle"
-                                                                href="http://example.com" id="navbarDropdownMenuLink"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                            <span class="flag-icon flag-icon-au"> </span><span class="select-flag-name">English</span> 
-                                                            </a>
-                                                            <div class="dropdown-menu filter-widget-inner-drop-list default-nav-dropdown"
-                                                                aria-labelledby="dropdown09">
-                                                                <a class="dropdown-item" href="#fr"><span
-                                                                        class="flag-icon flag-icon-au"> </span>
-                                                                    English</a>
-                                                                <a class="dropdown-item" href="#fr"><span
-                                                                        class="flag-icon flag-icon-cn"> </span>
-                                                                    Mandarin</a>
 
-                                                            </div>
+                                                <div class="col-12">
+                                                    <div class="divider"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--mobile-nav-list-->
+                                        <div class="mobile-nav-list-wrap">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <ul class="navbar-nav left-nav">
+
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/apartment-listing">RATES &
+                                                                AVAILABILITY</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/typical-apartment">OUR TYPICAL
+                                                                APARTMENTS</a>
+                                                        </li>
+
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/faq">FAQ</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/about">ABOUT</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/list-with-us">LIST WITH US</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/contact">CONTACT</a>
                                                         </li>
                                                     </ul>
 
@@ -115,121 +129,68 @@
                                                 <div class="col-12">
                                                     <div class="divider"></div>
                                                 </div>
+
                                             </div>
                                         </div>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                            <!--mobile nav -->
-                            <div class="desktop-hide mobi-nav">
-                                    <div class="collapse navbar-collapse bg-inverse mobile-nav-wrap" id="navbarCollapse">
-                                
-                                            <div class="container">
-                                                    <div class="top-mob-nav">
-                                                        <div class="top-nav-wrap">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <ul class="navbar-nav left-nav">
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/">
-                                                                                <img src="{{asset('images/home-icon-silhouette.svg')}}" alt="" srcset="">
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                    
-                                                                <div class="col-6">
-                                                                    <ul class="navbar-nav left-nav">
-                                                                        <li class="nav-item dropdown">
-                                                                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                <span class="flag-icon flag-icon-au"> </span> English
-                                                                                </a>
-                                                                               <div class="dropdown-menu filter-widget-inner-drop-list" aria-labelledby="dropdown09">
-                                                                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-au"> </span>  English</a>
-                                                                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cn"> </span>  Mandarin</a>
-                                                                                
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                    
-                                                                </div>
-                                                                
-                                                                <div class="col-12">
-                                                                    <div class="divider"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--mobile-nav-list-->
-                                                        <div class="mobile-nav-list-wrap">
-                                                            <div class="row">
-                                                                <div class="col-12">
-                                                                    <ul class="navbar-nav left-nav">
-                    
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/apartment-listing">RATES & AVAILABILITY</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/typical-apartment">OUR TYPICAL APARTMENTS</a>
-                                                                        </li>
-                                                                        
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/faq">FAQ</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/about">ABOUT</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/list-with-us">LIST WITH US</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="/contact">CONTACT</a>
-                                                                        </li>
-                                                                    </ul>
-                    
-                                                                </div>
-                    
-                                                                <div class="col-12">
-                                                                    <div class="divider"></div>
-                                                                </div>
-                    
-                                                            </div>
-                                                        </div>
-                    
-                                                        <!--mobile nav bottom list-->
-                                                        <div class="mobile-nav-bottom-list">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <ul class="navbar-nav left-nav">
-                                                                        
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="#">Agent Login</a>
-                    
-                                                                        </li>
-                                                                    </ul>
-                    
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item li-social"><a><i class="ti-facebook"></i></a></li>
-                                                                        <li class="list-inline-item li-social"><a><i class="ti-twitter-alt"></i></a></li>
-                                                                        <li class="list-inline-item li-social"><a><i class="ti-youtube"></i></a></li>
-                    
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                    
-                                                    </div>
-                    
+
+                                        <!--mobile nav bottom list-->
+                                        <div class="mobile-nav-bottom-list">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <ul class="navbar-nav left-nav">
+
+                                                        <li class="nav-item">
+                                                            {{-- <a class="nav-link" href="#">Agent Login</a> --}}
+                                                            <a class="trans-btn blue-border-btn" href="#">Agent Login</a>
+                                                        </li>
+                                                    </ul>
+
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item li-social"><a><i
+                                                                    class="ti-facebook"></i></a></li>
+                                                        <li class="list-inline-item li-social"><a><i
+                                                                    class="ti-twitter-alt"></i></a></li>
+                                                        <li class="list-inline-item li-social"><a><i
+                                                                    class="ti-youtube"></i></a></li>
+
+                                                    </ul>
+
+
                                                 </div>
-                                    
-                                    
+                                            </div>
+
+
+                                            <div class="mobile-bottom-flag-wrap">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="english-flag mobile-flag">
+                                                            <span class="flag-icon flag-icon-au"> </span> <span
+                                                                class="paraf">English</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="mandarin-flag mobile-flag">
+                                                            <span class="flag-icon flag-icon-cn"> </span> <span
+                                                                class="paraf">Mandarin</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+
                             </div>
-                            
-                        </nav>
-    
-                    </div>
+                        </div>
+
+                    </nav>
+
                 </div>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
+</header>
