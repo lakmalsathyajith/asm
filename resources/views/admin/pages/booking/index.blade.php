@@ -3,12 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Type List') }}</h3>
-            <div class="card-tools">
-                <div class="btn btn-tool">
-                    <a href="{{ route('type.create') }}"><i class="fas fa-plus-square"></i> New</a>
-                </div>
-            </div>
+            <h3 class="card-title">{{ __('Booking List') }}</h3>
         </div>
 
         <div class="card-body">
@@ -36,7 +31,7 @@
                             </thead>
                             <tbody>
                             @foreach($records as $record)
-                                <tr id="type_{{ $record->id }}">
+                                <tr id="booking_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
                                     <td>{{ $record->apartment->name }}</td>
                                     <td>{{ $record->formattedStatus }}</td>
@@ -57,7 +52,7 @@
                                             </a>
                                             <a href="#">
                                                 <div class="btn btn-xs dlt-record"
-                                                     data-segment="type"
+                                                     data-segment="booking"
                                                      data-id="{{ $record->id }}">
                                                     <i class="fas fa-trash"></i>
                                                 </div>

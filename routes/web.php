@@ -108,5 +108,7 @@ Route::resources(['admin/option' => 'Web\Admin\OptionController']);
 Route::resources(['admin/type' => 'Web\Admin\TypeController']);
 Route::get('admin/suburbs', 'Web\Admin\ApartmentController@getSuburb');
 
+// Booking routes
 Route::get('admin/booking', 'Web\Admin\BookingController@index')->name('booking.index');
 Route::get('admin/booking/{id}', 'Web\Admin\BookingController@show')->name('booking.show');
+Route::delete('admin/booking/{id}', 'Web\Admin\BookingController@destroy')->name('booking.destroy');

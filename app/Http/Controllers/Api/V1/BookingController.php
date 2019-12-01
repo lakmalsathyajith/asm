@@ -37,13 +37,7 @@ class BookingController extends AbstractApiController
                 'record fetched successfully',
                 $data);
         } catch (\Exception $e) {
-            return $this->returnResponse(
-                $this->getResponseStatus('SUCCESS'),
-                'Error Occurred while creating the booking',
-                $data,
-                [$e->getMessage()]
-                , 200
-            );
+            return $this->returnResponse();
         }
     }
 
