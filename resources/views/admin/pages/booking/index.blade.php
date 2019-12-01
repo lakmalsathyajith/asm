@@ -21,8 +21,15 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Description</th>
+                                <th scope="col">Apartment</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Adults</th>
+                                <th scope="col">Children</th>
+                                <th scope="col">Check In</th>
+                                <th scope="col">Check Out</th>
+                                <th scope="col">Rent</th>
+                                <th scope="col">RMS Reference</th>
+                                <th scope="col">Agent</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>
                             </tr>
@@ -31,8 +38,15 @@
                             @foreach($records as $record)
                                 <tr id="type_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
-                                    <td>{{ $record->name }}</td>
-                                    <td>{{ $record->description }}</td>
+                                    <td>{{ $record->apartment->name }}</td>
+                                    <td>{{ $record->formattedStatus }}</td>
+                                    <td>{{ $record->adults }}</td>
+                                    <td>{{ $record->children }}</td>
+                                    <td>{{ $record->formattedCheckIn }}</td>
+                                    <td>{{ $record->formattedCheckOut }}</td>
+                                    <td>{{ $record->rent }}</td>
+                                    <td>{{ $record->rms_reference }}</td>
+                                    <td>{{ $record->user ? $record->user->name : null }}</td>
                                     <td>{{ $record->created_at }}</td>
                                     <td>
                                         <div class="float-right">

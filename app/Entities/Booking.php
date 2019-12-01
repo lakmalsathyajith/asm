@@ -2,12 +2,14 @@
 
 namespace App\Entities;
 
+use App\Traits\DateTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model
 {
     use SoftDeletes;
+    use DateTrait;
 
     protected $fillable = [
         'user_id',
@@ -22,13 +24,45 @@ class Booking extends Model
         'status'
     ];
 
+    protected $bookingStatus = [
+        'complete' => "COMPLETED",
+        'incomplete' => "INCOMPLETE"
+    ];
+
+    // accessors
+
+    public function getFormattedStatusAttribute()
+    {
+        return isset(array_flip($this->bookingStatus)[$this->status]) ?
+            ucfirst(array_flip($this->bookingStatus)[$this->status])
+            : null;
+    }
+
+    public function getFormattedCheckInAttribute()
+    {
+        return DateTrait::formatDate($this->check_in);
+    }
+
+    public function getFormattedCheckOutAttribute()
+    {
+        return DateTrait::formatDate($this->check_out);
+    }
+
+
+    // relationships
+
     public function apartment()
     {
-        $this->belongsTo('App\Entities\Apartment');
+        return $this->belongsTo('App\Entities\Apartment');
     }
 
     public function occupants()
     {
-        $this->hasMany('App\Entities\Occupant');
+        return $this->hasMany('App\Entities\Occupant');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Entities\User');
     }
 }
