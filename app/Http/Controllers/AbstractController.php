@@ -66,10 +66,11 @@ class AbstractController extends Controller
      */
     function filter($where = [])
     {
+
         $model = $this->activeRepo->getModel();
         if (is_array($where) && count($where) > 0) {
             foreach ($where as $key => $value) {
-                $model->where($value['key'], $value['op'], $value['val']);
+                $model = $model->where($value['key'], $value['op'], $value['val']);
             }
         }
         return $model;
