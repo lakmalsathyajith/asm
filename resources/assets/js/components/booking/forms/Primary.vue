@@ -266,17 +266,34 @@
                                                 class="filter-widget-sublabel important-lable"
                                         >(Max file size: 3MB - File accept: jpeg,
                                             png)</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="uploads" class="custom-file-input " id="file" @change="onFileChange">
+                                                <label class="custom-file-label" for="file">Select a file to upload</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="dropdown filter-widget">
+                                        <label
+                                                for="checkin"
+                                                class="filter-widget-sublabel important-lable"
+                                        >(Max file size: 3MB - File accept: jpeg,
+                                            png)</label>
 
 
                                         <div class="input-group input-file booking-upload"
                                              name="Fichier1">
                                             <input
-                                                    type="text"
+                                                    type="file"
                                                     class="form-control upload-val-input"
                                                     placeholder="Choose a file..."
-                                                    @focusout="onFileChange"
-                                                    v-model="form.identity_document"
                                             />
+
+
                                             <span class="input-group-btn"  v-model="form.identity_document">
                                             <button
                                                     class="btn btn-default btn-choose "
@@ -287,7 +304,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div class="booking-section-wrap2">
@@ -392,8 +409,7 @@
                     identity_type: "",
                     identity_number: "",
                     identity_issued_by: "",
-                    identity_document:"",
-                    document: "",
+                    uploads:"",
                     next_of_kin: "",
                     kin_relationship: "",
                     kin_land_phone: "",
@@ -405,6 +421,11 @@
         },
         mounted() {
             console.log("Component mounted.");
+            $('.custom-file-input').on('change',function(){
+                const fileName = $(this).val().replace('C:\\fakepath\\', " ");
+                console.log(fileName);
+                $(this).next('.custom-file-label').html(fileName);
+            })
         },
         methods: {
             updateBooking() {
@@ -415,7 +436,10 @@
                 return (message) ? message : false;
             },
             onFileChange(e){
-              console.log('----------------',e) ;
+                let file = $('input[name="uploads"]').get(0).files[0];
+                let formData = new FormData();
+                    formData.append('uploadFile', file);
+                this.form.uploads = formData;
             },
             ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
         },
