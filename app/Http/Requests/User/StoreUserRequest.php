@@ -14,8 +14,8 @@ class StoreUserRequest extends AbstractRequest
             'name'              => 'required|max:255',
             'email'             => 'unique:users',
             'password'          => 'required|min:8',
-            'member_number'     => 'required',
-            'registered_date'   => 'required|date'
+            'code'     => 'required:users',
+            'type'   => 'required'
         ];
     }
 
@@ -26,8 +26,8 @@ class StoreUserRequest extends AbstractRequest
             'name'              => 'Name is required',
             'email'             => 'Email Already exists',
             'password'          => 'Password should have at least 8 characters',
-            'member_number'     => 'Member Number is required',
-            'registered_date'   => 'Registered date is required'
+            'code'     => 'User code is required',
+            'type'   => 'User type is required'
         ];
     }
 }
