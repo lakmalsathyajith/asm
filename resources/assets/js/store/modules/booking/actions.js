@@ -66,6 +66,12 @@ export const getBooking = ({commit}, payload) => {
         });
 };
 
+/**
+ * update occupants list
+ *
+ * @param commit
+ * @param payload
+ */
 export const updateOccupants = ({commit}, payload) => {
     //commit(IS_LOADING, true);
     Vue.axios
@@ -85,6 +91,25 @@ export const updateOccupants = ({commit}, payload) => {
             //commit(IS_LOADING, false);
         });
 };
+
+/**
+ * send locally created booking instance to RMS
+ *
+ * @param commit
+ * @param payload
+ */
+export const rmsBooking = ({commit}, payload) => {
+    Vue.axios
+        .put('/booking/'+payload, {})
+        .then(res => {
+            console.log('---res----', res);
+        })
+        .catch(err => {
+            console.log('---err----', err);
+            //commit(IS_LOADING, false);
+        });
+}
+
 
 
 

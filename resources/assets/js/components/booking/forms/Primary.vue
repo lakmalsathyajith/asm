@@ -220,12 +220,12 @@
                                                 class="form-check-input"
                                                 name="identity_type"
                                                 type="radio"
-                                                id="inlineCheckbox2"
+                                                id="inlineCheckbox3"
                                                 value="aus-visa"
                                         />
                                         <label
                                                 class="form-check-label inputradio-check-lable"
-                                                for="inlineCheckbox2"
+                                                for="inlineCheckbox3"
                                         >Australian Visa</label>
                                         <span v-if="errorSpan('identity_type')" class="error">{{errorSpan('identity_type')}}</span>
                                     </div>
@@ -401,12 +401,12 @@
                     land_phone: "",
                     mobile_phone: "",
                     address: "",
-                    emp_status: "",
+                    emp_status: "EMPLOYEE",
                     emp_personal_address: "",
                     emp_department: "",
                     emp_phone: "",
                     emp_address: "",
-                    identity_type: "",
+                    identity_type: "passport",
                     identity_number: "",
                     identity_issued_by: "",
                     uploads:"",
