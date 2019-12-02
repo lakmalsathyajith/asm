@@ -7,17 +7,12 @@ use App\Entities\Content;
 use App\Http\Controllers\AbstractController;
 use App\Http\Requests\File\StoreFileRequest;
 use App\Traits\FileTrait;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class FileController extends AbstractController
 {
 
     use FileTrait;
-
-    private $disk = 'public';
 
     function __construct(
         FileInterface $fileRepoInstance
@@ -66,17 +61,9 @@ class FileController extends AbstractController
     public function store(StoreFileRequest $request)
     {
         try {
-            $data = $this->getUploadedFileMeta();
-            $data['user_id'] = Auth::id();
-
-            $fileName = $data['uuid'] . '.' . $data['extension'];
-            $relativePath = Storage::disk($this->disk)
-                ->putFileAs(null, new File($data['path']), $fileName, 'public');
-            $url = Storage::disk($this->disk)
-                ->url($relativePath);
-
-            $data['url'] = $url;
-            $this->activeRepo->create($data);
+            $meta = $this->getUploadedFileMeta();
+            $uploaded = $this->uploadFile($meta);
+            $this->activeRepo->create($uploaded);
         } catch (\Exception $e) {
             return redirect()
                 ->back()

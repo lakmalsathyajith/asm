@@ -141,6 +141,7 @@
                                       >Adults</label>
                                       <div class="quantity">
                                         <input
+                                                @change="onAdultsChange"
                                           id="min_occupants"
                                           v-model="filter.adults"
                                           type="number"
@@ -160,6 +161,7 @@
                                       >Children</label>
                                       <div class="quantity">
                                         <input
+                                                @change="onChildrenChange"
                                           id="max_occupants"
                                           type="number"
                                           v-model="filter.children"
@@ -177,51 +179,6 @@
                           </div>
                         </div>
                   </div>
-                  <!-- <div class="col-md-12">
-                    <div class="form-group">
-                      <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel"
-                          >Check-In</label
-                        >
-                        <button
-                          class="btn btn-secondary dropdown-toggle flter-button"
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="ti-location-pin"></i><span> Check-Out</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                          x-placement="bottom-start"
-                          style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);"
-                        >
-                          <div class="filter-widget-inner">
-                            <div class="row">
-                              <div class="col-md-12 filter-widget-col">
-                                <div class="form-group">
-                                  <label
-                                    for="checkout"
-                                    class="filter-widget-sublabel"
-                                    >Check-Out</label
-                                  >
-                                  <input
-                                    id="checkout"
-                                    type="text"
-                                    class="form-control asm-input"
-                                    placeholder="Check Out"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>-->
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="checkin" class="filter-widget-sublabel">Total Price</label>
@@ -231,14 +188,12 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <div class="filter-widget">
-                        <a class="btn booking-btn" v-on:click="bookNow">Book Now</a>
+                        <a :disabled="!(filter.checkIn && filter.checkOut && filter.adults>0)" class="btn booking-btn" v-on:click="bookNow">Book Now</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-             
             </div>
           </div>
         </div>
@@ -285,6 +240,7 @@
                               <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
                               <div class="quantity">
                                 <input
+                                        @change="onAdultsChange"
                                   id="min_occupants"
                                   v-model="filter.adults"
                                   type="number"
@@ -301,6 +257,7 @@
                               <label for="max_occupants" class="filter-widget-sublabel">Children</label>
                               <div class="quantity">
                                 <input
+                                        @change="onAdultsChange"
                                   id="max_occupants"
                                   type="number"
                                   v-model="filter.children"
@@ -353,10 +310,10 @@ export default {
       slide: 0,
       sliding: null,
       filter: {
-        checkIn: "",
-        checkOut: "",
+        checkIn: false,
+        checkOut: false,
         type: "",
-        adults: 1,
+        adults: 0,
         children: 0,
         price_min: 0,
         price_max: 0
@@ -391,8 +348,22 @@ export default {
   },
   methods: {
     bookNow() {
-      window.location = "../booking-first";
+
+      let {checkIn, checkOut, adults} = this.filter;
+      if((checkIn && checkOut && adults>0)){
+        this.booking(this.filter);
+      }
+
+      //window.location = "../booking-first";
     },
+    onAdultsChange(e){
+      this.filter.adults = parseInt(e.target.value)
+      console.log(e)
+    },
+    onChildrenChange(e){
+      this.filter.children = parseInt(e.target.value)
+    },
+
     setCheckinDate(newDate) {
       this.filter.checkIn = newDate;
     },
@@ -418,7 +389,8 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    ...mapActions("ratesAndAvailability", ["getApartment"])
+    ...mapActions("ratesAndAvailability", ["getApartment"]),
+    ...mapActions("booking", ["booking"])
   },
   computed: {
     ...mapState("ratesAndAvailability", ["selectedApartment"])

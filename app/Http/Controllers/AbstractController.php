@@ -59,6 +59,27 @@ class AbstractController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param array $where
+     * @return string
+     */
+    function filter($where = [])
+    {
+
+        $model = $this->activeRepo->getModel();
+        if (is_array($where) && count($where) > 0) {
+
+
+
+            foreach ($where as $key => $value) {
+                $model = $model->where($value['key'], $value['op'], $value['val']);
+            }
+        }
+        return $model;
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param $id

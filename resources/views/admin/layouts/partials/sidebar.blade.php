@@ -80,6 +80,22 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('booking.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-calendar-check"></i>
+                        <p>
+                            Bookings
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('users.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

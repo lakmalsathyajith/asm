@@ -68,6 +68,21 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
+    Route::get('/{id}/step-one', function (Request $request) {
+        $params = $request->route()->parameters;
+        return view('pages.bookingFirst', ['params' => $params['id']]);
+    });
+    Route::get('/{id}/step-two', function (Request $request) {
+        $params = $request->route()->parameters;
+        return view('pages.bookingSecond', ['params' => $params['id']]);
+    });
+    Route::get('/{id}/step-tree', function (Request $request) {
+        $params = $request->route()->parameters;
+        return view('pages.bookingThird', ['params' => $params['id']]);
+    });
+});
+
 
 //Auth::routes();
 Route::get('admin/login', 'Web\Admin\Auth\LoginController@showLoginForm')->name('login');
@@ -93,8 +108,11 @@ Route::resources(['admin/file' => 'Web\Admin\FileController']);
 Route::resources(['admin/option' => 'Web\Admin\OptionController']);
 Route::resources(['admin/type' => 'Web\Admin\TypeController']);
 Route::get('admin/suburbs', 'Web\Admin\ApartmentController@getSuburb');
-//    ->only(['index', 'create']);
 
-//Route::resource('photos', 'PhotoController')->only([
-//    'index', 'show'
-//]);
+// Booking routes
+Route::get('admin/booking', 'Web\Admin\BookingController@index')->name('booking.index');
+Route::get('admin/booking/{id}', 'Web\Admin\BookingController@show')->name('booking.show');
+Route::delete('admin/booking/{id}', 'Web\Admin\BookingController@destroy')->name('booking.destroy');
+
+//User routes
+Route::resources(['admin/users' => 'Web\Admin\UserController']);
