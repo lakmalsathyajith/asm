@@ -113,3 +113,6 @@ Route::get('admin/suburbs', 'Web\Admin\ApartmentController@getSuburb');
 Route::get('admin/booking', 'Web\Admin\BookingController@index')->name('booking.index');
 Route::get('admin/booking/{id}', 'Web\Admin\BookingController@show')->name('booking.show');
 Route::delete('admin/booking/{id}', 'Web\Admin\BookingController@destroy')->name('booking.destroy');
+
+//User routes
+Route::resources(['admin/users' => 'Web\Admin\UserController']);
