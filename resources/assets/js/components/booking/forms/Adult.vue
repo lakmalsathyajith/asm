@@ -239,9 +239,6 @@
             console.log("Component mounted.", this.$attrs.formId);
         },
         methods: {
-            nextStep() {
-                window.location = "./booking-second";
-            },
             updateBooking() {
                 this.updateBookingStore(this.form)
             },

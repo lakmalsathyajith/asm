@@ -182,6 +182,7 @@
         methods: {
             nextStep() {
                 let params = {
+                    uuid:this.$attrs.id,
                     booking_id: this.selectedBooking.id,
                     occupants: this.bookingData
                 }

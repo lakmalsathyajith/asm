@@ -397,32 +397,20 @@
                     kin_mobile_phone: "",
                     kin_email: "",
                     kin_address: ""
-                },
-                //errorss : this.$store
+                }
             };
         },
         mounted() {
             console.log("Component mounted.");
         },
         methods: {
-            nextStep() {
-                window.location = "./booking-second";
-            },
-
             updateBooking() {
-
-                console.log('updateBooking',this)
                 this.updateBookingStore(this.form)
-            },
-            log(){
-
-                console.log(this)
             },
             errorSpan(attr){
                 let message = this.customErrors[attr];
                 return (message) ? message : false;
             },
-
             ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
         },
         computed: {

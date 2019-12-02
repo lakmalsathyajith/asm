@@ -296,7 +296,7 @@
         },
         methods: {
             nextStep() {
-                window.location = './booking-third';
+                window.location = '/booking/'+this.$attrs.id+'/step-tree';
             },
         }
     }
