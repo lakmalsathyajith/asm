@@ -65,6 +65,7 @@
                                                         <a class="btn booking-btn" v-on:click="nextStep">Proceed to next
                                                             step</a>
                                                     </div>
+                                                    <span v-if="!allFormsFilled">* Please fill all the forms</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -184,17 +185,16 @@
                     booking_id: this.selectedBooking.id,
                     occupants: this.bookingData
                 }
-
-                //console.log("CupdateOccupants.",this);
-                this.updateOccupants(params);
-               // window.location = "./booking-second";
+                if(this.allFormsFilled){
+                    this.updateOccupants(params);
+                }
             },
             ...mapActions("booking", ["getBooking", "updateOccupants"]),
         },
         computed: {
             ...mapState("booking", ["selectedBooking","bookingData","errors"]),
-            errors(){
-                return  this.$store.state.booking.errors
+            allFormsFilled(){
+                return  this.bookingData.length===(this.selectedBooking.adults+this.selectedBooking.children)
             }
 
 

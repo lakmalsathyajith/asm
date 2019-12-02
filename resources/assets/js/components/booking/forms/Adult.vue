@@ -17,18 +17,21 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">First Name*</label>
                                         <input v-model="form.first_name" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('first_name')" class="error">{{errorSpan('first_name')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Date of Birth*</label>
                                         <input v-model="form.date_of_birth" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('date_of_birth')" class="error">{{errorSpan('date_of_birth')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Telephone*</label>
                                         <input v-model="form.land_phone" class="form-control flter-button" type="tel"/>
+                                        <span v-if="errorSpan('land_phone')" class="error">{{errorSpan('land_phone')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -37,12 +40,14 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Last Name*</label>
                                         <input v-model="form.last_name" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('last_name')" class="error">{{errorSpan('last_name')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Email*</label>
                                         <input v-model="form.email" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('email')" class="error">{{errorSpan('email')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -50,6 +55,7 @@
                                         <label for="checkin" class="filter-widget-sublabel">Mobile*</label>
                                         <input v-model="form.mobile_phone" class="form-control flter-button" id="numbersonly"
                                                type="tel"/>
+                                        <span v-if="errorSpan('mobile_phone')" class="error">{{errorSpan('mobile_phone')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -59,6 +65,7 @@
                                         <label for="checkin" class="filter-widget-sublabel">Usual / Personal
                                             Address*</label>
                                         <input v-model="form.address" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('address')" class="error">{{errorSpan('address')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -106,6 +113,7 @@
                                                         Address*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button"
                                                            type="text"/>
+                                                    <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,6 +163,7 @@
                                                         Address*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button"
                                                            type="text"/>
+                                                    <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,7 +245,32 @@
             updateBooking() {
                 this.updateBookingStore(this.form)
             },
+            errorSpan(attr){
+                let message = this.customErrors[attr];
+                return (message) ? message : false;
+            },
             ...mapActions("booking", ["updateBookingStore"])
+        },
+        computed: {
+            ...mapState("booking", ["errors"]),
+            customErrors(){
+                let selectedOccupants = this.$store.state.booking.bookingData
+                let errors = this.$store.state.booking.errors
+                let index;
+                selectedOccupants.forEach((el, i)=>{
+                    if(el.key===this.form.key){
+                        index=i
+                    }
+                });
+                let selectedErrorKeys = Object.keys(errors).filter((el)=>{ return el.startsWith('occupants.'+index)});
+                let customErrors = {};
+                selectedErrorKeys.forEach((key)=>{
+                    let splitted = key.split('occupants.'+index+".")
+                    customErrors[splitted[1]] = errors[key][0]
+                });
+
+                return  customErrors
+            }
         },
         components: {
             Datepicker

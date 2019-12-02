@@ -201,13 +201,15 @@
                                     <div class="form-check form-check-inline">
                                         <input v-model="form.identity_type"
                                                 class="form-check-input"
-                                                type="checkbox"
+                                                type="radio"
+                                                name="identity_type"
                                                 id="inlineCheckbox1"
                                                 value="passport"/>
                                         <label class="form-check-label inputradio-check-lable" for="inlineCheckbox1">Passport Details</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input v-model="form.identity_type" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="driviers-licence"/>
+                                        <input v-model="form.identity_type" class="form-check-input"
+                                               name="identity_type" type="raio" id="inlineCheckbox2" value="driviers-licence"/>
                                         <label
                                                 class="form-check-label inputradio-check-lable"
                                                 for="inlineCheckbox2"
@@ -216,7 +218,8 @@
                                     <div class="form-check form-check-inline">
                                         <input  v-model="form.identity_type"
                                                 class="form-check-input"
-                                                type="checkbox"
+                                                name="identity_type"
+                                                type="radio"
                                                 id="inlineCheckbox2"
                                                 value="aus-visa"
                                         />
@@ -224,6 +227,7 @@
                                                 class="form-check-label inputradio-check-lable"
                                                 for="inlineCheckbox2"
                                         >Australian Visa</label>
+                                        <span v-if="errorSpan('identity_type')" class="error">{{errorSpan('identity_type')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -236,6 +240,7 @@
                                         >Passport Number*</label>
                                         <input v-model="form.identity_number" class="form-control flter-button"
                                                type="text"/>
+                                        <span v-if="errorSpan('identity_number')" class="error">{{errorSpan('identity_number')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -248,6 +253,7 @@
                                         >Passport Country of Issue*</label>
                                         <input v-model="form.identity_issued_by" class="form-control flter-button"
                                                type="text"/>
+                                        <span v-if="errorSpan('identity_issued_by')" class="error">{{errorSpan('identity_issued_by')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -300,6 +306,7 @@
                                         >Name of Next of Kin*</label>
                                         <input v-model="form.next_of_kin" class="form-control flter-button"
                                                type="text"/>
+                                        <span v-if="errorSpan('next_of_kin')" class="error">{{errorSpan('next_of_kin')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -308,6 +315,7 @@
                                                class="filter-widget-sublabel">Telephone*</label>
                                         <input v-model="form.kin_land_phone" class="form-control flter-button"
                                                type="text"/>
+                                        <span v-if="errorSpan('kin_land_phone')" class="error">{{errorSpan('kin_land_phone')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -317,6 +325,7 @@
                                         <label for="checkin" class="filter-widget-sublabel">Relationship to You*</label>
                                         <input v-model="form.kin_relationship" class="form-control flter-button"
                                                type="text"/>
+                                        <span v-if="errorSpan('kin_relationship')" class="error">{{errorSpan('kin_relationship')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -326,6 +335,7 @@
                                                 class="form-control flter-button"
                                                 id="numbersonly"
                                                 type="text"/>
+                                        <span v-if="errorSpan('kin_mobile_phone')" class="error">{{errorSpan('kin_mobile_phone')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -342,6 +352,7 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Address*</label>
                                         <input v-model="form.kin_address" class="form-control flter-button" type="text"/>
+                                        <span v-if="errorSpan('kin_address')" class="error">{{errorSpan('kin_address')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -350,11 +361,7 @@
                 </div>
             </div>
         </div>
-        <input class="form-control flter-button" type="text" :value="errorsm"/>
-        <input class="form-control flter-button" type="text" :value="errors[`occupants.0.address`]"/>
     </div>
-
-
 </template>
 <script>
     import {mapState, mapActions} from "vuex";
@@ -417,12 +424,6 @@
             },
 
             ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
-        },
-        beforeUpdate(){
-            console.log('beforeUpdate',this)
-        },
-        updated(){
-            console.log('updated',this)
         },
         computed: {
             ...mapState("booking", ["errors"]),
