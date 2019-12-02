@@ -179,7 +179,7 @@
                                   v-model="filter.adults"
                                   type="number"
                                   min="1"
-                                  max="5"
+                                  max="6"
                                   step="1"
                                   value="1"
                                 />
@@ -195,7 +195,7 @@
                                   type="number"
                                   v-model="filter.children"
                                   min="1"
-                                  max="5"
+                                  max="6"
                                   step="1"
                                   value="1"
                                 />
@@ -222,36 +222,55 @@
                     >
                       <span>Price Min/Max</span>
                     </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
+                    <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
                       <div class="filter-widget-inner">
                         <div class="row">
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
                               <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                              <input
-                                id="checkin"
-                                type="text"
-                                class="form-control asm-input"
-                                placeholder="Price Min"
-                                v-model="filter.price_min"
-                                min="0"
-                              />
+                              <!-- <select class="form-control asm-input"  id="checkin"  v-model="filter.price_min">
+                                <option>Any</option>
+                                <option>$50</option>
+                                <option>$100</option>
+                                <option>$150</option>
+                                <option>$200</option>
+                                <option>$250</option>
+                                <option>$300</option>
+                                <option>$350</option>
+                                <option>$400</option>
+                                <option>$450</option>
+                                <option>$500</option>
+                                <option>$550</option>
+                                <option>$600</option>
+                                <option>$650</option>
+                                <option>$700</option>
+                                <option>$750</option>
+                                <option>$800</option>
+                                <option>$850</option>
+                                <option>$900</option>
+                                <option>$950</option>
+                                <option>$1000</option>
+                                <option>$1050</option>
+                                <option>$1100</option>
+                                <option>$1150</option>
+                                <option>$1200</option>
+                                <option>$1250</option>
+                                <option>$1300</option>
+                                <option>$1350</option>
+                                <option>$1400</option>
+                                <option>$1450</option>
+                                <option>$1500</option>
+                              </select> -->
+                              <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
+                              
                             </div>
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
                               <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                              <input
-                                id="checkout"
-                                type="text"
-                                class="form-control asm-input"
-                                placeholder="Price Max"
-                                v-model="filter.price_max"
-                                min="0"
-                              />
+                              <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
+                              
+                              
                             </div>
                           </div>
                         </div>
@@ -511,9 +530,8 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      
-                        <label for="checkin" class="filter-widget-sublabel">Check-in/Out</label>
-                    
+                      <label for="checkin" class="filter-widget-sublabel">Check-in/Out</label>
+
                       <HotelDatePicker
                         format="DD/MM/YYYY"
                         @check-in-changed="setCheckinDate"
@@ -552,7 +570,7 @@
                                       v-model="filter.adults"
                                       type="number"
                                       min="1"
-                                      max="5"
+                                      max="6"
                                       step="1"
                                       value="1"
                                     />
@@ -568,7 +586,7 @@
                                       type="number"
                                       v-model="filter.children"
                                       min="1"
-                                      max="5"
+                                      max="6"
                                       step="1"
                                       value="1"
                                     />
@@ -586,47 +604,35 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="checkin" class="filter-widget-sublabel">Price Min/Max</label>
-                  <div class="dropdown filter-widget">
-                    <button
-                      class="btn dropdown-toggle price-svg-button before-svg flter-button"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <span>Price Min/Max</span>
-                    </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                              <input
-                                id="checkin"
-                                type="text"
-                                class="form-control asm-input"
-                                placeholder="Price Min"
-                                v-model="filter.price_min"
-                                min="0"
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                              <input
-                                id="checkout"
-                                type="text"
-                                class="form-control asm-input"
-                                placeholder="Price Max"
-                                v-model="filter.price_max"
-                                min="0"
-                              />
+                      <div class="dropdown filter-widget">
+                        <button
+                          class="btn dropdown-toggle price-svg-button before-svg flter-button"
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <span>Price Min/Max</span>
+                        </button>
+                        <div
+                          class="dropdown-menu filter-widget-dropdown"
+                          aria-labelledby="dropdownMenuButton"
+                        >
+                          <div class="filter-widget-inner">
+                            <div class="row">
+                              <div class="col-md-6 filter-widget-col">
+                                <div class="form-group">
+                                  <label for="checkin" class="filter-widget-sublabel">Price Min</label>
+                                   <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
+                                </div>
+                              </div>
+                              <div class="col-md-6 filter-widget-col">
+                                <div class="form-group">
+                                  <label for="checkout" class="filter-widget-sublabel">Price Max</label>
+                                  <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -634,10 +640,6 @@
                     </div>
                   </div>
                 </div>
-                  </div>
-                 
-                </div>
-                
 
                 <div class="row">
                   <div class="col-12">
@@ -987,7 +989,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import HotelDatePicker from "vue-hotel-datepicker";
-import Swiper from 'swiper';
+import Swiper from "swiper";
 
 export default {
   name: "apartments",
@@ -995,7 +997,7 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      pageSize: 6,
+      pageSize: 10,
       currentPage: 1,
       states: [],
       suburbs: [],
@@ -1010,15 +1012,48 @@ export default {
         children: 0,
         price_min: 0,
         price_max: 0
-      }
+      },
+      options: [
+        'Any',
+        '$50',
+        '$100',
+        '$150',
+        '$200',
+        '$250',
+        '$300',
+        '$350',
+        '$400',
+        '$450',
+        '$500',
+        '$550',
+        '$600',
+        '$650',
+        '$700',
+        '$750',
+        '$800',
+        '$850',
+        '$900',
+        '$950',
+        '$1000',
+        '$1050',
+        '$1100',
+        '$1150',
+        '$1200',
+        '$1250',
+        '$1300',
+        '$1350',
+        '$1400',
+        '$1450',
+        '$1500'
+      ]
     };
   },
   created() {
     this.getStates();
   },
   updated() {
-    let swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
+    let swiper = new Swiper(".swiper-container", {
+      effect: "fade",
       fadeEffect: {
         crossFade: true
       },
@@ -1030,12 +1065,12 @@ export default {
         disableOnInteraction: false
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       }
     });
   },

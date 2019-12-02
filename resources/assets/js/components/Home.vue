@@ -57,12 +57,12 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Up to 40% Cheaper</span>
-                            than booking a hotel or serviced apartment.
+                            <span class="slider-green-text">Bedding combinations to suit all individual needs</span>
+                            We can mix and match any of the following:
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">Studios</h3>
+                              <h3 class="sub-heading-white-normal">King size beds</h3>
                               <h4 class="sub-heading-01">
                                 from
                                 <span class="bold-700">$620</span> per week
@@ -71,7 +71,7 @@
 
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">1 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">Single size beds</h3>
                               <h4 class="sub-heading-01">
                                 from
                                 <span class="bold-700">$699</span> per week
@@ -79,7 +79,7 @@
                             </div>
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box">
-                              <h3 class="sub-heading-white-normal">2 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">Bunk beds</h3>
                               <h4 class="sub-heading-01">
                                 from
                                 <span class="bold-700">$965</span> per week
@@ -101,8 +101,8 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Up to 40% Cheaper</span>
-                            than booking a hotel or serviced apartment.
+                            <span class="slider-green-text">Every one of our furnished apartments are carefully </span>
+                            chosen to be closely located to our major universities and central financial district.
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
@@ -145,8 +145,8 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Up to 40% Cheaper</span>
-                            than booking a hotel or serviced apartment.
+                            <span class="slider-green-text">Our furnished apartments are well equipped</span>
+                            offering our medium to long term guests a comfortable stay at affordable prices.
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
@@ -276,7 +276,7 @@
                                           v-model="filter.adults"
                                           type="number"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -295,7 +295,7 @@
                                           type="number"
                                           v-model="filter.children"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -357,7 +357,7 @@
                                           v-model="filter.adults"
                                           type="number"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -376,7 +376,7 @@
                                           type="number"
                                           v-model="filter.children"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -607,7 +607,7 @@
                   <a href="#." class="icon" title="User Profile"></a>
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading">Studio Apartments</h3>
+                  <h3 class="sub-heading home-apart-type-head">Studio Apartments</h3>
                   <p class="paraf">Starting from $620pw</p>
                 </div>
               </a>
@@ -621,7 +621,7 @@
                   <img src="images/home/onebed-thumb.jpg" />
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading">One Bedroom Apartments</h3>
+                  <h3 class="sub-heading home-apart-type-head">One Bedroom Apartments</h3>
                   <p class="paraf">Starting from $699pw</p>
                 </div>
               </a>
@@ -635,7 +635,7 @@
                   <img src="images/home/twobed-thumb.jpg" />
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading">Two Bedroom Apartments</h3>
+                  <h3 class="sub-heading home-apart-type-head">Two Bedroom Apartments</h3>
                   <p class="paraf">Starting from $965pw</p>
                 </div>
               </a>
@@ -1206,6 +1206,7 @@
 <script>
 import moment from "moment";
 import HotelDatePicker from "vue-hotel-datepicker";
+import Swiper from 'swiper';
 
 export default {
   name: "home",
@@ -1224,7 +1225,27 @@ export default {
     };
   },
   mounted() {
-    console.log("Component mounted.");
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 1000,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
   },
   methods: {
     selectType(type) {

@@ -47,7 +47,7 @@
                             <ul class="navbar-nav right-nav ml-auto mr-3">
 
                                 <li class="nav-item">
-                                    <a class="trans-btn blue-border-btn" href="#">Agent Login</a>
+                                    <a class="trans-btn blue-border-btn" href="#" data-toggle="modal" data-target="#exampleModalCenter">Agent Login</a>
 
                                 </li>
                                 <span class="gap-01"></span>
@@ -141,7 +141,7 @@
 
                                                         <li class="nav-item">
                                                             {{-- <a class="nav-link" href="#">Agent Login</a> --}}
-                                                            <a class="trans-btn blue-border-btn" href="#">Agent Login</a>
+                                                            <a class="trans-btn blue-border-btn" href="#myModal">Agent Login</a>
                                                         </li>
                                                     </ul>
 
@@ -193,4 +193,39 @@
             </div>
         </div>
     </section>
+
+
+
+    <!-- Modal HTML -->
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="container-fluid">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="agent-logo-wrap">
+                                    <img src="{{asset('images/main-logo.png')}}" alt="">
+                                </div>
+                                <div class="agent-tittle">
+                                    <h3 class="sub-heading">Agent login</h3>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+              
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </header>

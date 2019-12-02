@@ -88,7 +88,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-prec-50">
               <div class="form-group">
                 <div class="flter-button">
                   <HotelDatePicker
@@ -100,7 +100,7 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-prec-50">
               <div class="form-group">
                 <div class="dropdown filter-widget">
                   <button
@@ -128,7 +128,7 @@
                                 v-model="filter.adults"
                                 type="number"
                                 min="1"
-                                max="5"
+                                max="6"
                                 step="1"
                                 value="1"
                               />
@@ -144,7 +144,7 @@
                                 type="number"
                                 v-model="filter.children"
                                 min="1"
-                                max="5"
+                                max="6"
                                 step="1"
                                 value="1"
                               />
@@ -158,7 +158,7 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-prec-50">
               <div class="form-group">
                 <div class="dropdown filter-widget">
                   <button
@@ -171,36 +171,19 @@
                   >
                     <span>Price Min/Max</span>
                   </button>
-                  <div
-                    class="dropdown-menu filter-widget-dropdown"
-                    aria-labelledby="dropdownMenuButton"
-                  >
+                  <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
                     <div class="filter-widget-inner">
                       <div class="row">
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
                             <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                            <input
-                              id="checkin"
-                              type="text"
-                              class="form-control asm-input"
-                              placeholder="Price Min"
-                              v-model="filter.price_min"
-                              min="0"
-                            />
+                            <v-select :options="options" :clearable="false"  v-model="filter.price_min"></v-select>
                           </div>
                         </div>
                         <div class="col-md-6 filter-widget-col">
                           <div class="form-group">
                             <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                            <input
-                              id="checkout"
-                              type="text"
-                              class="form-control asm-input"
-                              placeholder="Price Max"
-                              v-model="filter.price_max"
-                              min="0"
-                            />
+                            <v-select :options="options" :clearable="false"  v-model="filter.price_max"></v-select>
                           </div>
                         </div>
                       </div>
@@ -209,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-prec-50">
               <div class="form-group">
                 <div class="filter-widget">
                   <a class="btn booking-btn" v-on:click="search">Search</a>
@@ -441,12 +424,45 @@ export default {
         children: 0,
         price_min: 0,
         price_max: 0
-      }
+      },
+      options: [
+        'Any',
+        '$50',
+        '$100',
+        '$150',
+        '$200',
+        '$250',
+        '$300',
+        '$350',
+        '$400',
+        '$450',
+        '$500',
+        '$550',
+        '$600',
+        '$650',
+        '$700',
+        '$750',
+        '$800',
+        '$850',
+        '$900',
+        '$950',
+        '$1000',
+        '$1050',
+        '$1100',
+        '$1150',
+        '$1200',
+        '$1250',
+        '$1300',
+        '$1350',
+        '$1400',
+        '$1450',
+        '$1500'
+      ]
     };
   },
   mounted() {
-    let swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
+    let swiper = new Swiper(".swiper-container", {
+      effect: "fade",
       fadeEffect: {
         crossFade: true
       },
@@ -458,12 +474,12 @@ export default {
         disableOnInteraction: false
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       }
     });
   },
