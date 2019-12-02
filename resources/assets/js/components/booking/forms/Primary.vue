@@ -274,8 +274,10 @@
                                                     type="text"
                                                     class="form-control upload-val-input"
                                                     placeholder="Choose a file..."
+                                                    @focusout="onFileChange"
+                                                    v-model="form.identity_document"
                                             />
-                                            <span class="input-group-btn">
+                                            <span class="input-group-btn"  v-model="form.identity_document">
                                             <button
                                                     class="btn btn-default btn-choose "
                                                     type="button"
@@ -390,6 +392,7 @@
                     identity_type: "",
                     identity_number: "",
                     identity_issued_by: "",
+                    identity_document:"",
                     document: "",
                     next_of_kin: "",
                     kin_relationship: "",
@@ -410,6 +413,9 @@
             errorSpan(attr){
                 let message = this.customErrors[attr];
                 return (message) ? message : false;
+            },
+            onFileChange(e){
+              console.log('----------------',e) ;
             },
             ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
         },

@@ -55,15 +55,16 @@
                             <div class="col-md-8">
                                 <div class="booking-form-wrap">
                                     <div class="tab-content booking-form" id="nav-tabContent">
-                                        <primary-booking-form key="primary"/>
-                                        <adult-booking-form v-for="index in selectedBooking.adults-1" :key="index" :formId="index+1"/>
-                                        <child-booking-form v-for="index in selectedBooking.children" :key="'child '+index" :formId="selectedBooking.adults+index"/>
+                                        <primary-booking-form  key="primary"/>
+                                        <div v-if="selectedBooking.adults>1">
+                                            <adult-booking-form  v-for="index in selectedBooking.adults-1" :key="index" :formId="index+1"></adult-booking-form>
+                                        </div>
+                                        <child-booking-form v-if="selectedBooking.children>0" v-for="index in selectedBooking.children" :key="'child '+index" :formId="selectedBooking.adults+index"/>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="filter-widget">
-                                                        <a class="btn booking-btn" v-on:click="nextStep">Proceed to next
-                                                            step</a>
+                                                        <a class="btn booking-btn" v-on:click="nextStep">Proceed to next step</a>
                                                     </div>
                                                     <span v-if="!allFormsFilled">* Please fill all the forms</span>
                                                 </div>
@@ -88,9 +89,9 @@
                                         <div class="col-md-12">
                                             <div class="bottom-desc-behind-wrap">
                                                 <div class="right-side-middle-content">
-                                                    <h3>{{selectedBooking.apartment.name}}</h3>
+                                                    <h3>{{selectedBooking.apartment && selectedBooking.apartment.name}}</h3>
                                                     <p>
-                                                        <i class="ti-location-pin"></i> {{selectedBooking.apartment.address}}
+                                                        <i class="ti-location-pin"></i> {{selectedBooking.apartment && selectedBooking.apartment.address}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -195,7 +196,7 @@
         computed: {
             ...mapState("booking", ["selectedBooking","bookingData","errors"]),
             allFormsFilled(){
-                return  this.bookingData.length===(this.selectedBooking.adults+this.selectedBooking.children)
+                return  this.bookingData && this.bookingData.length===(this.selectedBooking.adults+this.selectedBooking.children)
             }
 
 
