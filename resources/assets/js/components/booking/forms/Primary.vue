@@ -209,7 +209,7 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input v-model="form.identity_type" class="form-check-input"
-                                               name="identity_type" type="raio" id="inlineCheckbox2" value="driviers-licence"/>
+                                               name="identity_type" type="radio" id="inlineCheckbox2" value="driviers-licence"/>
                                         <label
                                                 class="form-check-label inputradio-check-lable"
                                                 for="inlineCheckbox2"
