@@ -55,7 +55,7 @@
                             <div class="col-md-8">
                                 <div class="booking-form-wrap">
                                     <div class="tab-content booking-form" id="nav-tabContent">
-                                        <primary-booking-form/>
+                                        <primary-booking-form key="primary"/>
                                         <adult-booking-form v-for="index in selectedBooking.adults-1" :key="index" :formId="index+1"/>
                                         <child-booking-form v-for="index in selectedBooking.children" :key="'child '+index" :formId="selectedBooking.adults+index"/>
                                         <div class="row">
@@ -172,14 +172,32 @@
             console.log("Component mounted.",this);
             this.getBooking(this.$attrs.id);
         },
+        updated(){
+            console.log('updated step one',this.errors)
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate step one',this.selectedBooking)
+        },
         methods: {
             nextStep() {
-                window.location = "./booking-second";
+                let params = {
+                    booking_id: this.selectedBooking.id,
+                    occupants: this.bookingData
+                }
+
+                //console.log("CupdateOccupants.",this);
+                this.updateOccupants(params);
+               // window.location = "./booking-second";
             },
-            ...mapActions("booking", ["getBooking"]),
+            ...mapActions("booking", ["getBooking", "updateOccupants"]),
         },
         computed: {
-            ...mapState("booking", ["selectedBooking"])
+            ...mapState("booking", ["selectedBooking","bookingData","errors"]),
+            errors(){
+                return  this.$store.state.booking.errors
+            }
+
+
         },
         components: {
             Datepicker

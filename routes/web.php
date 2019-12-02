@@ -71,14 +71,15 @@ Route::get('/contact', function () {
 Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
     Route::get('/{id}/step-one', function (Request $request) {
         $params = $request->route()->parameters;
-        //dd($params['id']);
         return view('pages.bookingFirst', ['params' => $params['id']]);
     });
-    Route::get('/step-two', function () {
-        return view('pages.bookingSecond');
+    Route::get('/{id}/step-two', function (Request $request) {
+        $params = $request->route()->parameters;
+        return view('pages.bookingSecond', ['params' => $params['id']]);
     });
-    Route::get('/step-tree', function () {
-        return view('pages.bookingThird');
+    Route::get('/{id}/step-tree', function (Request $request) {
+        $params = $request->route()->parameters;
+        return view('pages.bookingThird', ['params' => $params['id']]);
     });
 });
 

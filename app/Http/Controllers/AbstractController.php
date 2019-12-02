@@ -68,8 +68,15 @@ class AbstractController extends Controller
     {
         $model = $this->activeRepo->getModel();
         if (is_array($where) && count($where) > 0) {
+
+
+
             foreach ($where as $key => $value) {
+
+
                 $model->where($value['key'], $value['op'], $value['val']);
+                dd($value);
+
             }
         }
         return $model;

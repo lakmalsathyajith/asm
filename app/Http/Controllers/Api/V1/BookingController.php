@@ -24,12 +24,21 @@ class BookingController extends AbstractApiController
                 ['key' => 'uuid', 'op' => '=', 'val' => $id]
             ];
 
-            $data = $this->filter($where)
+            //dd($where);
+            //$data = $this->filter($where)
+                //->with('apartment')->toSql();
+               // ->with('occupants')
+               // ->with('occupants.contacts')
+               // ->with('occupants.identity')
+                //->firstOrFail();
+            $model = $this->activeRepo->getModel();
+            $data = $model->where('uuid','=',$id)
                 ->with('apartment')
                 ->with('occupants')
                 ->with('occupants.contacts')
                 ->with('occupants.identity')
                 ->firstOrFail();
+
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'record fetched successfully',

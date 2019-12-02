@@ -1,8 +1,8 @@
 import {
   UPDATE_BOOKING_STORE,
-  SELECTED_BOOKING
+  SELECTED_BOOKING,
+  ERRORS
 } from './types.js';
-import {GET_APARTMENTS_LIST} from "../ratesAndAvailability/types";
 
 export default {
   [UPDATE_BOOKING_STORE](state, payload) {
@@ -21,5 +21,8 @@ export default {
   },
   [SELECTED_BOOKING](state, payload) {
     state.selectedBooking = payload.data;
+  },
+  [ERRORS](state, payload) {
+    state.errors = {...payload};
   }
 };

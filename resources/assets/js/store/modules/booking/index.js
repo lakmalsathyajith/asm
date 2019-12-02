@@ -3,7 +3,8 @@ import mutations from './mutations';
 
 const state = {
     bookingData : [],
-    selectedBooking : {}
+    selectedBooking : {},
+    errors : {}
 };
 const getters = {};
 
