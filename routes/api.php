@@ -39,4 +39,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('booking/{id}', 'Api\V1\BookingController@show')->name('booking.show');
     Route::put('booking/{id}', 'Api\V1\BookingController@update')->name('booking.update');
     Route::post('occupant', 'Api\V1\OccupantController@storeBulk')->name('occupant.storeBulk');
+
+    Route::post('file', 'Api\V1\FileController@store')->name('file.store');
 });
