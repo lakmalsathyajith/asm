@@ -50,7 +50,7 @@ class ApartmentController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Apartment';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.apartment.index', $data);
     }
@@ -63,7 +63,7 @@ class ApartmentController extends AbstractController
     public function create()
     {
         $data['route'] = route('apartment.store');
-        $data['title'] = 'Apartment';
+        $data['title'] = '';
         $data['action'] = 'Create';
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
@@ -146,7 +146,7 @@ class ApartmentController extends AbstractController
         $data['route'] = route('apartment.update', [
             'apartment' => $apartment->id
         ]);
-        $data['title'] = 'Apartment';
+        $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $apartment->load('contents');

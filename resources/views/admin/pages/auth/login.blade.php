@@ -3,11 +3,13 @@
 @section('content')
     <div class="hold-transition login-page">
         <div class="login-box">
-            <div class="login-logo">
-                <a href="#"><b>Admin</b> {{ env('APP_NAME') }}</a>
-            </div>
+            
             <div class="card">
                 <div class="card-body login-card-body">
+                        <div class="login-logo">
+                                {{-- <a href="#"><b>Admin</b> {{ env('APP_NAME') }}</a> --}}
+                                <img src="../images/main-logo.png" height="60px" alt="">
+                            </div>
                     <p class="login-box-msg">Sign in to start your session</p>
                     <form action="{{ route('login') }}" method="post">
                         @csrf
@@ -59,7 +61,7 @@
                                     </label>
                                 </div> --}}
                             </div>
-                            <div class="col-4">
+                            <div class="col-12">
                                 <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                             </div>
                         </div>
@@ -69,7 +71,7 @@
                         <a href="{{ route('password.request') }}">I forgot my password</a>
                     </p> --}}
                     <p class="mb-0">
-                        <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+                        {{-- <a href="{{ route('register') }}" class="text-center">Register a new membership</a> --}}
                     </p>
                 </div>
             </div>

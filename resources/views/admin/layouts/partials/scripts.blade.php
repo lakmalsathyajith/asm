@@ -1,3 +1,8 @@
+
+
+<script type="text/javascript" src="{{ url('/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/adminlte.min.js') }}"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
         tinymce.init({
@@ -130,6 +135,13 @@
                         });
                     }
             });
-        })
+        });
+
+$('.menu-expand-icon').on('click',function(){
+    $('body').toggleClass("sidebar-collapse");
+    
+});
+
+
     });
 </script>

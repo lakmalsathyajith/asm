@@ -37,7 +37,7 @@ class ContentController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Content Manager';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.content.index', $data);
     }
@@ -57,7 +57,7 @@ class ContentController extends AbstractController
         $params['step'] = request()->query('step', null);
 
         $data['route'] = route('content.store');
-        $data['title'] = 'Content Manager';
+        $data['title'] = '';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
         $data['contentSubTypes'] = $this->content->getSubTypes();
@@ -139,7 +139,7 @@ class ContentController extends AbstractController
         $data['route'] = route('content.update', [
             'content' => $content->id
         ]);
-        $data['title'] = 'Content Manager';
+        $data['title'] = ' ';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $content;

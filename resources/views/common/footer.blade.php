@@ -146,9 +146,9 @@
     </div>
 </footer>
 
-<script src="{{ asset('js/app.js?v=1.8') }}"></script>
+<script src="{{ asset('js/app.js?v=1.7') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
-<script src="{{asset('js/script.js?v=1.8')}}"></script>
+<script src="{{asset('js/script.js?v=1.7')}}"></script>
 <script href="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
 
 <script>
@@ -197,6 +197,7 @@ $(document).ready(function(){
   $("#mobile-filter-close").click(function(){
     $(".filter-mob-nav-wrap").toggle("hide");
   });
+  
   $("#filter-toggle").click(function(){
    
     $(".filter-mob-nav-wrap").toggle("show");
@@ -271,39 +272,37 @@ $(function() {
 
   $(document).ready(function(){
  jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
-    // jQuery('.quantity').each(function() {
-    //   var spinner = jQuery(this),
-    //     input = spinner.find('input[type="number"]'),
-    //     btnUp = spinner.find('.quantity-up'),
-    //     btnDown = spinner.find('.quantity-down'),
-    //     min = input.attr('min'),
-    //     max = input.attr('max');
+    jQuery('.quantity').each(function() {
+      var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnUp = spinner.find('.quantity-up'),
+        btnDown = spinner.find('.quantity-down'),
+        min = input.attr('min'),
+        max = input.attr('max');
 
-    //   btnUp.click(function() {
-    //     var oldValue = parseFloat(input.val());
-    //     if (oldValue >= max) {
-    //       var newVal = oldValue;
-    //     } else {
-    //       var newVal = oldValue + 1;
-    //     }
-    //     spinner.find("input").val(newVal).trigger("input");
-    //     spinner.find('input[type="number"]').trigger("change");
-    //     spinner.find('input[type="number"]').trigger("input");
-    //   });
+      btnUp.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
 
-    //   btnDown.click(function() {
-    //     var oldValue = parseFloat(input.val());
-    //     if (oldValue <= min) {
-    //       var newVal = oldValue;
-    //     } else {
-    //       var newVal = oldValue - 1;
-    //     }
-    //     spinner.find("input").val(newVal).trigger("input");
-    //     spinner.find('input[type="number"]').trigger("change");
-    //     spinner.find('input[type="number"]').trigger("input");
-    //   });
+      btnDown.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
 
-    // });
+    });
 
     if(document.getElementById('numbersonly')){
         document.getElementById('numbersonly').addEventListener('keydown', function(e) {

@@ -4,11 +4,15 @@
 <div class="hold-transition login-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="#"><b>Admin</b> {{ env('APP_NAME') }}</a>
+            {{-- <a href="#"><b>Admin</b> {{ env('APP_NAME') }}</a> --}}
         </div>
 
         <div class="card">
             <div class="card-body register-card-body">
+                    <div class="login-logo">
+                            {{-- <a href="#"><b>Admin</b> {{ env('APP_NAME') }}</a> --}}
+                            <img src="../images/main-logo.png" height="60px" alt="">
+                        </div>
                 <p class="login-box-msg">Register a new membership</p>
 
                 <form action="{{ route('register') }}" method="post">

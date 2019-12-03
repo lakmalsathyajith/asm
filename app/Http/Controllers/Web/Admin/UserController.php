@@ -25,7 +25,7 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Users';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.user.index', $data);
     }
@@ -39,7 +39,7 @@ class UserController extends AbstractController
     {
         
         $data['route'] = route('users.store');
-        $data['title'] = 'User Create';
+        $data['title'] = '';
         $data['action'] = 'Create';
         $data['code'] = time();
         return view('admin.pages.user.create', $data);
@@ -86,7 +86,7 @@ class UserController extends AbstractController
     {
         $request = request()->all();
         $record = $this->activeRepo->get($id);
-        $data['title'] = 'Show Users';
+        $data['title'] = ' ';
         $data['record'] = $record;
         return view('admin.pages.booking.show', $data);
     }

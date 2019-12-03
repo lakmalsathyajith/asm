@@ -27,7 +27,7 @@ class TypeController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Type';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.type.index', $data);
     }
@@ -40,7 +40,7 @@ class TypeController extends AbstractController
     public function create()
     {
         $data['route'] = route('type.store');
-        $data['title'] = 'Type';
+        $data['title'] = '';
         $data['action'] = 'Create';
         return view('admin.pages.type.create', $data);
     }
@@ -96,7 +96,7 @@ class TypeController extends AbstractController
         $data['route'] = route('type.update', [
             'type' => $type->id
         ]);
-        $data['title'] = 'Type';
+        $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $type;

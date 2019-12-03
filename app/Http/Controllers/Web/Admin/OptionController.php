@@ -33,7 +33,7 @@ class OptionController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Option';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.option.index', $data);
     }
@@ -46,7 +46,7 @@ class OptionController extends AbstractController
     public function create()
     {
         $data['route'] = route('option.store');
-        $data['title'] = 'Option';
+        $data['title'] = '';
         $data['action'] = 'Create';
         $data['files'] = $this->file->pluck('name');
         return view('admin.pages.option.create', $data);
@@ -102,7 +102,7 @@ class OptionController extends AbstractController
         $data['route'] = route('option.update', [
             'option' => $option->id
         ]);
-        $data['title'] = 'Option';
+        $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
         $data['record'] = $option;

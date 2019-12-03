@@ -6,6 +6,9 @@
 
     <title>{{ config('app.name', 'ASM') }}</title>
 
+     <!-- fevicon -->
+     <link rel="shortcut icon" href="{{asset('images/asm-admin-favicon.png')}}" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     {{--<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">--}}
@@ -14,6 +17,7 @@
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{ url('/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/admin.css') }}">
     <link rel="stylesheet" href="{{ url('/css/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('/css/plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ url('/css/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">

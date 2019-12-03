@@ -23,7 +23,7 @@ class BookingController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Booking';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         return view('admin.pages.booking.index', $data);
     }

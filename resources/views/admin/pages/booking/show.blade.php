@@ -136,7 +136,7 @@
                                 @if(!isset($record->occupants) || count($record->occupants) < 1)
                                     @include('admin.common.alerts.infoNoRecords')
                                 @else
-                                    <table class="table table-sm">
+                                    <table class="table table-sm table-striped">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>

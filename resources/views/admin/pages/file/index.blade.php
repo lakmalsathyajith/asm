@@ -49,7 +49,7 @@
                                 @if(!isset($records) || (isset($records) && $records->isEmpty()))
                                     @include('admin.common.alerts.infoNoRecords');
                                 @else
-                                    <table class="table table-sm">
+                                    <table class="table table-sm table-striped">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -76,7 +76,7 @@
                                                             <div class="btn btn-xs dlt-record"
                                                                  data-segment="file"
                                                                  data-id="{{ $record->id }}">
-                                                                <i class="fas fa-trash"></i>
+                                                                 <i class="far fa-trash-alt"></i>
                                                             </div>
                                                         </a>
                                                     </div>

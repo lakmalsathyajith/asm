@@ -32,7 +32,7 @@ class FileController extends AbstractController
     {
         $data['route'] = route('file.store');
         $data['action'] = 'Upload';
-        $data['title'] = 'File Manager';
+        $data['title'] = '';
         $data['records'] = $this->activeRepo->all();
         $data['view'] = request()->get('view', 'detailed');
 
@@ -47,7 +47,7 @@ class FileController extends AbstractController
     public function create()
     {
         $data['route'] = route('file.store');
-        $data['title'] = 'File Manager';
+        $data['title'] = '';
         $data['action'] = 'Upload';
         return view('admin.pages.file.create', $data);
     }

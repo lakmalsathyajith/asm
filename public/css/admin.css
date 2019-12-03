@@ -1,0 +1,60 @@
+.btn-primary{
+  background-color: #00BAFF !important;
+  border-color: #00BAFF;
+}
+.btn-primary:hover{
+  background: #00A2EA !important;
+}
+.brand-link{
+background: #fff;
+}
+[class*=sidebar-dark-],.navbar-dark{
+  background-color: #00405e;
+}
+.nav-pills .nav-link:not(.active):hover{
+  color: #ffffff;
+  background-color: #00BAFF;
+}
+.nav-pills .nav-link:hover{
+  color: #ffffff;
+  background-color: #00BAFF !important;
+}
+.brand-link.active{
+  display: block;
+}
+a.brand-link.brand-link-exapnd {
+  display: none;
+}
+a.brand-link.brand-not-expand {
+  display: block;
+}
+
+body.sidebar-collapse a.brand-link.brand-link-exapnd {
+ display: block !important;
+}
+
+body.sidebar-collapse a.brand-link.brand-not-expand {
+ display: none !important;
+}
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .nav-sidebar .nav-link p{
+  visibility: hidden;
+  
+}
+.sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused, .sidebar-mini.sidebar-collapse .main-sidebar:hover {
+  width: 4.6rem;
+  margin-left: 0;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .user-panel>.info {
+  display: none !important;
+}
+.nav-item.has-treeview .nav-link p{
+  margin-left: 5px;
+}
+.brand-link-exapnd img{
+  margin-left: 10px;
+}
+.login-card-body, .register-card-body{
+  border-radius: 6px !important;
+  padding-bottom: 40px !important;
+}

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         @if(isset($record) && isset($record->contents))
-            <table class="table table-sm">
+            <table class="table table-sm table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -24,7 +24,7 @@
                             <div class="float-right">
                                 <a href="{{ route('content.edit', ['content' => $content->id]) }}">
                                     <div class="btn btn-xs">
-                                        <i class="fas fa-edit"></i>
+                                            <i class="far fa-edit"></i>
                                     </div>
                                 </a>
                             </div>

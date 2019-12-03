@@ -23,7 +23,7 @@ class DashboardController extends AbstractController
      */
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = '';
         return view('admin.pages.dashboard.dashboard', $data);
     }
 }
