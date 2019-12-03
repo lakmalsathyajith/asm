@@ -62,7 +62,8 @@ export const getFilteredApartments = ({ commit }, payload) => {
       additional3: 0,
       additional4: 0,
       additional5: 0,
-      test:''
+      test:'',
+      ShowAreas:''
     }
   };
   commit(IS_LOADING, true);
@@ -73,20 +74,37 @@ export const getFilteredApartments = ({ commit }, payload) => {
 
       res.data.data.RoomTypes.RoomType.forEach(function(obj, index, array) {
         if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
-          if(payload.price_min=='Any' && payload.price_max=='Any'){
-            ramRefIds.push(obj.RoomTypeId);
-          }else if(payload.price_min=='Any' && payload.price_max!='Any'){
-            let total = obj.ChargeTypes[0].ChargeType;
-            console.log(total);
-          }else if(payload.price_min!='Any' && payload.price_max=='Any'){
-            let total = obj.ChargeTypes.ChargeType;
-            console.log(total);
-          }else if(payload.price_min!='Any' && payload.price_max!='Any'){
-            let total = obj.ChargeTypes.ChargeType.TotalPrice;
-            console.log(total);
-          }else{
-            ramRefIds.push(obj.RoomTypeId);
+          
+          if(obj.Areas.Area && obj.Areas.Area.length>0){
+            obj.Areas.Area.forEach(function(area){
+              let total =  parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
+              let id = area.AreaId;
+
+              if(payload.price_min=='Any' && payload.price_max=='Any'){
+                ramRefIds.push({id:id, price: total});
+              }else if(payload.price_min=='Any' && payload.price_max!='Any'){
+                let pricemax = parseFloat(payload.price_max.substr(1));
+                if(total <= pricemax){
+                  ramRefIds.push({id:id, price: total});
+                }
+              }else if(payload.price_min!='Any' && payload.price_max=='Any'){
+                let pricemin = parseFloat(payload.price_min.substr(1));
+                if(pricemin <= total){
+                  ramRefIds.push({id:id, price: total});
+                }
+              }else if(payload.price_min!='Any' && payload.price_max!='Any'){
+                let pricemax = parseFloat(payload.price_max.substr(1));
+                let pricemin = parseFloat(payload.price_min.substr(1));
+                if(pricemin <= total && total <= pricemax){
+                  ramRefIds.push({id:id, price: total});
+                }
+              }else{
+                ramRefIds.push({id:id, price: total});
+              }
+            });
           }
+          
+          
         }
       });
       Vue.axios

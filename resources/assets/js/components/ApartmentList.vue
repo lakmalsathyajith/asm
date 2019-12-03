@@ -1010,8 +1010,8 @@ export default {
         type: "",
         adults: 1,
         children: 0,
-        price_min: 0,
-        price_max: 0
+        price_min: 'Any',
+        price_max: 'Any'
       },
       options: [
         'Any',
