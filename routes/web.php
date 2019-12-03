@@ -77,7 +77,7 @@ Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
         $params = $request->route()->parameters;
         return view('pages.bookingSecond', ['params' => $params['id']]);
     });
-    Route::get('/{id}/step-tree', function (Request $request) {
+    Route::get('/{id}/step-three', function (Request $request) {
         $params = $request->route()->parameters;
         return view('pages.bookingThird', ['params' => $params['id']]);
     });

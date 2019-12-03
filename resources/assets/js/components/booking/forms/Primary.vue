@@ -220,12 +220,12 @@
                                                 class="form-check-input"
                                                 name="identity_type"
                                                 type="radio"
-                                                id="inlineCheckbox2"
+                                                id="inlineCheckbox3"
                                                 value="aus-visa"
                                         />
                                         <label
                                                 class="form-check-label inputradio-check-lable"
-                                                for="inlineCheckbox2"
+                                                for="inlineCheckbox3"
                                         >Australian Visa</label>
                                         <span v-if="errorSpan('identity_type')" class="error">{{errorSpan('identity_type')}}</span>
                                     </div>
@@ -266,16 +266,35 @@
                                                 class="filter-widget-sublabel important-lable"
                                         >(Max file size: 3MB - File accept: jpeg,
                                             png)</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="uploads" class="custom-file-input " id="file" @change="onFileChange">
+                                                <label class="custom-file-label" for="file">Select a file to upload</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="dropdown filter-widget">
+                                        <label
+                                                for="checkin"
+                                                class="filter-widget-sublabel important-lable"
+                                        >(Max file size: 3MB - File accept: jpeg,
+                                            png)</label>
 
 
                                         <div class="input-group input-file booking-upload"
                                              name="Fichier1">
                                             <input
-                                                    type="text"
+                                                    type="file"
                                                     class="form-control upload-val-input"
                                                     placeholder="Choose a file..."
                                             />
-                                            <span class="input-group-btn">
+
+
+                                            <span class="input-group-btn"  v-model="form.identity_document">
                                             <button
                                                     class="btn btn-default btn-choose "
                                                     type="button"
@@ -285,7 +304,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div class="booking-section-wrap2">
@@ -382,15 +401,15 @@
                     land_phone: "",
                     mobile_phone: "",
                     address: "",
-                    emp_status: "",
+                    emp_status: "EMPLOYEE",
                     emp_personal_address: "",
                     emp_department: "",
                     emp_phone: "",
                     emp_address: "",
-                    identity_type: "",
+                    identity_type: "passport",
                     identity_number: "",
                     identity_issued_by: "",
-                    document: "",
+                    uploads:"",
                     next_of_kin: "",
                     kin_relationship: "",
                     kin_land_phone: "",
@@ -402,6 +421,11 @@
         },
         mounted() {
             console.log("Component mounted.");
+            $('.custom-file-input').on('change',function(){
+                const fileName = $(this).val().replace('C:\\fakepath\\', " ");
+                console.log(fileName);
+                $(this).next('.custom-file-label').html(fileName);
+            })
         },
         methods: {
             updateBooking() {
@@ -410,6 +434,12 @@
             errorSpan(attr){
                 let message = this.customErrors[attr];
                 return (message) ? message : false;
+            },
+            onFileChange(e){
+                let file = $('input[name="uploads"]').get(0).files[0];
+                let formData = new FormData();
+                    formData.append('uploadFile', file);
+                this.form.uploads = formData;
             },
             ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
         },
