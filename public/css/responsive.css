@@ -872,6 +872,9 @@ max-width: 100% !important;
         background-repeat: no-repeat;
         margin-top: 8px;
     }
+    .faq-tab-content i{
+        padding-top: 0px !important;
+    }
     .top-summery-button span {
         margin-left: -1px !important;
     }

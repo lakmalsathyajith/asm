@@ -2890,7 +2890,22 @@ section.top-search-wrap .dropdown.filter-widget button {
     color: #000000;
     opacity: 1;
 }
-
+.faq-content-desciption .paraf-small{
+    line-height: 30px;
+}
+.faq-content-desciption .paraf-smallest{
+    font-size: 12px;
+}
+.paraf-italic{
+    font-style: italic;
+}
+.paraf-underline{
+  
+    text-decoration: underline;
+}
+.text-blue{
+    color:#0096ce;
+}
 .faq-tab-wrap .nav-tabs {
     width: 73%;
 }
