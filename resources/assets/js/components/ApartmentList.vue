@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div
+    <!--<div
       class="preloader"
       v-if="a"
       :style="{
@@ -13,7 +13,7 @@
         background: '#.FFF',
         'z-index': 9999
       }"
-    ></div>
+    ></div>-->
     <section class="top-search-wrap padding-tb-60 modile-hide tab-landscape-view">
       <div class="container-fluid">
         <div class="row nav-top-path-wrap bottom-full-width-border">

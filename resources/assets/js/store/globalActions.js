@@ -6,7 +6,5 @@ import {GLOBAL_LOADER} from "./globalTypes";
  * @param payload
  */
 export const isLoading = ({commit}, payload) => {
-
-    console.log('commit',commit)
     commit(GLOBAL_LOADER, payload);
 };

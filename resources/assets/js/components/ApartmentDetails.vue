@@ -11,7 +11,7 @@
                     Home
                     <span>></span>
                   </li>
-                  <li class="list-inline-item">{{ selectedApartment.name }}</li>
+                  <li class="list-inline-item">{{ selectedApartment && selectedApartment.name }}</li>
                 </ul>
               </div>
             </div>
@@ -44,19 +44,19 @@
                 </div>
               </div>
               <div class="bottom-desc-behind-wrap">
-                <h3>{{ selectedApartment.name }}</h3>
+                <h3>{{ selectedApartment && selectedApartment.name }}</h3>
                 <p>
                   <span class="ti-location-pin"></span>
                   {{ selectedApartment.address }}
                 </p>
               </div>
-              <div class="listing-bottom-icons-wrap modile-hide tab-view">
+             <div class="listing-bottom-icons-wrap modile-hide tab-view">
                 <ul class="list-inline">
-                  <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
+                  <li class="list-inline-item apart-type">{{ selectedApartment.type && selectedApartment.type.name }}</li>
                   <li
                     class="list-inline-item apart-type"
                     v-if="selectedApartment.test && selectedApartment.test.name"
-                  >{{ selectedApartment.test.name }}</li>
+                  >{{ selectedApartment.test && selectedApartment.test.name }}</li>
                   <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
                     <i class="option-bed"></i>
                     {{ selectedApartment.beds }}
@@ -74,13 +74,14 @@
                  </li>
                 </ul>
               </div>
+
               <div class="listing-bottom-icons-wrap mobile-list-mobile desktop-hide">
                 <ul class="list-inline">
-                  <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
+                  <li class="list-inline-item apart-type">{{ selectedApartment.type && selectedApartment.type.name }}</li>
                   <li
                     class="list-inline-item apart-type"
                     v-if="selectedApartment.test && selectedApartment.test.name"
-                  >{{ selectedApartment.test.name }}</li>
+                  >{{ selectedApartment.test && selectedApartment.test.name }}</li>
                   <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
                     <i class="option-bed"></i>
                     {{ selectedApartment.beds }}
