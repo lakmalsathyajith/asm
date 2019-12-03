@@ -56,7 +56,13 @@ export const getFilteredApartments = ({ commit }, payload) => {
       end: moment(payload.checkOut).format('YYYY-MM-DD'),
       adults: payload.adults,
       children: payload.children,
-      AvailOnly: true
+      infants: 0,
+      additional1: 0,
+      additional2: 0,
+      additional3: 0,
+      additional4: 0,
+      additional5: 0,
+      test:''
     }
   };
   commit(IS_LOADING, true);
@@ -67,7 +73,20 @@ export const getFilteredApartments = ({ commit }, payload) => {
 
       res.data.data.RoomTypes.RoomType.forEach(function(obj, index, array) {
         if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
-          ramRefIds.push(obj.RoomTypeId);
+          if(payload.price_min=='Any' && payload.price_max=='Any'){
+            ramRefIds.push(obj.RoomTypeId);
+          }else if(payload.price_min=='Any' && payload.price_max!='Any'){
+            let total = obj.ChargeTypes[0].ChargeType;
+            console.log(total);
+          }else if(payload.price_min!='Any' && payload.price_max=='Any'){
+            let total = obj.ChargeTypes.ChargeType;
+            console.log(total);
+          }else if(payload.price_min!='Any' && payload.price_max!='Any'){
+            let total = obj.ChargeTypes.ChargeType.TotalPrice;
+            console.log(total);
+          }else{
+            ramRefIds.push(obj.RoomTypeId);
+          }
         }
       });
       Vue.axios

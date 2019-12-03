@@ -79,21 +79,22 @@
             </div>
         </div>
         <div class="col-md-3">
-                <div class="form-group">
-                    <label for="suburb" class="col-form-label">{{ __('Suburb') }}</label>
-                    <select id="suburb" name="suburb"
-                        class="select2bs4 multi-select form-control {{ $errors && $errors->has('suburb') ? ' is-invalid' : '' }}" required>
-                        <option value="">Select Suburb</option>
-                        
-                    </select>
-    
-                    @if ($errors && $errors->has('suburb'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('suburb') }}</strong>
-                    </span>
-                    @endif
-                </div>
+            <div class="form-group">
+                <label for="suburb" class="col-form-label">{{ __('Suburb') }}</label>
+                <select id="suburb" name="suburb"
+                    class="select2bs4 multi-select form-control {{ $errors && $errors->has('suburb') ? ' is-invalid' : '' }}" required>
+                        <option value="{{ isset($record) && isset($record->suburb)?$record->suburb:'' }}" {{isset($record) && isset($record->suburb)? 'selected="selected"' : ''}}>
+                        {{ isset($record) && isset($record->suburb)?$record->suburb:'Select Suburb' }}
+                        </option>
+                </select>
+
+                @if ($errors && $errors->has('suburb'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('suburb') }}</strong>
+                </span>
+                @endif
             </div>
+        </div>
     </div>
 
     <div class="row">
