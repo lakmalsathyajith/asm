@@ -135,23 +135,14 @@ $('.carousel').carousel({
 // });
 
 $(document).ready(function() {
-    // $('.accommondation-wrap').hide();
-
     $(".dropdown-menu .filter-widget-inner a").click(function() {
-
-
         $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
         $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 
         if ($(this).attr('value') == "General Enquiry") {
-            // $('.accommondation-wrap').hide();
             $('.accommondation-wrap').css("display", "none");
         } else {
             $('.accommondation-wrap').css("display", "block");
-            // $('.accommondation-wrap').show();
         }
     });
-
-
-   
 })
