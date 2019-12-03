@@ -50,7 +50,7 @@
                   {{ selectedApartment.address }}
                 </p>
               </div>
-              <div class="listing-bottom-icons-wrap modile-hide">
+              <div class="listing-bottom-icons-wrap modile-hide tab-view">
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
                   <li
@@ -146,7 +146,7 @@
                                           v-model="filter.adults"
                                           type="number"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -166,7 +166,7 @@
                                           type="number"
                                           v-model="filter.children"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -200,7 +200,7 @@
       </div>
     </section>
 
-    <section class="mobile-filter-inner-sect desktop-hide">
+    <section class="mobile-filter-inner-sect desktop-hide tab-view">
       <div class="container-fluid mobile-filter-inner">
         <div class="container">
           <div class="row">
@@ -245,7 +245,7 @@
                                   v-model="filter.adults"
                                   type="number"
                                   min="1"
-                                  max="5"
+                                  max="6"
                                   step="1"
                                   value="1"
                                 />
@@ -262,7 +262,7 @@
                                   type="number"
                                   v-model="filter.children"
                                   min="1"
-                                  max="5"
+                                  max="6"
                                   step="1"
                                   value="1"
                                 />
@@ -315,8 +315,8 @@ export default {
         type: "",
         adults: 0,
         children: 0,
-        price_min: 0,
-        price_max: 0
+        price_min: 'Any',
+        price_max: 'Any'
       }
     };
   },

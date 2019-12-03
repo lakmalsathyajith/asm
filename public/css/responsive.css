@@ -253,6 +253,7 @@ i.fa.fa-mobile-phone {
         min-height: 180px;
         border-radius: 12px;
     }
+    
 }
 
 /* 
@@ -342,6 +343,12 @@ i.fa.fa-mobile-phone {
         height: auto;
         font-size: 14px;
     }
+    .head-type-apart{
+        padding-top: 65px !important; 
+    }
+    .home-apart-type-head{
+        min-height: 50px;
+    }
     .aprtment-details .content-box {
         margin: 30px 0px;
     }
@@ -368,9 +375,9 @@ i.fa.fa-mobile-phone {
     .filter-mobi-nav .mobile-nav-wrap {
         margin-top: 0px;
     }
-    .booking-section {
-        margin-top: 30px;
-    }
+    /* .booking-section {
+        margin-top: 40px;
+    } */
     .desktop-home-filter .datepicker--open {
         margin-left: -160px;
     }
@@ -386,6 +393,76 @@ i.fa.fa-mobile-phone {
     .extras-wrap .col-md-4 {
         padding: 0px 15px !important;
     }
+    .nav-top-path-wrap{
+        margin-top: 30px;
+    }
+    .listing-wrap .col-md-8{
+        flex: 100%;
+        max-width: 100.666667%;
+    }
+    .listing-swipe-slider.inner .swipeslider .slide{
+        width: 100% !important;
+    }
+    .faq-tab-wrap .nav-tabs{
+        width: 90%;
+    }
+    .shortlist-section .head-name h3{
+        margin-bottom: 0px !important;
+        padding-top: 40px;
+    }
+    .middle-about-left-img-wrap,.middle-about-right-img-wrap{
+        height: 165px;
+    }
+    .guest-first-paraf{
+        padding: 25px 40px 6px 40px;
+    }
+    .guest-about-middle-image img{
+        margin: 0px auto;
+    }
+    .guest-second-paraf,.guest-third-paraf{
+        padding: 25px 40px 6px 40px;
+    }
+    .about-class-arap .panel-body{
+        min-height: 820px;
+    }
+    .class-top-text-wrap .panel-heading{
+        padding: 15px 15px 15px 15px;
+    }
+    .col-two-headings{
+        min-height: 200px !important;
+    }
+    .col-two-body{
+        min-height: 400px !important;
+    }
+    .ameniti-image-slider-wrap .swipeslider .slide{
+        min-height: 655px !important;
+    }
+    .col-prec-50{
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    .availabilty .datepicker__input:first-child {
+    background-position: 141px 12px !important;
+    background-size: 6px !important;
+}
+.availabilty{
+    padding: 25px 10px 10px 10px !important;
+}
+.filer-option-wrap .datepicker__input:first-child {
+    background-position: 260px 12px !important;
+    background-size: 6px !important;
+}
+.contact-form-right-wrap{
+    padding-left: 15px !important;
+}
+.accommondation-wrap .col-md-6{
+    flex: 0 0 100% !important;
+max-width: 100% !important;
+}
+.accommondation-wrap .datepicker__input:first-child{
+    background-position: 185px 15px !important;
+    background-size: 6px !important;
+}
     /* .wizard-row{
         margin-top: 30px;
     } */
@@ -399,12 +476,56 @@ i.fa.fa-mobile-phone {
     .modile-hide {
         display: none !important;
     }
+    .tab-landscape-view{
+        display: block !important;
+    }
     .tab-view {
         display: block !important;
     }
     .navbar-brand img {
         height: 40px;
     }
+    .col-prec-50{
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    .availabilty{
+        padding: 25px 10px 10px 10px !important;
+    }
+    .availabilty .datepicker__input:first-child {
+        background-position: 165px 12px !important;
+        background-size: 6px !important;
+    }
+    .availabilty .datepicker__input:first-child {
+        text-indent: 19px !important;
+    } 
+    .desktop-home-filter .datepicker__input:first-child{
+        background-position: 95px 14px !important; 
+    }
+    .top-search-wrap .datepicker__input:first-child{
+        background-position: 86px 13px !important  
+    }
+    .home-flag-nav{
+        margin-left: -12px;
+    }
+    .aprtment-img img {
+        width: 100%;
+        min-height: 250px;
+        border-radius: 12px;
+    }
+    .class-top-text-wrap .panel-heading.col-two-headings{
+        background: #103F4D;
+        padding: 15px 0px 15px 0px;
+        border-radius: 12px 12px 0px 0px;
+        min-height: 205px !important;
+    }
+    .welcome-paraf-box .content-box{
+        padding-bottom: 20px;
+    }
+    section.top-search-wrap .datepicker__input{
+        padding: 2px 0px 0px 25px !important;
+    }
+    
     section.desktop-nav .navbar {
         background-color: #003241 !important;
     }
@@ -435,6 +556,9 @@ i.fa.fa-mobile-phone {
     .extras-wrap .col-md-4 {
         padding: 0px 15px !important;
     }
+    .top-search-wrap{
+        padding-bottom: 0px !important;
+    }
     /*Home filter wrap*/
     .booking-form-section .dropdown button.btn {
         padding: 8px 18px;
@@ -444,6 +568,9 @@ i.fa.fa-mobile-phone {
         width: 100%;
         height: auto;
     }
+    /* .booking-section,.booking-second-section,.third-booking-section{
+        margin-top: 40px !important;
+    } */
     /*about page wrap*/
     .about-top-nav {
         width: 30%;
@@ -471,6 +598,41 @@ i.fa.fa-mobile-phone {
     }
     .content-img {
         margin-top: 70px;
+    }
+    .listing-wrap .col-md-8{
+        flex: 100%;
+        max-width: 100.666667%;
+    }
+    .listing-swipe-slider.inner .swipeslider .slide{
+        width: 100% !important;
+    }
+    .nav-top-path-wrap{
+        margin-top: 20px;
+    }
+    .faq-tab-wrap .nav-tabs{
+        width: 90%;
+    }
+    .faq-section .head-name {
+        margin-top: 10px;
+        margin-bottom: 0px !important;
+    }
+    .middle-about-left-img-wrap,.middle-about-right-img-wrap{
+        height: 320px;
+    }
+    .guest-first-paraf{
+        padding: 25px 40px 6px 40px;
+    }
+    .guest-about-middle-image img{
+        margin: 0px auto;
+    }
+    .guest-second-paraf,.guest-third-paraf{
+        padding: 25px 40px 6px 40px;
+    }
+    .class-top-text-wrap .panel-body{
+        padding: 15px 0px 15px 10px;
+    }
+    .about-class-arap .panel-body{
+        min-height: 820px;
     }
 }
 
@@ -693,6 +855,9 @@ i.fa.fa-mobile-phone {
         padding-left: 20px;
         background-repeat: no-repeat;
         margin-top: 8px;
+    }
+    .top-summery-button span {
+        margin-left: -1px !important;
     }
     ul.nav.nav-wizard li:first-child>a:before {
         width: 0px;
@@ -1195,6 +1360,61 @@ i.fa.fa-mobile-phone {
     .wizard-row .nav-wizard>li>a {
         padding: 6px 15px 10px 10px !important;
     }
+    .middle-about-left-img-wrap,.middle-about-right-img-wrap{
+        height: 150px;
+        width: 100%;
+        background-size: cover;
+    }
+    .guest-about-middle-image .mobile-img{
+        height: 100%;
+    }
+    .guest-first-paraf{
+        padding: 25px 30px 6px 30px;
+    }
+    .guest-second-paraf{
+        padding: 25px 30px 6px 30px;
+    }
+    .guest-third-paraf{
+        padding: 0px 30px 6px 30px;
+    }
+    .para-with-content .left-image{
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .guest-bottom-image img{
+        height: 300px;
+    }
+    .studio-middle-panel-wrap .panel-heading{
+        padding: 15px 4px 12px 4px;
+    }
+    .panel-body-onebed,.panel-body-twobed{
+        padding-left: 0px;
+    }
+    .availabilty{
+        padding-top: 30px;
+    }
+    .swipeslider .slide-studio,.swipeslider .onebed-one-build{
+        min-height: 300px !important;
+    }
+    .building-ameniti-sec .ameniti-list-wrap{
+        border-radius: 0px;
+    }
+    .emeniti-ul{
+        margin-bottom: 30px;
+    }
+    .ameniti-image-slider-wrap .swipeslider .slide {
+        min-height: 320px !important;
+        margin-bottom: 30px;
+    }
+    .swipeslider .twobed{
+        min-height: 320px !important; 
+    }
+    .class-top-text-wrap .panel-body{
+        padding: 15px 5px 15px 5px;
+    }
+    .studio-middle-panel-wrap .studio-benifit-list{
+        padding-left: 10px;
+    }
     /*Start booking form*/
     /*End booking form*/
 }
@@ -1210,6 +1430,10 @@ i.fa.fa-mobile-phone {
     }
     .aprtment-details {
         height: auto;
+    }
+    .datepicker__input:first-child{
+        background-size: 6px !important;
+    background-position: 100% 50% !important;
     }
     .mobile-img {
         width: 100% !important;

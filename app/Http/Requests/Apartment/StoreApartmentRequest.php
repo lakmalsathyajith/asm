@@ -20,7 +20,8 @@ class StoreApartmentRequest extends AbstractRequest
             'bath_rooms'        => 'required|integer|max:99',
             'files'             => 'required',
             'options'           => 'required',
-            'rms_key'           => 'required|max:50|unique:apartments,rms_key',
+            'rms_key'           => 'required|max:50',
+            // 'rms_key'           => 'required|max:50|unique:apartments,rms_key',
         ];
     }
 

@@ -23,7 +23,7 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading">Studio Apartments</h3>
+                <h3 class="sub-heading home-apart-type-head">Studio Apartments</h3>
                 <p class="paraf">Starting from $620pw</p>
               </div>
             </div>
@@ -38,7 +38,7 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading">One Bedroom Apartments</h3>
+                <h3 class="sub-heading home-apart-type-head">One Bedroom Apartments</h3>
                 <p class="paraf">Starting from $700pw</p>
               </div>
             </div>
@@ -53,7 +53,7 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading">Two Bedroom Apartments</h3>
+                <h3 class="sub-heading home-apart-type-head">Two Bedroom Apartments</h3>
                 <p class="paraf">Starting from $965pw</p>
               </div>
             </div>
@@ -90,7 +90,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading col-two-headings">
                     <h3 class="sub-heading">Business Class</h3>
                     <p class="paraf">
                       Business Class apartments are located in some of
@@ -98,7 +98,7 @@
                       <br />most desirable residential apartment buildings.
                     </p>
                   </div>
-                  <div class="panel-body">
+                  <div class="panel-body col-two-body">
                     <div class="class-body-heading">
                       <h4>
                         As a minimum, our Business Class apartments include:
@@ -121,7 +121,7 @@
 
               <div class="col-md-6">
                 <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading col-two-headings">
                     <h3 class="sub-heading">Premium Class</h3>
                     <p class="paraf">
                       Premium Class apartments are a little older than our
@@ -131,7 +131,7 @@
                       counterparts.
                     </p>
                   </div>
-                  <div class="panel-body">
+                  <div class="panel-body col-two-body">
                     <div class="class-body-heading">
                       <h4>
                         As a minimum, our Business Class apartments include:

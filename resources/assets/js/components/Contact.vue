@@ -196,7 +196,7 @@
                                           
                                           type="number"
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -215,7 +215,7 @@
                                           type="number"
                                          
                                           min="1"
-                                          max="5"
+                                          max="6"
                                           step="1"
                                           value="1"
                                         />
@@ -282,21 +282,26 @@
                               >
                                 <span>Please Select</span>
                               </button>
-                              <div
-                                class="dropdown-menu filter-widget-dropdown"
-                                aria-labelledby="dropdownMenuButton"
-                                x-placement="bottom-start"
-                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);"
-                              >
-                                <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                  <a class="dropdown-item" href="#.">Action</a>
-                                  <a class="dropdown-item" href="#.">Another action</a>
-                                  <a class="dropdown-item" href="#.">
-                                    Something else
-                                    here
-                                  </a>
-                                </div>
-                              </div>
+                              <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
+                      <div class="filter-widget-inner">
+                        <div class="row">
+                          <div class="col-md-6 filter-widget-col">
+                            <div class="form-group">
+                              <label for="checkin" class="filter-widget-sublabel">Price Min</label>
+                                 <v-select :options="options" :clearable="false" ></v-select>
+                              
+                            </div>
+                          </div>
+                          <div class="col-md-6 filter-widget-col">
+                            <div class="form-group">
+                              <label for="checkout" class="filter-widget-sublabel">Price Max</label>
+                               <v-select :options="options" :clearable="false"></v-select>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                             </div>
                           </div>
                         </div>
@@ -405,6 +410,43 @@ export default {
   name: "contact",
   mounted() {
     console.log("Component mounted.");
+  },
+  data(){
+    return {
+     options: [
+        'Any',
+        '$50',
+        '$100',
+        '$150',
+        '$200',
+        '$250',
+        '$300',
+        '$350',
+        '$400',
+        '$450',
+        '$500',
+        '$550',
+        '$600',
+        '$650',
+        '$700',
+        '$750',
+        '$800',
+        '$850',
+        '$900',
+        '$950',
+        '$1000',
+        '$1050',
+        '$1100',
+        '$1150',
+        '$1200',
+        '$1250',
+        '$1300',
+        '$1350',
+        '$1400',
+        '$1450',
+        '$1500'
+      ]
+    }
   },
   components: {
     HotelDatePicker

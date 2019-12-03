@@ -34,7 +34,9 @@ Vue.use(Datepicker);
 
 import Vue from 'vue';
 import axios from 'axios';
+import vSelect from 'vue-select';
 import VueAxios from 'vue-axios';
+
 
 
 Vue.use(VueAxios, axios);
@@ -44,7 +46,7 @@ console.log('-');
 
 
 
-
+Vue.component('v-select', vSelect)
 Vue.component(
   'example-component',
   require('./components/ExampleComponent.vue')

@@ -101,6 +101,16 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6 p-0">
+            <div class="middle-about-left-img-wrap">
+              
+            </div>
+          </div>
+          <div class="col-md-6 p-0">
+            <div class="middle-about-right-img-wrap"></div>
+          </div>
+        </div>
       </div>
 
       <div class="about-middle-paraf-wrap">
@@ -140,7 +150,7 @@
                     need for medium to long term accommodation. The list is endless.
                   </p>
 
-                  <p class="paraf">
+                  <!-- <p class="paraf">
                     Our guests choose to book our apartments because our apartments are up to 3 times larger when compared to Student
                     Dormitories, Student Apartments, Hotel rooms and Serviced apartments.
                   </p>
@@ -155,7 +165,37 @@
                     For international students who want much more space than what a ‘Student Dormitory’ or typical ‘Student Apartment’
                     can
                     offer, our apartments can offer up to three times more space in comparison.
+                  </p> -->
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="guest-dreen-wrap">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="paraf text-center guest-first-paraf">
+                    Our guests choose to book our apartments because our apartments are up to 3 times larger when compared to Student
+                    Dormitories, Student Apartments, Hotel rooms and Serviced apartments.
                   </p>
+                  <div class="guest-about-middle-image">
+                    <img class="modile-hide tab-view" src="images/compare.png" width="100%" />
+              <img class="mobile-only mobile-img" src="images/mobile-compare.png" />
+                  </div>
+                  <p class="paraf text-center guest-second-paraf">
+                    Not only are our furnished apartments a much more comfortable residential and corporate living solution, they are
+                    also a
+                    far more economical solution and offer savings of hundreds of dollars compared to serviced apartments and hotels.
+                  </p>
+
+                  <p class="paraf text-center guest-third-paraf">
+                    For international students who want much more space than what a ‘Student Dormitory’ or typical ‘Student Apartment’
+                    can
+                    offer, our apartments can offer up to three times more space in comparison.
+                  </p>
+
                 </div>
               </div>
             </div>
@@ -181,6 +221,10 @@
             <div class="para-with-content">
               <div class="row">
                 <div class="col-md-6">
+                  <img src="images/about-us/about-img-3.jpg" class="left-image" width="100%" alt="quality" />
+                </div>
+                <div class="col-md-6">
+                  
                   <div class="left-top-quality-para">
                     <p class="paraf">
                       Apartment Stays Melbourne is committed to providing a high quality of service and a high quality of apartment to
@@ -198,21 +242,19 @@
                       operations
                       and the selection and quality of our individual apartments.
                     </p>
+                    <p class="paraf">
+                      The type of professional individuals we recruit, the selection criteria, how the individual fits into the
+                      Apartment Stays Melbourne team, their own values and philosophies compared to our own are all issues that weigh heavily in
+                      successfully building the stable team we have assembled over a long period of time.
+                    </p>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <img src="images/about-us/compare.png" width="100%" alt="quality" />
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="quality-middle-para-wrap">
-                    <p class="paraf">
-                      The type of professional individuals we recruit, the selection criteria, how the individual fits into the
-                      Apartment Stays Melbourne team, their own values and philosophies compared to our own are all issues that weigh heavily in
-                      successfully building the stable team we have assembled over a long period of time.
-                    </p>
+                    
 
                     <p class="paraf">
                       Once we have chosen our new team member, we spend time comprehensively training them and monitoring their
@@ -248,6 +290,13 @@
                       We conduct regular team workshops analysing this feedback and deriving better ways of doing things in direct response to this
                       feedback.
                     </p>
+                  </div>
+                </div>
+              </div>
+              <div class="guest-bottom-image">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="images/about-us/about-4.jpg" width="100%">
                   </div>
                 </div>
               </div>
