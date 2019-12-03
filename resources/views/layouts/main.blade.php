@@ -18,6 +18,7 @@
     </div>
     @include('common.header')
     <div id="app">
+        <header-loader></header-loader>
         @yield('content')
     </div>
     @include('common.footer')

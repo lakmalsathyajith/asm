@@ -75,5 +75,7 @@ Vue.component('adult-booking-form', require('./components/booking/forms/Adult'))
 Vue.component('child-booking-form', require('./components/booking/forms/Child'));
 Vue.component('apartment-booking-widget', require('./components/booking/common/ApartmentBookingWidget'));
 
+Vue.component('header-loader', require('./components/common/header'));
+
 const router = new VueRouter({ mode: 'history' });
 const app = new Vue(Vue.util.extend({ router, store })).$mount('#app');

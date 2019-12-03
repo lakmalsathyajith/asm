@@ -3,10 +3,10 @@
         <div class="booking-right-side-top-wrap">
             <div class="col-md-12 p-0">
                 <div class="booking-image-wrap">
-                    <img src="images/booking/Image-35.png" width="100%"/>
+                    <img :src="selectedBooking.apartment && selectedBooking.apartment.files[0].url" width="100%"/>
                 </div>
                 <div class="image-option">
-                    <p>One Bed Room</p>
+                    <p>{{selectedBooking.apartment && selectedBooking.apartment.type.tag}}</p>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="short-description">Check-In</div>
-                        <div class="long-description">{{selectedBooking.check_in}}</div>
+                        <div class="long-description">{{checkIn}}</div>
                         <!--<div class="long-description">18, September 2019</div>-->
                     </div>
                     <div class="col-md-6">
@@ -42,12 +42,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="short-description">Check-Out</div>
-                        <div class="long-description">{{selectedBooking.check_in}}</div>
+                        <div class="long-description">{{checkOut}}</div>
                         <!--<div class="long-description">18, October 2019</div>-->
                     </div>
                     <div class="col-md-6">
                         <div class="short-description">Beds</div>
-                        <div class="long-description">1-2 Beds</div>
+                        <div class="long-description">{{selectedBooking.apartment && selectedBooking.apartment.beds}} Beds</div>
                     </div>
 
                     <div class="col-md-12">
@@ -68,7 +68,7 @@
                         <div class="days-wrap short-description">Total Days</div>
                     </div>
                     <div class="col-md-6">
-                        <div class="days-wrap-detail pull-right">30 Days</div>
+                        <div class="days-wrap-detail pull-right">{{dateDiff}} Days</div>
                     </div>
                     <div class="col-md-6">
                         <div class="total-wrap">Total</div>
@@ -83,6 +83,7 @@
 </template>
 <script>
     import {mapState, mapActions} from "vuex";
+    import moment from 'moment';
 
     export default {
         name: "booking-widget",
@@ -94,6 +95,18 @@
         },
         computed: {
             ...mapState("booking", ["selectedBooking"]),
+            checkIn(){
+                return moment(this.selectedBooking.check_in).format('DD MMMM YYYY')
+            },
+            checkOut(){
+                return moment(this.selectedBooking.check_out).format('DD MMMM YYYY')
+            },
+            dateDiff(){
+                let a = moment(this.selectedBooking.check_out);
+                let b = moment(this.selectedBooking.check_in);
+                return a.diff(b, 'days')
+            }
+
         },
     }
 </script>

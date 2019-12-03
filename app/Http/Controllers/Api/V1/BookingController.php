@@ -40,6 +40,8 @@ class BookingController extends AbstractApiController
             $model = $this->activeRepo->getModel();
             $data = $model->where('uuid','=',$id)
                 ->with('apartment')
+                ->with('apartment.files')
+                ->with('apartment.type')
                 ->with('occupants')
                 ->with('occupants.contacts')
                 ->with('occupants.identity')

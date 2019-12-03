@@ -4,7 +4,7 @@ import {
     SELECTED_BOOKING,
     ERRORS
 } from './types.js';
-import {IS_LOADING, SELECTED_APARTMENT} from "../ratesAndAvailability/types";
+import {isLoading} from "../../helpers";
 
 /**
  * get all the apartments saved
@@ -20,7 +20,7 @@ export const updateBookingStore = ({commit}, payload) => {
  * @param commit
  * @param payload
  */
-export const booking = ({commit}, payload) => {
+export const booking = ({commit,dispatch}, payload) => {
     let params = {
         apartment_id: 1,
         adults: payload.adults,
@@ -29,7 +29,7 @@ export const booking = ({commit}, payload) => {
         check_out: moment(payload.checkOut).format('YYYY-MM-DD'),
         rent: 2500
     };
-    commit(IS_LOADING, true);
+    isLoading(dispatch, true)
     Vue.axios
         .post('/booking', params)
         .then(res => {
@@ -40,11 +40,11 @@ export const booking = ({commit}, payload) => {
             }else{
                 // commit errors
             }
-
+            isLoading(dispatch, false)
         })
         .catch(err => {
             console.log('---err----', err);
-            commit(IS_LOADING, false);
+            isLoading(dispatch, false)
         });
 };
 /**
@@ -52,17 +52,17 @@ export const booking = ({commit}, payload) => {
  * @param commit
  * @param payload
  */
-export const getBooking = ({commit}, payload) => {
-    commit(IS_LOADING, true);
+export const getBooking = ({commit,dispatch}, payload) => {
+    isLoading(dispatch, true);
     Vue.axios
         .get('/booking/' + payload)
         .then(res => {
             commit(SELECTED_BOOKING, res.data);
-            commit(IS_LOADING, false);
+            isLoading(dispatch, false)
         })
         .catch(err => {
             console.log('---err----', err);
-            commit(IS_LOADING, false);
+            isLoading(dispatch, false)
         });
 };
 
@@ -72,8 +72,8 @@ export const getBooking = ({commit}, payload) => {
  * @param commit
  * @param payload
  */
-export const updateOccupants = ({commit}, payload) => {
-    //commit(IS_LOADING, true);
+export const updateOccupants = ({commit, dispatch}, payload) => {
+    isLoading(dispatch, true)
     Vue.axios
         .post('/occupant', payload)
         .then(res => {
@@ -85,10 +85,11 @@ export const updateOccupants = ({commit}, payload) => {
             }else{
                 commit(ERRORS, res.data.errors);
             }
+            isLoading(dispatch, false)
         })
         .catch(err => {
             console.log('---err----', err);
-            //commit(IS_LOADING, false);
+            isLoading(dispatch, false)
         });
 };
 
@@ -98,15 +99,16 @@ export const updateOccupants = ({commit}, payload) => {
  * @param commit
  * @param payload
  */
-export const rmsBooking = ({commit}, payload) => {
+export const rmsBooking = ({commit, dispatch}, payload) => {
+    isLoading(dispatch, true)
     Vue.axios
         .put('/booking/'+payload, {})
         .then(res => {
-            console.log('---res----', res);
+            isLoading(dispatch, false)
         })
         .catch(err => {
             console.log('---err----', err);
-            //commit(IS_LOADING, false);
+            isLoading(dispatch, false)
         });
 }
 

@@ -1,23 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import * as globalActions from './globalActions';
 import ratesAndAvailability from './modules/ratesAndAvailability';
 import booking from './modules/booking';
+import globalMutations from "./globalMutations";
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
-
+        isLoading : false
     },
-    getters:{
-        // get what ever property in the state with a modification // use mapGetters helper to access in the components
-    },
-    mutations:{
-        // use when ever want to modify the state in a synchronous manner
-    },
-    actions:{
-        // use to modify state asynchronously
-    },
+    getters:{},
+    mutations:globalMutations,
+    actions:globalActions,
     modules:{
         ratesAndAvailability,
         booking
