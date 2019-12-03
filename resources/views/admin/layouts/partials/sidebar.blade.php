@@ -70,14 +70,14 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{route('content.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-file-code"></i>
                         <p>
                             Content Management
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{route('file.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
