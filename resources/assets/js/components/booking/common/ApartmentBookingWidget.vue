@@ -84,7 +84,6 @@
 <script>
     import {mapState, mapActions} from "vuex";
     import moment from 'moment';
-
     export default {
         name: "booking-widget",
         mounted() {
@@ -106,7 +105,7 @@
                 let b = moment(this.selectedBooking.check_in);
                 return a.diff(b, 'days')
             }
-
         },
     }
 </script>
+© 2019 GitHub, Inc.

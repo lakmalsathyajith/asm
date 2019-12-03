@@ -111,7 +111,3 @@ export const rmsBooking = ({commit, dispatch}, payload) => {
             isLoading(dispatch, false)
         });
 }
-
-
-
-

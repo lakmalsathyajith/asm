@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VueEasyLightbox :visible="visible" :imgs="imgs" :index="index" @hide="handleHide"></VueEasyLightbox>
     <section class="top-search-wrap padding-tb-60">
       <div class="container-fluid">
         <div class="row nav-top-path-wrap bottom-full-width-border">
@@ -35,6 +36,7 @@
                         :style="{
                           backgroundImage: 'url(\'' + file.url + '\')'
                         }"
+                        @click="showSingle(file.url)"
                       ></div>
                     </div>
                     <!-- Add Arrows -->
@@ -47,16 +49,16 @@
                 <h3>{{ selectedApartment && selectedApartment.name }}</h3>
                 <p>
                   <span class="ti-location-pin"></span>
-                  {{ selectedApartment.address }}
+                  {{ selectedApartment && selectedApartment.address }}
                 </p>
               </div>
-             <div class="listing-bottom-icons-wrap modile-hide tab-view">
+              <div class="listing-bottom-icons-wrap modile-hide tab-view">
                 <ul class="list-inline">
-                  <li class="list-inline-item apart-type">{{ selectedApartment.type && selectedApartment.type.name }}</li>
-                  <li
+                  <li class="list-inline-item apart-type">{{ selectedApartment && selectedApartment.type && selectedApartment.type.name }}</li>
+                  <!-- <li
                     class="list-inline-item apart-type"
-                    v-if="selectedApartment.test && selectedApartment.test.name"
-                  >{{ selectedApartment.test && selectedApartment.test.name }}</li>
+                    v-if="selectedApartment && selectedApartment.test && selectedApartment.test.name"
+                  >{{ selectedApartment.test.name }}</li> -->
                   <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
                     <i class="option-bed"></i>
                     {{ selectedApartment.beds }}
@@ -65,23 +67,27 @@
                     <i class="option-car"></i>
                     {{ selectedApartment.parking_slots }}
                   </li>
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.bath_rooms">
+                    <i class="option-bath-room"></i>
+                    {{ selectedApartment.bath_rooms }}
+                  </li>
                   <li class="list-inline-item apart-options inner-other">&#124;</li>
                   <li class="list-inline-item apart-options inner-other">Available now</li>
                   <li class="list-inline-item apart-options inner-other">&#124;</li>
                   <li class="list-inline-item apart-options inner-other">A$405 per week</li>
                   <li class="list-inline-item apart-options inner-other">&#124;</li>
-                  <li class="list-inline-item apart-options inner-other"><i class="ti-email"></i> Email
-                 </li>
+                  <li class="list-inline-item apart-options inner-other email-list">
+                    <a href="#"  @click="send_email()"><i class="ti-email"></i> Email</a>
+                  </li>
                 </ul>
               </div>
-
-              <div class="listing-bottom-icons-wrap mobile-list-mobile desktop-hide">
+              <div class="listing-bottom-icons-wrap mobile-list-mobile desktop-hide tab-hide">
                 <ul class="list-inline">
-                  <li class="list-inline-item apart-type">{{ selectedApartment.type && selectedApartment.type.name }}</li>
+                  <li class="list-inline-item apart-type">{{ selectedApartment.type.name }}</li>
                   <li
                     class="list-inline-item apart-type"
                     v-if="selectedApartment.test && selectedApartment.test.name"
-                  >{{ selectedApartment.test && selectedApartment.test.name }}</li>
+                  >{{ selectedApartment.test.name }}</li>
                   <li class="list-inline-item apart-options" v-if="selectedApartment.beds">
                     <i class="option-bed"></i>
                     {{ selectedApartment.beds }}
@@ -90,6 +96,10 @@
                     <i class="option-car"></i>
                     {{ selectedApartment.parking_slots }}
                   </li>
+                  <li class="list-inline-item apart-options" v-if="selectedApartment.bath_rooms">
+                    <i class="option-bath-room"></i>
+                    {{ selectedApartment.bath_rooms }}
+                  </li>
                 </ul>
 
                 <ul class="list-inline">
@@ -97,7 +107,9 @@
                   <li class="list-inline-item apart-options inner-other">&#124;</li>
                   <li class="list-inline-item apart-options inner-other">A$405 per week</li>
                   <li class="list-inline-item apart-options inner-other">&#124;</li>
-                  <li class="list-inline-item apart-options inner-other"><i class="ti-email"></i> Email</li>
+                  <li class="list-inline-item apart-options inner-other email-list">
+                    <a href="#"  @click="send_email()"><i class="ti-email"></i> Email</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -109,7 +121,6 @@
                       <label for="checkin" class="filter-widget-sublabel">Check-In/Out</label>
                       <HotelDatePicker
                         format="DD/MM/YYYY"
-                        
                         @check-in-changed="setCheckinDate"
                         @check-out-changed="setCheckoutDate"
                       ></HotelDatePicker>
@@ -117,68 +128,62 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                          <div class="dropdown filter-widget">
-                            <button
-                              class="btn dropdown-toggle guest-button-svg flter-button"
-                              type="button"
-                              id="dropdownMenuButton"
-                              data-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <span>Guest Number</span>
-                            </button>
-                            <div
-                              class="dropdown-menu filter-widget-dropdown"
-                              aria-labelledby="dropdownMenuButton"
-                            >
-                              <div class="filter-widget-inner">
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label
-                                        for="min_occupants"
-                                        class="filter-widget-sublabel"
-                                      >Adults</label>
-                                      <div class="quantity">
-                                        <input
-                                                @change="onAdultsChange"
-                                          id="min_occupants"
-                                          v-model="filter.adults"
-                                          type="number"
-                                          min="1"
-                                          max="6"
-                                          step="1"
-                                          value="1"
-                                        />
-                                      </div>
-                                    </div>
+                      <div class="dropdown filter-widget">
+                        <button
+                          class="btn dropdown-toggle guest-button-svg flter-button"
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <span>Guest Number</span>
+                        </button>
+                        <div
+                          class="dropdown-menu filter-widget-dropdown"
+                          aria-labelledby="dropdownMenuButton"
+                        >
+                          <div class="filter-widget-inner">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                                  <div class="quantity">
+                                    <input
+                                      id="min_occupants"
+                                       @change="onAdultsChange"
+                                      v-model="filter.adults"
+                                      type="number"
+                                      min="1"
+                                      max="6"
+                                      step="1"
+                                      value="1"
+                                    />
                                   </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label
-                                        for="max_occupants"
-                                        class="filter-widget-sublabel"
-                                      >Children</label>
-                                      <div class="quantity">
-                                        <input
-                                                @change="onChildrenChange"
-                                          id="max_occupants"
-                                          type="number"
-                                          v-model="filter.children"
-                                          min="1"
-                                          max="6"
-                                          step="1"
-                                          value="1"
-                                        />
-                                      </div>
-                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                                  <div class="quantity">
+                                    <input
+                                      id="max_occupants"
+                                      @change="onChildrenChange"
+                                      type="number"
+                                      v-model="filter.children"
+                                      min="1"
+                                      max="6"
+                                      step="1"
+                                      value="1"
+                                    />
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
@@ -209,7 +214,6 @@
               <div class="form-group">
                 <HotelDatePicker
                   format="DD/MM/YYYY"
-                 
                   @check-in-changed="setCheckinDate"
                   @check-out-changed="setCheckoutDate"
                 ></HotelDatePicker>
@@ -218,56 +222,55 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-                <div class="form-group">
-                  <div class="dropdown filter-widget">
-                    <button
-                      class="btn dropdown-toggle guest-button-svg before-svg flter-button filter-border-none-btn"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <span>Guest Number</span>
-                    </button>
-                    <div
-                      class="dropdown-menu filter-widget-dropdown"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
-                              <div class="quantity">
-                                <input
-                                        @change="onAdultsChange"
-                                  id="min_occupants"
-                                  v-model="filter.adults"
-                                  type="number"
-                                  min="1"
-                                  max="6"
-                                  step="1"
-                                  value="1"
-                                />
-                              </div>
+              <div class="form-group">
+                <div class="dropdown filter-widget">
+                  <button
+                    class="btn dropdown-toggle guest-button-svg before-svg flter-button filter-border-none-btn"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span>Guest Number</span>
+                  </button>
+                  <div
+                    class="dropdown-menu filter-widget-dropdown"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <div class="filter-widget-inner">
+                      <div class="row">
+                        <div class="col-md-6 filter-widget-col">
+                          <div class="form-group">
+                            <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                            <div class="quantity">
+                              <input
+                               @change="onAdultsChange"
+                                id="min_occupants"
+                                v-model="filter.adults"
+                                type="number"
+                                min="1"
+                                max="6"
+                                step="1"
+                                value="1"
+                              />
                             </div>
                           </div>
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="max_occupants" class="filter-widget-sublabel">Children</label>
-                              <div class="quantity">
-                                <input
-                                        @change="onAdultsChange"
-                                  id="max_occupants"
-                                  type="number"
-                                  v-model="filter.children"
-                                  min="1"
-                                  max="6"
-                                  step="1"
-                                  value="1"
-                                />
-                              </div>
+                        </div>
+                        <div class="col-md-6 filter-widget-col">
+                          <div class="form-group">
+                            <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                            <div class="quantity">
+                              <input
+                               @change="onChildrenChange"
+                                id="max_occupants"
+                                type="number"
+                                v-model="filter.children"
+                                min="1"
+                                max="6"
+                                step="1"
+                                value="1"
+                              />
                             </div>
                           </div>
                         </div>
@@ -275,6 +278,7 @@
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -302,7 +306,8 @@
 import { mapState, mapActions } from "vuex";
 import moment from "moment";
 import HotelDatePicker from "vue-hotel-datepicker";
-import Swiper from 'swiper';
+import Swiper from "swiper";
+import VueEasyLightbox from "vue-easy-lightbox";
 
 export default {
   name: "apartmentDetails",
@@ -318,34 +323,39 @@ export default {
         children: 0,
         price_min: 'Any',
         price_max: 'Any'
-      }
+      },
+      imgs: "", // Img Url , string or Array
+      visible: false,
+      index: 0 // default
     };
   },
   mounted() {
     this.getApartment(this.$attrs.id);
-  },
-  updated() {
-    let swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-      loop: true,
-      speed: 1000,
-      centeredSlides: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-    });
+    setTimeout(() => {
+      let swiper = new Swiper(".swiper-container", {
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true
+        },
+        loop: true,
+        speed: 1000,
+        centeredSlides: true,
+        preventClicks: false,
+        preventClicksPropagation: false,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      });
+    }, 1000);
   },
   methods: {
     bookNow() {
@@ -371,6 +381,19 @@ export default {
     setCheckoutDate(newDate) {
       this.filter.checkOut = newDate;
     },
+    showSingle(url) {
+      console.log(url);
+
+      this.imgs = url;
+      this.show();
+    },
+    show() {
+      this.visible = true;
+    },
+    
+    handleHide() {
+      this.visible = false;
+    },
 
     log(message) {
       console.log("-----", message);
@@ -383,6 +406,11 @@ export default {
           return c.sub_type === subType;
         });
       return contentObj && contentObj[0] ? contentObj[0].content : "";
+    },
+    send_email(){
+       var currentUrl = window.location.href
+     
+      window.open('mailto:?body='+currentUrl);
     },
     onSlideStart(slide) {
       this.sliding = true;
@@ -397,7 +425,8 @@ export default {
     ...mapState("ratesAndAvailability", ["selectedApartment"])
   },
   components: {
-    HotelDatePicker
+    HotelDatePicker,
+    VueEasyLightbox
   }
 };
 </script>

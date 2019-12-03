@@ -148,7 +148,8 @@
 
 <script src="{{ asset('js/app.js?v=1.7') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
-<script href="{{asset('js/script.js?v=1.7')}}"></script>
+<script src="{{asset('js/script.js?v=1.7')}}"></script>
+<script href="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
 
 <script>
     $(document).ready(function() {

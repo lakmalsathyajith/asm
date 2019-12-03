@@ -21,7 +21,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- fevicon -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('images/asm-favicon.png')}}" type="image/x-icon">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -40,4 +40,5 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}" />
     <link rel="stylesheet" href="{{asset('css/swipper.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/lightbox.min.css')}}" />
 </head>

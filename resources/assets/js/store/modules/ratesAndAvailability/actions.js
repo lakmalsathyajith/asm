@@ -1,28 +1,28 @@
 import moment from 'moment';
 import {
-    GET_APARTMENTS_LIST,
-    SELECTED_APARTMENT,
-    IS_LOADING
+  GET_APARTMENTS_LIST,
+  SELECTED_APARTMENT,
+  IS_LOADING
 } from './types.js';
-import {isLoading} from "../../helpers";
+import { isLoading } from '../../helpers';
 
 /**
  * get all the apartments saved
  * @param commit
  */
-export const getApartmentsList = ({commit, dispatch}) => {
-    // some API call here
-    isLoading(dispatch, true);
-    Vue.axios
-        .get('/apartments')
-        .then(res => {
-            commit(GET_APARTMENTS_LIST, res.data);
-            isLoading(dispatch, false);
-        })
-        .catch(err => {
-            console.log('---err----', err);
-            isLoading(dispatch, false);
-        });
+export const getApartmentsList = ({ commit, dispatch }) => {
+  // some API call here
+  isLoading(dispatch, true);
+  Vue.axios
+    .get('/apartments')
+    .then(res => {
+      commit(GET_APARTMENTS_LIST, res.data);
+      isLoading(dispatch, false);
+    })
+    .catch(err => {
+      console.log('---err----', err);
+      isLoading(dispatch, false);
+    });
 };
 
 /**
@@ -30,18 +30,18 @@ export const getApartmentsList = ({commit, dispatch}) => {
  * @param commit
  * @param payload
  */
-export const getApartment = ({commit, dispatch}, payload) => {
-    isLoading(dispatch, true);
-    Vue.axios
-        .get('/apartments/' + payload)
-        .then(res => {
-            commit(SELECTED_APARTMENT, res.data);
-            isLoading(dispatch, false);
-        })
-        .catch(err => {
-            console.log('---err----', err);
-            isLoading(dispatch, false);
-        });
+export const getApartment = ({ commit, dispatch }, payload) => {
+  isLoading(dispatch, true);
+  Vue.axios
+    .get('/apartments/' + payload)
+    .then(res => {
+      commit(SELECTED_APARTMENT, res.data);
+      isLoading(dispatch, false);
+    })
+    .catch(err => {
+      console.log('---err----', err);
+      isLoading(dispatch, false);
+    });
 };
 
 /**
@@ -50,74 +50,82 @@ export const getApartment = ({commit, dispatch}, payload) => {
  * @param commit
  * @param payload
  */
-export const getFilteredApartments = ({commit, dispatch}, payload) => {
-    let params = {
-        postFields: {
-            start: moment(payload.checkIn).format('YYYY-MM-DD'),
-            end: moment(payload.checkOut).format('YYYY-MM-DD'),
-            adults: payload.adults,
-            children: payload.children,
-            infants: 0,
-            additional1: 0,
-            additional2: 0,
-            additional3: 0,
-            additional4: 0,
-            additional5: 0,
-            test: '',
-            ShowAreas: ''
-        }
-    };
-    isLoading(dispatch, true);
-    Vue.axios
-        .post('/get-available-room-types', params)
-        .then(res => {
-            var ramRefIds = [];
-            res.data.data.RoomTypes.RoomType.forEach(function (obj, index, array) {
-                if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
+export const getFilteredApartments = ({ commit, dispatch }, payload) => {
+  let params = {
+    postFields: {
+      start: moment(payload.checkIn).format('YYYY-MM-DD'),
+      end: moment(payload.checkOut).format('YYYY-MM-DD'),
+      adults: payload.adults,
+      children: payload.children,
+      infants: 0,
+      additional1: 0,
+      additional2: 0,
+      additional3: 0,
+      additional4: 0,
+      additional5: 0,
+      test: '',
+      ShowAreas: ''
+    }
+  };
+  isLoading(dispatch, true);
+  Vue.axios
+    .post('/get-available-room-types', params)
+    .then(res => {
+      var ramRefIds = [];
+      res.data.data.RoomTypes.RoomType.forEach(function(obj, index, array) {
+        if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
+          if (obj.Areas.Area && obj.Areas.Area.length > 0) {
+            obj.Areas.Area.forEach(function(area) {
+              let total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
+              let id = area.AreaId;
 
-                    if (obj.Areas.Area && obj.Areas.Area.length > 0) {
-                        obj.Areas.Area.forEach(function (area) {
-                            let total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
-                            let id = area.AreaId;
-
-                            if (payload.price_min == 'Any' && payload.price_max == 'Any') {
-                                ramRefIds.push({id: id, price: total});
-                            } else if (payload.price_min == 'Any' && payload.price_max != 'Any') {
-                                let pricemax = parseFloat(payload.price_max.substr(1));
-                                if (total <= pricemax) {
-                                    ramRefIds.push({id: id, price: total});
-                                }
-                            } else if (payload.price_min != 'Any' && payload.price_max == 'Any') {
-                                let pricemin = parseFloat(payload.price_min.substr(1));
-                                if (pricemin <= total) {
-                                    ramRefIds.push({id: id, price: total});
-                                }
-                            } else if (payload.price_min != 'Any' && payload.price_max != 'Any') {
-                                let pricemax = parseFloat(payload.price_max.substr(1));
-                                let pricemin = parseFloat(payload.price_min.substr(1));
-                                if (pricemin <= total && total <= pricemax) {
-                                    ramRefIds.push({id: id, price: total});
-                                }
-                            } else {
-                                ramRefIds.push({id: id, price: total});
-                            }
-                        });
-                    }
+              if (payload.price_min == 'Any' && payload.price_max == 'Any') {
+                ramRefIds.push({ id: id, price: total });
+              } else if (
+                payload.price_min == 'Any' &&
+                payload.price_max != 'Any'
+              ) {
+                let pricemax = parseFloat(payload.price_max.substr(1));
+                if (total <= pricemax) {
+                  ramRefIds.push({ id: id, price: total });
                 }
+              } else if (
+                payload.price_min != 'Any' &&
+                payload.price_max == 'Any'
+              ) {
+                let pricemin = parseFloat(payload.price_min.substr(1));
+                if (pricemin <= total) {
+                  ramRefIds.push({ id: id, price: total });
+                }
+              } else if (
+                payload.price_min != 'Any' &&
+                payload.price_max != 'Any'
+              ) {
+                let pricemax = parseFloat(payload.price_max.substr(1));
+                let pricemin = parseFloat(payload.price_min.substr(1));
+                if (pricemin <= total && total <= pricemax) {
+                  ramRefIds.push({ id: id, price: total });
+                }
+              } else {
+                ramRefIds.push({ id: id, price: total });
+              }
             });
-            Vue.axios
-                .post('/apartments/filter', {rms_ids: ramRefIds, ...payload})
-                .then(res => {
-                    commit(GET_APARTMENTS_LIST, res);
-                    isLoading(dispatch, false);
-                })
-                .catch(err => {
-                    console.log('---err----', err);
-                    isLoading(dispatch, false);
-                });
+          }
+        }
+      });
+      Vue.axios
+        .post('/apartments/filter', { rms_ids: ramRefIds, ...payload })
+        .then(res => {
+          commit(GET_APARTMENTS_LIST, res);
+          isLoading(dispatch, false);
         })
         .catch(err => {
-            console.log('---err----', err);
-            isLoading(dispatch, false);
+          console.log('---err----', err);
+          isLoading(dispatch, false);
         });
+    })
+    .catch(err => {
+      console.log('---err----', err);
+      isLoading(dispatch, false);
+    });
 };

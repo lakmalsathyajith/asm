@@ -1,19 +1,5 @@
 <template>
   <div>
-    <!--<div
-      class="preloader"
-      v-if="a"
-      :style="{
-        position: 'fixed',
-        height: '100%',
-        width: '100%',
-        top: 0,
-        left: 0,
-        opacity: 0.5,
-        background: '#.FFF',
-        'z-index': 9999
-      }"
-    ></div>-->
     <section class="top-search-wrap padding-tb-60 modile-hide tab-landscape-view">
       <div class="container-fluid">
         <div class="row nav-top-path-wrap bottom-full-width-border">
@@ -228,39 +214,6 @@
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
                               <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                              <!-- <select class="form-control asm-input"  id="checkin"  v-model="filter.price_min">
-                                <option>Any</option>
-                                <option>$50</option>
-                                <option>$100</option>
-                                <option>$150</option>
-                                <option>$200</option>
-                                <option>$250</option>
-                                <option>$300</option>
-                                <option>$350</option>
-                                <option>$400</option>
-                                <option>$450</option>
-                                <option>$500</option>
-                                <option>$550</option>
-                                <option>$600</option>
-                                <option>$650</option>
-                                <option>$700</option>
-                                <option>$750</option>
-                                <option>$800</option>
-                                <option>$850</option>
-                                <option>$900</option>
-                                <option>$950</option>
-                                <option>$1000</option>
-                                <option>$1050</option>
-                                <option>$1100</option>
-                                <option>$1150</option>
-                                <option>$1200</option>
-                                <option>$1250</option>
-                                <option>$1300</option>
-                                <option>$1350</option>
-                                <option>$1400</option>
-                                <option>$1450</option>
-                                <option>$1500</option>
-                              </select> -->
                               <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
                               
                             </div>

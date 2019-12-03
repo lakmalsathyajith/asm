@@ -18,28 +18,28 @@
 
                         <div class="collapse navbar-collapse modile-hide mobile-view-hide" id="asnavsupportcontent">
                             <ul class="navbar-nav left-nav ml-3">
-                                <li class="nav-item {{ isset($menu) && $menu=='home'?'active':'' }}">
-                                    <a class="nav-link home-link" href="/">
+                                <li class="nav-item">
+                                    <a class="nav-link home-link {{ isset($menu) && $menu=='home'?'active':'' }}" href="/">
                                         <img src="{{asset('images/home-icon-silhouette-white.svg')}}" alt="" srcset="">
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/apartment-listing">RATES & AVAILABILITY</a>
+                                    <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}" href="/apartment-listing">RATES & AVAILABILITY</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
                                     <a class="nav-link" href="/typical-apartment">OUR TYPICAL APARTMENTS</a>
                                 </li>
 
-                                <li class="nav-item">
+                                <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
                                     <a class="nav-link" href="/faq">FAQ</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
                                     <a class="nav-link" href="/about">ABOUT</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ isset($menu) && $menu=='list-with-us'?'active':'' }}">
                                     <a class="nav-link" href="/list-with-us">LIST WITH US</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ isset($menu) && $menu=='contact'?'active':'' }}">
                                     <a class="nav-link" href="/contact">CONTACT</a>
                                 </li>
                             </ul>
@@ -47,7 +47,8 @@
                             <ul class="navbar-nav right-nav ml-auto mr-3">
 
                                 <li class="nav-item">
-                                    <a class="trans-btn blue-border-btn" href="#" data-toggle="modal" data-target="#exampleModalCenter">Agent Login</a>
+                                    <a class="trans-btn blue-border-btn" href="#" data-toggle="modal"
+                                        data-target="#agent-modal">Agent Login</a>
 
                                 </li>
                                 <span class="gap-01"></span>
@@ -81,7 +82,7 @@
                                                 <div class="col-12">
                                                     <ul class="navbar-nav left-nav">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="/">
+                                                            <a class="nav-link {{ isset($menu) && $menu=='home'?'active':'' }}" href="/">
                                                                 <img src="{{asset('images/home-icon-silhouette.svg')}}"
                                                                     alt="" srcset="">
                                                             </a>
@@ -105,21 +106,21 @@
                                                             <a class="nav-link" href="/apartment-listing">RATES &
                                                                 AVAILABILITY</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
                                                             <a class="nav-link" href="/typical-apartment">OUR TYPICAL
                                                                 APARTMENTS</a>
                                                         </li>
 
-                                                        <li class="nav-item">
+                                                        <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
                                                             <a class="nav-link" href="/faq">FAQ</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
                                                             <a class="nav-link" href="/about">ABOUT</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li class="nav-item {{ isset($menu) && $menu=='list-with-us'?'active':'' }}">
                                                             <a class="nav-link" href="/list-with-us">LIST WITH US</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li class="nav-item {{ isset($menu) && $menu=='contact'?'active':'' }}">
                                                             <a class="nav-link" href="/contact">CONTACT</a>
                                                         </li>
                                                     </ul>
@@ -141,7 +142,9 @@
 
                                                         <li class="nav-item">
                                                             {{-- <a class="nav-link" href="#">Agent Login</a> --}}
-                                                            <a class="trans-btn blue-border-btn" href="#myModal">Agent Login</a>
+                                                            <a class="trans-btn blue-border-btn" href="#"
+                                                                data-toggle="modal" data-target="#agent-modal">Agent
+                                                                Login</a>
                                                         </li>
                                                     </ul>
 
@@ -176,7 +179,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
@@ -198,12 +201,13 @@
 
     <!-- Modal HTML -->
     <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-            <div class="container-fluid">
-                    <div class="row">
+    <div class="modal fade" id="agent-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container-fluid">
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="agent-logo-wrap">
                                     <img src="{{asset('images/main-logo.png')}}" alt="">
@@ -213,19 +217,72 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group agent-email-wrap">
+                                    <span class="agent-email-span form-control-feedback"></span>
+                                    <input type="email" class="form-control agent-email-input"
+                                        placeholder="Email address">
+                                </div>
+
+
+                                <div class="form-group agent-email-wrap">
+                                    <span class="agent-password-span form-control-feedback"></span>
+                                    <input type="password" class="form-control agent-email-input"
+                                        placeholder="Password">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="forget-passwrd-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="forget-pswd">Forgot password?</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="login-button-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="filter-widget">
+                                            <a class="btn booking-btn agent-login-btn">Login</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close-agent-button-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="filter-widget">
+                                            <a class="btn modal-close-btn" data-dismiss="modal">Close</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="agen-copyright-wrap">
+                        <p>Copyright © 2019 Apartment Stays Melbourne Pty Ltd.</p>
+                    </div>
+                </div>
             </div>
-              
         </div>
-        <div class="modal-body">
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
 
 
 </header>

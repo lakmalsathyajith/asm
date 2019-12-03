@@ -127,6 +127,22 @@ i.fa.fa-mobile-phone {
     .list-with-us {
         padding: 40px 0px;
     }
+    
+        .middle-about-right-img-wrap {
+            background-image: url(../images/about-us/about-img-2.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            height: 310px;
+        }
+        .middle-about-left-img-wrap {
+            background-image: url(../images/about-us/about-img-1.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            height: 310px;
+        }
+    
 }
 
 /* 
