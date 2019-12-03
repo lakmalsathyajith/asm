@@ -80,31 +80,22 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
               let id = area.AreaId;
 
               if (payload.price_min == 'Any' && payload.price_max == 'Any') {
-                ramRefIds.push({ id: id, price: total });
-              } else if (
-                payload.price_min == 'Any' &&
-                payload.price_max != 'Any'
-              ) {
+                    ramRefIds.push({ id: id, price: total });
+              } else if (payload.price_min == 'Any' && payload.price_max != 'Any') {
                 let pricemax = parseFloat(payload.price_max.substr(1));
                 if (total <= pricemax) {
-                  ramRefIds.push({ id: id, price: total });
+                    ramRefIds.push({ id: id, price: total });
                 }
-              } else if (
-                payload.price_min != 'Any' &&
-                payload.price_max == 'Any'
-              ) {
+              } else if (payload.price_min != 'Any' && payload.price_max == 'Any') {
                 let pricemin = parseFloat(payload.price_min.substr(1));
                 if (pricemin <= total) {
-                  ramRefIds.push({ id: id, price: total });
+                    ramRefIds.push({ id: id, price: total });
                 }
-              } else if (
-                payload.price_min != 'Any' &&
-                payload.price_max != 'Any'
-              ) {
+              } else if (payload.price_min != 'Any' && payload.price_max != 'Any') {
                 let pricemax = parseFloat(payload.price_max.substr(1));
                 let pricemin = parseFloat(payload.price_min.substr(1));
                 if (pricemin <= total && total <= pricemax) {
-                  ramRefIds.push({ id: id, price: total });
+                    ramRefIds.push({ id: id, price: total });
                 }
               } else {
                 ramRefIds.push({ id: id, price: total });

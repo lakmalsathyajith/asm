@@ -418,6 +418,7 @@ export default {
       slide: 0,
       sliding: null,
       filter: {
+        apartment_id: this.$attrs.id,
         checkIn: false,
         checkOut: false,
         type: '',
