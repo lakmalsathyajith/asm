@@ -1,6 +1,8 @@
 <template>
   <div>
-    <section class="top-search-wrap padding-tb-60 modile-hide tab-landscape-view">
+    <section
+      class="top-search-wrap padding-tb-60 modile-hide tab-landscape-view"
+    >
       <div class="container-fluid">
         <div class="row nav-top-path-wrap bottom-full-width-border">
           <div class="container">
@@ -38,14 +40,17 @@
                         class="dropdown-menu filter-widget-dropdown"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <div class="filter-widget-inner filter-widget-inner-drop-list">
+                        <div
+                          class="filter-widget-inner filter-widget-inner-drop-list"
+                        >
                           <a
                             v-for="(state, i) in states"
                             v-bind:key="i"
                             class="dropdown-item"
                             href="#."
                             v-on:click="selectState(state)"
-                          >{{state}}</a>
+                            >{{ state }}</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -68,14 +73,17 @@
                         class="dropdown-menu filter-widget-dropdown"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <div class="filter-widget-inner filter-widget-inner-drop-list">
+                        <div
+                          class="filter-widget-inner filter-widget-inner-drop-list"
+                        >
                           <a
                             v-for="(suburb, i) in suburbs"
                             v-bind:key="i"
                             class="dropdown-item"
                             href="#."
                             v-on:click="selectSuburb(suburb)"
-                          >{{suburb}}</a>
+                            >{{ suburb }}</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -105,22 +113,27 @@
                       class="dropdown-menu filter-widget-dropdown"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <div class="filter-widget-inner filter-widget-inner-drop-list">
+                      <div
+                        class="filter-widget-inner filter-widget-inner-drop-list"
+                      >
                         <a
                           class="dropdown-item studio-apartments"
                           href="#.."
                           v-on:click="selectType('studio-apartments')"
-                        >Studio Apartments</a>
+                          >Studio Apartments</a
+                        >
                         <a
                           class="dropdown-item one-bed-room-apartments"
                           href="#.."
                           v-on:click="selectType('one-bed-room-apartments')"
-                        >One Bedroom Apartments</a>
+                          >One Bedroom Apartments</a
+                        >
                         <a
                           class="dropdown-item two-bed-room-apartments"
                           href="#.."
                           v-on:click="selectType('two-bed-room-apartments')"
-                        >Two Bedroom Apartments</a>
+                          >Two Bedroom Apartments</a
+                        >
                       </div>
                     </div>
                   </div>
@@ -131,6 +144,9 @@
                 <div class="form-group">
                   <HotelDatePicker
                     format="DD/MM/YYYY"
+                    :startDate="startDate"
+                    :starting-date-value="this.filter.checkIn"
+                    :ending-date-value="this.filter.checkOut"
                     @check-in-changed="setCheckinDate"
                     @check-out-changed="setCheckoutDate"
                   ></HotelDatePicker>
@@ -158,10 +174,13 @@
                         <div class="row">
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                              <label
+                                for="min_occupants"
+                                class="filter-widget-sublabel"
+                                >Adults</label
+                              >
                               <div class="quantity">
                                 <input
-                                  id="min_occupants"
                                   v-model="filter.adults"
                                   type="number"
                                   min="1"
@@ -169,22 +188,53 @@
                                   step="1"
                                   value="1"
                                 />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('adults', 1, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('adults', 1, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                              <label
+                                for="max_occupants"
+                                class="filter-widget-sublabel"
+                                >Children</label
+                              >
                               <div class="quantity">
                                 <input
-                                  id="max_occupants"
                                   type="number"
                                   v-model="filter.children"
-                                  min="1"
+                                  min="0"
                                   max="6"
                                   step="1"
-                                  value="1"
+                                  value="0"
                                 />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('children', 0, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('children', 0, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -208,22 +258,38 @@
                     >
                       <span>Price Min/Max</span>
                     </button>
-                    <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
+                    <div
+                      class="dropdown-menu filter-widget-dropdown"
+                      aria-labelledby="dropdownMenuButton"
+                    >
                       <div class="filter-widget-inner">
                         <div class="row">
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                              <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
-                              
+                              <label
+                                for="checkin"
+                                class="filter-widget-sublabel"
+                                >Price Min</label
+                              >
+                              <v-select
+                                :options="options"
+                                :clearable="false"
+                                v-model="filter.price_min"
+                              ></v-select>
                             </div>
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                              <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
-                              
-                              
+                              <label
+                                for="checkout"
+                                class="filter-widget-sublabel"
+                                >Price Max</label
+                              >
+                              <v-select
+                                :options="options"
+                                :clearable="false"
+                                v-model="filter.price_max"
+                              ></v-select>
                             </div>
                           </div>
                         </div>
@@ -325,7 +391,8 @@
                     <a
                       class="btn booking-btn filter-border-none-btn top-filter-search-btn"
                       @click="submitFilter"
-                    >Search</a>
+                      >Search</a
+                    >
                   </div>
                 </div>
               </div>
@@ -378,7 +445,9 @@
                   <div class="col-6 separate-col">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">State</label>
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >State</label
+                        >
                         <button
                           class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-states"
                           type="button"
@@ -393,14 +462,17 @@
                           class="dropdown-menu filter-widget-dropdown"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <div class="filter-widget-inner filter-widget-inner-drop-list">
+                          <div
+                            class="filter-widget-inner filter-widget-inner-drop-list"
+                          >
                             <a
                               v-for="(state, i) in states"
                               v-bind:key="i"
                               class="dropdown-item"
                               href="#."
                               v-on:click="selectState(state)"
-                            >{{state}}</a>
+                              >{{ state }}</a
+                            >
                           </div>
                         </div>
                       </div>
@@ -409,7 +481,9 @@
                   <div class="col-6 separate-col">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Suburb</label>
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Suburb</label
+                        >
                         <button
                           class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-suburb"
                           type="button"
@@ -424,14 +498,17 @@
                           class="dropdown-menu filter-widget-dropdown"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <div class="filter-widget-inner filter-widget-inner-drop-list">
+                          <div
+                            class="filter-widget-inner filter-widget-inner-drop-list"
+                          >
                             <a
                               v-for="(suburb, i) in suburbs"
                               v-bind:key="i"
                               class="dropdown-item"
                               href="#."
                               v-on:click="selectSuburb(suburb)"
-                            >{{suburb}}</a>
+                              >{{ suburb }}</a
+                            >
                           </div>
                         </div>
                       </div>
@@ -442,7 +519,9 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Apartment Type</label>
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Apartment Type</label
+                        >
                         <button
                           class="btn dropdown-toggle apart-type-svg-button before-svg flter-button apartment-type"
                           type="button"
@@ -457,22 +536,27 @@
                           class="dropdown-menu filter-widget-dropdown"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <div class="filter-widget-inner filter-widget-inner-drop-list">
+                          <div
+                            class="filter-widget-inner filter-widget-inner-drop-list"
+                          >
                             <a
                               class="dropdown-item studio-apartments"
                               href="#.."
                               v-on:click="selectType('studio-apartments')"
-                            >Studio Apartments</a>
+                              >Studio Apartments</a
+                            >
                             <a
                               class="dropdown-item one-bed-room-apartments"
                               href="#.."
                               v-on:click="selectType('one-bed-room-apartments')"
-                            >One Bedroom Apartments</a>
+                              >One Bedroom Apartments</a
+                            >
                             <a
                               class="dropdown-item two-bed-room-apartments"
                               href="#.."
                               v-on:click="selectType('two-bed-room-apartments')"
-                            >Two Bedroom Apartments</a>
+                              >Two Bedroom Apartments</a
+                            >
                           </div>
                         </div>
                       </div>
@@ -483,10 +567,15 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel">Check-in/Out</label>
+                      <label for="checkin" class="filter-widget-sublabel"
+                        >Check-in/Out</label
+                      >
 
                       <HotelDatePicker
                         format="DD/MM/YYYY"
+                        :startDate="startDate"
+                        :starting-date-value="this.filter.checkIn"
+                        :ending-date-value="this.filter.checkOut"
                         @check-in-changed="setCheckinDate"
                         @check-out-changed="setCheckoutDate"
                       ></HotelDatePicker>
@@ -497,7 +586,9 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Guest Number</label>
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Guest Number</label
+                        >
                         <button
                           class="btn dropdown-toggle guest-button-svg before-svg flter-button"
                           type="button"
@@ -516,10 +607,13 @@
                             <div class="row">
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                                  <label
+                                    for="min_occupants"
+                                    class="filter-widget-sublabel"
+                                    >Adults</label
+                                  >
                                   <div class="quantity">
                                     <input
-                                      id="min_occupants"
                                       v-model="filter.adults"
                                       type="number"
                                       min="1"
@@ -527,22 +621,58 @@
                                       step="1"
                                       value="1"
                                     />
+                                    <div class="quantity-nav">
+                                      <div
+                                        class="quantity-button quantity-up"
+                                        v-on:click="qtyIncrease('adults', 1, 6)"
+                                      >
+                                        +
+                                      </div>
+                                      <div
+                                        class="quantity-button quantity-down"
+                                        v-on:click="qtyDecrease('adults', 1, 6)"
+                                      >
+                                        -
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                                  <label
+                                    for="max_occupants"
+                                    class="filter-widget-sublabel"
+                                    >Children</label
+                                  >
                                   <div class="quantity">
                                     <input
                                       id="max_occupants"
                                       type="number"
                                       v-model="filter.children"
-                                      min="1"
+                                      min="0"
                                       max="6"
                                       step="1"
-                                      value="1"
+                                      value="0"
                                     />
+                                    <div class="quantity-nav">
+                                      <div
+                                        class="quantity-button quantity-up"
+                                        v-on:click="
+                                          qtyIncrease('children', 0, 6)
+                                        "
+                                      >
+                                        +
+                                      </div>
+                                      <div
+                                        class="quantity-button quantity-down"
+                                        v-on:click="
+                                          qtyDecrease('children', 0, 6)
+                                        "
+                                      >
+                                        -
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -556,7 +686,9 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel">Price Min/Max</label>
+                      <label for="checkin" class="filter-widget-sublabel"
+                        >Price Min/Max</label
+                      >
                       <div class="dropdown filter-widget">
                         <button
                           class="btn dropdown-toggle price-svg-button before-svg flter-button"
@@ -576,14 +708,30 @@
                             <div class="row">
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                                   <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
+                                  <label
+                                    for="checkin"
+                                    class="filter-widget-sublabel"
+                                    >Price Min</label
+                                  >
+                                  <v-select
+                                    :options="options"
+                                    :clearable="false"
+                                    v-model="filter.price_min"
+                                  ></v-select>
                                 </div>
                               </div>
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                                  <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
+                                  <label
+                                    for="checkout"
+                                    class="filter-widget-sublabel"
+                                    >Price Max</label
+                                  >
+                                  <v-select
+                                    :options="options"
+                                    :clearable="false"
+                                    v-model="filter.price_max"
+                                  ></v-select>
                                 </div>
                               </div>
                             </div>
@@ -602,7 +750,9 @@
 
                 <div class="row">
                   <div class="col-12">
-                    <label for="checkin" class="filter-widget-sublabel">More Features</label>
+                    <label for="checkin" class="filter-widget-sublabel"
+                      >More Features</label
+                    >
                   </div>
                   <div class="col-12">
                     <div class="form-group">
@@ -616,7 +766,8 @@
                         <label
                           for="inlineCheckbox1"
                           class="form-check-label inputradio-check-lable"
-                        >Passport Details</label>
+                          >Passport Details</label
+                        >
                       </div>
                       <div class="form-check form-check-inline">
                         <input
@@ -628,7 +779,8 @@
                         <label
                           for="inlineCheckbox2"
                           class="form-check-label inputradio-check-lable"
-                        >Driver’s License</label>
+                          >Driver’s License</label
+                        >
                       </div>
                     </div>
                   </div>
@@ -638,7 +790,10 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="filter-widget">
-                        <a class="btn clear-filter-btn form-control flter-button">Clear Filters</a>
+                        <a
+                          class="btn clear-filter-btn form-control flter-button"
+                          >Clear Filters</a
+                        >
                       </div>
                     </div>
                   </div>
@@ -671,7 +826,11 @@
               <div class="col-8 p-0 filter-right-border">
                 <div class="form-group has-search">
                   <span class="fa fa-search form-control-feedback"></span>
-                  <input type="text" class="form-control" placeholder="Search" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                  />
                 </div>
               </div>
               <div class="col-4 p-0">
@@ -728,12 +887,25 @@
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
-                      >Default</button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#.">A-Z Apartment Price</a>
-                        <a class="dropdown-item" href="#.">Z-A Apartment Price</a>
-                        <a class="dropdown-item" href="#.">A-Z Apartment Name</a>
-                        <a class="dropdown-item" href="#.">Z-A Apartment Name</a>
+                      >
+                        Default
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#."
+                          >A-Z Apartment Price</a
+                        >
+                        <a class="dropdown-item" href="#."
+                          >Z-A Apartment Price</a
+                        >
+                        <a class="dropdown-item" href="#."
+                          >A-Z Apartment Name</a
+                        >
+                        <a class="dropdown-item" href="#."
+                          >Z-A Apartment Name</a
+                        >
                       </div>
                     </div>
                   </li>
@@ -752,7 +924,9 @@
             <div class="col-md-12">
               <div class="listing-result-head">
                 <div class="first-result-head modile-hide">
-                  <h3 class="bold-700" v-if="searchText !== ''">Results for {{searchText}}</h3>
+                  <h3 class="bold-700" v-if="searchText !== ''">
+                    Results for {{ searchText }}
+                  </h3>
                 </div>
                 <div class="second-result-head modile-hide">
                   <p>
@@ -781,15 +955,25 @@
                           data-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
-                        >Default</button>
+                        >
+                          Default
+                        </button>
                         <div
                           class="dropdown-menu top-filter-sort-button"
                           aria-labelledby="dropdownMenuButton top-filter-sort-button"
                         >
-                          <a class="dropdown-item" href="#.">A-Z Apartment Price</a>
-                          <a class="dropdown-item" href="#.">Z-A Apartment Price</a>
-                          <a class="dropdown-item" href="#.">A-Z Apartment Name</a>
-                          <a class="dropdown-item" href="#.">Z-A Apartment Name</a>
+                          <a class="dropdown-item" href="#."
+                            >A-Z Apartment Price</a
+                          >
+                          <a class="dropdown-item" href="#."
+                            >Z-A Apartment Price</a
+                          >
+                          <a class="dropdown-item" href="#."
+                            >A-Z Apartment Name</a
+                          >
+                          <a class="dropdown-item" href="#."
+                            >Z-A Apartment Name</a
+                          >
                         </div>
                       </div>
                     </li>
@@ -842,7 +1026,9 @@
                                   class="swiper-slide slide"
                                   v-for="(file, i) in apartment.files"
                                   v-bind:key="file.id + i"
-                                  :style="{ backgroundImage: `url(${file.url})` }"
+                                  :style="{
+                                    backgroundImage: `url(${file.url})`
+                                  }"
                                 ></div>
                               </div>
                               <div class="swiper-button-prev"></div>
@@ -865,7 +1051,9 @@
 
                         <div class="listing-bottom-icons-wrap">
                           <ul class="list-inline">
-                            <li class="list-inline-item apart-type">{{ apartment.type.name }}</li>
+                            <li class="list-inline-item apart-type">
+                              {{ apartment.type.name }}
+                            </li>
                             <li class="list-inline-item apart-options">
                               <i class="option-bed"></i>
                               {{ apartment.beds }}
@@ -877,7 +1065,9 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="col-md-5 apartment-listing-widget-right-col modile-hide tab-view">
+                      <div
+                        class="col-md-5 apartment-listing-widget-right-col modile-hide tab-view"
+                      >
                         <a :href="'./apartment/' + apartment.id">
                           <div class="facility-wrap">
                             <div class="row">
@@ -886,7 +1076,9 @@
                                 v-for="(option, i) in apartment.options"
                                 v-bind:key="i"
                               >
-                                <div :class="'facility icon '+ option.class_name"></div>
+                                <div
+                                  :class="'facility icon ' + option.class_name"
+                                ></div>
                                 <div class="facility-name">
                                   <p>{{ option.name }}</p>
                                 </div>
@@ -910,7 +1102,9 @@
                   id="bottom-pagination"
                 >
                   <ul class="pagination">
-                    <template v-for="i in Math.ceil(apartmentsList.length / pageSize)">
+                    <template
+                      v-for="i in Math.ceil(apartmentsList.length / pageSize)"
+                    >
                       <li
                         class="page-item active"
                         v-if="i === currentPage"
@@ -940,27 +1134,29 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
-import HotelDatePicker from "vue-hotel-datepicker";
-import Swiper from "swiper";
+import { mapState, mapActions } from 'vuex';
+import HotelDatePicker from 'vue-hotel-datepicker';
+import Swiper from 'swiper';
+import moment from 'moment';
 
 export default {
-  name: "apartments",
+  name: 'apartments',
   data() {
     return {
+      startDate: new Date(),
       slide: 0,
       sliding: null,
       pageSize: 10,
       currentPage: 1,
       states: [],
       suburbs: [],
-      searchText: "",
+      searchText: '',
       filter: {
-        checkIn: "",
-        checkOut: "",
-        state: "",
-        suburb: "",
-        type: "",
+        checkIn: new Date(),
+        checkOut: new Date(),
+        state: '',
+        suburb: '',
+        type: '',
         adults: 1,
         children: 0,
         price_min: 'Any',
@@ -1003,10 +1199,20 @@ export default {
   },
   created() {
     this.getStates();
+    if (this.$route.query.start) {
+      var from = this.$route.query.start;
+      var fromdate = moment(from, 'YYYY-MM-DD').toDate();
+      this.filter.checkIn = fromdate;
+    }
+    if (this.$route.query.end) {
+      var to = this.$route.query.end;
+      var todate = moment(to, 'YYYY-MM-DD').toDate();
+      this.filter.checkOut = todate;
+    }
   },
   updated() {
-    let swiper = new Swiper(".swiper-container", {
-      effect: "fade",
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
       fadeEffect: {
         crossFade: true
       },
@@ -1018,30 +1224,20 @@ export default {
         disableOnInteraction: false
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true
       },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
     });
   },
   mounted() {
-    if (this.$route.query.start) {
-      var from = this.$route.query.start.split("-");
-      var fromdate = new Date(from[0], from[1] - 1, from[2]);
-      this.filter.checkIn = fromdate;
-    }
-    if (this.$route.query.end) {
-      var to = this.$route.query.end.split("-");
-      var todate = new Date(from[0], from[1] - 1, from[2]);
-      this.filter.checkOut = todate;
-    }
     if (this.$route.query.type) {
       this.filter.type = this.$route.query.type;
-      let text = $(".dropdown-item." + this.$route.query.type).text();
-      $(".apartment-type").html("<span>" + text + "</span>");
+      let text = $('.dropdown-item.' + this.$route.query.type).text();
+      $('.apartment-type').html('<span>' + text + '</span>');
     }
     if (this.$route.query.adults) {
       this.filter.adults = this.$route.query.adults;
@@ -1056,11 +1252,11 @@ export default {
       this.filter.price_max = this.$route.query.price_max;
     }
     if (
-      this.filter.type != "" &&
-      this.filter.checkIn != "" &&
-      this.filter.checkOut != "" &&
-      this.filter.adults != "" &&
-      this.filter.children != ""
+      this.filter.type != '' &&
+      this.filter.checkIn != '' &&
+      this.filter.checkOut != '' &&
+      this.filter.adults != '' &&
+      this.filter.children != ''
     ) {
       this.getFilteredApartments(this.filter);
     } else {
@@ -1068,6 +1264,28 @@ export default {
     }
   },
   methods: {
+    qtyIncrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults < max) {
+          this.filter.adults++;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children < max) {
+          this.filter.children++;
+        }
+      }
+    },
+    qtyDecrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults > min) {
+          this.filter.adults--;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children > min) {
+          this.filter.children--;
+        }
+      }
+    },
     setCheckinDate(newDate) {
       this.filter.checkIn = newDate;
     },
@@ -1080,19 +1298,19 @@ export default {
     },
     selectSuburb(suburb) {
       this.filter.suburb = suburb;
-      $(".apartment-suburb").html("<span>" + suburb + "</span>");
+      $('.apartment-suburb').html('<span>' + suburb + '</span>');
     },
     selectState(state) {
       this.filter.state = state;
-      $(".apartment-states").html("<span>" + state + "</span>");
+      $('.apartment-states').html('<span>' + state + '</span>');
       Vue.axios
-        .get("/get-suburb?state=" + state)
+        .get('/get-suburb?state=' + state)
         .then(res => {
           this.suburbs = res.data.data;
-          $(".apartment-suburb").html("<span>Suburb</span>");
+          $('.apartment-suburb').html('<span>Suburb</span>');
         })
         .catch(err => {
-          console.log("---err----", err);
+          console.log('---err----', err);
         });
     },
     onSlideStart(slide) {
@@ -1105,44 +1323,43 @@ export default {
       this.currentPage = pageNo;
     },
     submitFilter() {
-      if (this.filter.state !== "" && this.filter.suburb !== "") {
-        this.searchText = this.filter.state + " - " + this.filter.suburb;
-      } else if (this.filter.type !== "") {
-        let text = $(".dropdown-item." + this.filter.type).text();
+      if (this.filter.state !== '' && this.filter.suburb !== '') {
+        this.searchText = this.filter.state + ' - ' + this.filter.suburb;
+      } else if (this.filter.type !== '') {
+        let text = $('.dropdown-item.' + this.filter.type).text();
         this.searchText = text;
       }
       this.getFilteredApartments(this.filter);
     },
     getStates() {
       Vue.axios
-        .get("/get-states")
+        .get('/get-states')
         .then(res => {
           this.states = res.data.data;
         })
         .catch(err => {
-          console.log("---err----", err);
+          console.log('---err----', err);
         });
     },
     slugify(text) {
       return text
         .toLowerCase()
-        .replace(/[^\w ]+/g, "")
-        .replace(/ +/g, "-");
+        .replace(/[^\w ]+/g, '')
+        .replace(/ +/g, '-');
     },
-    ...mapActions("ratesAndAvailability", [
-      "getApartmentsList",
-      "getFilteredApartments"
+    ...mapActions('ratesAndAvailability', [
+      'getApartmentsList',
+      'getFilteredApartments'
     ])
   },
   computed: {
-    ...mapState("ratesAndAvailability", ["apartmentsList", "isLoading"])
+    ...mapState('ratesAndAvailability', ['apartmentsList', 'isLoading'])
   },
   components: {
     HotelDatePicker
   }
 };
 </script>
-
 
 <style>
 .filter-widget-inner.filter-widget-inner-drop-list {

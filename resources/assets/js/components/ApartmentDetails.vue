@@ -124,14 +124,18 @@
               >
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                    {{ selectedApartment.type.name }}
+                    {{
+                      selectedApartment &&
+                        selectedApartment.type &&
+                        selectedApartment.type.name
+                    }}
                   </li>
-                  <li
+                  <!-- <li
                     class="list-inline-item apart-type"
                     v-if="selectedApartment.test && selectedApartment.test.name"
                   >
                     {{ selectedApartment.test.name }}
-                  </li>
+                  </li> -->
                   <li
                     class="list-inline-item apart-options"
                     v-if="selectedApartment.beds"
@@ -188,6 +192,7 @@
                       >
                       <HotelDatePicker
                         format="DD/MM/YYYY"
+                        :startDate="startDate"
                         @check-in-changed="setCheckinDate"
                         @check-out-changed="setCheckoutDate"
                       ></HotelDatePicker>
@@ -212,7 +217,7 @@
                         >
                           <div class="filter-widget-inner">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
                                   <label
                                     for="min_occupants"
@@ -221,8 +226,6 @@
                                   >
                                   <div class="quantity">
                                     <input
-                                      id="min_occupants"
-                                      @change="onAdultsChange"
                                       v-model="filter.adults"
                                       type="number"
                                       min="1"
@@ -230,10 +233,18 @@
                                       step="1"
                                       value="1"
                                     />
+                                    <div class="quantity-nav">
+    <div class="quantity-button quantity-up" v-on:click="qtyIncrease('adults', 1, 6)">
+        +
+    </div>
+    <div class="quantity-button quantity-down" v-on:click="qtyDecrease('adults', 1, 6)">
+        -
+    </div>
+</div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
                                   <label
                                     for="max_occupants"
@@ -242,15 +253,31 @@
                                   >
                                   <div class="quantity">
                                     <input
-                                      id="max_occupants"
-                                      @change="onChildrenChange"
                                       type="number"
                                       v-model="filter.children"
-                                      min="1"
+                                      min="0"
                                       max="6"
                                       step="1"
-                                      value="1"
+                                      value="0"
                                     />
+                                    <div class="quantity-nav">
+                                      <div
+                                        class="quantity-button quantity-up"
+                                        v-on:click="
+                                          qtyIncrease('children', 0, 6)
+                                        "
+                                      >
+                                        +
+                                      </div>
+                                      <div
+                                        class="quantity-button quantity-down"
+                                        v-on:click="
+                                          qtyDecrease('children', 0, 6)
+                                        "
+                                      >
+                                        -
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -302,6 +329,7 @@
               <div class="form-group">
                 <HotelDatePicker
                   format="DD/MM/YYYY"
+                  :startDate="startDate"
                   @check-in-changed="setCheckinDate"
                   @check-out-changed="setCheckoutDate"
                 ></HotelDatePicker>
@@ -337,8 +365,6 @@
                             >
                             <div class="quantity">
                               <input
-                                @change="onAdultsChange"
-                                id="min_occupants"
                                 v-model="filter.adults"
                                 type="number"
                                 min="1"
@@ -346,6 +372,20 @@
                                 step="1"
                                 value="1"
                               />
+                              <div class="quantity-nav">
+                                <div
+                                  class="quantity-button quantity-up"
+                                  v-on:click="qtyIncrease('adults', 1, 6)"
+                                >
+                                  +
+                                </div>
+                                <div
+                                  class="quantity-button quantity-down"
+                                  v-on:click="qtyDecrease('adults', 1, 6)"
+                                >
+                                  -
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -359,14 +399,27 @@
                             <div class="quantity">
                               <input
                                 @change="onChildrenChange"
-                                id="max_occupants"
                                 type="number"
                                 v-model="filter.children"
-                                min="1"
+                                min="0"
                                 max="6"
                                 step="1"
-                                value="1"
+                                value="0"
                               />
+                              <div class="quantity-nav">
+                                <div
+                                  class="quantity-button quantity-up"
+                                  v-on:click="qtyIncrease('children', 1, 6)"
+                                >
+                                  +
+                                </div>
+                                <div
+                                  class="quantity-button quantity-down"
+                                  v-on:click="qtyDecrease('children', 1, 6)"
+                                >
+                                  -
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -388,7 +441,11 @@
             <iframe
               v-if="selectedApartment && selectedApartment.map_url"
               :src="selectedApartment.map_url"
-              width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+              width="100%"
+              height="400"
+              frameborder="0"
+              style="border:0;"
+              allowfullscreen=""
             ></iframe>
           </div>
         </div>
@@ -415,6 +472,7 @@ export default {
   name: 'apartmentDetails',
   data() {
     return {
+      startDate:new Date(),
       slide: 0,
       sliding: null,
       filter: {
@@ -460,6 +518,28 @@ export default {
     }, 1000);
   },
   methods: {
+    qtyIncrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults < max) {
+          this.filter.adults++;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children < max) {
+          this.filter.children++;
+        }
+      }
+    },
+    qtyDecrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults > min) {
+          this.filter.adults--;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children > min) {
+          this.filter.children--;
+        }
+      }
+    },
     bookNow() {
       let { checkIn, checkOut, adults } = this.filter;
       if (checkIn && checkOut && adults > 0) {
@@ -474,6 +554,7 @@ export default {
     },
     onChildrenChange(e) {
       this.filter.children = parseInt(e.target.value);
+      console.log(this.filter.children);
     },
 
     setCheckinDate(newDate) {
