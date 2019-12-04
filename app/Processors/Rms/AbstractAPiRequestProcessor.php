@@ -127,7 +127,6 @@ class AbstractAPiRequestProcessor implements AbstractInterface
 
     public function getOptions()
     {
-        \Log::debug($this->postFields);
         return [
             // common options for all calls
             CURLOPT_RETURNTRANSFER => true,

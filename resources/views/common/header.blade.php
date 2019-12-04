@@ -45,12 +45,7 @@
                             </ul>
 
                             <ul class="navbar-nav right-nav ml-auto mr-3">
-
-                                <li class="nav-item">
-                                    <a class="trans-btn blue-border-btn" href="#" data-toggle="modal"
-                                        data-target="#agent-modal">Agent Login</a>
-
-                                </li>
+                                <header-login></header-login>
                                 <span class="gap-01"></span>
                                 <li class="nav-item dropdown">
                                     <a class="right-link dropdown-toggle" href="http://example.com"
@@ -140,12 +135,13 @@
                                                 <div class="col-md-12">
                                                     <ul class="navbar-nav left-nav">
 
-                                                        <li class="nav-item">
-                                                            {{-- <a class="nav-link" href="#">Agent Login</a> --}}
+                                                        {{--<li class="nav-item">
+                                                            --}}{{-- <a class="nav-link" href="#">Agent Login</a> --}}{{--
                                                             <a class="trans-btn blue-border-btn" href="#"
                                                                 data-toggle="modal" data-target="#agent-modal">Agent
                                                                 Login</a>
-                                                        </li>
+                                                        </li>--}}
+                                                        <header-login></header-login>
                                                     </ul>
 
                                                     <ul class="list-inline">
@@ -201,7 +197,7 @@
 
     <!-- Modal HTML -->
     <!-- Modal -->
-    <div class="modal fade" id="agent-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    {{--<div class="modal fade" id="agent-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -282,7 +278,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
 
 
 </header>
