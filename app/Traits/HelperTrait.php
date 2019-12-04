@@ -32,7 +32,7 @@ Trait HelperTrait
     public static function uuid($prefix = null)
     {
         if (!isset($prefix)) {
-            $prefix = strtolower(env('APP_NAME', 'salt')).'_';
+            $prefix = strtolower(env('UUID_PREFIX', 'salt')).'_';
         }
 
         return uniqid($prefix);
