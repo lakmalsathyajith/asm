@@ -9,7 +9,7 @@
                             <li class="list-inline-item"><a href="/typical-apartment">Our Typical Apartments</a></li>
                             <li class="list-inline-item"><a href="/faq">FAQ</a></li>
                             <li class="list-inline-item"><a href="/about">About</a></li>
-                            <li class="list-inline-item"><a href="/list-with-us">List with Us</a></li>
+                            {{-- <li class="list-inline-item"><a href="/list-with-us">List with Us</a></li> --}}
                             <li class="list-inline-item"><a href="/contact">Contact Us</a></li>
                         </ul>
                     </div>

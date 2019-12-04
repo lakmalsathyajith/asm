@@ -9,15 +9,15 @@
           <div class="top-contents">
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                   <div class="about-top-nav faq-tab-wrap">
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                       <a class="nav-item nav-link active" href="/about">About Us</a>
                       <a class="nav-item nav-link" href="/list-with-us">List with Us</a>
-                      <!-- <a class="nav-item nav-link" href="/latest-property">Latest Property News</a> -->
+                    
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-12">
                   <div class="about-nav-divider"></div>
                 </div>
@@ -94,7 +94,7 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
+                    </div>-->
                   </div>
                 </div>
               </div>
@@ -103,9 +103,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 p-0">
-            <div class="middle-about-left-img-wrap">
-              
-            </div>
+            <div class="middle-about-left-img-wrap"></div>
           </div>
           <div class="col-md-6 p-0">
             <div class="middle-about-right-img-wrap"></div>
@@ -165,11 +163,7 @@
                     For international students who want much more space than what a ‘Student Dormitory’ or typical ‘Student Apartment’
                     can
                     offer, our apartments can offer up to three times more space in comparison.
-                  </p> -->
-
-
-
-
+                  </p>-->
                 </div>
               </div>
             </div>
@@ -182,7 +176,7 @@
                   </p>
                   <div class="guest-about-middle-image">
                     <img class="modile-hide tab-view" src="images/compare.png" width="100%" />
-              <img class="mobile-only mobile-img" src="images/mobile-compare.png" />
+                    <img class="mobile-only mobile-img" src="images/mobile-compare.png" />
                   </div>
                   <p class="paraf text-center guest-second-paraf">
                     Not only are our furnished apartments a much more comfortable residential and corporate living solution, they are
@@ -195,7 +189,6 @@
                     can
                     offer, our apartments can offer up to three times more space in comparison.
                   </p>
-
                 </div>
               </div>
             </div>
@@ -221,10 +214,14 @@
             <div class="para-with-content">
               <div class="row">
                 <div class="col-md-6">
-                  <img src="images/about-us/about-img-3.jpg" class="left-image" width="100%" alt="quality" />
+                  <img
+                    src="images/about-us/about-img-3.jpg"
+                    class="left-image"
+                    width="100%"
+                    alt="quality"
+                  />
                 </div>
                 <div class="col-md-6">
-                  
                   <div class="left-top-quality-para">
                     <p class="paraf">
                       Apartment Stays Melbourne is committed to providing a high quality of service and a high quality of apartment to
@@ -254,8 +251,6 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="quality-middle-para-wrap">
-                    
-
                     <p class="paraf">
                       Once we have chosen our new team member, we spend time comprehensively training them and monitoring their
                       performance, before they are exposed to our clients unsupervised. With every new individual who joins our team, come fresh
@@ -296,7 +291,7 @@
               <div class="guest-bottom-image">
                 <div class="row">
                   <div class="col-md-12">
-                    <img src="images/about-us/about-4.jpg" width="100%">
+                    <img src="images/about-us/about-4.jpg" width="100%" />
                   </div>
                 </div>
               </div>
