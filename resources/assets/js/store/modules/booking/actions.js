@@ -61,6 +61,10 @@ export const getBooking = ({commit,dispatch}, payload) => {
     Vue.axios
         .get('/booking/' + payload)
         .then(res => {
+            if(res.data && res.data.data){
+                res.data.data.adults = parseInt(res.data.data.adults);
+                res.data.data.children = parseInt(res.data.data.children);
+            }
             commit(SELECTED_BOOKING, res.data);
             isLoading(dispatch, false)
         })
