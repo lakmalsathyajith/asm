@@ -7,25 +7,19 @@
                         <ul class="list-inline">
                             <li class="list-inline-item"><a href="/apartment-listing">Rates and Availability</a></li>
                             <li class="list-inline-item"><a href="/typical-apartment">Our Typical Apartments</a></li>
-
                             <li class="list-inline-item"><a href="/faq">FAQ</a></li>
                             <li class="list-inline-item"><a href="/about">About</a></li>
                             <li class="list-inline-item"><a href="/list-with-us">List with Us</a></li>
                             <li class="list-inline-item"><a href="/contact">Contact Us</a></li>
-
-
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline rightul">
-
                             <li class="list-inline-item"><a href="#">Privacy</a></li>
                             <li class="list-inline-item"><a href="#"> Conditions</a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-facebook"></i></a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-twitter-alt"></i></a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-youtube"></i></a></li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -235,7 +229,7 @@ $(document).ready(function(){
         })
 
         setTimeout(function() { 
-            $('.flexbox').fadeOut();
+            $('.flexbox.default').fadeOut();
     }, 2000);
        
     });

@@ -1,8 +1,11 @@
 import {
   UPDATE_BOOKING_STORE,
   SELECTED_BOOKING,
-  ERRORS
+  ERRORS,
+  UPDATE_OCCUPANT,
+  BOOKING_CONFIRMATION
 } from './types.js';
+import {BOOKING_ERRORS} from "./types";
 
 export default {
   [UPDATE_BOOKING_STORE](state, payload) {
@@ -24,5 +27,22 @@ export default {
   },
   [ERRORS](state, payload) {
     state.errors = {...payload};
+  },
+  [UPDATE_OCCUPANT](state, payload) {
+    let occupants = [...state.bookingData];
+    occupants = occupants.map((el)=>{
+        if(el.key === payload.key){
+          el.identity_file = payload.data.data.id
+        }
+        return el;
+    });
+    state.bookingData = [...occupants];
+  },
+  [BOOKING_CONFIRMATION](state, payload) {
+    state.bookingSuccess = payload;
+  },
+  [BOOKING_ERRORS](state, payload) {
+    state.bookingErrors = payload;
   }
+
 };

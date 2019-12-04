@@ -10,9 +10,16 @@ use Illuminate\Support\Facades\Storage;
 
 trait FileTrait
 {
-    public static function getUploadedFileMeta($field = 'uploads')
+    public static function getUploadedFileMeta($configs = [])
     {
-        $file = request()->file($field);
+        $fileMeta = array_merge([
+            'field' => 'uploads',
+            'folder' => isset($configs['folder']) ? $configs['folder'] : null,
+            'is_temp'  => isset($configs['is_temp']) ? $configs['is_temp'] : false,
+            'is_visible'  => isset($configs['is_visible']) ? $configs['is_visible'] : true,
+        ], $configs);
+
+        $file = request()->file($fileMeta['field']);
 
         $fileMeta['uuid'] = HelperTrait::uuid();
         $fileMeta['path'] = $file->getRealPath();
@@ -20,7 +27,6 @@ trait FileTrait
         $fileMeta['extension'] = $file->getClientOriginalExtension();
         $fileMeta['size'] = $file->getSize();
         $fileMeta['mime'] = $file->getMimeType();
-        $fileMeta['folder'] = null;
 
         return $fileMeta;
     }

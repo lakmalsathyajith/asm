@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="flexbox">
+    <div class="flexbox default">
         <div>
             <div class="nb-spinner"></div>
         </div>
