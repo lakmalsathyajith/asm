@@ -147,7 +147,7 @@
                 </div>
             </div>
         </section>
-        <div  v-if="bookingSuccess" class="modal fade show" v-bind:style="{ 'display': 'block', 'padding-right': '15px'}" id="agent-modal2" tabindex="-1"
+        <div  v-if="bookingSuccess" class="modal fade show" v-bind:style="{ 'display': 'block', 'padding-right': '15px'}" id="confirm-modal" tabindex="-1"
                  role="dialog" aria-labelledby="exampleModalCenterTitle">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
