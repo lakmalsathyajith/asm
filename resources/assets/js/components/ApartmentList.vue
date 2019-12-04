@@ -131,6 +131,8 @@
                 <div class="form-group">
                   <HotelDatePicker
                     format="DD/MM/YYYY"
+                    :starting-date-value="filter.checkIn"
+                    :ending-date-value="filter.checkOut"
                     @check-in-changed="setCheckinDate"
                     @check-out-changed="setCheckoutDate"
                   ></HotelDatePicker>
@@ -161,7 +163,6 @@
                               <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
                               <div class="quantity">
                                 <input
-                                  id="min_occupants"
                                   v-model="filter.adults"
                                   type="number"
                                   min="1"
@@ -169,6 +170,20 @@
                                   step="1"
                                   value="1"
                                 />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('adults', 1, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('adults', 1, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -177,14 +192,27 @@
                               <label for="max_occupants" class="filter-widget-sublabel">Children</label>
                               <div class="quantity">
                                 <input
-                                  id="max_occupants"
                                   type="number"
                                   v-model="filter.children"
-                                  min="1"
+                                  min="0"
                                   max="6"
                                   step="1"
-                                  value="1"
+                                  value="0"
                                 />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('children', 0, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('children', 0, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -486,10 +514,12 @@
                       <label for="checkin" class="filter-widget-sublabel">Check-in/Out</label>
 
                       <HotelDatePicker
-                        format="DD/MM/YYYY"
-                        @check-in-changed="setCheckinDate"
-                        @check-out-changed="setCheckoutDate"
-                      ></HotelDatePicker>
+                    format="DD/MM/YYYY"
+                    :starting-date-value="filter.checkIn"
+                            :ending-date-value="filter.checkOut"
+                    @check-in-changed="setCheckinDate"
+                    @check-out-changed="setCheckoutDate"
+                  ></HotelDatePicker>
                     </div>
                   </div>
                 </div>
@@ -519,14 +549,27 @@
                                   <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
                                   <div class="quantity">
                                     <input
-                                      id="min_occupants"
-                                      v-model="filter.adults"
-                                      type="number"
-                                      min="1"
-                                      max="6"
-                                      step="1"
-                                      value="1"
-                                    />
+                                  v-model="filter.adults"
+                                  type="number"
+                                  min="1"
+                                  max="6"
+                                  step="1"
+                                  value="1"
+                                />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('adults', 1, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('adults', 1, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                                   </div>
                                 </div>
                               </div>
@@ -535,14 +578,27 @@
                                   <label for="max_occupants" class="filter-widget-sublabel">Children</label>
                                   <div class="quantity">
                                     <input
-                                      id="max_occupants"
-                                      type="number"
-                                      v-model="filter.children"
-                                      min="1"
-                                      max="6"
-                                      step="1"
-                                      value="1"
-                                    />
+                                  type="number"
+                                  v-model="filter.children"
+                                  min="0"
+                                  max="6"
+                                  step="1"
+                                  value="0"
+                                />
+                                <div class="quantity-nav">
+                                  <div
+                                    class="quantity-button quantity-up"
+                                    v-on:click="qtyIncrease('children', 0, 6)"
+                                  >
+                                    +
+                                  </div>
+                                  <div
+                                    class="quantity-button quantity-down"
+                                    v-on:click="qtyDecrease('children', 0, 6)"
+                                  >
+                                    -
+                                  </div>
+                                </div>
                                   </div>
                                 </div>
                               </div>
@@ -831,7 +887,8 @@
             >
               <div class="col-md-12 mobile-padding-0">
                 <div class="listing-wrap">
-                  <a :href="'./apartment/' + apartment.id">
+                  <a :href="'./apartment/' + apartment.id + '?start=' + getFormatedDate(filter.checkIn) + '&end=' + 
+                        getFormatedDate(filter.checkOut) + '&adults=' + filter.adults + '&children=' + filter.children">
                     <div class="row">
                       <div class="col-md-7 apartment-listing-widget-left-col">
                         <div class="listing-swipe-slider">
@@ -882,7 +939,8 @@
                         </div>
                       </div>
                       <div class="col-md-5 apartment-listing-widget-right-col modile-hide tab-view">
-                        <a :href="'./apartment/' + apartment.id">
+                        <a :href="'./apartment/' + apartment.id+ '?start=' + getFormatedDate(filter.checkIn) + '&end=' + 
+                        getFormatedDate(filter.checkOut) + '&adults=' + filter.adults + '&children=' + filter.children">
                           <div class="facility-wrap">
                             <div class="row">
                               <div
@@ -1012,6 +1070,16 @@ export default {
   },
   created() {
     this.getStates();
+    if (this.$route.query.start) {
+      var from = this.$route.query.start;
+      var fromdate = moment(from, 'YYYY-MM-DD').toDate();
+      this.filter.checkIn = fromdate;
+    }
+    if (this.$route.query.end) {
+      var to = this.$route.query.end;
+      var todate = moment(to, 'YYYY-MM-DD').toDate();
+      this.filter.checkOut = todate;
+    }
   },
   updated() {
     let swiper = new Swiper(".swiper-container", {
@@ -1037,16 +1105,6 @@ export default {
     });
   },
   mounted() {
-    if (this.$route.query.start) {
-      var from = this.$route.query.start.split("-");
-      var fromdate = new Date(from[0], from[1] - 1, from[2]);
-      this.filter.checkIn = fromdate;
-    }
-    if (this.$route.query.end) {
-      var to = this.$route.query.end.split("-");
-      var todate = new Date(from[0], from[1] - 1, from[2]);
-      this.filter.checkOut = todate;
-    }
     if (this.$route.query.type) {
       this.filter.type = this.$route.query.type;
       let text = $(".dropdown-item." + this.$route.query.type).text();
@@ -1070,6 +1128,28 @@ export default {
     }
   },
   methods: {
+    qtyIncrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults < max) {
+          this.filter.adults++;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children < max) {
+          this.filter.children++;
+        }
+      }
+    },
+    qtyDecrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults > min) {
+          this.filter.adults--;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children > min) {
+          this.filter.children--;
+        }
+      }
+    },
     setCheckinDate(newDate) {
       this.filter.checkIn = newDate;
     },
@@ -1096,6 +1176,12 @@ export default {
         .catch(err => {
           console.log("---err----", err);
         });
+    },
+    getFormatedDate(date) {
+     return moment(date).format('YYYY-MM-DD');
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
     },
     onSlideStart(slide) {
       this.sliding = true;

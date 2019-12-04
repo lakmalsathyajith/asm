@@ -23,43 +23,69 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">First Name*</label>
-                        <input class="form-control flter-button" type="text" />
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >First Name*</label
+                        >
+                        <input
+                          class="form-control flter-button"
+                          type="text"
+                          v-model="contactData.first_name"
+                        />
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Email*</label>
-                        <input class="form-control flter-button" type="email" />
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Email*</label
+                        >
+                        <input
+                          class="form-control flter-button"
+                          type="email"
+                          v-model="contactData.email"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Last Name*</label>
-                        <input class="form-control flter-button" type="text" />
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Last Name*</label
+                        >
+                        <input
+                          class="form-control flter-button"
+                          type="text"
+                          v-model="contactData.last_name"
+                        />
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel">
-                          Phone (mobile number
-                          preferred)*
+                          Phone (mobile number preferred)*
                         </label>
-                        <input class="form-control flter-button input-numbersonly" id="numbersonly" type="tel" />
+                        <input
+                          class="form-control flter-button input-numbersonly"
+                          id="numbersonly"
+                          type="tel"
+                          v-model="contactData.phone"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <div class="dropdown filter-widget general-boking-inqure-wrap">
-                        <label for="checkin" class="filter-widget-sublabel">Enquiry Type</label>
+                      <div
+                        class="dropdown filter-widget general-boking-inqure-wrap"
+                      >
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Enquiry Type</label
+                        >
 
                         <button
                           class="btn dropdown-toggle flter-button enqury-svg-button"
                           type="button"
-                          id="dropdownMenuButton"
+                          id="dropdownMenuButtonEnquiry"
                           data-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="true"
@@ -68,18 +94,26 @@
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown general-boking-inqure"
-                          aria-labelledby="dropdownMenuButton"
+                          aria-labelledby="dropdownMenuButtonEnquiry"
                           x-placement="bottom-start"
                           style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);"
                         >
                           <div class="filter-widget-inner">
-                            <a class="dropdown-item" href="#." value="General Enquiry">
-                              General
-                              Enquiry
+                            <a
+                              class="dropdown-item"
+                              href="#."
+                              value="General Enquiry"
+                              v-on:click="selectEnquiryType('general')"
+                            >
+                              General Enquiry
                             </a>
-                            <a class="dropdown-item" href="#." value="Booking Enquiry">
-                              Booking
-                              Enquiry
+                            <a
+                              class="dropdown-item"
+                              href="#."
+                              value="Booking Enquiry"
+                              v-on:click="selectEnquiryType('booking')"
+                            >
+                              Booking Enquiry
                             </a>
                           </div>
                         </div>
@@ -96,41 +130,46 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <div class="dropdown filter-widget">
-                              <label for="checkin" class="filter-widget-sublabel">State*</label>
                               <button
-                                class="btn dropdown-toggle location-svg-button flter-button"
+                                class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-states"
                                 type="button"
-                                id="dropdownMenuButton"
+                                id="dropdownMenuButtonState"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
-                                aria-expanded="true"
+                                aria-expanded="false"
                               >
-                                <span>Please Select</span>
+                                <span>State</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
-                                aria-labelledby="dropdownMenuButton"
-                                x-placement="bottom-start"
-                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);"
+                                aria-labelledby="dropdownMenuButtonState"
                               >
-                                <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                  <a class="dropdown-item" href="#.">Action</a>
-                                  <a class="dropdown-item" href="#.">Another action</a>
-                                  <a class="dropdown-item" href="#.">
-                                    Something else
-                                    here
-                                  </a>
+                                <div
+                                  class="filter-widget-inner filter-widget-inner-drop-list"
+                                >
+                                  <a
+                                    v-for="(state, i) in states"
+                                    v-bind:key="i"
+                                    class="dropdown-item"
+                                    href="#."
+                                    v-on:click="selectState(state)"
+                                    >{{ state }}</a
+                                  >
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="dropdown filter-widget">
-                              <label for="checkin" class="filter-widget-sublabel">Apartment Type*</label>
+                              <label
+                                for="checkin"
+                                class="filter-widget-sublabel"
+                                >Apartment Type*</label
+                              >
                               <button
                                 class="btn dropdown-toggle apart-type-svg-button flter-button"
                                 type="button"
-                                id="dropdownMenuButton"
+                                id="dropdownMenuButtonSuburb"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="true"
@@ -139,26 +178,35 @@
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
-                                aria-labelledby="dropdownMenuButton"
+                                aria-labelledby="dropdownMenuButtonSuburb"
                                 x-placement="bottom-start"
                                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 70px, 0px);"
                               >
-                                <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                <div
+                                  class="filter-widget-inner filter-widget-inner-drop-list"
+                                >
                                   <a
                                     class="dropdown-item studio-apartments"
                                     href="#.."
-                                    v-on:click="selectType('studio-apartments')"
-                                  >Studio Apartments</a>
+                                    v-on:click="selectType('Studio Apartments')"
+                                    >Studio Apartments</a
+                                  >
                                   <a
                                     class="dropdown-item one-bed-room-apartments"
                                     href="#.."
-                                    v-on:click="selectType('one-bed-room-apartments')"
-                                  >One Bedroom Apartments</a>
+                                    v-on:click="
+                                      selectType('One Bedroom Apartments')
+                                    "
+                                    >One Bedroom Apartments</a
+                                  >
                                   <a
                                     class="dropdown-item two-bed-room-apartments"
                                     href="#.."
-                                    v-on:click="selectType('two-bed-room-apartments')"
-                                  >Two Bedroom Apartments</a>
+                                    v-on:click="
+                                      selectType('Two Bedroom Apartments')
+                                    "
+                                    >Two Bedroom Apartments</a
+                                  >
                                 </div>
                               </div>
                             </div>
@@ -166,7 +214,11 @@
 
                           <div class="form-group">
                             <div class="dropdown filter-widget">
-                              <label for="checkin" class="filter-widget-sublabel">Guest Number*</label>
+                              <label
+                                for="checkin"
+                                class="filter-widget-sublabel"
+                                >Guest Number*</label
+                              >
                               <button
                                 class="btn dropdown-toggle guest-button-svg flter-button"
                                 type="button"
@@ -181,49 +233,70 @@
                                 class="dropdown-menu filter-widget-dropdown"
                                 aria-labelledby="dropdownMenuButton"
                                 x-placement="bottom-start"
-                                >
-                               <div class="filter-widget-inner">
-                                <div class="row">
-                                  <div class="col-md-6 filter-widget-col">
-                                    <div class="form-group">
-                                      <label
-                                        for="min_occupants"
-                                        class="filter-widget-sublabel"
-                                      >Adults</label>
-                                      <div class="quantity">
-                                        <input
-                                          id="min_occupants"
-                                          
+                              >
+                                <div class="filter-widget-inner">
+                                  <div class="row">
+                                    <div class="col-md-6 filter-widget-col">
+                                      <div class="form-group">
+                                        <label
+                                          for="min_occupants"
+                                          class="filter-widget-sublabel"
+                                          >Adults</label
+                                        >
+                                        <div class="quantity">
+                                          <input
+                                          v-model="contactData.adults"
                                           type="number"
                                           min="1"
                                           max="6"
                                           step="1"
                                           value="1"
                                         />
+                                        <div class="quantity-nav">
+    <div class="quantity-button quantity-up" v-on:click="qtyIncrease('adults', 1, 6)">
+        +
+    </div>
+    <div class="quantity-button quantity-down" v-on:click="qtyDecrease('adults', 1, 6)">
+        -
+    </div>
+</div>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div class="col-md-6 filter-widget-col">
-                                    <div class="form-group">
-                                      <label
-                                        for="max_occupants"
-                                        class="filter-widget-sublabel"
-                                      >Children</label>
-                                      <div class="quantity">
-                                        <input
-                                          id="max_occupants"
+                                    <div class="col-md-6 filter-widget-col">
+                                      <div class="form-group">
+                                        <label
+                                          for="max_occupants"
+                                          class="filter-widget-sublabel"
+                                          >Children</label
+                                        >
+                                        <div class="quantity">
+                                          <input
                                           type="number"
-                                         
-                                          min="1"
+                                          v-model="contactData.children"
+                                          min="0"
                                           max="6"
                                           step="1"
-                                          value="1"
+                                          value="0"
                                         />
+                                        
+<div class="quantity-nav">
+    <div class="quantity-button quantity-up" v-on:click="
+                                          qtyIncrease('children', 0, 6)
+                                        ">
+        +
+    </div>
+    <div class="quantity-button quantity-down" v-on:click="
+                                          qtyDecrease('children', 0, 6)
+                                        ">
+        -
+    </div>
+</div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
                               </div>
                             </div>
                           </div>
@@ -231,9 +304,58 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <div class="dropdown filter-widget">
-                              <label for="checkin" class="filter-widget-sublabel">Suburb*</label>
                               <button
-                                class="btn dropdown-toggle location-svg-button flter-button"
+                                class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-suburb"
+                                type="button"
+                                id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <span>Suburb</span>
+                              </button>
+                              <div
+                                class="dropdown-menu filter-widget-dropdown"
+                                aria-labelledby="dropdownMenuButton"
+                              >
+                                <div
+                                  class="filter-widget-inner filter-widget-inner-drop-list"
+                                >
+                                  <a
+                                    v-for="(suburb, i) in suburbs"
+                                    v-bind:key="i"
+                                    class="dropdown-item"
+                                    href="#."
+                                    v-on:click="selectSuburb(suburb)"
+                                    >{{ suburb }}</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="checkin" class="filter-widget-sublabel"
+                              >Check-In/Out*</label
+                            >
+                             <HotelDatePicker
+                            format="DD/MM/YYYY"
+                            :starting-date-value="contactData.checkIn"
+                            :ending-date-value="contactData.checkOut"
+                            @check-in-changed="setCheckinDate"
+                            @check-out-changed="setCheckoutDate"
+                          ></HotelDatePicker>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="dropdown filter-widget">
+                              <label
+                                for="checkin"
+                                class="filter-widget-sublabel"
+                                >Price Min-Max*</label
+                              >
+                              <button
+                                class="btn dropdown-toggle price-svg-button flter-button"
                                 type="button"
                                 id="dropdownMenuButton"
                                 data-toggle="dropdown"
@@ -245,63 +367,40 @@
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
                                 aria-labelledby="dropdownMenuButton"
-                                x-placement="bottom-start"
-                                >
-                                <div class="filter-widget-inner filter-widget-inner-drop-list">
-                                  <a class="dropdown-item" href="#.">Action</a>
-                                  <a class="dropdown-item" href="#.">Another action</a>
-                                  <a class="dropdown-item" href="#.">
-                                    Something else
-                                    here
-                                  </a>
+                              >
+                                <div class="filter-widget-inner">
+                                  <div class="row">
+                                    <div class="col-md-6 filter-widget-col">
+                                      <div class="form-group">
+                                        <label
+                                          for="checkin"
+                                          class="filter-widget-sublabel"
+                                          >Price Min</label
+                                        >
+                                        <v-select
+                                          :options="options"
+                                          :clearable="false"
+                                          v-model="contactData.price_min"
+                                        ></v-select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 filter-widget-col">
+                                      <div class="form-group">
+                                        <label
+                                          for="checkout"
+                                          class="filter-widget-sublabel"
+                                          >Price Max</label
+                                        >
+                                        <v-select
+                                          :options="options"
+                                          :clearable="false"
+                                          v-model="contactData.price_max"
+                                        ></v-select>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="checkin" class="filter-widget-sublabel">Check-In/Out*</label>
-                            <HotelDatePicker
-                              format="DD/MM/YYYY"
-                              :startDate="startDate"
-                              @check-in-changed="setCheckinDate"
-                              @check-out-changed="setCheckoutDate"
-                            ></HotelDatePicker>
-                          </div>
-
-                          <div class="form-group">
-                            <div class="dropdown filter-widget">
-                              <label for="checkin" class="filter-widget-sublabel">Price Min-Max*</label>
-                              <button
-                                class="btn dropdown-toggle price-svg-button flter-button"
-                                type="button"
-                                id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="true"
-                              >
-                                <span>Please Select</span>
-                              </button>
-                              <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
-                      <div class="filter-widget-inner">
-                        <div class="row">
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="checkin" class="filter-widget-sublabel">Price Min</label>
-                                 <v-select :options="options" :clearable="false" ></v-select>
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6 filter-widget-col">
-                            <div class="form-group">
-                              <label for="checkout" class="filter-widget-sublabel">Price Max</label>
-                               <v-select :options="options" :clearable="false"></v-select>
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                             </div>
                           </div>
                         </div>
@@ -311,11 +410,14 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Your Message</label>
+                        <label for="checkin" class="filter-widget-sublabel"
+                          >Your Message</label
+                        >
                         <textarea
                           class="form-control flter-button"
                           id="exampleFormControlTextarea1"
                           rows="5"
+                          v-model="contactData.message"
                         ></textarea>
                       </div>
                     </div>
@@ -404,16 +506,37 @@
   </div>
 </template>
 <script>
-import HotelDatePicker from "vue-hotel-datepicker";
-
+import HotelDatePicker from 'vue-hotel-datepicker';
 export default {
-  name: "contact",
-  mounted() {
-    console.log("Component mounted.");
-  },
-  data(){
+  name: 'contact',
+  mounted() {},
+  data() {
+    const today = new Date()
+    let tomorrow = new Date()
+    tomorrow.setDate(new Date().getDate()+1);
+
     return {
-     options: [
+      states: [],
+      suburbs: [],
+      startDate: new Date(),
+      contactData: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone: '',
+        message:'',
+        enquiry_type: '',
+        apartment_type: '',
+        suburb: '',
+        state: '',
+        checkIn: today,
+        checkOut: tomorrow,
+        adults: 1,
+        children: 0,
+        price_min: 'Any',
+        price_max: 'Any'
+      },
+      options: [
         'Any',
         '$50',
         '$100',
@@ -446,6 +569,74 @@ export default {
         '$1450',
         '$1500'
       ]
+    };
+  },
+  created() {
+    this.getStates();
+  },
+  methods: {
+    qtyIncrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.contactData.adults < max) {
+          this.contactData.adults++;
+        }
+      } else if (type == 'children') {
+        if (this.contactData.children < max) {
+          this.contactData.children++;
+        }
+      }
+    },
+    qtyDecrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.contactData.adults > min) {
+          this.contactData.adults--;
+        }
+      } else if (type == 'children') {
+        if (this.contactData.children > min) {
+          this.contactData.children--;
+        }
+      }
+    },
+    getStates() {
+      Vue.axios
+        .get('/get-states')
+        .then(res => {
+          this.states = res.data.data;
+        })
+        .catch(err => {
+          console.log('---err----', err);
+        });
+    },
+    setCheckinDate(newDate) {
+      this.contactData.checkIn = newDate;
+    },
+    setCheckoutDate(newDate) {
+      this.contactData.checkOut = newDate;
+    },
+    selectType(type) {
+      this.contactData.apartment_type = type;
+     
+    },
+    selectEnquiryType(type) {
+      this.contactData.enquiry_type = type;
+       $("#dropdownMenuButtonEnquiry").dropdown('toggle');
+    },
+    selectSuburb(suburb) {
+      this.contactData.suburb = suburb;
+      $('.apartment-suburb').html('<span>' + suburb + '</span>');
+    },
+    selectState(state) {
+      this.contactData.state = state;
+      $('.apartment-states').html('<span>' + state + '</span>');
+      Vue.axios
+        .get('/get-suburb?state=' + state)
+        .then(res => {
+          this.suburbs = res.data.data;
+          $('.apartment-suburb').html('<span>Suburb</span>');
+        })
+        .catch(err => {
+          console.log('---err----', err);
+        });
     }
   },
   components: {
@@ -453,3 +644,10 @@ export default {
   }
 };
 </script>
+
+<style scoped="">
+.filter-widget-inner {
+    max-height: 250px;
+    overflow-y: auto;
+}
+</style>

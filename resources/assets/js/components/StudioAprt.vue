@@ -101,10 +101,12 @@
               <div class="form-group">
                 <div class="flter-button">
                   <HotelDatePicker
-                    format="DD/MM/YYYY"
-                    @check-in-changed="setCheckinDate"
-                    @check-out-changed="setCheckoutDate"
-                  ></HotelDatePicker>
+                            format="DD/MM/YYYY"
+                            :starting-date-value="filter.checkIn"
+                    :ending-date-value="filter.checkOut"
+                            @check-in-changed="setCheckinDate"
+                            @check-out-changed="setCheckoutDate"
+                          ></HotelDatePicker>
                 </div>
               </div>
             </div>
@@ -133,14 +135,21 @@
                             <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
                             <div class="quantity">
                               <input
-                                id="min_occupants"
-                                v-model="filter.adults"
-                                type="number"
-                                min="1"
-                                max="5"
-                                step="1"
-                                value="1"
-                              />
+                                          v-model="filter.adults"
+                                          type="number"
+                                          min="1"
+                                          max="6"
+                                          step="1"
+                                          value="1"
+                                        />
+                                        <div class="quantity-nav">
+    <div class="quantity-button quantity-up" v-on:click="qtyIncrease('adults', 1, 6)">
+        +
+    </div>
+    <div class="quantity-button quantity-down" v-on:click="qtyDecrease('adults', 1, 6)">
+        -
+    </div>
+</div>
                             </div>
                           </div>
                         </div>
@@ -149,14 +158,26 @@
                             <label for="max_occupants" class="filter-widget-sublabel">Children</label>
                             <div class="quantity">
                               <input
-                                id="max_occupants"
-                                type="number"
-                                v-model="filter.children"
-                                min="1"
-                                max="5"
-                                step="1"
-                                value="1"
-                              />
+                                          type="number"
+                                          v-model="filter.children"
+                                          min="0"
+                                          max="6"
+                                          step="1"
+                                          value="0"
+                                        />
+                                        
+<div class="quantity-nav">
+    <div class="quantity-button quantity-up" v-on:click="
+                                          qtyIncrease('children', 0, 6)
+                                        ">
+        +
+    </div>
+    <div class="quantity-button quantity-down" v-on:click="
+                                          qtyDecrease('children', 0, 6)
+                                        ">
+        -
+    </div>
+</div>
                             </div>
                           </div>
                         </div>
@@ -387,10 +408,14 @@ import Swiper from 'swiper';
 export default {
   name: "studio-apartments",
   data() {
+    const today = new Date()
+    let tomorrow = new Date()
+    tomorrow.setDate(new Date().getDate()+1);
+
     return {
       filter: {
-        checkIn: "",
-        checkOut: "",
+        checkIn: today,
+        checkOut: tomorrow,
         type: "studio-apartments",
         adults: 1,
         children: 0,
@@ -456,6 +481,28 @@ export default {
     });
   },
   methods: {
+    qtyIncrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults < max) {
+          this.filter.adults++;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children < max) {
+          this.filter.children++;
+        }
+      }
+    },
+    qtyDecrease(type, min, max) {
+      if (type == 'adults') {
+        if (this.filter.adults > min) {
+          this.filter.adults--;
+        }
+      } else if (type == 'children') {
+        if (this.filter.children > min) {
+          this.filter.children--;
+        }
+      }
+    },
     search() {
       if (
         this.filter.type != "" &&

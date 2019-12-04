@@ -104,7 +104,7 @@ class ApartmentController extends AbstractApiController
     public function getStates()
     {
         try {
-            $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray() ;
+            $states = DB::table('postal_codes')->distinct('state_name')->orderBy('state_name', 'asc')->pluck('state_name')->toArray() ;
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'records fetched successfully',
@@ -118,7 +118,7 @@ class ApartmentController extends AbstractApiController
     {
         try {
             $data = $request->all();
-            $states = DB::table('postal_codes')->where('state_name', $data['state'])->distinct('suburb')->pluck('suburb')->toArray() ;
+            $states = DB::table('postal_codes')->where('state_name', $data['state'])->orderBy('suburb', 'asc')->distinct('suburb')->pluck('suburb')->toArray() ;
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'records fetched successfully',
