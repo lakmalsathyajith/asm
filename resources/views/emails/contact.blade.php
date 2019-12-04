@@ -64,8 +64,11 @@ vertical-align:middle;">
 <li><strong>Apartment Type:</strong>&nbsp;{{$data['apartment_type']}}</li>
 <li><strong>Suburb:</strong>&nbsp;{{$data['suburb']}}</li>
 <li><strong>State:</strong>&nbsp;{{$data['state']}}</li>
-<li><strong>Check In:</strong>&nbsp;{{  date_format(date_create($data['checkIn']), 'Y-m-d') }}</li>
-<li><strong>Check Out:</strong>&nbsp;{{ date_format(date_create($data['checkOut']), 'Y-m-d') }}</li>
+<?php
+
+?>
+<li><strong>Check In:</strong>&nbsp;{{  substr($data['checkIn'],0,15) }}</li>
+<li><strong>Check Out:</strong>&nbsp;{{ substr($data['checkOut'],0,15)  }}</li>
 <li><strong>Adults:</strong>&nbsp;{{$data['adults']}}</li>
 <li><strong>Children:</strong>&nbsp;{{$data['children']}}</li>
 <li><strong>Price Min:</strong>&nbsp;{{$data['price_min']}}</li>
