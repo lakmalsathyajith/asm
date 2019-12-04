@@ -27,8 +27,8 @@ export const updateBookingStore = ({commit}, payload) => {
 export const booking = ({commit,dispatch}, payload) => {
     let params = {
         apartment_id: payload.apartment_id,
-        adults: payload.adults,
-        children: payload.children,
+        adults: parseInt(payload.adults),
+        children: parseInt(payload.children),
         check_in: moment(payload.checkIn).format('YYYY-MM-DD'),
         check_out: moment(payload.checkOut).format('YYYY-MM-DD'),
         rent: 0
