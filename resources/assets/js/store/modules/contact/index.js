@@ -2,18 +2,15 @@ import * as actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    bookingData : [],
-    selectedBooking : {},
-    errors : {},
-    bookingSuccess: false
+    contactData : [],
 };
 const getters = {};
 
-const booking = {
+const contact = {
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 };
-export default booking;
+export default contact;

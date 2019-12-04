@@ -33,7 +33,7 @@
                             @foreach($records as $record)
                                 <tr id="booking_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
-                                    <td>{{ $record->apartment->name }}</td>
+                                    <td>{{ (isset($record->apartment)) ? $record->apartment->name : "" }}</td>
                                     <td>{{ $record->formattedStatus }}</td>
                                     <td>{{ $record->adults }}</td>
                                     <td>{{ $record->children }}</td>

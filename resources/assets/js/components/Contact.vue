@@ -507,6 +507,8 @@
 </template>
 <script>
 import HotelDatePicker from 'vue-hotel-datepicker';
+import { mapState, mapActions } from "vuex";
+
 export default {
   name: 'contact',
   mounted() {},
@@ -637,7 +639,11 @@ export default {
         .catch(err => {
           console.log('---err----', err);
         });
-    }
+    },
+    ...mapActions("contact", ["getApartmentsList"])
+  },
+  computed: {
+    ...mapState("contact", ["apartmentsList", "isLoading"])
   },
   components: {
     HotelDatePicker

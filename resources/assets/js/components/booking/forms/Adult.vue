@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Date of Birth*</label>
-                                        <input v-model="form.date_of_birth" class="form-control flter-button" type="text"/>
+                                        <datepicker v-model="form.date_of_birth" class="form-control flter-button"></datepicker>
                                         <span v-if="errorSpan('date_of_birth')" class="error">{{errorSpan('date_of_birth')}}</span>
                                     </div>
                                 </div>
