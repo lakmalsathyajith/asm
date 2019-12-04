@@ -21,6 +21,9 @@ class ContactController extends AbstractApiController
         try {
          $data = $request->all();
          Mail::to(env('CONTACT_EMAIL', 'mailtestlistudios@gamil.com'))->bcc('wasana.wickramasinghe@gmail.com','Wasana Wickramasinghe')->send(new \App\Mail\ContactMail($data));
+         return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Conact successfully',[]);
         } catch (\Exception $e) {
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),

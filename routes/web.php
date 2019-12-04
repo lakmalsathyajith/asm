@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    return "Cache is cleared";
+});
+
+
+
 Route::get('/', function () {
     return view('pages.home',['menu' => 'home']);
 });
