@@ -5,7 +5,7 @@ import {
 export default {
 
   [CONTACT_RESPONSE](state, payload) {
-    state.contactData = payload;
+    state.contactResponse = payload;
   }
 
 };
