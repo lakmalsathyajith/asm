@@ -58,3 +58,18 @@ body.sidebar-collapse a.brand-link.brand-not-expand {
   border-radius: 6px !important;
   padding-bottom: 40px !important;
 }
+.small-box.bg-info {
+  background-color: #1b717f!important;
+}
+
+.small-box.bg-success {
+  background-color: #98c843!important;
+}
+
+.small-box.bg-warning {
+  background-color: #5c949f!important;
+  color: #ffffff!important;
+}
+.bg-warning, .bg-warning>a {
+  color: #ffffff!important;
+}
