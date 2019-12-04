@@ -339,12 +339,50 @@
                   <!--Mobile home filter-->
                   <div class="mobile-home-filter mobile-only">
                     <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="dropdown filter-widget">
+                            <button
+                              class="btn dropdown-toggle apart-type-svg-button flter-button"
+                              type="button"
+                              id="dropdownMenuButton"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <span>Apartment Type</span>
+                            </button>
+                            <div
+                              class="dropdown-menu filter-widget-dropdown"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                <a
+                                  class="dropdown-item"
+                                  href="#."
+                                  v-on:click="selectType('studio-apartments')"
+                                >Studio Apartments</a>
+                                <a
+                                  class="dropdown-item"
+                                  href="#."
+                                  v-on:click="selectType('one-bed-room-apartments')"
+                                >One Bedroom Apartments</a>
+                                <a
+                                  class="dropdown-item"
+                                  href="#."
+                                  v-on:click="selectType('two-bed-room-apartments')"
+                                >Two Bedroom Apartments</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="col-12">
                         <div class="form-group">
                           <HotelDatePicker
                             format="DD/MM/YYYY"
                             :starting-date-value="filter.checkIn"
-                    :ending-date-value="filter.checkOut"
+                            :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"
                             @check-out-changed="setCheckoutDate"
                           ></HotelDatePicker>
@@ -365,7 +403,7 @@
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
-                              aria-labelledby="dropdownMenuButton"
+                              aria-labelledby="dropdownMenuButton" style="padding-bottom: 15px;"
                             >
                               <div class="filter-widget-inner">
                                 <div class="row">

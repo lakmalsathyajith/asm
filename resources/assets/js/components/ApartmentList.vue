@@ -650,7 +650,7 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-12">
                     <div class="divider mobile-filter-divider"></div>
                   </div>
@@ -698,7 +698,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <nav class="navbar navbar-expand-sm bg-light fixed-bottom">
                 <div class="container-fluid">
