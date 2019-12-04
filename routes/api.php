@@ -41,4 +41,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('occupant', 'Api\V1\OccupantController@storeBulk')->name('occupant.storeBulk');
 
     Route::post('file', 'Api\V1\FileController@store')->name('file.store');
+
+    Route::post('contact', 'Api\V1\ContactController@store')->name('contact.store');
 });
