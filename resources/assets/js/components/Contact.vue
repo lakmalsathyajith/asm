@@ -427,7 +427,8 @@
                     <div class="send-inquery-wrap">
                       <div class="form-group">
                         <div class="filter-widget">
-                          <a class="btn booking-btn" @click="sendinquiry">Send Message</a>
+                          <a v-if="noErrors===2" disabled="true" class="btn booking-btn" @click="sendinquiry">Send Message</a>
+                          <a v-else class="btn booking-btn" @click="sendinquiry">Send Message</a>
                         </div>
                       </div>
                     </div>
@@ -485,7 +486,6 @@
                       <p>0405 780 780 (int. +61 405 780 780)</p>
                     </a>
                   </div>
-                  {{noErrors}}
                 </div>
                 <div class="contact-email-wrap">
                   <div class="head-name">
@@ -536,7 +536,7 @@ export default {
         email: '',
         phone: '',
         message:'',
-        enquiry_type: '',
+        enquiry_type:"general",
         apartment_type: '',
         suburb: '',
         state: '',
