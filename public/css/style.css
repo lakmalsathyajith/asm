@@ -3557,6 +3557,19 @@ section.top-search-wrap .dropdown.filter-widget button {
     width: 15px;
     height: 15px;
 }
+.option-bath-room::before {
+    content: "";
+    background-image: url('../images/amenity-icons/bath-tub.svg') !important;
+    background-size: contain;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+}
 
 /*start mobile apartmentlist*/
 

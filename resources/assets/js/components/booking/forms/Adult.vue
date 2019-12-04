@@ -109,8 +109,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Usual / Personal
-                                                        Address*</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">Place of Work whilst in Australia*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button"
                                                            type="text"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
@@ -159,8 +158,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Usual / Personal
-                                                        Address*</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">Place of Study whilst in Australia*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button"
                                                            type="text"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
@@ -171,7 +169,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin"
-                                                           class="filter-widget-sublabel">Department</label>
+                                                           class="filter-widget-sublabel">Student number</label>
                                                     <input v-model="form.emp_department"
                                                            class="form-control flter-button" type="text"/>
                                                 </div>
@@ -180,7 +178,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work Phone
+                                                    <label for="checkin" class="filter-widget-sublabel">School Phone
                                                         Number</label>
                                                     <input v-model="form.emp_phone" class="form-control flter-button"
                                                            type="text"/>
@@ -190,7 +188,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work
+                                                    <label for="checkin" class="filter-widget-sublabel">School
                                                         Address</label>
                                                     <input v-model="form.emp_address" class="form-control flter-button"
                                                            type="text"/>
