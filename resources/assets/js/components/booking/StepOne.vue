@@ -16,7 +16,7 @@
         </section>
         <section class="booking-section">
             <div class="container-fluid">
-                <div class="row">
+               <!-- <div class="row">
                     <div class="full-row wizard-row">
                         <div class="container">
                             <div class="row">
@@ -36,8 +36,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
+                </div>-->
+                <booking-nav id=1></booking-nav>
                 <div class="row">
                     <div class="container">
                         <div class="row">

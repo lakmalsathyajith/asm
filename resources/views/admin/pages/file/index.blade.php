@@ -54,9 +54,10 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Type</th>
+                                            <th scope="col">User</th>
                                             <th scope="col">Extension</th>
                                             <th scope="col">Mime</th>
+                                            <th scope="col">Is Temp</th>
                                             <th scope="col">Created At</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -69,6 +70,7 @@
                                                 <td>{{ $record->user_id }}</td>
                                                 <td>{{ $record->extension }}</td>
                                                 <td>{{ $record->mime }}</td>
+                                                <td>{{ $record->is_temp ? 'Yes' : 'No' }}</td>
                                                 <td>{{ $record->created_at }}</td>
                                                 <td>
                                                     <div class="float-right">

@@ -70,6 +70,28 @@ class StoreOccupantApiRequest extends AbstractRequest
     public function messages()
     {
         return [
+            'booking_id.required'                       => 'Booking Id field is required',
+            'occupants.*.first_name.required'           => 'Occupant First Name field is required',
+            'occupants.*.last_name.required'            => 'Occupant Last Name field is required',
+            'occupants.*.date_of_birth.required'        => 'Occupant Date of Birth field is required',
+            'occupants.*.type.required'                 => 'Occupant Type field is required',
+
+            'occupants.*.email.required'                => 'Occupant Email field is required',
+            'occupants.*.email.email'                   => 'Occupant Email address is invalid',
+            'occupants.*.land_phone.required'           => 'Occupant Land Phone field is required',
+            'occupants.*.mobile_phone.required'         => 'Occupant Mobile Phone field is required',
+            'occupants.*.address.required'              => 'Occupant Address field is required',
+            'occupants.*.emp_status.required'           => 'Occupant Status field is required',
+            'occupants.*.emp_personal_address.required' => 'Occupant Personal Address field is required',
+
+            'occupants.*.identity_type.required'        => 'Occupant Identity Type field is required',
+            'occupants.*.identity_number.required'      => 'Occupant Identity Number field is required',
+            'occupants.*.identity_issued_by.required'   => 'Occupant Identity Issued By field is required',
+            'occupants.*.next_of_kin.required'          => 'Occupant Next of Kin field is required',
+            'occupants.*.kin_relationship.required'     => 'Occupant\'s Kin Relationship field is required',
+            'occupants.*.kin_address.required'          => 'Occupant\'s Kin Address field is required',
+            'occupants.*.kin_land_phone.required'       => 'Occupant\'s Kin Land Phone field is required',
+            'occupants.*.kin_mobile_phone.required'     => 'Occupant\'s Kin Mobile Phone field is required',
         ];
     }
 }

@@ -850,7 +850,7 @@
                             </div>
                           </div>
                           <div class="price-tag bold-700">
-                            A$305
+                            A${{ apartment.price }}
                             <sup>pw</sup>
                           </div>
                         </div>
@@ -873,6 +873,10 @@
                             <li class="list-inline-item apart-options">
                               <i class="option-car"></i>
                               {{ apartment.parking_slots }}
+                            </li>
+                            <li class="list-inline-item apart-options">
+                              <i class="option-bath-room"></i>
+                              {{ apartment.bath_rooms }}
                             </li>
                           </ul>
                         </div>
@@ -941,12 +945,17 @@
 </template>
 <script>
 import { mapState, mapActions } from "vuex";
+import moment from "moment";
 import HotelDatePicker from "vue-hotel-datepicker";
 import Swiper from "swiper";
 
 export default {
   name: "apartments",
   data() {
+    const today = new Date()
+    let tomorrow = new Date()
+    tomorrow.setDate(new Date().getDate()+1);
+
     return {
       slide: 0,
       sliding: null,
@@ -956,8 +965,8 @@ export default {
       suburbs: [],
       searchText: "",
       filter: {
-        checkIn: "",
-        checkOut: "",
+        checkIn: today,
+        checkOut: tomorrow,
         state: "",
         suburb: "",
         type: "",
@@ -1053,18 +1062,11 @@ export default {
       this.filter.price_min = this.$route.query.price_min;
     }
     if (this.$route.query.price_max) {
-      this.filter.price_max = this.$route.query.price_max;
+        this.filter.price_max = this.$route.query.price_max;
     }
-    if (
-      this.filter.type != "" &&
-      this.filter.checkIn != "" &&
-      this.filter.checkOut != "" &&
-      this.filter.adults != "" &&
-      this.filter.children != ""
-    ) {
-      this.getFilteredApartments(this.filter);
-    } else {
-      this.getApartmentsList();
+
+    if (this.filter.checkIn != "" && this.filter.checkOut != "" && this.filter.adults != "") {
+          this.getFilteredApartments(this.filter);
     }
   },
   methods: {

@@ -235,7 +235,10 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center border-bottom mb-3">
-                                        <img src="https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png"
+                                        <img src="{{isset($occupant->identity)
+                                                    && isset($occupant->identity->files)
+                                                    && isset($occupant->identity->files->first()->url)
+                                                    ?  $occupant->identity->files->first()->url : "https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png"}}"
                                              alt="..."
                                              class="img-thumbnail">
                                     </div>

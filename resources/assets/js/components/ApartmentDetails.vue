@@ -145,7 +145,7 @@
                         >
                           <div class="filter-widget-inner">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
                                   <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
                                   <div class="quantity">
@@ -162,7 +162,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
                                   <label for="max_occupants" class="filter-widget-sublabel">Children</label>
                                   <div class="quantity">
@@ -187,8 +187,10 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel">Total Price</label>
-                      <p class="amount">$1,620.00</p>
+                      <label for="checkin" class="filter-widget-sublabel"
+                        >Total Price</label
+                      >
+                      <p class="amount">$0.00</p>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -288,7 +290,13 @@
     <section class="location-section">
       <div class="container">
         <div class="row">
-          <div class="location-wrap" v-html="selectedApartment.map_url"></div>
+          <div class="location-wrap">
+            <iframe
+              v-if="selectedApartment && selectedApartment.map_url"
+              :src="selectedApartment.map_url"
+              width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -316,6 +324,7 @@ export default {
       slide: 0,
       sliding: null,
       filter: {
+        apartment_id: this.$attrs.id,
         checkIn: false,
         checkOut: false,
         type: "",

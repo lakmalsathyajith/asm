@@ -438,10 +438,17 @@
             onFileChange(e){
                 let file = $('input[name="uploads"]').get(0).files[0];
                 let formData = new FormData();
-                    formData.append('uploadFile', file);
-                this.form.uploads = formData;
+                    formData.append('uploads', file);
+                    formData.append('folder','identity');
+                    formData.append('is_temp', true);
+                    formData.append('is_visible', false);
+                 let data = {
+                     formData,
+                     key:this.form.key
+                 }
+                this.fileUpload(data);
             },
-            ...mapActions("booking", ["updateBookingStore", "updateOccupants"])
+            ...mapActions("booking", ["updateBookingStore", "updateOccupants","fileUpload"])
         },
         computed: {
             ...mapState("booking", ["errors"]),
