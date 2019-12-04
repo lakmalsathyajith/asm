@@ -265,7 +265,7 @@
                       <label for="checkin" class="filter-widget-sublabel"
                         >Total Price</label
                       >
-                      <p class="amount">$1,620.00</p>
+                      <p class="amount">$0.00</p>
                     </div>
                   </div>
                   <div class="col-md-12">

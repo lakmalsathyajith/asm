@@ -2,10 +2,10 @@ import moment from 'moment';
 import {
     UPDATE_BOOKING_STORE,
     SELECTED_BOOKING,
-    ERRORS
+    ERRORS,BOOKING_ERRORS
 } from './types.js';
 import {isLoading} from "../../helpers";
-import {UPDATE_OCCUPANT} from "./types";
+import {BOOKING_CONFIRMATION, UPDATE_OCCUPANT} from "./types";
 
 /**
  * get all the apartments saved
@@ -31,7 +31,7 @@ export const booking = ({commit,dispatch}, payload) => {
         children: payload.children,
         check_in: moment(payload.checkIn).format('YYYY-MM-DD'),
         check_out: moment(payload.checkOut).format('YYYY-MM-DD'),
-        rent: payload.rent
+        rent: 0
     };
     isLoading(dispatch, true)
     Vue.axios
@@ -108,6 +108,11 @@ export const rmsBooking = ({commit, dispatch}, payload) => {
     Vue.axios
         .put('/booking/'+payload, {})
         .then(res => {
+            if(!res.data.errors.length>0){
+                commit(BOOKING_CONFIRMATION, true)
+            }else(
+                commit(BOOKING_ERRORS, res.data.errors)
+            )
             isLoading(dispatch, false)
         })
         .catch(err => {
@@ -123,11 +128,14 @@ export const rmsBooking = ({commit, dispatch}, payload) => {
  * @param payload
  */
 export const fileUpload = ({commit, dispatch}, payload) => {
-    isLoading(dispatch, true)
+    isLoading(dispatch, true);
+    let ocKey = payload.key;
+    delete payload.key;
+
     Vue.axios
-        .post('/file', payload)
+        .post('/file', payload.formData)
         .then(res => {
-            res.key = payload.key
+            res.key = ocKey
             commit(UPDATE_OCCUPANT, res);
             isLoading(dispatch, false)
         })

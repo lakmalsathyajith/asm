@@ -74,7 +74,7 @@
                         <div class="total-wrap">Total</div>
                     </div>
                     <div class="col-md-6">
-                        <div class="total-wrap-detail pull-right">$1,620</div>
+                        <div class="total-wrap-detail pull-right">$0</div>
                     </div>
                 </div>
             </div>

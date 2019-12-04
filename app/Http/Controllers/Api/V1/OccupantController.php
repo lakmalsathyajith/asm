@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\AbstractApiController;
 use App\Http\Requests\Occupant\StoreOccupantApiRequest;
 use App\Traits\FileTrait;
 use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
 
 class OccupantController extends AbstractApiController
 {
@@ -83,12 +84,15 @@ class OccupantController extends AbstractApiController
                             'kin_mobile_phone'      => isset($occupantData['kin_mobile_phone']) ? $occupantData['kin_mobile_phone'] : null,
                         ];
 
+                        if(!isset($occupantData['identity_file'])) {
+                            throw new \Exception('No image reference found');
+                        }
+
+                        // check if the file exists
+                        $this->fileRepo->get($occupantData['identity_file']);
+
                         $identity = $this->occupantIdentityRepo->create($identity);
-//                        $meta = $this->getUploadedFileMeta();
-//                        $meta['folder'] = 'confidential';
-//                        $uploaded = $this->uploadFile($meta);
-//                        $file = $this->fileRepo->create($uploaded);
-//                        $identity->files()->sync([$file->id]);
+                        $identity->files()->sync([$occupantData['identity_file']]);
                     }
                 }
                 DB::commit();

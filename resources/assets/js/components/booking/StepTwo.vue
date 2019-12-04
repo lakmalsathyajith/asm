@@ -21,7 +21,7 @@
         </section>
         <section>
             <div class="container-fluid">
-                <div class="row">
+                <!--<div class="row">
                     <div class="full-row wizard-row">
                         <div class="container">
                             <div class="row">
@@ -35,7 +35,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
+                <booking-nav id=2></booking-nav>
                 <div class="row">
                     <div class="container">
                         <div class="row">
@@ -190,9 +191,16 @@
         },
         methods: {
             nextStep() {
-                window.location = '/booking/'+this.$attrs.id+'/step-tree';
+                if(this.selectedBooking.occupants.length>0){
+                    window.location = '/booking/'+this.$attrs.id+'/step-three';
+                }else{
+                    window.location = '/booking/'+this.$attrs.id+'/step-one';
+                }
             },
             ...mapActions("booking", ["getBooking"]),
-        }
+        },
+        computed: {
+            ...mapState("booking", ["selectedBooking"])
+        },
     }
 </script>

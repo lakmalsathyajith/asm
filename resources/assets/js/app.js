@@ -73,6 +73,7 @@ Vue.component('booking-third', require('./components/BookingThird.vue'));
 Vue.component('booking-step-one', require('./components/booking/StepOne'));
 Vue.component('booking-step-two', require('./components/booking/StepTwo'));
 Vue.component('booking-step-three', require('./components/booking/StepThree'));
+Vue.component('booking-nav', require('./components/booking/common/nav'));
 Vue.component('primary-booking-form', require('./components/booking/forms/Primary'));
 Vue.component('adult-booking-form', require('./components/booking/forms/Adult'));
 Vue.component('child-booking-form', require('./components/booking/forms/Child'));

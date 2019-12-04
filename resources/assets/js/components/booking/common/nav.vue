@@ -5,9 +5,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-wizard">
-                            <li><a href="/booking-first"> Step 1</a></li>
-                            <li><a href="/booking-second">Step 2</a></li>
-                            <li class="active"><a href="/booking-third">Step 3</a></li>
+                            <li v-if="navId==1" class="active"><a href="#"> Step 1</a></li>
+                            <li v-else><a href="#"> Step 1</a></li>
+                            <li v-if="navId==2" class="active"><a href="#">Step 2</a></li>
+                            <li v-else><a href="#">Step 2</a></li>
+                            <li v-if="navId==3" class="active"><a href="#">Step 3</a></li>
+                            <li v-else><a href="#">Step 3</a></li>
                         </ul>
                     </div>
                 </div>
@@ -18,8 +21,13 @@
 <script>
     export default {
         name: "booking-nav",
+        data() {
+            return {
+                navId: this.$attrs.id
+            };
+        },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mounted.',this.$attrs.id, this.navId)
         }
     }
 </script>

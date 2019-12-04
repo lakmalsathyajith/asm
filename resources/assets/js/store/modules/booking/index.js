@@ -4,7 +4,8 @@ import mutations from './mutations';
 const state = {
     bookingData : [],
     selectedBooking : {},
-    errors : {}
+    errors : {},
+    bookingSuccess: false
 };
 const getters = {};
 

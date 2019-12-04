@@ -850,7 +850,7 @@
                             </div>
                           </div>
                           <div class="price-tag bold-700">
-                            A$305
+                            A${{ apartment.price }}
                             <sup>pw</sup>
                           </div>
                         </div>
@@ -873,6 +873,10 @@
                             <li class="list-inline-item apart-options">
                               <i class="option-car"></i>
                               {{ apartment.parking_slots }}
+                            </li>
+                            <li class="list-inline-item apart-options">
+                              <i class="option-bath-room"></i>
+                              {{ apartment.bath_rooms }}
                             </li>
                           </ul>
                         </div>
@@ -1033,15 +1037,9 @@ export default {
     });
   },
   mounted() {
-
-    console.log('--+++++---',this.filter);
-
     if (this.$route.query.start) {
       var from = this.$route.query.start.split("-");
       var fromdate = new Date(from[0], from[1] - 1, from[2]);
-
-      console.log('-----',fromdate);
-
       this.filter.checkIn = fromdate;
     }
     if (this.$route.query.end) {
