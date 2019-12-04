@@ -16,7 +16,7 @@ export const contact = ({commit, dispatch}, payload) => {
         .post('/contact', payload)
         .then(res => {
 
-            commit(CONTACT_RESPONSE, res.data.errors);
+            commit(CONTACT_RESPONSE, res.data);
             isLoading(dispatch, false)
         })
         .catch(err => {

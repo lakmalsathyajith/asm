@@ -279,7 +279,7 @@
                                           step="1"
                                           value="0"
                                         />
-                                        
+
 <div class="quantity-nav">
     <div class="quantity-button quantity-up" v-on:click="
                                           qtyIncrease('children', 0, 6)
@@ -427,11 +427,20 @@
                     <div class="send-inquery-wrap">
                       <div class="form-group">
                         <div class="filter-widget">
-                          <a class="btn booking-btn">Send Message</a>
+                          <a v-if="noErrors===2" disabled="true" class="btn booking-btn" @click="sendinquiry">Send Message</a>
+                          <a v-else class="btn booking-btn" @click="sendinquiry">Send Message</a>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div v-if="noErrors===2" class="alert alert-success alert-dismissible fade show">
+                  <strong>Success!</strong> Your message has been sent successfully.
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <div v-if="noErrors===1" class="alert alert-danger alert-dismissible fade show">
+                  <strong>Error!</strong> A problem has been occurred while submitting your data.
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
                 </div>
               </div>
             </div>
@@ -527,7 +536,7 @@ export default {
         email: '',
         phone: '',
         message:'',
-        enquiry_type: '',
+        enquiry_type:"general",
         apartment_type: '',
         suburb: '',
         state: '',
@@ -617,7 +626,7 @@ export default {
     },
     selectType(type) {
       this.contactData.apartment_type = type;
-     
+
     },
     selectEnquiryType(type) {
       this.contactData.enquiry_type = type;
@@ -640,10 +649,21 @@ export default {
           console.log('---err----', err);
         });
     },
-    ...mapActions("contact", ["getApartmentsList"])
+    sendinquiry(){
+      this.contact(this.contactData);
+    },
+    ...mapActions("contact", ["contact"])
   },
   computed: {
-    ...mapState("contact", ["apartmentsList", "isLoading"])
+    ...mapState("contact", ["contactResponse"]),
+    noErrors(){
+      if(this.contactResponse && this.contactResponse.errors && this.contactResponse.errors.length>0){
+        return 1
+      }
+      if(this.contactResponse && this.contactResponse.errors && this.contactResponse.errors.length===0){
+        return 2
+      }
+    }
   },
   components: {
     HotelDatePicker

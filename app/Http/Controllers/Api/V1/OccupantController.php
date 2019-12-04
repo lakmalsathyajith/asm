@@ -89,7 +89,9 @@ class OccupantController extends AbstractApiController
                         }
 
                         // check if the file exists
-                        $this->fileRepo->get($occupantData['identity_file']);
+                        $file = $this->activeRepo->get($occupantData['identity_file']);
+                        $file->is_temp = false;
+                        $file->save();
 
                         $identity = $this->occupantIdentityRepo->create($identity);
                         $identity->files()->sync([$occupantData['identity_file']]);
