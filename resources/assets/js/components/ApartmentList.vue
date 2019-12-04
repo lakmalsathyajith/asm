@@ -90,7 +90,7 @@
             <div class="row">
               <div class="col p-0 filter-top-widget filter-left-border">
                 <div class="form-group">
-                  <div class="dropdown filter-widget">
+                  <div class="dropdown filter-widget apartment-type-wrap" >
                     <button
                       class="btn dropdown-toggle apart-type-svg-button before-svg flter-button filter-border-none-btn apartment-type"
                       type="button"
@@ -1080,6 +1080,7 @@ export default {
       var todate = moment(to, 'YYYY-MM-DD').toDate();
       this.filter.checkOut = todate;
     }
+    
   },
   updated() {
     let swiper = new Swiper(".swiper-container", {
@@ -1106,9 +1107,10 @@ export default {
   },
   mounted() {
     if (this.$route.query.type) {
-      this.filter.type = this.$route.query.type;
-      let text = $(".dropdown-item." + this.$route.query.type).text();
-      $(".apartment-type").html("<span>" + text + "</span>");
+        this.filter.type = this.$route.query.type;
+        let text = $(".apartment-type-wrap .dropdown-item." + this.$route.query.type).text();
+        console.log(text);
+        $(".apartment-type").html("<span>" + text + "</span>");
     }
     if (this.$route.query.adults) {
       this.filter.adults = this.$route.query.adults;

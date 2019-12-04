@@ -110,7 +110,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Usual / Personal Address*</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">Place of Work whilst in Australia*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
@@ -152,7 +152,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Usual / Personal Address*</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">Place of Study whilst in Australia*</label>
                                                     <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
@@ -161,7 +161,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Department</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">Student number</label>
                                                     <input v-model="form.emp_department" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
@@ -169,7 +169,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work Phone Number</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">School Phone
+                                                        Number</label>
                                                     <input v-model="form.emp_phone" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
@@ -177,7 +178,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work Address</label>
+                                                    <label for="checkin" class="filter-widget-sublabel">School Address</label>
                                                     <input v-model="form.emp_address" class="form-control flter-button" type="text"/>
                                                 </div>
                                             </div>
@@ -234,10 +235,10 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
-                                        <label
-                                                for="checkin"
-                                                class="filter-widget-sublabel"
-                                        >Passport Number*</label>
+                                        <label v-if="form.identity_type=='passport'" for="checkin" class="filter-widget-sublabel">Passport Number*</label>
+                                        <label v-if="form.identity_type=='driviers-licence'" for="checkin" class="filter-widget-sublabel">Drivers License Number*</label>
+                                        <label v-if="form.identity_type=='aus-visa'" for="checkin" class="filter-widget-sublabel">Australian Visa Number*</label>
+                                        
                                         <input v-model="form.identity_number" class="form-control flter-button"
                                                type="text"/>
                                         <span v-if="errorSpan('identity_number')" class="error">{{errorSpan('identity_number')}}</span>
@@ -250,7 +251,11 @@
                                         <label
                                                 for="checkin"
                                                 class="filter-widget-sublabel"
-                                        >Passport Country of Issue*</label>
+                                        >
+                                        {{identity_type=='passport'?'Passport Country of issue':''}}
+                                        {{identity_type=='driviers-licence'?'Drivers License place of issue ':''}}
+                                        {{identity_type=='aus-visa'?'Australian Visa Expiry date':''}}
+                                        *</label>
                                         <input v-model="form.identity_issued_by" class="form-control flter-button"
                                                type="text"/>
                                         <span v-if="errorSpan('identity_issued_by')" class="error">{{errorSpan('identity_issued_by')}}</span>

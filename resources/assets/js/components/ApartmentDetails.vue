@@ -101,7 +101,7 @@
                     &#124;
                   </li>
                   <li class="list-inline-item apart-options inner-other">
-                    A$405 per week
+                    A$0 per week
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
