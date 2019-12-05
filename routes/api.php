@@ -20,6 +20,13 @@ use Illuminate\Http\Request;
 
 // Start member related routes for v1
 Route::group(['prefix' => 'v1'], function () {
+
+    // Auth routes
+    Route::post('login', 'Api\V1\AuthController@login')->name('api.login');
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('auth-user', 'Api\V1\AuthController@authUser');
+    });
+
     Route::get('users', 'Api\V1\UsersController@index')->name('users.index');
     Route::post('users', 'Api\V1\UsersController@store')->name('users.store');
     Route::get('users/{id}', 'Api\V1\UsersController@show')->name('users.index');

@@ -16,8 +16,8 @@
     <div class="mobile-rotate-wrap" style="display:none;">
         <p class="rotate"><i class="fa fa-mobile-phone"></i><br>Please Rotate Your Device.<br>[Portrait Mode]</p>
     </div>
-    @include('common.header')
     <div id="app">
+        @include('common.header')
         <header-loader></header-loader>
         @yield('content')
     </div>
