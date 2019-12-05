@@ -238,6 +238,7 @@
                         <div class="form-group">
                           <HotelDatePicker
                             format="DD/MM/YYYY"
+                            showYear="true"
                             :starting-date-value="filter.checkIn"
                     :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"
@@ -381,6 +382,7 @@
                         <div class="form-group">
                           <HotelDatePicker
                             format="DD/MM/YYYY"
+                            showYear="true"
                             :starting-date-value="filter.checkIn"
                             :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"

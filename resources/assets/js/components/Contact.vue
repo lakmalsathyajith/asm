@@ -340,6 +340,7 @@
                             >
                              <HotelDatePicker
                             format="DD/MM/YYYY"
+                            showYear="true"
                             :starting-date-value="contactData.checkIn"
                             :ending-date-value="contactData.checkOut"
                             @check-in-changed="setCheckinDate"

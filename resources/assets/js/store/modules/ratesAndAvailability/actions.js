@@ -76,29 +76,44 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
         if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
           if (obj.Areas.Area && obj.Areas.Area.length > 0) {
             obj.Areas.Area.forEach(function(area) {
-              let total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
-              let id = area.AreaId;
+              if (
+                area.ChargeTypes &&
+                area.ChargeTypes.ChargeType &&
+                area.ChargeTypes.TotalPrice
+              ) {
+                let total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
+                let id = area.AreaId;
 
-              if (payload.price_min == 'Any' && payload.price_max == 'Any') {
+                if (payload.price_min == 'Any' && payload.price_max == 'Any') {
+                  ramRefIds.push({ id: id, price: total });
+                } else if (
+                  payload.price_min == 'Any' &&
+                  payload.price_max != 'Any'
+                ) {
+                  let pricemax = parseFloat(payload.price_max.substr(1));
+                  if (total <= pricemax) {
                     ramRefIds.push({ id: id, price: total });
-              } else if (payload.price_min == 'Any' && payload.price_max != 'Any') {
-                let pricemax = parseFloat(payload.price_max.substr(1));
-                if (total <= pricemax) {
+                  }
+                } else if (
+                  payload.price_min != 'Any' &&
+                  payload.price_max == 'Any'
+                ) {
+                  let pricemin = parseFloat(payload.price_min.substr(1));
+                  if (pricemin <= total) {
                     ramRefIds.push({ id: id, price: total });
+                  }
+                } else if (
+                  payload.price_min != 'Any' &&
+                  payload.price_max != 'Any'
+                ) {
+                  let pricemax = parseFloat(payload.price_max.substr(1));
+                  let pricemin = parseFloat(payload.price_min.substr(1));
+                  if (pricemin <= total && total <= pricemax) {
+                    ramRefIds.push({ id: id, price: total });
+                  }
+                } else {
+                  ramRefIds.push({ id: id, price: total });
                 }
-              } else if (payload.price_min != 'Any' && payload.price_max == 'Any') {
-                let pricemin = parseFloat(payload.price_min.substr(1));
-                if (pricemin <= total) {
-                    ramRefIds.push({ id: id, price: total });
-                }
-              } else if (payload.price_min != 'Any' && payload.price_max != 'Any') {
-                let pricemax = parseFloat(payload.price_max.substr(1));
-                let pricemin = parseFloat(payload.price_min.substr(1));
-                if (pricemin <= total && total <= pricemax) {
-                    ramRefIds.push({ id: id, price: total });
-                }
-              } else {
-                ramRefIds.push({ id: id, price: total });
               }
             });
           }

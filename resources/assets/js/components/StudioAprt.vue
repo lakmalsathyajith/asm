@@ -102,6 +102,7 @@
                 <div class="flter-button">
                   <HotelDatePicker
                             format="DD/MM/YYYY"
+                            showYear="true"
                             :starting-date-value="filter.checkIn"
                     :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"
