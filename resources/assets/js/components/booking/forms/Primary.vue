@@ -248,14 +248,10 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
-                                        <label
-                                                for="checkin"
-                                                class="filter-widget-sublabel"
-                                        >
-                                        {{identity_type=='passport'?'Passport Country of issue':''}}
-                                        {{identity_type=='driviers-licence'?'Drivers License place of issue ':''}}
-                                        {{identity_type=='aus-visa'?'Australian Visa Expiry date':''}}
-                                        *</label>
+                                        <label v-if="form.identity_type=='passport'" for="checkin" class="filter-widget-sublabel">Passport Country of issue*</label>
+                                        <label v-if="form.identity_type=='driviers-licence'" for="checkin" class="filter-widget-sublabel">Drivers License place of issue*</label>
+                                        <label v-if="form.identity_type=='aus-visa'" for="checkin" class="filter-widget-sublabel">Australian Visa Expiry date*</label>
+                                        
                                         <input v-model="form.identity_issued_by" class="form-control flter-button"
                                                type="text"/>
                                         <span v-if="errorSpan('identity_issued_by')" class="error">{{errorSpan('identity_issued_by')}}</span>

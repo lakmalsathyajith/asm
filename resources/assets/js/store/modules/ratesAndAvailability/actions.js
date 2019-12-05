@@ -76,12 +76,14 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
         if (obj.BookingRangeAvailable && obj.BookingRangeAvailable == 'true') {
           if (obj.Areas.Area && obj.Areas.Area.length > 0) {
             obj.Areas.Area.forEach(function(area) {
+              let total = 0;
               if (
                 area.ChargeTypes &&
                 area.ChargeTypes.ChargeType &&
                 area.ChargeTypes.TotalPrice
               ) {
-                let total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
+                total = parseFloat(area.ChargeTypes.ChargeType.TotalPrice);
+              }
                 let id = area.AreaId;
 
                 if (payload.price_min == 'Any' && payload.price_max == 'Any') {
@@ -114,7 +116,7 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
                 } else {
                   ramRefIds.push({ id: id, price: total });
                 }
-              }
+              
             });
           }
         }
