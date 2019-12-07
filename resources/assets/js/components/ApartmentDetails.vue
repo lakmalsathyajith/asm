@@ -45,7 +45,7 @@
                         :style="{
                           backgroundImage: 'url(\'' + file.url + '\')'
                         }"
-                        @click="showSingle(file.url)"
+                        @click="showMultiple(selectedApartment.files, i)"
                       ></div>
                     </div>
                     <!-- Add Arrows -->
@@ -101,7 +101,12 @@
                     &#124;
                   </li>
                   <li class="list-inline-item apart-options inner-other">
-                    A$0 per week
+                    A${{
+                      selectedApartment && selectedApartment.price
+                        ? selectedApartment.price
+                        : '0'
+                    }}
+                    per week (Rate at 12 months)
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -120,7 +125,11 @@
               >
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                    {{ selectedApartment && selectedApartment.type && selectedApartment.type.name }}
+                    {{
+                      selectedApartment &&
+                        selectedApartment.type &&
+                        selectedApartment.type.name
+                    }}
                   </li>
                   <li
                     class="list-inline-item apart-options"
@@ -153,7 +162,12 @@
                     &#124;
                   </li>
                   <li class="list-inline-item apart-options inner-other">
-                    A$405 per week
+                    A${{
+                      selectedApartment && selectedApartment.price
+                        ? selectedApartment.price
+                        : '0'
+                    }}
+                    (Rate at 12 months)
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -177,13 +191,13 @@
                         >Check-In/Out</label
                       >
                       <HotelDatePicker
-                            format="DD/MM/YYYY"
-                            showYear="true"
-                            :starting-date-value="filter.checkIn"
-                            :ending-date-value="filter.checkOut"
-                            @check-in-changed="setCheckinDate"
-                            @check-out-changed="setCheckoutDate"
-                          ></HotelDatePicker>
+                        format="DD/MM/YYYY"
+                        :showYear="true"
+                        :starting-date-value="filter.checkIn"
+                        :ending-date-value="filter.checkOut"
+                        @check-in-changed="setCheckinDate"
+                        @check-out-changed="setCheckoutDate"
+                      ></HotelDatePicker>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -284,9 +298,15 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="checkin" class="filter-widget-sublabel"
-                        >Total Price</label
+                        >Per Week (Rate at 12 Months)</label
                       >
-                      <p class="amount">$0.00</p>
+                      <p class="amount">
+                        A${{
+                          selectedApartment && selectedApartment.price
+                            ? selectedApartment.price
+                            : '0'
+                        }}
+                      </p>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -322,13 +342,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <HotelDatePicker
-                            format="DD/MM/YYYY"
-                            showYear="true"
-                            :starting-date-value="filter.checkIn"
-                            :ending-date-value="filter.checkOut"
-                            @check-in-changed="setCheckinDate"
-                            @check-out-changed="setCheckoutDate"
-                          ></HotelDatePicker>
+                  format="DD/MM/YYYY"
+                  :showYear="true"
+                  :starting-date-value="filter.checkIn"
+                  :ending-date-value="filter.checkOut"
+                  @check-in-changed="setCheckinDate"
+                  @check-out-changed="setCheckoutDate"
+                ></HotelDatePicker>
               </div>
             </div>
           </div>
@@ -466,9 +486,9 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 export default {
   name: 'apartmentDetails',
   data() {
-    const today = new Date()
-    let tomorrow = new Date()
-    tomorrow.setDate(new Date().getDate()+1);
+    const today = new Date();
+    let tomorrow = new Date();
+    tomorrow.setDate(new Date().getDate() + 1);
 
     return {
       slide: 0,
@@ -478,17 +498,17 @@ export default {
         checkIn: today,
         checkOut: tomorrow,
         type: '',
-        adults: 0,
+        adults: 1,
         children: 0,
         price_min: 'Any',
         price_max: 'Any'
       },
-      imgs: '', // Img Url , string or Array
+      imgs: [], // Img Url , string or Array
       visible: false,
       index: 0 // default
     };
   },
-   created() {
+  created() {
     if (this.$route.query.start) {
       var from = this.$route.query.start;
       var fromdate = moment(from, 'YYYY-MM-DD').toDate();
@@ -567,7 +587,7 @@ export default {
     },
     onAdultsChange(e) {
       this.filter.adults = parseInt(e.target.value);
-      console.log(e);
+     
     },
     onChildrenChange(e) {
       this.filter.children = parseInt(e.target.value);
@@ -579,10 +599,13 @@ export default {
     setCheckoutDate(newDate) {
       this.filter.checkOut = newDate;
     },
-    showSingle(url) {
-      console.log(url);
-
-      this.imgs = url;
+    showMultiple(files, index) {
+      const vm =this;
+      vm.imgs = [];
+      files.forEach(function(file) {
+        vm.imgs.push(file.url);
+      });
+      this.index = index;
       this.show();
     },
     show() {

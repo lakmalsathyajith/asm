@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Contracts\RepoInterfaces\BookingInterface;
+use App\Entities\Booking;
 use App\Http\Controllers\AbstractController;
 
 class BookingController extends AbstractController
@@ -24,7 +25,7 @@ class BookingController extends AbstractController
     public function index()
     {
         $data['title'] = '';
-        $data['records'] = $this->activeRepo->all();
+        $data['records'] = Booking::orderBy('id', 'desc')->get();
         return view('admin.pages.booking.index', $data);
     }
 

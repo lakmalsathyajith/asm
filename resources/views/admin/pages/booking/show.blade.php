@@ -102,9 +102,9 @@
                             <div class="d-flex align-items-center border-bottom">
                                 <p class="d-flex flex-column">
                                     <span class="font-weight-bold">
-                                        Agent
+                                        Agent Code
                                     </span>
-                                    <span class="text-muted">{{ $record->user ? $record->user->name : 'NA' }}</span>
+                                    <span class="text-muted">{{ $record->agent }}</span>
                                 </p>
                             </div>
                         </div>
@@ -235,12 +235,27 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center border-bottom mb-3">
-                                        <img src="{{isset($occupant->identity)
-                                                    && isset($occupant->identity->files)
-                                                    && isset($occupant->identity->files->first()->url)
-                                                    ?  $occupant->identity->files->first()->url : "https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png"}}"
-                                             alt="..."
-                                             class="img-thumbnail">
+                                        @if(isset($occupant->identity)
+                                        && isset($occupant->identity->files)
+                                        && isset($occupant->identity->files->first()->url)
+                                        && strpos($occupant->identity->files->first()->url, 'jpeg') !== false
+                                        && strpos($occupant->identity->files->first()->url, 'jpg') !== false
+                                        && strpos($occupant->identity->files->first()->url, 'png') !== false)
+<img src="{{isset($occupant->identity)
+    && isset($occupant->identity->files)
+    && isset($occupant->identity->files->first()->url)
+    ?  $occupant->identity->files->first()->url : "https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png"}}"
+alt="..."
+class="img-thumbnail">
+                                        @else
+                                        <a href="{{isset($occupant->identity)
+                                            && isset($occupant->identity->files)
+                                            && isset($occupant->identity->files->first()->url)
+                                            ?  $occupant->identity->files->first()->url : "https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png"}}" target="_blank">
+                                        {{$occupant->identity->files->first()->name}}    
+                                        </a>
+                                        @endif
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-8">
@@ -252,7 +267,7 @@
                                                     Identity Type
                                                 </span>
                                                     <span class="text-muted">
-                                                    {{ $occupant->identity && $occupant->identity->identity_time ? $occupant->identity->identity_time : 'NA'}}
+                                                    {{ $occupant->identity && $occupant->identity->identity_type ? $occupant->identity->identity_type : 'NA'}}
                                                 </span>
                                                 </p>
                                             </div>

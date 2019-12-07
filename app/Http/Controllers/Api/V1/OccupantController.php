@@ -44,6 +44,7 @@ class OccupantController extends AbstractApiController
 
         try {
             DB::beginTransaction();
+            
             foreach ($requestData['occupants'] as $occupantData) {
                 $occupant = [
                     'booking_id'    => $requestData['booking_id'],
@@ -54,7 +55,7 @@ class OccupantController extends AbstractApiController
                     'is_primary'    => isset($occupantData['is_primary']) ? $occupantData['is_primary'] : null
                 ];
                 $occupant = $this->activeRepo->create($occupant);
-
+                
                 if ($occupant->type === $this->occupant->getTypes('adult')) {
                     $contact = [
                         'occupant_id'           => $occupant->id,
@@ -83,20 +84,21 @@ class OccupantController extends AbstractApiController
                             'kin_land_phone'        => isset($occupantData['kin_land_phone']) ? $occupantData['kin_land_phone'] : null,
                             'kin_mobile_phone'      => isset($occupantData['kin_mobile_phone']) ? $occupantData['kin_mobile_phone'] : null,
                         ];
-
+                        
                         if(!isset($occupantData['identity_file'])) {
                             throw new \Exception('No image reference found');
                         }
-
+                        
                         // check if the file exists
-                        $file = $this->activeRepo->get($occupantData['identity_file']);
+                        $file = $this->fileRepo->get($occupantData['identity_file']);
                         $file->is_temp = false;
                         $file->save();
-
+                        
                         $identity = $this->occupantIdentityRepo->create($identity);
                         $identity->files()->sync([$occupantData['identity_file']]);
                     }
                 }
+                
                 DB::commit();
             }
         } catch (\Exception $e) {

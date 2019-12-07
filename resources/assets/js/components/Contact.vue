@@ -129,6 +129,9 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
+                            <label for="checkin" class="filter-widget-sublabel">
+                              Select state*
+                            </label>
                             <div class="dropdown filter-widget">
                               <button
                                 class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-states"
@@ -160,6 +163,9 @@
                             </div>
                           </div>
                           <div class="form-group">
+                            <label for="checkin" class="filter-widget-sublabel">
+                              Select suburb*
+                            </label>
                             <div class="dropdown filter-widget">
                               <label
                                 for="checkin"
@@ -340,7 +346,7 @@
                             >
                              <HotelDatePicker
                             format="DD/MM/YYYY"
-                            showYear="true"
+                            :showYear="true"
                             :starting-date-value="contactData.checkIn"
                             :ending-date-value="contactData.checkOut"
                             @check-in-changed="setCheckinDate"

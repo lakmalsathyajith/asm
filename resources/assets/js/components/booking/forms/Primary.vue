@@ -17,21 +17,21 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">First Name*</label>
                                         <input v-model="form.first_name" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text" tabindex="1"/>
                                         <span v-if="errorSpan('first_name')" class="error">{{errorSpan('first_name')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Date of Birth*</label>
-                                        <datepicker v-model="form.date_of_birth" class="form-control flter-button"></datepicker>
+                                        <datepicker v-model="form.date_of_birth" class="form-control flter-button" tabindex="3"></datepicker>
                                         <span v-if="errorSpan('date_of_birth')" class="error">{{errorSpan('date_of_birth')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Telephone*</label>
-                                        <input v-model="form.land_phone" class="form-control flter-button" type="email"/>
+                                        <input v-model="form.land_phone" class="form-control flter-button" type="tel" tabindex="5"/>
                                         <span v-if="errorSpan('land_phone')" class="error">{{errorSpan('land_phone')}}</span>
                                     </div>
                                 </div>
@@ -40,14 +40,14 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Last Name*</label>
-                                        <input v-model="form.last_name" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.last_name" class="form-control flter-button" type="text" tabindex="2"/>
                                         <span v-if="errorSpan('last_name')" class="error">{{errorSpan('last_name')}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Email*</label>
-                                        <input v-model="form.email" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.email" class="form-control flter-button" type="text" tabindex="4"/>
                                         <span v-if="errorSpan('email')" class="error">{{errorSpan('email')}}</span>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Mobile*</label>
                                         <input v-model="form.mobile_phone" class="form-control flter-button" id="numbersonly"
-                                               type="text"
+                                               type="tel" tabindex="6"
                                         />
                                         <span v-if="errorSpan('mobile_phone')" class="error">{{errorSpan('mobile_phone')}}</span>
                                     </div>
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Usual / Personal Address*</label>
-                                        <input v-model="form.address" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.address" class="form-control flter-button" type="text" tabindex="7"/>
                                         <span v-if="errorSpan('address')" class="error">{{errorSpan('address')}}</span>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Place of Work whilst in Australia*</label>
-                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text" tabindex="8"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
                                             </div>
@@ -119,24 +119,24 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Department</label>
-                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text"/>
+                                                    <label for="checkin" class="filter-widget-sublabel">Department (Optional)</label>
+                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text"  tabindex="9"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work Phone Number</label>
-                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text"/>
+                                                    <label for="checkin" class="filter-widget-sublabel">Work Phone Number (Optional)</label>
+                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text"  tabindex="10"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Work Address</label>
-                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text"/>
+                                                    <label for="checkin" class="filter-widget-sublabel">Work Address (Optional)</label>
+                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text"  tabindex="11"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">Place of Study whilst in Australia*</label>
-                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text"/>
+                                                    <input v-model="form.emp_personal_address" class="form-control flter-button" type="text" tabindex="8"/>
                                                     <span v-if="errorSpan('emp_personal_address')" class="error">{{errorSpan('emp_personal_address')}}</span>
                                                 </div>
                                             </div>
@@ -161,8 +161,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">Student number</label>
-                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text"/>
+                                                    <label for="checkin" class="filter-widget-sublabel">Student number (Optional)</label>
+                                                    <input v-model="form.emp_department" class="form-control flter-button" type="text" tabindex="9"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,16 +170,16 @@
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
                                                     <label for="checkin" class="filter-widget-sublabel">School Phone
-                                                        Number</label>
-                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text"/>
+                                                        Number (Optional)</label>
+                                                    <input v-model="form.emp_phone" class="form-control flter-button" type="text" tabindex="10"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="dropdown filter-widget">
-                                                    <label for="checkin" class="filter-widget-sublabel">School Address</label>
-                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text"/>
+                                                    <label for="checkin" class="filter-widget-sublabel">School Address (Optional)</label>
+                                                    <input v-model="form.emp_address" class="form-control flter-button" type="text" tabindex="11"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -240,7 +240,7 @@
                                         <label v-if="form.identity_type=='aus-visa'" for="checkin" class="filter-widget-sublabel">Australian Visa Number*</label>
                                         
                                         <input v-model="form.identity_number" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text" tabindex="12"/>
                                         <span v-if="errorSpan('identity_number')" class="error">{{errorSpan('identity_number')}}</span>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                                         <label v-if="form.identity_type=='aus-visa'" for="checkin" class="filter-widget-sublabel">Australian Visa Expiry date*</label>
                                         
                                         <input v-model="form.identity_issued_by" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text" tabindex="13"/>
                                         <span v-if="errorSpan('identity_issued_by')" class="error">{{errorSpan('identity_issued_by')}}</span>
                                     </div>
                                 </div>
@@ -261,17 +261,20 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label v-if="form.identity_type=='passport'" for="checkin" class="filter-widget-sublabel">Attach Your Passport Copy*</label>
+                                        <label v-if="form.identity_type=='driviers-licence'" for="checkin" class="filter-widget-sublabel">Attach Your Drivers License copy*</label>
+                                        <label v-if="form.identity_type=='aus-visa'" for="checkin" class="filter-widget-sublabel">Attach Your Australian Visa Copy*</label>
                                     <div class="dropdown filter-widget">
                                         <label
                                                 for="checkin"
                                                 class="filter-widget-sublabel important-lable"
-                                        >(Max file size: 3MB - File accept: jpeg,
-                                            png)</label>
+                                        >(Max file size: 10MB - File accept: jpeg, jpg, png, doc, docx, pdf)</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" name="uploads" class="custom-file-input " id="file" @change="onFileChange">
+                                                <input type="file" name="uploads" class="custom-file-input " id="file" @change="onFileChange" tabindex="14" accept="image/*,.pdf,.docx,.doc">
                                                 <label class="custom-file-label" for="file">Select a file to upload</label>
                                             </div>
+                                            <span v-if="errorSpan('uploads')" class="error">{{errorSpan('uploads')}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -325,7 +328,7 @@
                                                 class="filter-widget-sublabel"
                                         >Name of Next of Kin*</label>
                                         <input v-model="form.next_of_kin" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text"  tabindex="15"/>
                                         <span v-if="errorSpan('next_of_kin')" class="error">{{errorSpan('next_of_kin')}}</span>
                                     </div>
                                 </div>
@@ -334,7 +337,7 @@
                                         <label for="checkin"
                                                class="filter-widget-sublabel">Telephone*</label>
                                         <input v-model="form.kin_land_phone" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text"  tabindex="17"/>
                                         <span v-if="errorSpan('kin_land_phone')" class="error">{{errorSpan('kin_land_phone')}}</span>
                                     </div>
                                 </div>
@@ -344,7 +347,7 @@
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Relationship to You*</label>
                                         <input v-model="form.kin_relationship" class="form-control flter-button"
-                                               type="text"/>
+                                               type="text" tabindex="16"/>
                                         <span v-if="errorSpan('kin_relationship')" class="error">{{errorSpan('kin_relationship')}}</span>
                                     </div>
                                 </div>
@@ -354,7 +357,7 @@
                                         <input v-model="form.kin_mobile_phone"
                                                 class="form-control flter-button"
                                                 id="numbersonly"
-                                                type="text"/>
+                                                type="text"  tabindex="18"/>
                                         <span v-if="errorSpan('kin_mobile_phone')" class="error">{{errorSpan('kin_mobile_phone')}}</span>
                                     </div>
                                 </div>
@@ -362,8 +365,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
-                                        <label for="checkin" class="filter-widget-sublabel">Email Address (NOT compulsory)</label>
-                                        <input v-model="form.kin_email" class="form-control flter-button" type="text"/>
+                                        <label for="checkin" class="filter-widget-sublabel">Email Address (Optional)</label>
+                                        <input v-model="form.kin_email" class="form-control flter-button" type="text"  tabindex="19"/>
                                     </div>
                                 </div>
                             </div>
@@ -371,7 +374,7 @@
                                 <div class="form-group">
                                     <div class="dropdown filter-widget">
                                         <label for="checkin" class="filter-widget-sublabel">Address*</label>
-                                        <input v-model="form.kin_address" class="form-control flter-button" type="text"/>
+                                        <input v-model="form.kin_address" class="form-control flter-button" type="text"  tabindex="20"/>
                                         <span v-if="errorSpan('kin_address')" class="error">{{errorSpan('kin_address')}}</span>
                                     </div>
                                 </div>
@@ -421,10 +424,10 @@
             };
         },
         mounted() {
-            console.log("Component mounted.");
+            
             $('.custom-file-input').on('change',function(){
                 const fileName = $(this).val().replace('C:\\fakepath\\', " ");
-                console.log(fileName);
+                
                 $(this).next('.custom-file-label').html(fileName);
             })
         },

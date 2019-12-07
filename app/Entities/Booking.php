@@ -21,7 +21,8 @@ class Booking extends Model
         'check_in',
         'check_out',
         'rent',
-        'status'
+        'status',
+        'agent'
     ];
 
     protected $bookingStatus = [

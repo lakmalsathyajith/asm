@@ -62,7 +62,6 @@ class ApartmentController extends AbstractApiController
         $data = $request->all();
         $rms_data = $data['rms_ids'];
         $area_ids = array_column($rms_data, 'id');
-        \Log::debug($area_ids);
 
         $query = $this->activeRepo
             ->with('contents')
@@ -83,8 +82,8 @@ class ApartmentController extends AbstractApiController
         $apartments = $query->whereIn('rms_key',  $area_ids)->get();
         $apartments_array = [];
         foreach($apartments as $apartment){
-            $element = array_search(strval($apartment->rms_key), array_column($rms_data, 'id'));
-            $apartment['price'] = $rms_data[$element]['price'];
+            // $element = array_search(strval($apartment->rms_key), array_column($rms_data, 'id'));
+            // $apartment['price'] = $rms_data[$element]['price'];
             $apartments_array[] = $apartment;
         }
         return $apartments_array;

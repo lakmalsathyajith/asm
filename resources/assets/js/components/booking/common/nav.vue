@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="full-row wizard-row">
+        <!-- <div class="full-row wizard-row">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 <script>
@@ -27,7 +27,7 @@
             };
         },
         mounted() {
-            console.log('Component mounted.',this.$attrs.id, this.navId)
+           
         }
     }
 </script>

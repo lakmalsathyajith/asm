@@ -12,7 +12,7 @@ class StoreFileApiRequest extends AbstractRequest
     {
 
         return [
-            'uploads'               => 'required|file|image|max:2048'
+            'uploads'               => 'required|file|mimes:jpeg,png,pdf,doc,docx|max:10480'
         ];
     }
 

@@ -20,6 +20,7 @@ class UpdateApartmentRequest extends AbstractRequest
             'bath_rooms'        => 'required|integer|max:99',
             'files'             => 'required',
             'options'           => 'required',
+            'price'           => 'required',
             'rms_key'           => "required|max:50",
             // 'rms_key'           => "required|max:50|unique:apartments,rms_key,{$this->route()->apartment},id",
         ];

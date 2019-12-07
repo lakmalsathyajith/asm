@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AbstractApiController;
 use App\Http\Requests\Booking\StoreBookingApiRequest;
 use App\Processors\Rms\PostBookingApiRequestProcessor;
 use App\Traits\HelperTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends AbstractApiController
@@ -17,8 +18,7 @@ class BookingController extends AbstractApiController
     function __construct(
         Booking $booking,
         BookingInterface $bookingRepoInstance
-    )
-    {
+    ) {
         $this->booking = $booking;
         $this->activeRepo = $bookingRepoInstance;
     }
@@ -32,13 +32,13 @@ class BookingController extends AbstractApiController
 
             //dd($where);
             //$data = $this->filter($where)
-                //->with('apartment')->toSql();
-               // ->with('occupants')
-               // ->with('occupants.contacts')
-               // ->with('occupants.identity')
-                //->firstOrFail();
+            //->with('apartment')->toSql();
+            // ->with('occupants')
+            // ->with('occupants.contacts')
+            // ->with('occupants.identity')
+            //->firstOrFail();
             $model = $this->activeRepo->getModel();
-            $data = $model->where('uuid','=',$id)
+            $data = $model->where('uuid', '=', $id)
                 ->with('apartment')
                 ->with('apartment.files')
                 ->with('apartment.type')
@@ -50,7 +50,8 @@ class BookingController extends AbstractApiController
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'record fetched successfully',
-                $data);
+                $data
+            );
         } catch (\Exception $e) {
             return $this->returnResponse();
         }
@@ -79,8 +80,8 @@ class BookingController extends AbstractApiController
                 $this->getResponseStatus('SUCCESS'),
                 'Error Occurred while creating the booking',
                 $data,
-                [$e->getMessage()]
-                ,200
+                [$e->getMessage()],
+                200
             );
         }
 
@@ -93,9 +94,11 @@ class BookingController extends AbstractApiController
         );
     }
 
-    public function update($id)
+    public function update($id, Request $request)
     {
         $data = null;
+        $inputs = $request->all();
+        $agent = $inputs['agent'];
         try {
             $where = [
                 ['key' => 'uuid', 'op' => '=', 'val' => $id]
@@ -107,32 +110,36 @@ class BookingController extends AbstractApiController
                 ->with('occupants.contacts')
                 ->with('occupants.identity')
                 ->firstOrFail();
+            $booking['agent'] = $agent;
 
             $processor = new PostBookingApiRequestProcessor();
             $processor->setCustomFields($booking->toArray());
             $processor->refreshOptions();
             $response = $this->makeRmsRequest($processor);
 
-            if(isset($response)
+            if (
+                isset($response)
                 && isset($response['Bookings'])
                 && isset($response['Bookings']['Booking'])
-                && isset($response['Bookings']['Booking']['BookingReference'])) {
+                && isset($response['Bookings']['Booking']['BookingReference'])
+            ) {
                 $booking->rms_reference = $response['Bookings']['Booking']['BookingReference'];
-                $booking->status = 'COMPLETE';
+                $booking->status = 'COMPLETED';
                 $booking->save();
             }
 
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'Booked successfully',
-                $response);
+                $response
+            );
         } catch (\Exception $e) {
             return $this->returnResponse(
                 $this->getResponseStatus('SUCCESS'),
                 'Error Occurred while updating the booking',
                 $data,
-                [$e->getMessage()]
-                ,200
+                [$e->getMessage()],
+                200
             );
         }
     }

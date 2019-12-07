@@ -27,7 +27,7 @@
                                     <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}" href="/apartment-listing">RATES & AVAILABILITY</a>
                                 </li>
                                 <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
-                                    <a class="nav-link" href="/typical-apartment">OUR TYPICAL APARTMENTS</a>
+                                    <a class="nav-link" href="/typical-apartment">OUR APARTMENTS</a>
                                 </li>
 
                                 <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
@@ -46,7 +46,7 @@
 
                             <ul class="navbar-nav right-nav ml-auto mr-3">
                                 <header-login></header-login>
-                                <span class="gap-01"></span>
+                                {{-- <span class="gap-01"></span>
                                 <li class="nav-item dropdown">
                                     <a class="right-link dropdown-toggle" href="http://example.com"
                                         id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -61,7 +61,7 @@
                                             </span> Mandarin</a>
 
                                     </div>
-                                </li>
+                                </li> --}}
 
                             </ul>
                         </div>
@@ -102,8 +102,7 @@
                                                                 AVAILABILITY</a>
                                                         </li>
                                                         <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
-                                                            <a class="nav-link" href="/typical-apartment">OUR TYPICAL
-                                                                APARTMENTS</a>
+                                                            <a class="nav-link" href="/typical-apartment">OUR APARTMENTS</a>
                                                         </li>
 
                                                         <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">

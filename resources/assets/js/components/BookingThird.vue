@@ -494,7 +494,7 @@
     export default {
         name: "booking-third",
         mounted() {
-            console.log('Component mounted.')
+            
         }
     }
 </script>

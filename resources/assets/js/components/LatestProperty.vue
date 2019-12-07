@@ -115,7 +115,7 @@
     export default {
         name: "latest-property",
         mounted() {
-            console.log('Component mounted.')
+            
         }
     }
 </script>

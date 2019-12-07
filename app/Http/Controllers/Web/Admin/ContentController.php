@@ -77,8 +77,8 @@ class ContentController extends AbstractController
 
         try {
             $data = [
-                'name' => $requestData['name'],
-                'slug' => $requestData['slug'],
+                'name' => $requestData['sub_type'],
+                'slug' => $requestData['sub_type'],
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
@@ -161,8 +161,8 @@ class ContentController extends AbstractController
 
         try {
             $data = [
-                'name' => $requestData['name'],
-                'slug' => $requestData['slug'],
+                'name' => $requestData['sub_type'],
+                'slug' => $requestData['sub_type'],
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],

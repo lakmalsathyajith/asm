@@ -73,7 +73,7 @@
 
         $('.custom-file-input').on('change',function(){
             const fileName = $(this).val().replace('C:\\fakepath\\', " ");
-            console.log(fileName);
+            
             $(this).next('.custom-file-label').html(fileName);
         })
 
@@ -84,7 +84,6 @@
             const appUrl = "{{env('APP_URL')}}";
             const token = $('#csrf-token').attr('content');
 
-            console.log(token);
 
             if(confirmed && segment && id) {
                 $.post( `${appUrl}/admin/${segment}/${id}`, {

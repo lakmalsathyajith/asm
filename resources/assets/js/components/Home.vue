@@ -60,7 +60,7 @@
                             <span class="slider-green-text">Bedding combinations to suit all individual needs</span>
                             We can mix and match any of the following:
                           </h1>
-                          <div class="banner-small-text-box">
+                          <!-- <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
                               <h3 class="sub-heading-white-normal">King size beds</h3>
                               <h4 class="sub-heading-01">
@@ -85,7 +85,7 @@
                                 <span class="bold-700">$965</span> per week
                               </h4>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -238,7 +238,7 @@
                         <div class="form-group">
                           <HotelDatePicker
                             format="DD/MM/YYYY"
-                            showYear="true"
+                            :showYear="true"
                             :starting-date-value="filter.checkIn"
                     :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"
@@ -382,7 +382,7 @@
                         <div class="form-group">
                           <HotelDatePicker
                             format="DD/MM/YYYY"
-                            showYear="true"
+                            :showYear="true"
                             :starting-date-value="filter.checkIn"
                             :ending-date-value="filter.checkOut"
                             @check-in-changed="setCheckinDate"
@@ -677,7 +677,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="main-heading">Our Typical Apartments</h2>
+            <h2 class="main-heading">Our Apartments</h2>
           </div>
         </div>
         <div class="row apartment-type-row">

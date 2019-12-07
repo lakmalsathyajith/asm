@@ -51,7 +51,7 @@ class ApartmentController extends AbstractController
     public function index()
     {
         $data['title'] = '';
-        $data['records'] = $this->activeRepo->all();
+        $data['records'] = Apartment::orderBy('id', 'desc')->get();
         return view('admin.pages.apartment.index', $data);
     }
 
@@ -101,8 +101,10 @@ class ApartmentController extends AbstractController
                 'beds' => $requestData['beds'],
                 'bath_rooms' => $requestData['bath_rooms'],
                 'rms_key' => $requestData['rms_key'],
+                'rms_apartment_id' => $requestData['rms_apartment_id'],
                 'state' => $requestData['state'],
-                'suburb' => $requestData['suburb']
+                'suburb' => $requestData['suburb'],
+                'price' => $requestData['price']
             ];
 
             $data = $this->activeRepo->create($data);
@@ -179,8 +181,10 @@ class ApartmentController extends AbstractController
                 'beds' => $requestData['beds'],
                 'bath_rooms' => $requestData['bath_rooms'],
                 'rms_key' => $requestData['rms_key'],
+                'rms_apartment_id' => $requestData['rms_apartment_id'],
                 'state' => $requestData['state'],
-                'suburb' => $requestData['suburb']
+                'suburb' => $requestData['suburb'],
+                'price' => $requestData['price']
             ];
 
             $apartment = $this->activeRepo->get($id);

@@ -1086,7 +1086,7 @@ import Datepicker from "vuejs-datepicker";
 export default {
   name: "BookingFirst",
   mounted() {
-    console.log("Component mounted.");
+    
   },
   methods: {
     nextStep() {

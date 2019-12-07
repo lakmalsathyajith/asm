@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Contracts\RepoInterfaces\UserInterface;
+use App\Entities\User;
 use App\Http\Controllers\AbstractController;
 use App\Http\Requests\User\StoreUserRequest;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class UserController extends AbstractController
     public function index()
     {
         $data['title'] = '';
-        $data['records'] = $this->activeRepo->all();
+        $data['records'] = User::orderBy('id', 'desc')->get();
         return view('admin.pages.user.index', $data);
     }
 

@@ -2,14 +2,14 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link brand-not-expand">
             
-             <img src="../images/main-logo.png" height="52px" alt="">
+             <img src="{{asset('images/main-logo.png')}}" height="52px" alt="">
         {{-- <span class="brand-text font-weight-light" style="text-align: center;">
             <h3 ctyle="color:#fff; ">ASM</h3>
         </span> --}}
     </a>
     <a href="#" class="brand-link brand-link-exapnd">
             
-            <img src="../images/asm-favicon.png" height="auto" alt="">
+            <img src="{{asset('images/asm-favicon.png')}}" height="auto" alt="">
        {{-- <span class="brand-text font-weight-light" style="text-align: center;">
            <h3 ctyle="color:#fff; ">ASM</h3>
        </span> --}}
@@ -19,7 +19,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../images/admin-icon.jpg"
+                <img src="{{asset('images/admin-icon.jpg')}}"
                      class="img-circle elevation-2"
                      alt="User Image">
             </div>
@@ -56,7 +56,7 @@
                                 <p>List</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{route('option.index')}}" class="nav-link">
                                     <i class="fas fa-medal"></i>
                                 <p>Facilities</p>
@@ -67,7 +67,7 @@
                                     <i class="fas fa-border-style"></i>
                                 <p>Type</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
                 {{-- <li class="nav-item">

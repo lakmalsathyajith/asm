@@ -614,7 +614,7 @@ import Swiper from 'swiper';
 export default {
   name: 'typicalApartment',
   mounted() {
-    console.log('Component mounted.');
+    
   },
   updated() {
     let swiper = new Swiper('.swiper-container', {

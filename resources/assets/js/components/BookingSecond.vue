@@ -500,7 +500,7 @@
 export default {
   name: "booking-second",
   mounted() {
-    console.log("Component mounted.");
+    
   },
   methods: {
     nextStep() {

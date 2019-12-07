@@ -22,9 +22,9 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-6 p-0 filter-left-border">
-                  <div class="form-group">
-                    <div class="dropdown filter-widget">
-                      <button
+                
+                    <div class="filter-widget">
+                      <!-- <button
                         class="btn dropdown-toggle location-svg-button before-svg flter-button filter-border-none-btn apartment-states"
                         type="button"
                         id="dropdownMenuButton"
@@ -33,51 +33,30 @@
                         aria-expanded="false"
                       >
                         <span>State</span>
-                      </button>
-                      <div
-                        class="dropdown-menu filter-widget-dropdown"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="filter-widget-inner filter-widget-inner-drop-list">
-                          <a
-                            v-for="(state, i) in states"
-                            v-bind:key="i"
-                            class="dropdown-item"
-                            href="#."
-                            v-on:click="selectState(state)"
-                          >{{state}}</a>
-                        </div>
-                      </div>
+                      </button> -->
+                      <v-select :options="states" 
+                            :clearable="false" 
+                            label="State"
+                             class="btn location-svg-button before-svg filter-border-none-btn"
+                             v-model="filter.state"
+                             @input="selectState(filter.state)"
+                             placeholder="Select State"
+                             ></v-select>
                     </div>
-                  </div>
+                  
                 </div>
                 <div class="col-md-6 p-0 filter-left-border">
                   <div class="form-group">
-                    <div class="dropdown filter-widget">
-                      <button
-                        class="btn dropdown-toggle location-svg-button before-svg flter-button filter-border-none-btn apartment-suburb"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <span>Suburb</span>
-                      </button>
-                      <div
-                        class="dropdown-menu filter-widget-dropdown"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="filter-widget-inner filter-widget-inner-drop-list">
-                          <a
-                            v-for="(suburb, i) in suburbs"
-                            v-bind:key="i"
-                            class="dropdown-item"
-                            href="#."
-                            v-on:click="selectSuburb(suburb)"
-                          >{{suburb}}</a>
-                        </div>
-                      </div>
+                    <div class="filter-widget">
+                       <v-select :options="suburbs" 
+                            :clearable="false" 
+                            label="Suburb"
+                             class="btn location-svg-button before-svg filter-border-none-btn"
+                             v-model="filter.suburbs"
+                             placeholder="Select Suburb"
+                             ></v-select>
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -131,7 +110,7 @@
                 <div class="form-group">
                   <HotelDatePicker
                     format="DD/MM/YYYY"
-                    showYear="true"
+                    :showYear="true"
                     :starting-date-value="filter.checkIn"
                     :ending-date-value="filter.checkOut"
                     @check-in-changed="setCheckinDate"
@@ -406,64 +385,41 @@
                 <div class="row">
                   <div class="col-6 separate-col">
                     <div class="form-group">
-                      <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">State</label>
-                        <button
-                          class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-states"
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <span>State</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                        >
-                          <div class="filter-widget-inner filter-widget-inner-drop-list">
-                            <a
-                              v-for="(state, i) in states"
-                              v-bind:key="i"
-                              class="dropdown-item"
-                              href="#."
-                              v-on:click="selectState(state)"
-                            >{{state}}</a>
-                          </div>
-                        </div>
-                      </div>
+                     <div class="filter-widget">
+                      <!-- <button
+                        class="btn dropdown-toggle location-svg-button before-svg flter-button filter-border-none-btn apartment-states"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <span>State</span>
+                      </button> -->
+                      <v-select :options="states" 
+                            :clearable="false" 
+                            label="State"
+                             class="btn location-svg-button before-svg filter-border-none-btn"
+                             v-model="filter.state"
+                             @input="selectState(filter.state)"
+                             placeholder="Select State"
+                             ></v-select>
+                    </div>
                     </div>
                   </div>
                   <div class="col-6 separate-col">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Suburb</label>
-                        <button
-                          class="btn dropdown-toggle location-svg-button before-svg flter-button apartment-suburb"
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <span>Suburb</span>
-                        </button>
-                        <div
-                          class="dropdown-menu filter-widget-dropdown"
-                          aria-labelledby="dropdownMenuButton"
-                        >
-                          <div class="filter-widget-inner filter-widget-inner-drop-list">
-                            <a
-                              v-for="(suburb, i) in suburbs"
-                              v-bind:key="i"
-                              class="dropdown-item"
-                              href="#."
-                              v-on:click="selectSuburb(suburb)"
-                            >{{suburb}}</a>
-                          </div>
-                        </div>
-                      </div>
+                       <v-select :options="suburbs" 
+                            :clearable="false" 
+                            label="Suburb"
+                             class="btn location-svg-button before-svg filter-border-none-btn"
+                             v-model="filter.suburbs"
+                             placeholder="Select Suburb"
+                             ></v-select>
+                      
+                      
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -516,7 +472,7 @@
 
                       <HotelDatePicker
                     format="DD/MM/YYYY"
-                    showYear="true"
+                    :showYear="true"
                     :starting-date-value="filter.checkIn"
                             :ending-date-value="filter.checkOut"
                     @check-in-changed="setCheckinDate"
@@ -726,13 +682,13 @@
         <div class="mobile-filter-top-wrap">
           <div class="container">
             <div class="row">
-              <div class="col-8 p-0 filter-right-border">
+              <!-- <div class="col-8 p-0 filter-right-border">
                 <div class="form-group has-search">
                   <span class="fa fa-search form-control-feedback"></span>
                   <input type="text" class="form-control" placeholder="Search" />
                 </div>
-              </div>
-              <div class="col-4 p-0">
+              </div> -->
+              <div class="col-12 p-0">
                 <div class="form-group">
                   <div class="dropdown filter-widget">
                     <button
@@ -774,7 +730,7 @@
 
           <div class="row">
             <div class="col-12 p-0">
-              <div class="mobile-sort-wrap">
+              <!-- <div class="mobile-sort-wrap">
                 <ul class="list-inline">
                   <li class="list-inline-item your-entry">Sort by</li>
                   <li class="list-inline-item">
@@ -796,7 +752,7 @@
                     </div>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -827,7 +783,7 @@
           <div class="sorting-top-wrap modile-hide">
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group form-inline order-select modile-hide">
+                <!-- <div class="form-group form-inline order-select modile-hide">
                   <ul class="list-inline">
                     <li class="list-inline-item your-entry">Sort by</li>
                     <li class="list-inline-item">
@@ -852,7 +808,7 @@
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
               <div class="col-md-6">
                 <div class="pagination-listing-wrap">
@@ -1111,7 +1067,7 @@ export default {
     if (this.$route.query.type) {
         this.filter.type = this.$route.query.type;
         let text = $(".apartment-type-wrap .dropdown-item." + this.$route.query.type).text();
-        console.log(text);
+     
         $(".apartment-type").html("<span>" + text + "</span>");
     }
     if (this.$route.query.adults) {
@@ -1170,7 +1126,6 @@ export default {
     },
     selectState(state) {
       this.filter.state = state;
-      $(".apartment-states").html("<span>" + state + "</span>");
       Vue.axios
         .get("/get-suburb?state=" + state)
         .then(res => {
@@ -1200,7 +1155,7 @@ export default {
       if (this.filter.state !== "" && this.filter.suburb !== "") {
         this.searchText = this.filter.state + " - " + this.filter.suburb;
       } else if (this.filter.type !== "") {
-        let text = $(".dropdown-item." + this.filter.type).text();
+        let text = $(".apartment-type-wrap .dropdown-item." + this.filter.type).text();
         this.searchText = text;
       }
       this.getFilteredApartments(this.filter);

@@ -505,7 +505,7 @@
 export default {
   name: "about",
   mounted() {
-    console.log("Component mounted.");
+    
   }
 };
 </script>

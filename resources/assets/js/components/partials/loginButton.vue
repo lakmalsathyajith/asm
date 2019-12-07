@@ -1,7 +1,9 @@
 <template>
     <li class="nav-item">
+        <a v-if="loginResponse.data && loginResponse.data.name" class="logged-user"
+           >Hi, {{loginResponse.data.name}}</a>
         <a v-if="loginResponse.data && loginResponse.data.name" class="trans-btn blue-border-btn"
-           >Hi {{loginResponse.data.name}}</a>
+           @click="logOut">Logout</a>
         <a v-else class="trans-btn blue-border-btn" href="#" data-toggle="modal"
            data-target="#agent-modal">Agent Login</a>
 
@@ -26,7 +28,10 @@
             requestLogin(){
                 this.login(this.loginData);
             },
-            ...mapActions("login", ["login", "getUser"])
+            logOut(){
+                this.logout();
+            },
+            ...mapActions("login", ["login","logout", "getUser"])
         },
         computed: {
             ...mapState(["isLoading"]),

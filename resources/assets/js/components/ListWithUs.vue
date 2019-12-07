@@ -172,7 +172,7 @@
 export default {
   name: "listWithUs",
   mounted() {
-    console.log("Component mounted.");
+    
   }
 };
 </script>

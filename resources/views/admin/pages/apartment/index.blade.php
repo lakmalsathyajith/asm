@@ -26,7 +26,9 @@
                                 <th scope="col">Address</th>
                                 <th scope="col">Parking</th>
                                 <th scope="col">Beds</th>
-                                <th scope="col">RMS Key</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Apartment<br>Type ID</th>
+                                <th scope="col">Apartment<br>ID</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>
                             </tr>
@@ -40,6 +42,8 @@
                                     <td>{{ $record->address }}</td>
                                     <td>{{ $record->parking_slots }}</td>
                                     <td>{{ $record->beds }}</td>
+                                    <td>{{ $record->price }}</td>
+                                    <td>{{ $record->rms_apartment_id }}</td>
                                     <td>{{ $record->rms_key }}</td>
                                     <td>{{ $record->created_at }}</td>
                                     <td>

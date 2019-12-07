@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Occupant extends Model
 {
     use SoftDeletes;
+    protected $table = 'occupants';
 
     protected $fillable = [
         'booking_id',

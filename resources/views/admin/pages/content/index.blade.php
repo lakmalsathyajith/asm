@@ -21,8 +21,6 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Slug</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>

@@ -18,45 +18,6 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-form-label ">{{ __('Name') }}</label>
-                <input id="name"
-                       type="text"
-                       class="form-control{{ $errors && $errors->has('name') ? ' is-invalid' : '' }}"
-                       name="name"
-                       value="{{ isset($record) && $record->name ? $record->name : old('name') }}"
-                       required
-                       autofocus>
-
-                @if ($errors && $errors->has('name'))
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('name') }}</strong>
-                </span>
-                @endif
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="slug" class="col-form-label">{{ __('Slug') }}</label>
-                <input id="slug"
-                       type="text"
-                       class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}"
-                       name="slug"
-                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}"
-                       required
-                       autofocus>
-
-                @if ($errors && $errors->has('slug'))
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('slug') }}</strong>
-                </span>
-                @endif
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
                 <label for="type" class="col-form-label">{{ __('Type') }}</label>
                 <select
                         id="type"

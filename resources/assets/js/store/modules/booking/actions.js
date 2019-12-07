@@ -89,11 +89,15 @@ export const updateOccupants = ({commit, dispatch}, payload) => {
             delete payload.uuid;
             let errorArr = Object.keys(res.data.errors);
             if(!errorArr.length>0){
-                window.location = "/booking/" + bookingId + "/step-two";
+                let params = {
+                    bookingId: bookingId,
+                    agent: payload.agent
+                };
+                dispatch('rmsBooking', params);
+                // window.location = "/booking/" + bookingId + "/step-two";
             }else{
                 commit(ERRORS, res.data.errors);
             }
-            isLoading(dispatch, false)
         })
         .catch(err => {
             console.log('---err----', err);
@@ -110,7 +114,7 @@ export const updateOccupants = ({commit, dispatch}, payload) => {
 export const rmsBooking = ({commit, dispatch}, payload) => {
     isLoading(dispatch, true)
     Vue.axios
-        .put('/booking/'+payload, {})
+        .put('/booking/'+payload.bookingId, {'agent': payload.agent})
         .then(res => {
             if(!res.data.errors.length>0){
                 commit(BOOKING_CONFIRMATION, true)

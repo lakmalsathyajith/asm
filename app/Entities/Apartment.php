@@ -17,9 +17,11 @@ class Apartment extends Model
         'parking_slots',
         'bath_rooms',
         'beds',
+        'price',
         'rms_key',
         'suburb',
-        'state'
+        'state',
+        'rms_apartment_id'
     ];
 
     public function contents()

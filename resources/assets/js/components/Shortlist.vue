@@ -357,7 +357,7 @@
 export default {
   name: "shortlist",
   mounted() {
-    console.log("Component mounted.");
+    
   }
 };
 </script>

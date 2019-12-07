@@ -234,7 +234,7 @@
             };
         },
         mounted() {
-            console.log("Component mounted.", this.$attrs.formId);
+           
         },
         methods: {
             updateBooking() {

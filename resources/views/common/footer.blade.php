@@ -43,8 +43,7 @@
                                 <div class="widget-icon"><img src="{{asset('images/maps-and-flags.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <a href="https://goo.gl/maps/w61whHKLkMBjfc1f7" target="_blank">K113/63 Turner St,
-                                        Port Melbourne VIC 3207 Australia.</a>
+                                    <a href="https://goo.gl/maps/w61whHKLkMBjfc1f7" target="_blank">10 St Andrews Place East Melbourne, 3002 Australia.</a>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +61,8 @@
                                 <div class="widget-icon"><img src="{{asset('images/call-answer.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <span> <a href="tel:1300 267 767">1300 267 767 </a>/<a href="tel:1300 267 767">+61 3
-                                            9279 7200</a></span>
+                                    <span> Phone<br><a href="tel:03 9242 0468">03 9242 0468 </a>&nbsp;<a href="tel:+61 3 9242 0468">(int.+61 3 9242 0468)</a></span>
+                                    <span> Mobile<br><a href="tel:0405 780 780">0405 780 780 </a>&nbsp;<a href="tel:+61 405 780 780">(int.+61 405 780 780)</a></span>
                                 </div>
                             </div>
                         </div>
@@ -84,8 +83,8 @@
                                         src="{{asset('images/black-back-closed-envelope-shape.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <a href="mailto:info@apartmentstays.com.au"
-                                        target="_top">info@apartmentstays.com.au</a>
+                                    <a href="mailto:reservations@asmelb.com.au"
+                                        target="_top">reservations@asmelb.com.au</a>
                                 </div>
                             </div>
 
@@ -140,9 +139,9 @@
     </div>
 </footer>
 
-<script src="{{ asset('js/app.js?v=1.7') }}"></script>
+<script src="{{ asset('js/app.js?v=1.9') }}"></script>
 <script src="//unpkg.com/swiper/js/swiper.min.js"></script>
-<script src="{{asset('js/script.js?v=1.7')}}"></script>
+<script src="{{asset('js/script.js?v=1.9')}}"></script>
 <script href="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
 
 <script>

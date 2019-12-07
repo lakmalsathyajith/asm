@@ -58,11 +58,11 @@
 
             <div class="bottom-rent-details-wrap">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="rent-wrap short-description">Rent</div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="rent-wrap-detail pull-right">${{selectedBooking.rent}} per week</div>
+                    <div class="col-md-9">
+                        <div class="rent-wrap-detail pull-right">A${{selectedBooking && selectedBooking.apartment && selectedBooking.apartment.price?selectedBooking.apartment.price:'0'}} <sup>PW</sup> (Rate at 12 Months)</div>
                     </div>
                     <div class="col-md-6">
                         <div class="days-wrap short-description">Total Days</div>
@@ -70,12 +70,12 @@
                     <div class="col-md-6">
                         <div class="days-wrap-detail pull-right">{{dateDiff}} Days</div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="total-wrap">Total</div>
+                    <!-- <div class="col-md-6">
+                        <div class="total-wrap">Per Week (12 Months)</div>
                     </div>
                     <div class="col-md-6">
-                        <div class="total-wrap-detail pull-right">$0</div>
-                    </div>
+                        <div class="total-wrap-detail pull-right">A$0</div>
+                    </div> -->
                 </div>
             </div>
         </div>
