@@ -168,6 +168,7 @@ export default {
       let agent = 0;
       if (this.loginResponse && this.loginResponse.data) {
         agent = this.loginResponse.data;
+      }
       let params = {
         uuid: this.$attrs.id,
         booking_id: this.selectedBooking.id,
