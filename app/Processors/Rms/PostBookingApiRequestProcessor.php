@@ -59,7 +59,7 @@ class PostBookingApiRequestProcessor extends AbstractAPiRequestProcessor
                         //                        'ETA' => "14:01",
                     ],
                     'Remarks' => [
-                        'Remark' => !isset($customFields['agent']) || $customFields['agent']=='0' || $customFields['agent']==0?'Added by Guest User':'Added by Agent: '.$customFields['agent']
+                        'Remark' => !isset($customFields['agent']) || $customFields['agent']=='0' || $customFields['agent']==0?'Added by Guest User':'Added by Agent: '.$customFields['agent']['name'].' ['.$customFields['agent']['code'].']'
                     ]
                 ]
             ], 

@@ -110,10 +110,11 @@ class BookingController extends AbstractApiController
                 ->with('occupants.contacts')
                 ->with('occupants.identity')
                 ->firstOrFail();
-            $booking['agent'] = $agent;
 
+            $rms_array = $booking->toArray();
+            $rms_array['agent'] = $agent;
             $processor = new PostBookingApiRequestProcessor();
-            $processor->setCustomFields($booking->toArray());
+            $processor->setCustomFields($rms_array);
             $processor->refreshOptions();
             $response = $this->makeRmsRequest($processor);
 
@@ -125,6 +126,9 @@ class BookingController extends AbstractApiController
             ) {
                 $booking->rms_reference = $response['Bookings']['Booking']['BookingReference'];
                 $booking->status = 'COMPLETED';
+                if(isset($agent) && $agent!==0 && $agent !== '0'){
+                    $booking->user_id = $agent['id'];
+                }
                 $booking->save();
             }
 

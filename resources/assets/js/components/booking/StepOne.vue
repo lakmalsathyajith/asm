@@ -165,15 +165,14 @@ export default {
   },
   methods: {
     nextStep() {
-      let agent_code = 0;
-      if (this.loginResponse && this.loginResponse.data && this.loginResponse.data.code) {
-        agent_code = this.loginResponse.data.code;
-      }
+      let agent = 0;
+      if (this.loginResponse && this.loginResponse.data) {
+        agent = this.loginResponse.data;
       let params = {
         uuid: this.$attrs.id,
         booking_id: this.selectedBooking.id,
         occupants: this.bookingData,
-        agent: agent_code
+        agent: agent
       };
       if (this.allFormsFilled) {
         this.updateOccupants(params);
