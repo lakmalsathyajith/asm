@@ -54,7 +54,7 @@
                         <div class="inner">
                           <h3>{{$agents}}</h3>
           
-                          <p>Users</p>
+                          <p>Agents</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-person-add"></i>

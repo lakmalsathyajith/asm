@@ -34,10 +34,10 @@
             </div>
             <div class="sub-head-stud-apart">
               <p class="paraf">
-                Our Furnished One Bedroom Apartments are located across
-                Melbourne’s CBD, East Melbourne, South Yarra and Carlton.
-                <br />Typically furnished one bedroom apartments range from 45 square
-                meters to 65 square meters in size
+                Our Furnished One Bedroom Apartments are located across Melbourne’s CBD, East Melbourne, South Yarra and Carlton.
+              </p>
+              <p class="paraf">
+                Typically furnished one bedroom apartments range from 45 square meters to 65 square meters in size.
               </p>
             </div>
           </div>
@@ -84,7 +84,7 @@
         <div class="container">
           <div class="row">
             <div class="available-head modile-hide">
-              <h2 class="main-heading">Check the availability of Studio Apartments</h2>
+              <h2 class="main-heading">Check the availability of One Bedroom Apartments</h2>
             </div>
           </div>
           <div class="row">
@@ -301,7 +301,7 @@
                         <li>Laundry facilities</li>
                         <li>Unlimited Wi-Fi (extra charge)</li>
                         <li>
-                          • Optional housekeeping service available, weekly,
+                          Optional housekeeping service available, weekly,
                           fortnightly or monthly (extra charge)
                         </li>
                       </ul>

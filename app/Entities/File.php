@@ -27,4 +27,9 @@ class File extends Model
 
          return ($count > 0);
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Entities\User');
+    }
 }

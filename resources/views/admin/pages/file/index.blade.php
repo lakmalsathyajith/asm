@@ -57,7 +57,6 @@
                                             <th scope="col">User</th>
                                             <th scope="col">Extension</th>
                                             <th scope="col">Mime</th>
-                                            <th scope="col">Is Temp</th>
                                             <th scope="col">Created At</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -67,11 +66,10 @@
                                             <tr id="file_{{ $record->id }}">
                                                 <th scope="row">{{ $record->id }}</th>
                                                 <td>{{ $record->name }}</td>
-                                                <td>{{ $record->user_id }}</td>
+                                                <td>{{ $record->user?$record->user->name:'-' }}</td>
                                                 <td>{{ $record->extension }}</td>
                                                 <td>{{ $record->mime }}</td>
-                                                <td>{{ $record->is_temp ? 'Yes' : 'No' }}</td>
-                                                <td>{{ $record->created_at }}</td>
+                                                <td>{{ $record->created_at?$record->created_at->diffForHumans():'-' }}</td>
                                                 <td>
                                                     <div class="float-right">
                                                         <a href="#">

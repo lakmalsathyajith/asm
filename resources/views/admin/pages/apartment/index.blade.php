@@ -45,7 +45,7 @@
                                     <td>{{ $record->price }}</td>
                                     <td>{{ $record->rms_apartment_id }}</td>
                                     <td>{{ $record->rms_key }}</td>
-                                    <td>{{ $record->created_at }}</td>
+                                    <td>{{ $record->created_at?$record->created_at->diffForHumans():'-' }}</td>
                                     <td>
                                         <div class="float-right">
                                             <a href="{{ route('apartment.edit', ['apartment' => $record->id]) }}">

@@ -25,7 +25,7 @@ class BookingController extends AbstractController
     public function index()
     {
         $data['title'] = '';
-        $data['records'] = Booking::orderBy('id', 'desc')->get();
+        $data['records'] = Booking::orderBy('id', 'desc')->where('status','COMPLETED')->get();
         return view('admin.pages.booking.index', $data);
     }
 

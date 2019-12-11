@@ -594,22 +594,24 @@
                 <div class="welcome-para1">
                   <p
                     class="paraf"
-                  >We offer quality fully furnished, centrally located, secure and affordable apartments for medium or long term stays in Melbourne.</p>
-                </div>
+                  >We offer quality fully furnished, centrally located, secure and affordable apartments for
+medium or long term stays in Melbourne.</p></div>
                 <div class="welcome-para2">
                   <p
                     class="paraf"
-                  >Our apartments are at least 50% larger compared to serviced apartments and hotels and offer residential and corporate living solutions with weekly savings of hundreds of dollars compared to serviced apartments and hotels.</p>
+                  >Our apartments are at least 50% larger compared to serviced apartments and hotels and
+offer residential and corporate living solutions with weekly savings of hundreds of dollars.</p>
+                  <p
+                    class="paraf"
+                  >For the discerning international student who is seeking style and space our apartments offer everything a student apartment doesn’t. Our apartments are two to three times larger than a typical student apartment, stylishly appointed with everything you will need to make you feel like you have never left home.</p>
                 </div>
                 <div class="welcome-para3">
                   <div class="expand-para collapse" id="para-expand">
                     <p
                       class="paraf"
-                    >For the discerning international student who is seeking style and space our apartments offer everything a student apartment doesn’t. Our apartments are two to three times larger than a typical student apartment, stylishly appointed with everything you will need to make you feel like you have never left home.</p>
-                    <p
-                      class="paraf"
-                    >For the discerning international student who is seeking style Our apartments are situated in the lively CBD and dynamic suburbs of South Yarra and Richmond.</p>
-                    <p
+                    >Our apartments are situated in the lively CBD and dynamic suburbs of South Yarra and Richmond.</p>
+                    
+                      <p
                       class="paraf"
                     >All of the apartments are within 200 metres of a tram and or train stop and in close proximity to other public transport, a range of major shopping precincts and multiple dining and entertainment choices in the pulsating heart of Melbourne’s cosmopolitan districts.</p>
                     <p
@@ -691,7 +693,7 @@
                 </div>
                 <div class="apartment-text text-center">
                   <h3 class="sub-heading home-apart-type-head">Studio Apartments</h3>
-                  <p class="paraf">Starting from $620pw</p>
+                  <p class="paraf">Starting from $620</p>
                 </div>
               </a>
             </div>
@@ -705,7 +707,7 @@
                 </div>
                 <div class="apartment-text text-center">
                   <h3 class="sub-heading home-apart-type-head">One Bedroom Apartments</h3>
-                  <p class="paraf">Starting from $699pw</p>
+                  <p class="paraf">Starting from $699</p>
                 </div>
               </a>
             </div>
@@ -719,7 +721,7 @@
                 </div>
                 <div class="apartment-text text-center">
                   <h3 class="sub-heading home-apart-type-head">Two Bedroom Apartments</h3>
-                  <p class="paraf">Starting from $965pw</p>
+                  <p class="paraf">Starting from $965</p>
                 </div>
               </a>
             </div>
@@ -1096,7 +1098,8 @@
                   </div>
                 </div>
 
-                <div class="carousel-item">
+              
+                <!-- <div class="carousel-item">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="person-content-box text-center">
@@ -1115,49 +1118,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="person-content-box text-center">
-                        <div class="person-img">
-                          <img src="images/Group 1396.svg" />
-                        </div>
-                        <div class="person-content">
-                          <h5 class="paraf">Julie</h5>
-                          <p
-                            class="paraf-small"
-                          >reat location, convenient and very easy to check in. We're happy with the amenities and communication. The furniture was so nice and we loved the huge TV. Internet was superfast. The kitchen had more than what we expected. We both enjoy our stay in Melbourne! We would love to come back again.</p>
-                          <hr class="typcl-hr" />
-                          <p class="paraf-small paraf-smallest">20 January</p>
-                          <p class="paraf-small paraf-smallest">404/65 Elizabeth Street, Melbourne</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="person-content-box text-center">
-                        <div class="person-img">
-                          <img src="images/Group 1396.svg" />
-                        </div>
-                        <div class="person-content">
-                          <h5 class="paraf">Julie</h5>
-                          <p
-                            class="paraf-small"
-                          >reat location, convenient and very easy to check in. We're happy with the amenities and communication. The furniture was so nice and we loved the huge TV. Internet was superfast. The kitchen had more than what we expected. We both enjoy our stay in Melbourne! We would love to come back again.</p>
-                          <hr class="typcl-hr" />
-                          <p class="paraf-small paraf-smallest">20 January</p>
-                          <p class="paraf-small paraf-smallest">404/65 Elizabeth Street, Melbourne</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
 
               <a

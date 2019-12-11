@@ -34,10 +34,10 @@
             </div>
             <div class="sub-head-stud-apart">
               <P class="paraf"
-                >Our Furnished Two Bedroom Apartments are located across
-                Melbourne’s CBD, East Melbourne, South Yarra and Carlton.
-                <br />Typically furnished two bedroom apartments range from 60
-                square meters to 80 square meters in size.</P
+                >Our Furnished Two Bedroom Apartments are located across Melbourne’s CBD, East Melbourne, South Yarra and Carlton.</P
+              >
+              <P class="paraf"
+                >Typically furnished two bedroom apartments range from 60 square meters to 80 square meters in size.</P
               >
             </div>
           </div>
@@ -73,7 +73,7 @@
           <div class="row">
             <div class="available-head modile-hide">
               <h2 class="main-heading">
-                Check the availability of Studio Apartments
+                Check the availability of Two Bedroom Apartments
               </h2>
               <!-- <h3>Check the availability of Studio Apartments</h3> -->
             </div>
@@ -283,16 +283,16 @@
                       <ul>
                         <li>Fully furnished</li>
                         <li>All utilities connection and usage charges</li>
-                        <li>Fully equipped modern kitchen / kitchenette</li>
                         <li>All homewares</li>
-                        <li>Fully equipped modern kitchen</li>
+                        
                         <li>Fully equipped modern kitchen</li>
                         <li>Linen and towels</li>
+                        <li>Widescreen LCD television</li>
                         <li>Heating</li>
                         <li>Air-conditioning (in most cases)</li>
                         <li>Ensuite bathroom</li>
                         <li>Laundry facilities</li>
-                        <li>Unlimited -Fi (extra charge)</li>
+                        <li>Unlimited Wi-Fi (extra charge)</li>
                         <li>
                           Optional housekeeping service available,<br />
                           weekly, fortnightly or monthly (extra charge)

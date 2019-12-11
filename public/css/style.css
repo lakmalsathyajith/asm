@@ -3069,6 +3069,15 @@ section.top-search-wrap .dropdown.filter-widget button {
 .faq-table-list-none ul{
 padding-left: 10px !important;
 }
+.ordered-list-wrap ol li{
+  color: #525252;
+  line-height: 27px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 0px !important;
+}
 .faq-table-list-none ul li{
   list-style-type: none !important;
   

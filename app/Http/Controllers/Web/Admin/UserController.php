@@ -91,4 +91,27 @@ class UserController extends AbstractController
         $data['record'] = $record;
         return view('admin.pages.booking.show', $data);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return string
+     */
+    public function destroy($id)
+    {
+        $error = [];
+        try {
+            return parent::destroy($id);
+        } catch (\Exception $e) {
+            $error['message'] = $e->getMessage();
+        }
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'Something went wrong',
+            null,
+            [$error],
+            200
+        );
+    }
 }

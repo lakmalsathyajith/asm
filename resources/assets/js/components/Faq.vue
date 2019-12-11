@@ -113,21 +113,36 @@
                           <div class="filter-widget-inner filter-widget-inner-drop-list">
                             <a
                               class="dropdown-item studio-apartments"
-                              href="#.."
+                              href="#nav-home"
+                              data-toggle="tab"
                             >Reservation Process</a>
-                            <a class="dropdown-item one-bed-room-apartments" href="#..">Payment</a>
+                            <a class="dropdown-item one-bed-room-apartments" data-toggle="tab" href="#nav-payment">Payment</a>
                             <a
                               class="dropdown-item two-bed-room-apartments"
-                              href="#.."
-                            >Apartment Inclusions</a>
-                            <a
-                              class="dropdown-item two-bed-room-apartments"
-                              href="#.."
+                              href="#nav-apart"
+                              data-toggle="tab"
                             >Check In/Out Information</a>
                             <a
                               class="dropdown-item two-bed-room-apartments"
-                              href="#.."
-                            >Other FAQ questions</a>
+                              href="#nav-Security"
+                              data-toggle="tab"
+                            >Safety And Security</a>
+                            <a
+                              class="dropdown-item two-bed-room-apartments"
+                               href="#nav-include"
+                               data-toggle="tab"
+                            >What Is Included</a>
+                            <a
+                              class="dropdown-item two-bed-room-apartments"
+                                href="#nav-policy"
+                                data-toggle="tab"
+                            >Cancelation</a>
+                            <a
+                              class="dropdown-item two-bed-room-apartments"
+                               href="#nav-questions"
+                               data-toggle="tab"
+                            >Genaral Information / Questions</a>
+                            
                           </div>
                         </div>
                       </div>
@@ -1179,6 +1194,36 @@
                           </div>
                         </div>
                       </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a
+                              class="accordion-toggle faq-content-head"
+                              data-toggle="collapse"
+                              data-parent="#accordion"
+                              href="#collapse13"
+                            >What if I don’t agree with the claim for damages or missing items you are making?</a>
+                            <i class="indicator ti-angle-down pull-right"></i>
+                          </h4>
+                        </div>
+                        <div id="collapse13" class="panel-collapse collapse">
+                          <div class="panel-body faq-content-desciption">
+                            <p
+                              class="paraf-small"
+                            >A very detailed condition report is completed before your arrival, together with over 150 colour photographs, documenting the condition of your apartment upon your arrival. You will receive a copy of this report and have three days from your check in to check and sign the document and return to us.</p>
+                            <p
+                              class="paraf-small"
+                            >If there is something you don’t agree with in the report or wish to add something, you may do so</p>
+                            <p
+                              class="paraf-small"
+                            >If you do not return the condition report within three days, then our version given to you, is filed and becomes the official condition report</p>
+                            <p
+                              class="paraf-small"
+                            >The condition report is then used to compare the apartment’s condition when you are leaving. Everything is very detailed, so that there are no grey areas.</p>
+                           
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <!-- ------------------------------ Payment tab end -------------------- -->
@@ -2208,7 +2253,7 @@
                               data-toggle="collapse"
                               data-parent="#accordion"
                               href="#collapse3"
-                            >Where is the Apartment Stays Melbourne office and how can I contact you?</a>
+                            >What are Apartment Stays Melbourne’s business hours?</a>
                             <i class="indicator ti-angle-down pull-right"></i>
                           </h4>
                         </div>

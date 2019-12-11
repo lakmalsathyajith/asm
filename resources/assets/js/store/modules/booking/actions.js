@@ -96,6 +96,7 @@ export const updateOccupants = ({commit, dispatch}, payload) => {
                 dispatch('rmsBooking', params);
                 // window.location = "/booking/" + bookingId + "/step-two";
             }else{
+                isLoading(dispatch, false)
                 commit(ERRORS, res.data.errors);
             }
         })

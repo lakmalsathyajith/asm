@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Contracts\RepoInterfaces\FileInterface;
 use App\Entities\Content;
+use App\Entities\File;
 use App\Http\Controllers\AbstractController;
 use App\Http\Requests\File\StoreFileRequest;
 use App\Traits\FileTrait;
@@ -33,7 +34,7 @@ class FileController extends AbstractController
         $data['route'] = route('file.store');
         $data['action'] = 'Upload';
         $data['title'] = '';
-        $data['records'] = $this->activeRepo->all();
+        $data['records'] = File::orderBy('id', 'desc')->where('is_temp','0')->get();
         $data['view'] = request()->get('view', 'detailed');
 
         return view('admin.pages.file.index', $data);

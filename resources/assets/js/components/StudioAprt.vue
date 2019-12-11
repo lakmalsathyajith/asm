@@ -34,10 +34,12 @@
             </div>
             <div class="sub-head-stud-apart">
               <P>
-                We offer quality fully furnished, centrally located and
-                affordable apartments for medium
-                <br />or long term stays in
-                Melbourne.
+                Our Furnished Studio Apartments are located across Melbourne’s CBD, East Melbourne, South Yarra and Carlton.
+                
+              </P>
+              <P>
+                Typically furnished studio apartments range from 30 square meters to 45 square meters in size.
+                
               </P>
             </div>
           </div>
@@ -288,11 +290,12 @@
                       <ul>
                         <li>Fully furnished</li>
                         <li>All utilities connection and usage charges</li>
+                        <li>All Homewares</li>
                         <li>Fully equipped modern kitchen / kitchenette</li>
                         <li>All linen and towels</li>
                         <li>Heating</li>
                         <li>Widescreen LCD television</li>
-                        <li>Heating</li>
+                       
                         <li>Air-conditioning (in most cases)</li>
                         <li>Ensuite bathroom</li>
                         <li>Laundry facilities</li>

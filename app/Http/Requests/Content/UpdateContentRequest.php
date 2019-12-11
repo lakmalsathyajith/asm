@@ -11,8 +11,6 @@ class UpdateContentRequest extends AbstractRequest
     public function rules()
     {
         return [
-            'name'              => "required",
-            'slug'              => "required",
             'type'              => 'required',
             'sub_type'          => 'required_if:type,APARTMENT',
             'content'           => 'required',

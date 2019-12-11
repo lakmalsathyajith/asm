@@ -174,7 +174,7 @@
                     class="select2bs4 form-control{{ $errors && $errors->has('type') ? ' is-invalid' : '' }}"
                     name="type" data-placeholder="Select Type for the Apartment">
                     @foreach($types as $value => $label)
-                    <option {{ (isset($record) && $record->type_id === $value) ? 'selected="selected"' : ''}}
+                    <option {{ (isset($record) && $record->type_id == $value) ? 'selected="selected"' : ''}}
                         value="{{ $value }}">
                         {{ $label }}
                     </option>

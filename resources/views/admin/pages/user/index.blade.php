@@ -37,12 +37,12 @@
                                     <td>{{ $record->name }}</td>
                                     <td>{{ $record->email }}</td>
                                     <td>{{ $record->type=='AGENT'?'Agent':'Admin' }}</td>
-                                    <td>{{ $record->created_at }}</td>
+                                    <td>{{ $record->created_at?$record->created_at->diffForHumans():'-' }}</td>
                                     <td>
                                         <div class="float-right">
                                             <a href="#">
                                                 <div class="btn btn-xs dlt-record"
-                                                     data-segment="booking"
+                                                     data-segment="users"
                                                      data-id="{{ $record->id }}">
                                                      <i class="far fa-trash-alt"></i>
                                                 </div>

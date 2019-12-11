@@ -10,21 +10,20 @@
             <div class="row">
                 <div class="col-md-12">
                     @if(!isset($records) || (isset($records) && $records->isEmpty()))
-                        @include('admin.common.alerts.infoNoRecords');
+                        @include('admin.common.alerts.infoNoRecords')
                     @else
                         <table class="table table-sm table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Apartment</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Adults</th>
                                 <th scope="col">Children</th>
                                 <th scope="col">Check In</th>
                                 <th scope="col">Check Out</th>
                                 <th scope="col">Rent</th>
                                 <th scope="col">RMS Reference</th>
-                                <th scope="col">Agent</th>
+                                <th scope="col">Created By</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>
                             </tr>
@@ -34,15 +33,14 @@
                                 <tr id="booking_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
                                     <td>{{ (isset($record->apartment)) ? $record->apartment->name : "" }}</td>
-                                    <td>{{ $record->formattedStatus }}</td>
                                     <td>{{ $record->adults }}</td>
                                     <td>{{ $record->children }}</td>
                                     <td>{{ $record->formattedCheckIn }}</td>
                                     <td>{{ $record->formattedCheckOut }}</td>
                                     <td>{{ $record->rent }}</td>
                                     <td>{{ $record->rms_reference }}</td>
-                                    <td>{{ $record->user ? $record->user->name : null }}</td>
-                                    <td>{{ $record->created_at }}</td>
+                                    <td>{{ $record->user && $record->user->name ? $record->user->name : 'Guest' }}</td>
+                                    <td>{{ $record->created_at?$record->created_at->diffForHumans():'-' }}</td>
                                     <td>
                                         <div class="float-right">
                                             <a href="{{ route('booking.show', ['booking' => $record->id]) }}">
