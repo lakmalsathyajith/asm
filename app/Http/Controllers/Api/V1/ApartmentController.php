@@ -68,7 +68,7 @@ class ApartmentController extends AbstractApiController
             ->with('files')
             ->with('options')
             ->with('type');
-        if ($data['type']) {
+        if ($data['type'] && $data['type']!='Any') {
             $query = $query->whereHas('type', function ($q) use ($data) {
                 $q->where('tag', $data['type']);
             });

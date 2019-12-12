@@ -191,6 +191,11 @@
                                 <div
                                   class="filter-widget-inner filter-widget-inner-drop-list"
                                 >
+                                <a
+                          class="dropdown-item Any"
+                          href="#."
+                          v-on:click="selectType('Any')"
+                        >Any</a>
                                   <a
                                     class="dropdown-item studio-apartments"
                                     href="#.."

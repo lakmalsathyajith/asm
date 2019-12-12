@@ -87,6 +87,18 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
                 let id = area.AreaId;
                 ramRefIds.push({ id: id, price: total });
             });
+          }else if(obj.Areas.Area && obj.Areas.Area.AreaId){
+
+            let total = 0;
+              if (
+                obj.Areas.Area.ChargeTypes &&
+                obj.Areas.Area.ChargeTypes.ChargeType &&
+                obj.Areas.Area.ChargeTypes.TotalPrice
+              ) {
+                total = parseFloat(obj.Areas.Area.ChargeTypes.ChargeType.TotalPrice);
+              }
+                let id = obj.Areas.Area.AreaId;
+                ramRefIds.push({ id: id, price: total });
           }
         }
       });

@@ -216,6 +216,11 @@
                                 <a
                                   class="dropdown-item"
                                   href="#."
+                                  v-on:click="selectType('Any')"
+                                >Any</a>
+                                <a
+                                  class="dropdown-item"
+                                  href="#."
                                   v-on:click="selectType('studio-apartments')"
                                 >Studio Apartments</a>
                                 <a
@@ -358,6 +363,11 @@
                               aria-labelledby="dropdownMenuButton"
                             >
                               <div class="filter-widget-inner filter-widget-inner-drop-list">
+                                 <a
+                                  class="dropdown-item"
+                                  href="#."
+                                  v-on:click="selectType('Any')"
+                                >Any</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
@@ -1332,13 +1342,12 @@ export default {
 
     search() {
       if (
-        this.filter.type != "" &&
         this.filter.checkIn != "" &&
         this.filter.checkOut != ""
       ) {
         window.location =
           "./apartment-listing?type=" +
-          this.filter.type +
+          this.filter.type == ''?'Any':this.filter.type +
           "&start=" +
           moment(this.filter.checkIn).format("YYYY-MM-DD") +
           "&end=" +
