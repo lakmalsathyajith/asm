@@ -66,6 +66,32 @@
     </div>
 
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="locale" class="col-form-label">{{ __('Locale') }}</label>
+                <select
+                        id="locale"
+                        class="form-control {{ $errors && $errors->has('locale') ? ' is-invalid' : '' }}"
+                        name="locale">
+                    @foreach($locales as $label => $value)
+                        <option
+                                {{isset($params) && isset($params['locale']) && $params['locale'] !== $value ? 'disabled' : ''  }}
+                                {{isset($record) && isset($record->locale) && $record->locale === $value ? 'selected="selected"' : ''}}
+                                value="{{ $value }}">{{ $label }}
+                        </option>
+                    @endforeach
+                </select>
+
+                @if ($errors && $errors->has('locale'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('locale') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
             <div class="form-group">
                 <label for="content" class="col-form-label">{{ __('Content') }}</label>

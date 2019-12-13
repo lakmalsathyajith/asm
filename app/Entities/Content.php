@@ -14,7 +14,8 @@ class Content extends Model
         'slug',
         'type',
         'sub_type',
-        'content'
+        'content',
+        'locale'
     ];
 
     /**
