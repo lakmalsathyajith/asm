@@ -23,7 +23,7 @@ export const login = ({ commit, dispatch }, payload) => {
           'Content-Type': 'application/json'
         };
         Vue.axios
-          .get('/auth-user/', { headers })
+          .get('/authUser/', { headers })
           .then(res => {
             commit(GET_USER_DETAILS, res.data);
           })
@@ -56,7 +56,7 @@ export const getUser = ({ commit, dispatch }, payload) => {
     'Content-Type': 'application/json'
   };
   Vue.axios
-    .get('/auth-user/', { headers })
+    .get('/authUser/', { headers })
     .then(res => {
       commit(GET_USER_DETAILS, res.data);
       //isLoading(dispatch, false)

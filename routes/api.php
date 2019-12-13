@@ -24,7 +24,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Auth routes
     Route::post('login', 'Api\V1\AuthController@login')->name('api.login');
     Route::group(['middleware' => 'auth:api'], function() {
-        Route::get('auth-user', 'Api\V1\AuthController@authUser');
+        Route::get('authUser', 'Api\V1\AuthController@authUser');
     });
 
     Route::get('users', 'Api\V1\UsersController@index')->name('users.index');
