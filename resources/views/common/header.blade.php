@@ -24,7 +24,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}" href="/apartment-listing">RATES & AVAILABILITY</a>
+                                    <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}" href="/apartment-listing">{{ __('topmenu.rates_and_availability') }}</a>
                                 </li>
                                 <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
                                     <a class="nav-link" href="/typical-apartment">OUR APARTMENTS</a>
@@ -46,22 +46,26 @@
 
                             <ul class="navbar-nav right-nav ml-auto mr-3">
                                 <header-login></header-login>
-                                {{-- <span class="gap-01"></span>
+                                <span class="gap-01"></span>
                                 <li class="nav-item dropdown">
-                                    <a class="right-link dropdown-toggle" href="http://example.com"
+                                    <a class="right-link dropdown-toggle" href="#."
                                         id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
+                                        @if(app()->getLocale()=='en')
                                         <span class="flag-icon flag-icon-au"> </span><span> English</span>
+                                        @elseif(app()->getLocale()=='zh')
+                                        <span class="flag-icon flag-icon-cn"> </span><span> Mandarin</span>
+                                        @endif
                                     </a>
                                     <div class="dropdown-menu filter-widget-inner-drop-list home-flag-nav default-nav-dropdown"
                                         aria-labelledby="dropdown09">
-                                        <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-au">
+                                        <a class="dropdown-item" href="{{ url('locale/en') }}"><span class="flag-icon flag-icon-au">
                                             </span> English</a>
-                                        <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cn">
+                                        <a class="dropdown-item" href="{{ url('locale/zh') }}"><span class="flag-icon flag-icon-cn">
                                             </span> Mandarin</a>
 
                                     </div>
-                                </li> --}}
+                                </li>
 
                             </ul>
                         </div>

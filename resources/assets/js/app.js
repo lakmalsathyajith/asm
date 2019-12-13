@@ -52,10 +52,13 @@ Vue.component(
   require('./components/ExampleComponent.vue')
 );
 Vue.component('home', require('./components/Home.vue'));
+Vue.component('mandarin-home', require('./components/mandarin/Home.vue'));
 Vue.component('apartment-list', require('./components/ApartmentList.vue'));
 Vue.component('short-list', require('./components/Shortlist.vue'));
 Vue.component('typical-apartment',require('./components/TypicalApartments.vue'));
+Vue.component('mandarin-typical-apartment',require('./components/mandarin/TypicalApartments.vue'));
 Vue.component('faq', require('./components/Faq.vue'));
+Vue.component('mandarin-faq', require('./components/mandarin/Faq.vue'));
 Vue.component('about', require('./components/About.vue'));
 
 Vue.component('one-bed-room-apartments', require('./components/OneBedAprt.vue'));

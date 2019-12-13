@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html prefix="og: http://ogp.me/ns#" class="no-js">
+<html prefix="og: http://ogp.me/ns#" class="no-js" lang="{{ app()->getLocale() }}">
 <!--<![endif]-->
 
 <head>

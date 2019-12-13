@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

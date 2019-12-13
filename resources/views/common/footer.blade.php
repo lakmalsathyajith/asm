@@ -5,7 +5,7 @@
                 <div class="row ftr-top-lst">
                     <div class="col-md-8">
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="/apartment-listing">Rates and Availability</a></li>
+                            <li class="list-inline-item"><a href="/apartment-listing">{{ __('footer.rates_and_availability') }}</a></li>
                             <li class="list-inline-item"><a href="/typical-apartment">Our Typical Apartments</a></li>
                             <li class="list-inline-item"><a href="/faq">FAQ</a></li>
                             <li class="list-inline-item"><a href="/about">About</a></li>
