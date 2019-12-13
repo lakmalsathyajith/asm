@@ -33,7 +33,7 @@ export const getApartmentsList = ({ commit, dispatch }) => {
 export const getApartment = ({ commit, dispatch }, payload) => {
     isLoading(dispatch, true);
     Vue.axios
-        .get('/apartments/' + payload.id + "?lang=" + payload.lang)
+        .get('/apartments/' + payload.id + "?locale=" + payload.lang)
         .then(res => {
             commit(SELECTED_APARTMENT, res.data);
             isLoading(dispatch, false);
