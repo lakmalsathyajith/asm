@@ -13,32 +13,32 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Up to bla bla bla</span>
-                            than booking a hotel or serviced apartment.
+                            <span class="slider-green-text">便宜高达40%</span>
+                            比酒店或服务式公寓
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">Studios</h3>
+                              <h3 class="sub-heading-white-normal">开放式公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$620</span> per week
+                                每周
+                                <span class="bold-700">$620</span> 起
                               </h4>
                             </div>
 
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">1 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">一室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$699</span> per week
+                                每周
+                                <span class="bold-700">$699</span> 起
                               </h4>
                             </div>
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box">
-                              <h3 class="sub-heading-white-normal">2 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">两室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$965</span> per week
+                                每周
+                                <span class="bold-700">$965</span> 起
                               </h4>
                             </div>
                           </div>
@@ -57,8 +57,8 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Bedding combinations to suit all individual needs</span>
-                            We can mix and match any of the following:
+                            <span class="slider-green-text">根据你的床铺需求</span>
+                            我们可以任意按排以下床型
                           </h1>
                           <!-- <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
@@ -106,27 +106,27 @@
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">Studios</h3>
+                              <h3 class="sub-heading-white-normal">开放式公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$620</span> per week
+                                每周
+                                <span class="bold-700">$620</span> 起
                               </h4>
                             </div>
 
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">1 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">一室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$699</span> per week
+                                每周
+                                <span class="bold-700">$699</span> 起
                               </h4>
                             </div>
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box">
-                              <h3 class="sub-heading-white-normal">2 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">两室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$965</span> per week
+                                每周
+                                <span class="bold-700">$965</span> 起
                               </h4>
                             </div>
                           </div>
@@ -150,27 +150,27 @@
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">Studios</h3>
+                              <h3 class="sub-heading-white-normal">开放式公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$620</span> per week
+                                每周
+                                <span class="bold-700">$620</span> 起
                               </h4>
                             </div>
 
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">1 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">一室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$699</span> per week
+                                每周
+                                <span class="bold-700">$699</span> 起
                               </h4>
                             </div>
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box">
-                              <h3 class="sub-heading-white-normal">2 Bedrooms</h3>
+                              <h3 class="sub-heading-white-normal">两室公寓</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$965</span> per week
+                                每周
+                                <span class="bold-700">$965</span> 起
                               </h4>
                             </div>
                           </div>
@@ -206,7 +206,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>Apartment Type</span>
+                              <span>公寓类型</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -217,22 +217,22 @@
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('Any')"
-                                >Any</a>
+                                >任何</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('studio-apartments')"
-                                >Studio Apartments</a>
+                                >开放式公寓</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('one-bed-room-apartments')"
-                                >One Bedroom Apartments</a>
+                                >一室公寓</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('two-bed-room-apartments')"
-                                >Two Bedroom Apartments</a>
+                                >两室公寓</a>
                               </div>
                             </div>
                           </div>
@@ -263,7 +263,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>Guest Number</span>
+                              <span>来宾号码</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -276,7 +276,7 @@
                                       <label
                                         for="min_occupants"
                                         class="filter-widget-sublabel"
-                                      >Adults</label>
+                                      >大人</label>
                                       <div class="quantity">
                                         <input
                                           v-model="filter.adults"
@@ -302,7 +302,7 @@
                                       <label
                                         for="max_occupants"
                                         class="filter-widget-sublabel"
-                                      >Children</label>
+                                      >小孩儿</label>
                                       <div class="quantity">
                                         <input
                                           type="number"
@@ -337,7 +337,7 @@
 
                       <div class="col">
                         <div class="form-group">
-                          <a class="btn booking-btn" v-on:click="search">Search</a>
+                          <a class="btn booking-btn" v-on:click="search">搜索</a>
                         </div>
                       </div>
                     </div>
@@ -356,7 +356,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>Apartment Type</span>
+                              <span>公寓类型</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -367,22 +367,22 @@
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('Any')"
-                                >Any</a>
+                                >任何</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('studio-apartments')"
-                                >Studio Apartments</a>
+                                >开放式公寓</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('one-bed-room-apartments')"
-                                >One Bedroom Apartments</a>
+                                >一室公寓</a>
                                 <a
                                   class="dropdown-item"
                                   href="#."
                                   v-on:click="selectType('two-bed-room-apartments')"
-                                >Two Bedroom Apartments</a>
+                                >两室公寓</a>
                               </div>
                             </div>
                           </div>
@@ -411,7 +411,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>Guest Number</span>
+                              <span>来宾号码</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -424,7 +424,7 @@
                                       <label
                                         for="min_occupants"
                                         class="filter-widget-sublabel"
-                                      >Adults</label>
+                                      >大人</label>
                                       <div class="quantity">
                                         <input
                                           v-model="filter.adults"
@@ -450,7 +450,7 @@
                                       <label
                                         for="max_occupants"
                                         class="filter-widget-sublabel"
-                                      >Children</label>
+                                      >小孩儿</label>
                                       <div class="quantity">
                                         <input
                                           type="number"
@@ -536,7 +536,7 @@
                       <div class="col-12">
                         <div class="form-group">
                           <div class="filter-widget">
-                            <a class="btn booking-btn filter-border-none-btn"  v-on:click="search">Search</a>
+                            <a class="btn booking-btn filter-border-none-btn"  v-on:click="search">搜索</a>
                           </div>
                         </div>
                       </div>
@@ -599,42 +599,40 @@
         <div class="row">
           <div class="col-md-12">
             <div class="content-box text-center">
-              <h2 class="main-heading">Welcome to Apartment Stays Melbourne.</h2>
+              <h2 class="main-heading">欢迎来到公寓住宿墨尔本</h2>
               <div class="welcome-para">
                 <div class="welcome-para1">
                   <p
                     class="paraf"
-                  >We offer quality fully furnished, centrally located, secure and affordable apartments for
-medium or long term stays in Melbourne.</p></div>
+                  >我们提供优质设施齐全，位于中心位置，安全及实惠，适合中期或长期住宿的公寓。</p></div>
                 <div class="welcome-para2">
                   <p
                     class="paraf"
-                  >Our apartments are at least 50% larger compared to serviced apartments and hotels and
-offer residential and corporate living solutions with weekly savings of hundreds of dollars.</p>
+                  >我们的公寓与服务式公寓和酒店相比至少大50%。并提供住宅和企业生活解决方案，每周能节省数百澳元。</p>
                   <p
                     class="paraf"
-                  >For the discerning international student who is seeking style and space our apartments offer everything a student apartment doesn’t. Our apartments are two to three times larger than a typical student apartment, stylishly appointed with everything you will need to make you feel like you have never left home.</p>
+                  >对于寻找风格和空间的海外学生，我们的公寓提供一切学生公寓没有的。我们的公寓比一般的学生公寓至少大两到三倍，配备所有家的感觉的时尚设备，就像您没有离开了家里一样。</p>
                 </div>
                 <div class="welcome-para3">
                   <div class="expand-para collapse" id="para-expand">
                     <p
                       class="paraf"
-                    >Our apartments are situated in the lively CBD and dynamic suburbs of South Yarra and Richmond.</p>
+                    >我们的公寓位于热闹的市中心及 充满活力的South Yarra和Richmond区。</p>
                     
                       <p
                       class="paraf"
-                    >All of the apartments are within 200 metres of a tram and or train stop and in close proximity to other public transport, a range of major shopping precincts and multiple dining and entertainment choices in the pulsating heart of Melbourne’s cosmopolitan districts.</p>
+                    >所有公寓都在电车或火车站不到200米的距离，及靠近其他公交。位于墨尔本大都会中心的一系列主要购物区及多个餐饮和娱乐选择。</p>
                     <p
                       class="paraf"
-                    >Apartment Stays Melbourne provides a number of different furnished apartment configurations to suit all needs. Studios, One and Two Bedrooms and are therefore ideally suited for the business traveller, academics, students, professionals, long term travellers, families and others simply in the need for medium to long term accommodation.</p>
+                    >公寓住宿墨尔本提供许多不同设定的设备齐全的公寓给不同的需要。开放式，一室和两室公寓，因此非常适合商旅，学者，学生，专业人士，长期旅客，家庭和其他需要中长期住宿的旅客。</p>
                     <p
                       class="paraf"
-                    >We offer a variety of solutions to cater for differing needs. Building quality, apartment quality, size, apartment amenities and building facilities all determine the category we attribute to each apartment.</p>
+                    >我们提供多种解决方案以满足不同的需求。建筑质量、公寓质量、面积、公寓设备和建筑设备都决定了我们每个公寓的类别。</p>
                     <p class="paraf">
-                      To help you compare our apartments and choose the one most suitable for your stay, we have categorized each into the following three classes:
-                      <b>Business</b>,
-                      <b>Premium</b>,
-                      <b>Superior</b>
+                      为了帮助您比较我们不同的公寓和选择最适合您的入住要求，我们把我们的公寓分为三个类别：
+                      <b>商务</b>,
+                      <b>高级</b>,
+                      <b>优越</b>
                     </p>
                   </div>
                   <a
@@ -645,7 +643,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                     v-bind:class="[readMore ? 'less' : 'more']"
                     v-on:click="readMore = !readMore"
                     v-if="!readMore"
-                  >Read More</a>
+                  >阅读更多</a>
                   <a
                     class="paraf read-more-link"
                     href="#."
@@ -654,7 +652,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                     v-bind:class="[readMore ? 'less' : 'more']"
                     v-on:click="readMore = !readMore"
                     v-if="readMore"
-                  >Read Less</a>
+                  >少读</a>
                 </div>
               </div>
             </div>
@@ -669,17 +667,16 @@ offer residential and corporate living solutions with weekly savings of hundreds
             <div class="content-box">
               <h2
                 class="main-heading text-white width-80 mobile-width-100"
-              >Why do people choose to book our apartments?</h2>
+              >客人为何选择我们？</h2>
               <p class="paraf text-white width-80 mobile-width-100">
-                Our apartments are up to
-                <span class="text-green">50%</span> larger than hotel rooms or services apartments
+                我们的公寓比以下选择大3倍：
               </p>
             </div>
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="content-img">
-              <img class="modile-hide tab-view" src="images/compare.png" width="100%" />
-              <img class="mobile-only mobile-img" src="images/mobile-compare.png" />
+              <img class="modile-hide tab-view" src="images/compare-mandarin.png" width="100%" />
+              <img class="mobile-only mobile-img" src="images/mobile-compare-mandarin.png" />
             </div>
           </div>
         </div>
@@ -689,7 +686,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="main-heading">Our Apartments</h2>
+            <h2 class="main-heading">我们的典型公寓</h2>
           </div>
         </div>
         <div class="row apartment-type-row">
@@ -702,8 +699,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
                   <a href="#." class="icon" title="User Profile"></a>
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading home-apart-type-head">Studio Apartments</h3>
-                  <p class="paraf">Starting from $620</p>
+                  <h3 class="sub-heading home-apart-type-head">开放式公寓</h3>
+                  <p class="paraf">$620起</p>
                 </div>
               </a>
             </div>
@@ -716,8 +713,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
                   <img src="images/home/onebed-thumb.jpg" />
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading home-apart-type-head">One Bedroom Apartments</h3>
-                  <p class="paraf">Starting from $699</p>
+                  <h3 class="sub-heading home-apart-type-head">一室公寓</h3>
+                  <p class="paraf">$699 起</p>
                 </div>
               </a>
             </div>
@@ -730,8 +727,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
                   <img src="images/home/twobed-thumb.jpg" />
                 </div>
                 <div class="apartment-text text-center">
-                  <h3 class="sub-heading home-apart-type-head">Two Bedroom Apartments</h3>
-                  <p class="paraf">Starting from $965</p>
+                  <h3 class="sub-heading home-apart-type-head">两室公寓</h3>
+                  <p class="paraf">$965起</p>
                 </div>
               </a>
             </div>
@@ -744,8 +741,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="main-heading">Reviews</h2>
-            <p>Thousands of satisfied guests have stayed with us since 2006</p>
+            <h2 class="main-heading">评价</h2>
+            <p>从2006我们拥有超过千位满意的客人</p>
           </div>
         </div>
         <div class="row">
@@ -769,7 +766,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5>Zac</h5>
                           <p
                             class="paraf-small"
-                          >Great place, outstanding location and amazing communication</p>
+                          >很棒的地方，优越的位置和十分好的沟通。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">14 October</p>
                           <p class="paraf-smallest">36/187 Collins Street, Melbourne</p>
@@ -789,7 +786,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Emily</h5>
                           <p
                             class="paraf-small"
-                          >Amazing stay at Apartment Stays and lovely people. You couldn’t get a more perfect location and the apartment was equipped with everything you need, not to forget super clean. This was a last minute booking as we had a terrible experience with an AirBNB before, so bad we were unable to stay there. We booked this apartment and Bill met us straight away and checked us in extremely fast. This was so nice considering it was a public holiday. Would 100% recommend! Thanks again!</p>
+                          >在Apartment Stays住宿是一次十分好的入住和感谢他们和蔼的工作人员。不可能有一个更完美的位置和公寓配备了所有你需要的，而且不要忘记提到这里超级干净。这次是个最后一分钟的预订，因为我们之前有个可怕的AirBnB经验，导致我们没办法入住那里。我们预定的这个公寓，然后Bill马上和我们见面及很快的安排登记入住。这是一个很窝心的经验，尤其是当天是一个公共假期。100%推荐！再次感谢！</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">6 October</p>
                           <p class="paraf-smallest">1104/250 Elizabeth Street, Melbourne</p>
@@ -809,7 +806,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Li-Ren</h5>
                           <p
                             class="paraf-small"
-                          >Great location to wonder around the Melbourne CBD. Clean and comfortable. Easy to check in and super friendly and helpful staff. Would definitely stay again next time.</p>
+                          >位置优越，可以方便的游览墨尔本市中心。干净及舒适。入住登记方便及超级友好和乐于帮助人的员工。下次一定再选择入住。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">1 November</p>
                           <p class="paraf-smallest">703/10 Saint Andrews Place, Melbourne</p>
@@ -829,7 +826,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Rochelle</h5>
                           <p
                             class="paraf-small"
-                          >Our Apartment Stays apartment gave us the perfect experience to explore the city of Melbourne. One of its most attractive features is the short walk to the South Yarra station (only about 5 minutes away), from which we were easily able to board trains or trams to take us where we wanted to go. The apartment has a lovely kitchen with a handy dishwasher, which made cooking lovely meals and cleaning up afterwards a breeze. We also felt that it is priced very reasonably in comparison to some of the other furnished apartments in the area, so if you’re looking for a place that offers great value for money, this one would be ideal. Over all, I would highly recommend this place to anyone who wants to explore Melbourne on a budget!</p>
+                          >我们入住的公寓给了我们一个探索墨尔本的完美体验。其中一个最吸引的地方是只需要步行短路程到达 South Yarra火车站 （只需要5分钟），从那里就可以很容易登上火车或电车到我们想要去的地方。我们住的公寓有洗碗机和设备齐全的厨房，让我们能简单的烹调每一顿饭之后很容易的清洁好。我们也觉得价钱对比同一地区的其他设备齐全的公寓都十分合理。所以如果你正在寻找一个物有所值的地方，这是个理想的选择。我会强烈推荐这个地方给任何想探索墨尔本的人。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">15 November</p>
                           <p class="paraf-smallest">8/35 Darling Street, South Yarra</p>
@@ -849,7 +846,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Joseph</h5>
                           <p
                             class="paraf-small"
-                          >GThis apartment is very conveniently located, perfect for downtown Melbourne. We especially appreciated shopping at Queen Victoria Market and being able to cook in the kitchen. The kitchen and laundry made for an easy long stay in Melbourne. Check in was a breeze. Much thanks to the wonderful hosts! Thanks again, we had a great time.</p>
+                          >这个公寓地点十分便利，位于墨尔本市中心。我们特别喜欢在维多利亚女王市场购物和可以使用厨房做饭。厨房和洗衣房让长期住居在墨尔本简单。入住登记很方便。非常感谢很好的房东！再次感谢，我们度过了一个美好的时光。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">29 November</p>
                           <p class="paraf-smallest">1115/250 Elizabeth Street Melbourne</p>
@@ -869,7 +866,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Angela</h5>
                           <p
                             class="paraf-small"
-                          >Location is fabulous. Can get free tram or catch the multitude of transport to anywhere you want. Everything we needed for our 12 month stay was provided. We didn’t need to buy anything for the apartment. Bed was super comfy and our floor was quiet. We slept really well.</p>
+                          >位置十分好。可以乘坐免费电车或乘坐众多的公交到你想要到达的地方。在这12个月的住宿我们所需的都有提供。基本上是拎包入住。床是超级舒适及我们楼层也很安静。我们都睡的很好。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">28 October</p>
                           <p class="paraf-smallest">707/10 Saint Andrews Place, Melbourne</p>
@@ -889,7 +886,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Wei</h5>
                           <p
                             class="paraf-small"
-                          >Spacious and clean, exactly what I was after. Safe building in lovely area and perfect for walking to work and uni. Would definitely stay again next year.</p>
+                          >宽敞干净，就是我追求的。我住在一个安全的大厦和地区及可以步行上班和到大学。明年一定在入住。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">20 September</p>
                           <p class="paraf-smallest">52/222 Victoria Street, Melbourne</p>
@@ -909,7 +906,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">David</h5>
                           <p
                             class="paraf-small"
-                          >Really nice space in a fantastic location, with appliances, kitchen tools, perfect. The apartment is a great size with lots of Northern light. Just over 7 months in Melbourne, this place was perfect.</p>
+                          >十分美好的位置，带家电，厨房用具，完美。公寓面积很大，有很多向北的阳光。刚好超过7个月在墨尔本的日子，这个地方是完美的。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">26 April</p>
                           <p class="paraf-smallest">601/318 Little Lonsdale Street, Melbourne</p>
@@ -930,7 +927,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Julie</h5>
                           <p
                             class="paraf-small"
-                          >reat location, convenient and very easy to check in. We're happy with the amenities and communication. The furniture was so nice and we loved the huge TV. Internet was superfast. The kitchen had more than what we expected. We both enjoy our stay in Melbourne! We would love to come back again.</p>
+                          >优越的位置，便利且入住登记非常简单。我们对于设备和沟通都很满意。家具都很漂亮和我们十分喜欢那个大电视。上网速度很快。厨房的设备比我们想像的多。我们两个都享受我们在墨尔本的入住！我们很希望再次回来。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">20 January</p>
                           <p class="paraf-smallest">404/65 Elizabeth Street, Melbourne</p>
@@ -951,7 +948,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Cherry</h5>
                           <p
                             class="paraf-small"
-                          >The Apartment Stays team were amazing. Nice and friendly staff, fast response and kind to us. A great place to stay.</p>
+                          >的团队都十分好。友善和友好的员工，回复速度很快和善待我们。一个很好入住的地方。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">12 November</p>
                           <p class="paraf-smallest">1104/87 Franklin Street, Melbourne</p>
@@ -972,7 +969,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Nicholas</h5>
                           <p
                             class="paraf-small"
-                          >Stylish and comfortable accommodation right in the middle of South Yarra. Amazing location, close to cafes, restaurants, train station, tram, Botanic Gardens etc 25 minutes to Monash Uni. Would highly recommend compared to living in Clayton – nothing to do there</p>
+                          >位于 South Yarra市中心的时尚舒适住宿。位置优越，靠近咖啡厅，餐厅，火车站，电车，植物公园等。25分钟到莫纳什大学。强烈推荐，对比住在Clayton – 那边没有什么东西可做</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">2 November</p>
                           <p class="paraf-smallest">16/35 Darling Street, South Yarra</p>
@@ -993,7 +990,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Kylie</h5>
                           <p
                             class="paraf-small"
-                          >You can expect a beautiful apartment in a fabulous location. All the amenities were stunning and lots of cooking appliances and cooking tools. The bed was soooo comfortable and loved that I couldn't feel it when my hubby moved and vice versa. Shower was great with amazing hot water system. All in all a beautiful apartment, very comfortable and easy access to shops, trams, restaurants, cafes etc. Perfect location. Would definitely stay there again. Nicky went above and beyond to accommodate us as I had just had major surgery and she was so helpful in allowing us easy check-in and check out. This is your place to stay. Superb.</p>
+                          >你可以期待一个美丽公寓在很好的位置。所有设备都令人惊叹，很多烹饪用具。床是超级舒适，超级喜欢我不能感受到我丈夫的移动，反之亦然。因为有很好的热水系统，淋浴也有很好的体验。总括来说，漂亮的公寓，十分舒适，方便到达商店，电车，餐厅，咖啡厅等。完美的位置。一定会再次入住。因为我刚做了一个大手术，Nicky为了迎合我们的需要，超越了她的本分，让我们便利的入住登记和退房。这是你要住的地方。优越。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">23 August</p>
                           <p class="paraf-smallest">104/336 Russell Street, Melbourne</p>
@@ -1014,7 +1011,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Am</h5>
                           <p
                             class="paraf-small"
-                          >Perfect location in the city centre. Easy self check-in and check-out, clean apartment, modern supersized interior, big kitchen and small study nook. We made regular use of the huge balcony and the BBQ you provided. We enjoyed this especially. Really enjoyed our stay in Melbourne! 12 months here flew by thanks to the comfortable lodgings. Thanks Anna and Nicky</p>
+                          >位于市中心的优越位置。简单的自助入住和退房，干净的公寓，现代超大的空间，大面积厨房和小的书房角落。我们经常使用巨大的阳台和你提供的烧烤设备。我们特别喜欢。十分享受我们在墨尔本的入住。多得这个舒适的住宿，在这里的12 个月很快就过去。感谢Anna 和Nicky.</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">15 May</p>
                           <p class="paraf-smallest">5/5 Davisons Place, Melbourne</p>
@@ -1035,7 +1032,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Ben</h5>
                           <p
                             class="paraf-small"
-                          >Myself and three friends really enjoyed our four and a half month stay in this apartment. The apartment itself was really tidy and Nicky provided everything we needed for our stay. I would definitely recommend staying here if in Melbourne. The location in the CBD is ideal and centred around everything you need with transport hubs around Melbourne located only minutes walk away. I walked to Melbourne Uni and my three friends rolled out of bed and across the street to RMIT. We made lots of use of the pool and movie theatre. We even got into the rock climbing. Thanks again Nicky!</p>
+                          >我和我的三个朋友非常亨受我们在这个公寓四个半月的入住。这个公寓十分整洁，Nicky提供了所有我们入住时所需的。如果在墨尔本的话我特别推荐这里。位于市中心，你所需要的都在附近，交通枢纽都只需要步行几分钟。我步行到墨尔本大学，我的三个朋友起床就走过对面的RMIT。我们充分利用的游泳池和电影院。我们甚至开始了攀岩。再次感谢Nicky!</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">2 March</p>
                           <p class="paraf-smallest">3004/483 Swanston Street, Melbourne</p>
@@ -1056,7 +1053,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Aser</h5>
                           <p
                             class="paraf-small"
-                          >Such a great place in a stunning location, all new/refurbished interiors and utilities. The studio is actually a really great space. The furniture is contemporary and obviously brand new. The hospitality of the hosts is 5 star and I just wish I could stay there forever.</p>
+                          >位于惊人的位置, 全新/翻新装潢和设备。开放式公寓其实是一个十分好的空间。家具是现代的，显然是全新的。房东的好客是5星级的。我只希望能永远的在这里。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">21 April</p>
                           <p class="paraf-smallest">404/39 Queen Street, Melbourne</p>
@@ -1077,7 +1074,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">Somasekhar</h5>
                           <p
                             class="paraf-small"
-                          >Central location on Spring Street. Apartment on ground floor (no lifts or stairs). Large & spacious. I was drawn to the ground floor garden with my own private BBQ. The building facilities are truly resort like. My partner and I even played the odd game of tennis. The Apartment Stays team are responsive attentive hosts. Very happy to recommend this apartment. Thank you.</p>
+                          >位于Spring 街的中心位置。公寓在地面（没有电梯或楼梯）。宽敞而空间大。我被地面的花园和私人烧烤设备所吸引。建筑的设施就像是度假胜地。我和我的伴侣甚至偶尔打网球。公寓住宿团队是十分细心的房东。很高兴的推荐这个公寓。谢谢。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-smallest">6 June</p>
                           <p class="paraf-smallest">9/283 Spring Street, Melbourne</p>
@@ -1098,7 +1095,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                           <h5 class="paraf">David</h5>
                           <p
                             class="paraf-small"
-                          >The best word to define our hosts and the apartment would be "professional". Bill and his team are really professional hosts, they were extremely helpful and definitely demonstrated they have experience in the hospitality business. It was a pleasure to stay with them, and we will probably repeat in the near future! Mackenzie Street is an edgy building, with amazing facilities for the residents. My favourite, the sky gym overlooking Melbourne’s north. We even took advantage of the residents lounge and through a couple of parties to celebrate our birthdays whilst we were here.</p>
+                          >最好用来形容我们的房东的词就是‘专业’。Bill和他的团队是十分专业的房东，他们非常帮忙及证明了他们在酒店业的经验。我们很高兴入住在他们的公寓，我们将来也应该会再次入住！Mackenzie 街是一栋高楼大厦，有惊人的住客设施。我最爱的是顶楼拥有墨尔本北面景观的健身房。我们甚至在入住期间善用了住客休息室也在这里开了几个庆祝我们生日的派对。</p>
                           <hr class="typcl-hr" />
                           <p class="paraf-small paraf-smallest">February 28</p>
                           <p class="paraf-small paraf-smallest">1306/33 Mackenzie Street, Melbourne</p>

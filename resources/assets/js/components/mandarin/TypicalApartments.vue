@@ -4,13 +4,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="main-heading head-type-apart">Our Bla bla Apartments</h2>
+            <h2 class="main-heading head-type-apart">我们的典型公寓</h2>
             <p class="paraf">
-              Apartment Stays Melbourne offers a range of premium Studio, 1
-              Bedroom and 2 Bedroom
-              <br />apartments to suit different budgets. Our apartments are
-              situated centrally at several locations <br />within Melbourne and
-              the inner suburbs Richmond and South Yarra.
+              公寓住宿墨尔本提供一系列的高质量的开放式，一室和两室公寓给不同预算和需求。我们的公寓位于墨尔本中心商业地区(CBD)不同的中心地点及Richmond, South Yarra, 墨尔本东和Carlton的城市边缘。
             </p>
           </div>
         </div>
@@ -23,8 +19,8 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading home-apart-type-head">Studio Apartments</h3>
-                <p class="paraf">Starting from $620pw</p>
+                <h3 class="sub-heading home-apart-type-head">开放式公寓</h3>
+                <p class="paraf">每周$620起</p>
               </div>
             </div>
 
@@ -38,8 +34,8 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading home-apart-type-head">One Bedroom Apartments</h3>
-                <p class="paraf">Starting from $700pw</p>
+                <h3 class="sub-heading home-apart-type-head">一室公寓</h3>
+                <p class="paraf">每周$699起</p>
               </div>
             </div>
 
@@ -53,8 +49,8 @@
                 </div>
               </a>
               <div class="apartment-text text-center">
-                <h3 class="sub-heading home-apart-type-head">Two Bedroom Apartments</h3>
-                <p class="paraf">Starting from $965pw</p>
+                <h3 class="sub-heading home-apart-type-head">两室公寓</h3>
+                <p class="paraf">每周$965起</p>
               </div>
             </div>
 
@@ -72,17 +68,10 @@
               <div class="row">
                 <div class="col-md-12 text-center">
                   <p class="paraf">
-                    We offer a variety of solutions to cater for differing
-                    needs. Building quality, apartment quality, size, apartment
-                    amenities and
-                    <br />building facilities all determine the category we
-                    attribute to each apartment.
+                    我们提供各种方案给不同的需求。建筑品质，公寓品质，大小，公寓设备和大楼设备都决定了我们给每个公寓的类别。
                   </p>
                   <p class="paraf">
-                    To help you compare our apartments and choose the one most
-                    suitable for your stay, we have categorized each into one of
-                    <br />the following three classes: Business, Premium,
-                    Superior Economy
+                    为了协助您比较我们的公寓以选择最适合您的入住，我们有以下3个类别：商务，高级，优越
                   </p>
                 </div>
               </div>
@@ -91,28 +80,26 @@
               <div class="col-md-6">
                 <div class="panel panel-default">
                   <div class="panel-heading col-two-headings">
-                    <h3 class="sub-heading">Business Class</h3>
+                    <h3 class="sub-heading">商务级</h3>
                     <p class="paraf">
-                      Business Class apartments are located in some of
-                      Melbourne’s
-                      <br />most desirable residential apartment buildings.
+                      商务级公寓位于一些墨尔本最理想的住宅公寓楼。
                     </p>
                   </div>
                   <div class="panel-body col-two-body">
                     <div class="class-body-heading">
                       <h4>
-                        As a minimum, our Business Class apartments include:
+                        我们的商务级公寓至少含有：
                       </h4>
                     </div>
                     <div class="include-list-wrap">
                       <ul>
-                        <li>Fully furnished</li>
-                        <li>Fully equipped kitchen including dishwasher</li>
-                        <li>All homewares</li>
-                        <li>All linen and towels</li>
-                        <li>Air conditioning / heating</li>
-                        <li>55” television</li>
-                        <li>Gymnasium and other building amenities</li>
+                        <li>所有家具</li>
+                        <li>设备齐全厨房，包括洗碗机</li>
+                        <li>所有家居用品</li>
+                        <li>所有床铺和毛巾</li>
+                        <li>冷暖空调</li>
+                        <li>55寸电视</li>
+                        <li>健身房及其他大楼设备</li>
                       </ul>
                     </div>
                   </div>
@@ -122,29 +109,25 @@
               <div class="col-md-6">
                 <div class="panel panel-default">
                   <div class="panel-heading col-two-headings">
-                    <h3 class="sub-heading">Premium Class</h3>
+                    <h3 class="sub-heading">高级</h3>
                     <p class="paraf">
-                      Premium Class apartments are a little older than our
-                      Business
-                      <br />Class properties, but are also typically a little
-                      larger and more <br />spacious than their newer
-                      counterparts.
+                      高级公寓比我们的商务级公寓旧一些，但一般都比较新的大和宽敞些。 
                     </p>
                   </div>
                   <div class="panel-body col-two-body">
                     <div class="class-body-heading">
                       <h4>
-                        As a minimum, our Business Class apartments include:
+                       我们的高级公寓至少含有：
                       </h4>
                     </div>
                     <div class="include-list-wrap">
                       <ul>
-                        <li>Fully furnished</li>
-                        <li>Fully equipped kitchen including dishwasher</li>
-                        <li>All homewares</li>
-                        <li>All linen and towels</li>
-                        <li>Heating</li>
-                        <li>Television</li>
+                        <li>所有家具</li>
+                        <li>设备齐全厨房</li>
+                        <li>所有家居用品</li>
+                        <li>所有床铺和毛巾</li>
+                        <li>暖气</li>
+                        <li>电视</li>
                       </ul>
                     </div>
                   </div>
@@ -155,31 +138,26 @@
               <div class="col-md-12">
                 <div class="panel panel-default superior-panel">
                   <div class="panel-heading">
-                    <h3 class="sub-heading">Superior Economy</h3>
+                    <h3 class="sub-heading">优越级</h3>
                     <p class="paraf">
-                      Superior Economy apartments are our studio apartments.
-                      Studios have the bedroom area either combined or only
-                      <br />partially separated from the living area. Studio
-                      apartments are much larger than a student apartment or a
-                      typical hotel <br />room and they always include a fully
-                      equipped kitchen suitable for a long term stay.
+                     优越级公寓是我们的开放式公寓。开放式公寓的卧室可以是和起居范围连在一起或是有部分分隔。开放式公寓比学生公寓或一般的酒店房间大很多，及都会含有设备齐全的厨房，适合长期居住。
                     </p>
                   </div>
                   <div class="panel-body">
                     <div class="class-body-heading">
                       <h4>
-                        As a minimum, our Superior Economy apartments include:
+                        我们的优越级公寓至少含有：
                       </h4>
-                      <h4>fully furnished and equipped property</h4>
+                      <h4>设备齐全物业</h4>
                     </div>
                     <div class="include-list-wrap superior-list">
                       <ul>
-                        <li>Fully furnished</li>
-                        <li>Fully equipped kitchen or kitchenette</li>
-                        <li>All homewares</li>
-                        <li>All linen and towels</li>
-                        <li>Heating</li>
-                        <li>Television</li>
+                        <li>设备齐全</li>
+                        <li>含有所有家电的厨房或小厨房</li>
+                        <li>所有家居用品</li>
+                        <li>所有床铺和毛巾</li>
+                        <li>暖气</li>
+                        <li>电视</li>
                       </ul>
                     </div>
                   </div>
@@ -195,10 +173,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="main-heading head-type-apart">Building Amenities</h2>
+            <h2 class="main-heading head-type-apart">大楼设备</h2>
             <p>
-              Our Business Class apartments enjoy the luxury of at least a
-              couple of the following building facilities:
+              我们的商务级公寓至少可以享受以下这些奢侈的大楼设备：
             </p>
           </div>
         </div>
@@ -219,7 +196,7 @@
                       role="tab"
                       data-toggle="tab"
                       class="active"
-                      >Swimming Pool</a
+                      >游泳池</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -229,7 +206,7 @@
                       aria-controls="tab2"
                       role="tab"
                       data-toggle="tab"
-                      >Gymnasium</a
+                      >健身房</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -239,7 +216,7 @@
                       aria-controls="tab3"
                       role="tab"
                       data-toggle="tab"
-                      >Spa</a
+                      >温泉池</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -249,7 +226,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Sauna</a
+                      >桑拿房</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -259,7 +236,7 @@
                       aria-controls="tab5"
                       role="tab"
                       data-toggle="tab"
-                      >Steam Room</a
+                      >蒸气房</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -269,7 +246,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Tennis Court</a
+                      >网球场</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -279,7 +256,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Theatre Room</a
+                      >电影房</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -299,7 +276,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Resident’s Loungeroom</a
+                      >住客专用烧烤地区</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -309,7 +286,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Concierge</a
+                      >礼宾部</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -319,7 +296,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Rock Climbing</a
+                      >攀岩</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -329,7 +306,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Amazing Building Lobby</a
+                      >优秀的大楼大厅</a
                     >
                   </li>
                   <li role="presentation" class="brand-nav ameniti-nav">
@@ -339,7 +316,7 @@
                       aria-controls="tab4"
                       role="tab"
                       data-toggle="tab"
-                      >Bicycle Storage</a
+                      >自行车存储</a
                     >
                   </li>
                 </ul>

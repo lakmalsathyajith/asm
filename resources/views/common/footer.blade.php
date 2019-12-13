@@ -6,17 +6,17 @@
                     <div class="col-md-8">
                         <ul class="list-inline">
                             <li class="list-inline-item"><a href="/apartment-listing">{{ __('footer.rates_and_availability') }}</a></li>
-                            <li class="list-inline-item"><a href="/typical-apartment">Our Typical Apartments</a></li>
-                            <li class="list-inline-item"><a href="/faq">FAQ</a></li>
-                            <li class="list-inline-item"><a href="/about">About</a></li>
+                            <li class="list-inline-item"><a href="/typical-apartment">{{ __('footer.Our_apartments') }}</a></li>
+                            <li class="list-inline-item"><a href="/faq">{{ __('footer.Faq') }}</a></li>
+                            <li class="list-inline-item"><a href="/about">{{ __('footer.About_us') }}</a></li>
                             {{-- <li class="list-inline-item"><a href="/list-with-us">List with Us</a></li> --}}
-                            <li class="list-inline-item"><a href="/contact">Contact Us</a></li>
+                            <li class="list-inline-item"><a href="/contact">{{ __('footer.Contact') }}</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline rightul">
-                            <li class="list-inline-item"><a href="#">Privacy</a></li>
-                            <li class="list-inline-item"><a href="#"> Conditions</a></li>
+                            <li class="list-inline-item"><a href="#">{{ __('footer.Privacy') }}</a></li>
+                            <li class="list-inline-item"><a href="#">{{ __('footer.Conditions') }}</a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-facebook"></i></a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-twitter-alt"></i></a></li>
                             <li class="list-inline-item li-social"><a href="#"><i class="ti-youtube"></i></a></li>
@@ -37,7 +37,7 @@
                                         alt="apartmentstays"></div>
                             </div>
                             <div class="widget-title">
-                                Locate Us
+                            {{ __('footer.Locate_us') }}
                             </div>
                             <div class="widget-body">
                                 <div class="widget-icon"><img src="{{asset('images/maps-and-flags.svg')}}"
@@ -55,14 +55,14 @@
                                         alt="apartmentstays"></div>
                             </div>
                             <div class="widget-title">
-                                Call us
+                            {{ __('footer.Call_us') }}
                             </div>
                             <div class="widget-body">
                                 <div class="widget-icon"><img src="{{asset('images/call-answer.svg')}}"
                                         alt="apartmentstays"></div>
                                 <div class="widget-body-text footer-para">
-                                    <span> Phone<br><a href="tel:03 9242 0468">03 9242 0468 </a>&nbsp;<a href="tel:+61 3 9242 0468">(int.+61 3 9242 0468)</a></span>
-                                    <span> Mobile<br><a href="tel:0405 780 780">0405 780 780 </a>&nbsp;<a href="tel:+61 405 780 780">(int.+61 405 780 780)</a></span>
+                                    <span>{{ __('footer.Phone') }}<br><a href="tel:03 9242 0468">03 9242 0468 </a>&nbsp;<a href="tel:+61 3 9242 0468">(int.+61 3 9242 0468)</a></span>
+                                    <span>{{ __('footer.Mobile') }}<br><a href="tel:0405 780 780">0405 780 780 </a>&nbsp;<a href="tel:+61 405 780 780">(int.+61 405 780 780)</a></span>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                         alt="apartmentstays"></div>
                             </div>
                             <div class="widget-title">
-                                Mail us
+                            {{ __('footer.Call_us') }}
                             </div>
                             <div class="widget-body">
                                 <div class="widget-icon"><img

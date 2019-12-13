@@ -7,7 +7,7 @@
             <div class="col-md-8">
               <div class="bottom-full-width-border">
                 <div class="head-name">
-                  <h3>Contact us</h3>
+                  <h3>联络我们</h3>
                 </div>
               </div>
             </div>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel"
-                          >First Name*</label
+                          >名字</label
                         >
                         <input
                           class="form-control flter-button"
@@ -36,7 +36,7 @@
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel"
-                          >Email*</label
+                          >电邮</label
                         >
                         <input
                           class="form-control flter-button"
@@ -50,7 +50,7 @@
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel"
-                          >Last Name*</label
+                          >姓氏</label
                         >
                         <input
                           class="form-control flter-button"
@@ -62,7 +62,7 @@
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel">
-                          Phone (mobile number preferred)*
+                          手机号码
                         </label>
                         <input
                           class="form-control flter-button input-numbersonly"
@@ -79,7 +79,7 @@
                         class="dropdown filter-widget general-boking-inqure-wrap"
                       >
                         <label for="checkin" class="filter-widget-sublabel"
-                          >Enquiry Type</label
+                          >查询类型</label
                         >
 
                         <button
@@ -90,7 +90,7 @@
                           aria-haspopup="true"
                           aria-expanded="true"
                         >
-                          <span>General Enquiry</span>
+                          <span>普通查询</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown general-boking-inqure"
@@ -105,7 +105,7 @@
                               value="General Enquiry"
                               v-on:click="selectEnquiryType('general')"
                             >
-                              General Enquiry
+                              普通查询
                             </a>
                             <a
                               class="dropdown-item"
@@ -113,7 +113,7 @@
                               value="Booking Enquiry"
                               v-on:click="selectEnquiryType('booking')"
                             >
-                              Booking Enquiry
+                             预订查询
                             </a>
                           </div>
                         </div>
@@ -124,13 +124,13 @@
                   <div class="col-md-12">
                     <div class="accommondation-wrap">
                       <div class="accomond-head head-name">
-                        <h4>Accommodation Requirements</h4>
+                        <h4>住宿要求</h4>
                       </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="checkin" class="filter-widget-sublabel">
-                              Select state*
+                              选择州*
                             </label>
                             <div class="dropdown filter-widget">
                               <button
@@ -141,7 +141,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                               >
-                                <span>State</span>
+                                <span>州</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
@@ -163,12 +163,11 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            
                             <div class="dropdown filter-widget">
                               <label
                                 for="checkin"
                                 class="filter-widget-sublabel"
-                                >Apartment Type*</label
+                                >公寓类型*</label
                               >
                               <button
                                 class="btn dropdown-toggle apart-type-svg-button flter-button"
@@ -178,7 +177,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="true"
                               >
-                                <span>Please Select</span>
+                                <span>请选择</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
@@ -193,12 +192,12 @@
                           class="dropdown-item Any"
                           href="#."
                           v-on:click="selectType('Any')"
-                        >Any</a>
+                        >任何</a>
                                   <a
                                     class="dropdown-item studio-apartments"
                                     href="#.."
                                     v-on:click="selectType('Studio Apartments')"
-                                    >Studio Apartments</a
+                                    >开放式公寓</a
                                   >
                                   <a
                                     class="dropdown-item one-bed-room-apartments"
@@ -206,7 +205,7 @@
                                     v-on:click="
                                       selectType('One Bedroom Apartments')
                                     "
-                                    >One Bedroom Apartments</a
+                                    >一室公寓</a
                                   >
                                   <a
                                     class="dropdown-item two-bed-room-apartments"
@@ -214,7 +213,7 @@
                                     v-on:click="
                                       selectType('Two Bedroom Apartments')
                                     "
-                                    >Two Bedroom Apartments</a
+                                    >两室公寓</a
                                   >
                                 </div>
                               </div>
@@ -226,7 +225,7 @@
                               <label
                                 for="checkin"
                                 class="filter-widget-sublabel"
-                                >Guest Number*</label
+                                >来宾号码*</label
                               >
                               <button
                                 class="btn dropdown-toggle guest-button-svg flter-button"
@@ -236,7 +235,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="true"
                               >
-                                <span>Please Select</span>
+                                <span>请选择</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
@@ -250,7 +249,7 @@
                                         <label
                                           for="min_occupants"
                                           class="filter-widget-sublabel"
-                                          >Adults</label
+                                          >大人</label
                                         >
                                         <div class="quantity">
                                           <input
@@ -277,7 +276,7 @@
                                         <label
                                           for="max_occupants"
                                           class="filter-widget-sublabel"
-                                          >Children</label
+                                          >小孩儿</label
                                         >
                                         <div class="quantity">
                                           <input
@@ -313,7 +312,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="checkin" class="filter-widget-sublabel">
-                              Select suburb*
+                              选择郊区*
                             </label>
                             <div class="dropdown filter-widget">
                               <button
@@ -324,7 +323,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                               >
-                                <span>Suburb</span>
+                                <span>市郊</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
@@ -348,7 +347,7 @@
 
                           <div class="form-group">
                             <label for="checkin" class="filter-widget-sublabel"
-                              >Check-In/Out*</label
+                              >入住/退房*</label
                             >
                              <HotelDatePicker
                             format="DD/MM/YYYY"
@@ -365,7 +364,7 @@
                               <label
                                 for="checkin"
                                 class="filter-widget-sublabel"
-                                >Price Min-Max*</label
+                                >价格最小-最大*</label
                               >
                               <button
                                 class="btn dropdown-toggle price-svg-button flter-button"
@@ -375,7 +374,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="true"
                               >
-                                <span>Please Select</span>
+                                <span>请选择</span>
                               </button>
                               <div
                                 class="dropdown-menu filter-widget-dropdown"
@@ -388,7 +387,7 @@
                                         <label
                                           for="checkin"
                                           class="filter-widget-sublabel"
-                                          >Price Min</label
+                                          >价格最低</label
                                         >
                                         <v-select
                                           :options="options"
@@ -402,7 +401,7 @@
                                         <label
                                           for="checkout"
                                           class="filter-widget-sublabel"
-                                          >Price Max</label
+                                          >最高价格</label
                                         >
                                         <v-select
                                           :options="options"
@@ -424,7 +423,7 @@
                     <div class="form-group">
                       <div class="dropdown filter-widget">
                         <label for="checkin" class="filter-widget-sublabel"
-                          >Your Message</label
+                          >讯息</label
                         >
                         <textarea
                           class="form-control flter-button"
@@ -441,7 +440,7 @@
                       <div class="form-group">
                         <div class="filter-widget">
                           <a v-if="noErrors===2" disabled="true" class="btn booking-btn" @click="sendinquiry">Send Message</a>
-                          <a v-else class="btn booking-btn" @click="sendinquiry">Send Message</a>
+                          <a v-else class="btn booking-btn" @click="sendinquiry">发送讯息</a>
                         </div>
                       </div>
                     </div>
@@ -466,7 +465,7 @@
                 </div>
                 <div class="contact-office-wrap">
                   <div class="head-name">
-                    <h4>OFFICE</h4>
+                    <h4>办公室地址</h4>
                   </div>
                   <div class="content contact-address">
                     <p>10 St Andrews Place East Melbourne 3002 Australia</p>
@@ -474,7 +473,7 @@
                 </div>
                 <div class="contact-mail-wrap">
                   <div class="head-name">
-                    <h4>MAIL</h4>
+                    <h4>邮寄地址</h4>
                   </div>
                   <div class="content contact-address">
                     <p>Po Box 1205 Carton, Victoria, 3053 Australia.</p>
@@ -482,7 +481,7 @@
                 </div>
                 <div class="contact-phone-wrap">
                   <div class="head-name">
-                    <h4>PHONE</h4>
+                    <h4>电话号码</h4>
                   </div>
                   <div class="content">
                     <a href="tel:+61 3 9242 0468">
@@ -492,7 +491,7 @@
                 </div>
                 <div class="contact-mobile-wrap">
                   <div class="head-name">
-                    <h4>MOBILE</h4>
+                    <h4>手机号码</h4>
                   </div>
                   <div class="content">
                     <a href="tel:+61 405 780 780">
@@ -502,7 +501,7 @@
                 </div>
                 <div class="contact-email-wrap">
                   <div class="head-name">
-                    <h4>EMAIL</h4>
+                    <h4>电邮</h4>
                   </div>
                   <div class="content">
                     <a href="mailto:reservations@asmelb.com.au" class="emial">
@@ -512,7 +511,7 @@
                 </div>
                 <div class="contact-ABN-wrap">
                   <div class="head-name">
-                    <h4>ABN</h4>
+                    <h4>公司注册号</h4>
                   </div>
                   <div class="content">
                     <p>31 615 764 362</p>
