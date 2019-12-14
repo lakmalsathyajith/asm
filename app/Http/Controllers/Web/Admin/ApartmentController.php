@@ -122,6 +122,7 @@ class ApartmentController extends AbstractController
         $queryParams['content-type'] = 'apartment';
         $queryParams['content-sub-type'] = 'details';
         $queryParams['step'] = 1;
+        $queryParams['locale'] = array_keys(config('app.locales'))[0];
         return redirect()->route('content.create', $queryParams);
     }
 
@@ -148,6 +149,21 @@ class ApartmentController extends AbstractController
         $data['route'] = route('apartment.update', [
             'apartment' => $apartment->id
         ]);
+        $data['scope'] = [
+            [
+                'locale' => array_keys(config('app.locales'))[0],
+                'sub_type' => 'Details'
+            ], [
+                'locale' => array_keys(config('app.locales'))[0],
+                'sub_type' => 'How Much'
+            ], [
+                'locale' => array_keys(config('app.locales'))[1],
+                'sub_type' => 'Details'
+            ], [
+                'locale' => array_keys(config('app.locales'))[1],
+                'sub_type' => 'How Much'
+            ],
+        ];
         $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
@@ -157,6 +173,21 @@ class ApartmentController extends AbstractController
         $data['options'] = $this->option->pluck('name');
         $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray();
         $data['states'] = $states;
+        $data['noRecord'] = [];
+        foreach ($data['scope'] as $s) {
+            $hasRec = false;
+            if(isset($data['record']->contents)) {
+                foreach ($data['record']->contents as $rec) {
+                    if($rec->locale === $s['locale'] && $rec->sub_type === $this->contentModel->getSubTypes()[$s['sub_type']]) {
+                        $hasRec = true;
+                        continue;
+                    }
+                }
+            }
+            if(!$hasRec) {
+                array_push($data['noRecord'], $s);
+            }
+        }
         return view('admin.pages.apartment.edit', $data);
     }
 

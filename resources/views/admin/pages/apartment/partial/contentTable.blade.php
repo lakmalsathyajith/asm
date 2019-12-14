@@ -8,6 +8,8 @@
                     <th scope="col">Name</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Type</th>
+                    <th scope="col">Sub Type</th>
+                    <th scope="col">Locale</th>
                     <th scope="col">Created At</th>
                     <th scope="col"></th>
                 </tr>
@@ -19,6 +21,8 @@
                         <td>{{ $content->name }}</td>
                         <td>{{ $content->slug }}</td>
                         <td>{{ $content->type }}</td>
+                        <td>{{ $content->sub_type }}</td>
+                        <td>{{ $content->locale }}</td>
                         <td>{{ $content->created_at }}</td>
                         <td>
                             <div class="float-right">
@@ -31,7 +35,37 @@
                         </td>
                     </tr>
                 @endforeach
-                </tbody>
+                @if(isset($noRecord))
+                    @foreach($noRecord as $noContent)
+                        <tr>
+                            <th scope="row">-</th>
+                            <td colspan="6">
+                                No content available for the language
+                                <strong>{{$noContent['locale']}}</strong>
+                                and Sub Type
+                                <strong>{{$noContent['sub_type']}}</strong>.
+
+                                Add new content here
+                            </td>
+                            <td>
+                                <div class="float-right">
+                                    <a href="{{ route('content.create', [
+                                        'contentable-id' => $record->id,
+                                        'contentable-type' => 'apartment',
+                                        'content-type' => 'apartment',
+                                        'content-sub-type' => strtolower($noContent['sub_type']),
+                                        'locale' => $noContent['locale'],
+                                        'step' => 5,
+                                    ])}}">
+                                        <div class="btn btn-xs">
+                                                <i class="far fa-plus-square"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
             </table>
         @endif
     </div>

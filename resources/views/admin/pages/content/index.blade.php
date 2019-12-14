@@ -21,7 +21,10 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                                 <th scope="col">Type</th>
+                                <th scope="col">Locale</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col"></th>
                             </tr>
@@ -33,6 +36,7 @@
                                     <td>{{ $record->name }}</td>
                                     <td>{{ $record->slug }}</td>
                                     <td>{{ $record->type }}</td>
+                                    <td>{{ $record->locale }}</td>
                                     <td>{{ $record->created_at }}</td>
                                     <td>
                                         <div class="float-right">

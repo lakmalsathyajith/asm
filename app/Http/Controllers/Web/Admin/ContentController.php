@@ -55,12 +55,14 @@ class ContentController extends AbstractController
         $params['content-type'] = request()->query('content-type', 'apartment');
         $params['content-sub-type'] = request()->query('content-sub-type', null);
         $params['step'] = request()->query('step', null);
+        $params['locale'] = request()->query('locale', null);
 
         $data['route'] = route('content.store');
         $data['title'] = '';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
         $data['contentSubTypes'] = $this->content->getSubTypes();
+        $data['locales'] = array_flip(config('app.locales'));
         $data['params'] = $params;
         return view('admin.pages.content.create', $data);
     }
@@ -82,6 +84,7 @@ class ContentController extends AbstractController
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
+                'locale' => $requestData['locale'],
             ];
 
             $record = $this->activeRepo->create($data);
@@ -97,11 +100,19 @@ class ContentController extends AbstractController
                 }
 
                 if(isset($requestData['params']['step'])) {
-                    $requestData['params']['content-sub-type'] = 'how much';
+                    if($requestData['params']['step'] >= 2) {
+                        $requestData['params']['locale'] = array_keys(config('app.locales'))[1];
+                    }
+
+                    $requestData['params']['content-sub-type'] = 'details';
+                    if($requestData['params']['step'] % 2 === 1) {
+                        $requestData['params']['content-sub-type'] = 'how much';
+                    }
+
                     $requestData['params']['step']++;
                 }
 
-                if($requestData['params']['step'] < 3) {
+                if($requestData['params']['step'] < 5) {
                     return redirect()->route('content.create', $requestData['params']);
                 }
             }
@@ -166,6 +177,7 @@ class ContentController extends AbstractController
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
+                'locale' => $requestData['locale'],
             ];
 
             $this->activeRepo->findAndUpdate($id, $data);
