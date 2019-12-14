@@ -156,6 +156,8 @@ class ContentController extends AbstractController
         $data['record'] = $content;
         $data['contentTypes'] = $this->content->getTypes();
         $data['contentSubTypes'] = $this->content->getSubTypes();
+        $data['locales'] = array_flip(config('app.locales'));
+
         return view('admin.pages.content.edit', $data);
     }
 
