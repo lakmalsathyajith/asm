@@ -44,7 +44,10 @@ class ApartmentController extends AbstractApiController
     public function show($id)
     {
         return $this->activeRepo
-            ->with('contents')
+            ->with(['contents' => function($query) {
+                $locale = request()->query('locale', array_keys(config('app.locales'))[0]);
+                $query->where('locale', $locale);
+            }])
             ->with('files')
             ->with('options')
             ->with('type')
