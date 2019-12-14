@@ -18,7 +18,8 @@
     </div>
     <div id="app">
         @include('common.header')
-        <header-loader></header-loader>
+        {{$lang = app()->getLocale()}}
+        <header-loader lang="{{ $lang }}"></header-loader>
         @yield('content')
     </div>
     @include('common.footer')

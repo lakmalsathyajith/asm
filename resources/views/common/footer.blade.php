@@ -121,13 +121,13 @@
             <div class="row">
                 <diV class="col-md-6">
                     <div class="copy-text">
-                        <P>Copyright © 2019 Apartment Stays Melbourne Pty Ltd.</P>
+                        <P>{{ __('footer.Copyright') }} © 2019 Apartment Stays Melbourne Pty Ltd.</P>
                     </div>
 
                 </diV>
                 <diV class="col-md-6">
                     <div class="creat">
-                        <p>Created by </p>
+                        <p>{{ __('footer.Created_by') }} </p>
                         <a href="https://www.lilabs.com.au/" target="_blank"></a>
                     </div>
 

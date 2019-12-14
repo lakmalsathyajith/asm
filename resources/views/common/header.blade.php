@@ -193,14 +193,18 @@
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="english-flag mobile-flag">
-                                                            <span class="flag-icon flag-icon-au"> </span> <span
-                                                                class="paraf">English</span>
+                                                            <a href="{{ url('locale/en') }}">
+                                                                <span class="flag-icon flag-icon-au"> </span> 
+                                                                <span class="paraf">English</span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="mandarin-flag mobile-flag">
-                                                            <span class="flag-icon flag-icon-cn"> </span> <span
-                                                                class="paraf">官话</span>
+                                                                <a href="{{ url('locale/zh') }}">
+                                                                    <span class="flag-icon flag-icon-cn"> </span> 
+                                                                    <span class="paraf">官话</span>
+                                                                </a>
                                                         </div>
                                                     </div>
                                                 </div>

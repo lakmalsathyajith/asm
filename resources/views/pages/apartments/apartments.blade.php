@@ -1,4 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    <apartment-list></apartment-list>
+    {{$lang = app()->getLocale()}}
+    <apartment-list lang="{{$lang}}"></apartment-list>
 @stop

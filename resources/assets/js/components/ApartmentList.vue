@@ -8,10 +8,10 @@
               <div class="nav-top-path">
                 <ul class="list-inline">
                   <li class="list-inline-item">
-                    Home
+                    {{lang=='en'?'Home':'家'}}
                     <span>></span>
                   </li>
-                  <li class="list-inline-item">Rates & Availability</li>
+                  <li class="list-inline-item">{{lang=='en'?'Rates & Availability':'价格和空房'}}</li>
                 </ul>
               </div>
             </div>
@@ -40,7 +40,7 @@
                              class="btn location-svg-button before-svg filter-border-none-btn"
                              v-model="filter.state"
                              @input="selectState(filter.state)"
-                             placeholder="Select State"
+                             :placeholder="lang=='en'?'Select State':'选择州'"
                              ></v-select>
                     </div>
                   
@@ -53,7 +53,7 @@
                             label="Suburb"
                              class="btn location-svg-button before-svg filter-border-none-btn"
                              v-model="filter.suburbs"
-                             placeholder="Select Suburb"
+                             :placeholder="lang=='en'?'Select Suburb':'选择郊区'"
                              ></v-select>
                       
                       
@@ -78,7 +78,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <span>Apartment Type</span>
+                      <span> {{lang=='en'?'Apartment Type':'公寓类型'}}</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -89,22 +89,22 @@
                           class="dropdown-item Any"
                           href="#."
                           v-on:click="selectType('Any')"
-                        >Any</a>
+                        >{{lang=='en'?'Any':'任何'}}</a>
                         <a
                           class="dropdown-item studio-apartments"
                           href="#.."
                           v-on:click="selectType('studio-apartments')"
-                        >Studio Apartments</a>
+                        >{{lang=='en'?'Studio Apartments':'开放式公寓'}}</a>
                         <a
                           class="dropdown-item one-bed-room-apartments"
                           href="#.."
                           v-on:click="selectType('one-bed-room-apartments')"
-                        >One Bedroom Apartments</a>
+                        >{{lang=='en'?'One Bedroom Apartments':'一室公寓'}}</a>
                         <a
                           class="dropdown-item two-bed-room-apartments"
                           href="#.."
                           v-on:click="selectType('two-bed-room-apartments')"
-                        >Two Bedroom Apartments</a>
+                        >{{lang=='en'?'Two Bedroom Apartments':'两室公寓'}}</a>
                       </div>
                     </div>
                   </div>
@@ -135,7 +135,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <span>Guest Number</span>
+                      <span>{{lang=='en'?'Guest Number':'来宾号码'}}</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -145,7 +145,7 @@
                         <div class="row">
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                              <label for="min_occupants" class="filter-widget-sublabel">{{lang=='en'?'Adults':'请选择'}}</label>
                               <div class="quantity">
                                 <input
                                   v-model="filter.adults"
@@ -174,7 +174,7 @@
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                              <label for="max_occupants" class="filter-widget-sublabel">{{lang=='en'?'Children':'小孩儿'}}</label>
                               <div class="quantity">
                                 <input
                                   type="number"
@@ -219,21 +219,21 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <span>Price Min/Max</span>
+                      <span>{{lang=='en'?'Price Min/Max':'价格最低/最高'}}</span>
                     </button>
                     <div class="dropdown-menu filter-widget-dropdown" aria-labelledby="dropdownMenuButton">
                       <div class="filter-widget-inner">
                         <div class="row">
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="checkin" class="filter-widget-sublabel">Price Min</label>
+                              <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Price Min':'价格最低'}}</label>
                               <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
                               
                             </div>
                           </div>
                           <div class="col-md-6 filter-widget-col">
                             <div class="form-group">
-                              <label for="checkout" class="filter-widget-sublabel">Price Max</label>
+                              <label for="checkout" class="filter-widget-sublabel">{{lang=='en'?'Price Max':'最高价格'}}</label>
                               <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
                               
                               
@@ -338,7 +338,7 @@
                     <a
                       class="btn booking-btn filter-border-none-btn top-filter-search-btn"
                       @click="submitFilter"
-                    >Search</a>
+                    >{{lang=='en'?'Search':'搜索'}}</a>
                   </div>
                 </div>
               </div>
@@ -355,7 +355,7 @@
             <div class="nav-top-path">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  Home
+                  {{lang=='en'?'Home':'家'}}
                   <span>&gt;</span>
                 </li>
                 <li class="list-inline-item">Melbourne - Northern Region</li>
@@ -376,7 +376,7 @@
                 <div class="row">
                   <div class="col-6">
                     <div class="filrer-name-wrap">
-                      <span>Search by filters</span>
+                      <span>{{lang=='en'?'Search by filters':'按过滤器搜索'}}</span>
                     </div>
                   </div>
                   <div class="col-6">
@@ -407,7 +407,7 @@
                              class="btn location-svg-button before-svg filter-border-none-btn"
                              v-model="filter.state"
                              @input="selectState(filter.state)"
-                             placeholder="Select State"
+:placeholder="lang=='en'?'Select State':'选择州'"
                              ></v-select>
                     </div>
                     </div>
@@ -420,7 +420,7 @@
                             label="Suburb"
                              class="btn location-svg-button before-svg filter-border-none-btn"
                              v-model="filter.suburbs"
-                             placeholder="Select Suburb"
+                             :placeholder="lang=='en'?'Select Suburb':'选择郊区'"
                              ></v-select>
                       
                       
@@ -432,7 +432,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Apartment Type</label>
+                        <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Apartment Type':'公寓类型'}}</label>
                         <button
                           class="btn dropdown-toggle apart-type-svg-button before-svg flter-button apartment-type"
                           type="button"
@@ -441,7 +441,7 @@
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span>Apartment Type</span>
+                          <span>{{lang=='en'?'Apartment Type':'公寓类型'}}</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown"
@@ -452,23 +452,23 @@
                               class="dropdown-item Any"
                               href="#."
                               v-on:click="selectType('Any')"
-                              >Any
+                              >{{lang=='en'?'Any':'任何'}}
                             </a>
                             <a
                               class="dropdown-item studio-apartments"
                               href="#.."
                               v-on:click="selectType('studio-apartments')"
-                            >Studio Apartments</a>
+                            >{{lang=='en'?'Studio Apartments':'开放式公寓'}}</a>
                             <a
                               class="dropdown-item one-bed-room-apartments"
                               href="#.."
                               v-on:click="selectType('one-bed-room-apartments')"
-                            >One Bedroom Apartments</a>
+                            >{{lang=='en'?'One Bedroom Apartments':'一室公寓'}}</a>
                             <a
                               class="dropdown-item two-bed-room-apartments"
                               href="#.."
                               v-on:click="selectType('two-bed-room-apartments')"
-                            >Two Bedroom Apartments</a>
+                            >{{lang=='en'?'Two Bedroom Apartments':'两室公寓'}}</a>
                           </div>
                         </div>
                       </div>
@@ -479,7 +479,7 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel">Check-in/Out</label>
+                      <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Check-in/Out':'入住/退房'}}</label>
 
                       <HotelDatePicker
                     format="DD/MM/YYYY"
@@ -496,7 +496,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">Guest Number</label>
+                        <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Guest Number':'来宾号码'}}</label>
                         <button
                           class="btn dropdown-toggle guest-button-svg before-svg flter-button"
                           type="button"
@@ -505,7 +505,7 @@
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span>Guest Number</span>
+                          <span>{{lang=='en'?'Guest Number':'来宾号码'}}</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown"
@@ -515,7 +515,7 @@
                             <div class="row">
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="min_occupants" class="filter-widget-sublabel">Adults</label>
+                                  <label for="min_occupants" class="filter-widget-sublabel">{{lang=='en'?'Adults':'请选择'}}</label>
                                   <div class="quantity">
                                     <input
                                   v-model="filter.adults"
@@ -544,7 +544,7 @@
                               </div>
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="max_occupants" class="filter-widget-sublabel">Children</label>
+                                  <label for="max_occupants" class="filter-widget-sublabel">{{lang=='en'?'Children':'小孩儿'}}</label>
                                   <div class="quantity">
                                     <input
                                   type="number"
@@ -581,7 +581,7 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel">Price Min/Max</label>
+                      <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Price Min/Max':'价格最低/最高'}}</label>
                       <div class="dropdown filter-widget">
                         <button
                           class="btn dropdown-toggle price-svg-button before-svg flter-button"
@@ -601,13 +601,13 @@
                             <div class="row">
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="checkin" class="filter-widget-sublabel">Price Min</label>
+                                  <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Price Min':'价格最低'}}</label>
                                    <v-select :options="options" :clearable="false" v-model="filter.price_min"></v-select>
                                 </div>
                               </div>
                               <div class="col-md-6 filter-widget-col">
                                 <div class="form-group">
-                                  <label for="checkout" class="filter-widget-sublabel">Price Max</label>
+                                  <label for="checkout" class="filter-widget-sublabel">{{lang=='en'?'Price Max':'最高价格'}}</label>
                                   <v-select :options="options" :clearable="false" v-model="filter.price_max"></v-select>
                                 </div>
                               </div>
@@ -676,7 +676,7 @@
                       <div class="col-12 p-0">
                         <div class="form-group">
                           <div class="filter-widget">
-                            <a class="btn booking-btn">Search</a>
+                            <a class="btn booking-btn">{{lang=='en'?'Search':'搜索'}}</a>
                           </div>
                         </div>
                       </div>
@@ -713,7 +713,7 @@
                       class="btn flter-button filter-border-none-btn"
                     >
                       <i class="ti-layout-list-thumb"></i>
-                      <span>Filters</span>
+                      <span>{{lang=='en'?'Filters':'筛选器'}}</span>
                     </button>
                   </div>
                 </div>
@@ -727,7 +727,7 @@
           <div class="row">
             <div class="col-12 p-0">
               <div class="second-result-head">
-                <p>Showing 1 - 6 of 18 total results</p>
+                <p>{{lang=='en'?'Showing results':'显示结果'}}</p>
               </div>
               <div class="container">
                 <div class="row">
@@ -777,14 +777,13 @@
             <div class="col-md-12">
               <div class="listing-result-head">
                 <div class="first-result-head modile-hide">
-                  <h3 class="bold-700" v-if="searchText !== ''">Results for {{searchText}}</h3>
+                  <h3 class="bold-700" v-if="searchText !== ''">{{lang=='en'?'Results for':'结果'}} {{searchText}}</h3>
                 </div>
                 <div class="second-result-head modile-hide">
                   <p>
-                    Showing {{ currentPage * pageSize - pageSize + 1 }} -
+                    {{lang=='en'?'Showing':'显示中'}} {{ currentPage * pageSize - pageSize + 1 }} -
                     {{ currentPage * pageSize }} of
-                    {{ apartmentsList ? apartmentsList.length : 0 }} total
-                    results
+                    {{ apartmentsList ? apartmentsList.length : 0 }} {{lang=='en'?'total results':'总结果'}}
                   </p>
                 </div>
               </div>
@@ -959,7 +958,7 @@
               <div class="row desktop-hide">
                 <div class="col-md-12">
                   <div class="list-bottom-count-wrap second-result-head">
-                    <p>Showing 1 - 6 of 18 total results</p>
+                    <p>{{lang=='en'?'Showing results':'显示结果'}}</p>
                   </div>
                 </div>
               </div>
@@ -978,6 +977,7 @@ import Swiper from "swiper";
 
 export default {
   name: "apartments",
+  props: ['lang'],
   data() {
     const today = new Date()
     let tomorrow = new Date()

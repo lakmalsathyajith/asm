@@ -17,7 +17,7 @@
                                     <img src="/images/main-logo.png" alt="">
                                 </div>
                                 <div class="agent-tittle">
-                                    <h3 class="sub-heading">Agent login</h3>
+                                    <h3 class="sub-heading">{{lang=='en'?'Agent login':'代理登录'}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -31,20 +31,21 @@
 
                                 <div class="form-group">
                                   <div v-if="loginResponse && loginResponse[0]=='error'" class="login-error">
-                                      These credentials are invalid
+                                      {{lang=='en'?'These credentials are invalid':'这些凭证无效'}}
                                   </div>
                                 </div>
                                 <div class="form-group agent-email-wrap">
                                     <span class="agent-email-span form-control-feedback"></span>
                                     <input v-model="loginData.email" type="email" class="form-control agent-email-input"
-                                           placeholder="Email address">
+                                           :placeholder="lang=='en'?'Email address':'电子邮件地址'"
+                                           >
                                 </div>
 
 
                                 <div class="form-group agent-email-wrap">
                                     <span class="agent-password-span form-control-feedback"></span>
                                     <input v-model="loginData.password" type="password" class="form-control agent-email-input"
-                                           placeholder="Password">
+                                           :placeholder="lang=='en'?'Password':'密码'">
                                 </div>
 
 
@@ -65,7 +66,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="filter-widget">
-                                            <a :disabled="!loginData.email || loginData.email.length == 0 || !loginData.password || loginData.password.length==0" @click="requestLogin" class="btn booking-btn agent-login-btn">Login</a>
+                                            <a :disabled="!loginData.email || loginData.email.length == 0 || !loginData.password || loginData.password.length==0" @click="requestLogin" class="btn booking-btn agent-login-btn">{{lang=='en'?'Login':'登录'}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +87,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="agen-copyright-wrap">
-                        <p>Copyright © 2019 Apartment Stays Melbourne Pty Ltd.</p>
+                        <p>{{lang=='en'?'Copyright':'版权'}} © 2019 Apartment Stays Melbourne Pty Ltd.</p>
                     </div>
                 </div>
             </div>
@@ -98,6 +99,7 @@
     import { mapState, mapActions } from "vuex";
     export default {
         name: "header-loader",
+        props: ['lang'],
         data() {
             return {
                 loginData: {
