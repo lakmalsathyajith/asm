@@ -56,6 +56,7 @@ class ContentController extends AbstractController
         $params['content-sub-type'] = request()->query('content-sub-type', null);
         $params['step'] = request()->query('step', null);
         $params['locale'] = request()->query('locale', null);
+        $params['apartment'] = request()->query('apartment', null);
 
         $data['route'] = route('content.store');
         $data['title'] = '';
@@ -124,7 +125,12 @@ class ContentController extends AbstractController
                 ->with('alertError', $e->getMessage());
         }
 
-        return redirect(route('content.index'));
+        if (isset($requestData['params']) && !empty($requestData['params']['apartment'])) {
+            return redirect(route('apartment.edit', ['apartment' => $requestData['params']['apartment']]));
+        } else {
+            return redirect(route('content.index'));
+        }
+
     }
 
     /**
@@ -145,11 +151,13 @@ class ContentController extends AbstractController
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function edit(Content $content)
+    public function edit(Content $content, Request $request)
     {
-        $data['route'] = route('content.update', [
-            'content' => $content->id
-        ]);
+        $params=['content' => $content->id];
+        if(isset($request->apartment)){
+            $params['apartment'] = $request->apartment;
+        }
+        $data['route'] = route('content.update', $params);
         $data['title'] = ' ';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
@@ -190,7 +198,11 @@ class ContentController extends AbstractController
                 ->with('alertError', $e->getMessage());
         }
 
-        return redirect(route('content.index'));
+        if (isset($requestData) && !empty($requestData['apartment'])) {
+            return redirect(route('apartment.edit', ['apartment' => $requestData['apartment']]));
+        } else {
+            return redirect(route('content.index'));
+        }
     }
 
     /**
