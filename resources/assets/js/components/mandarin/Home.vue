@@ -101,8 +101,8 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Every one of our furnished apartments are carefully </span>
-                            chosen to be closely located to our major universities and central financial district.
+                            <span class="slider-green-text">我们每个带家具的公寓都精心打造 </span>
+                            选择与我们的主要大学和中央金融区紧邻。
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
@@ -145,8 +145,8 @@
                       <div class="d-table-cell align-middle">
                         <div class="banner_content">
                           <h1 class="banner-text-content">
-                            <span class="slider-green-text">Our furnished apartments are well equipped</span>
-                            offering our medium to long term guests a comfortable stay at affordable prices.
+                            <span class="slider-green-text">我们带家具的公寓设备齐全</span>
+                            以实惠的价格为我们的中长期旅客提供舒适的住宿。
                           </h1>
                           <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">

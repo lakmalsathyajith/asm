@@ -12,5 +12,7 @@ return [
   'Call_us '                   =>'Call us',
   'Mail_us'                    =>'Mail us',
   'Phone'                      =>'Phone',
-  'Mobile'                      =>'Mobile'
+  'Mobile'                      =>'Mobile',
+  'Copyright' => 'Copyright',
+  'Created_by' => 'Created by'
 ];
