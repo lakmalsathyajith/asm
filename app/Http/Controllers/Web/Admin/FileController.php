@@ -122,7 +122,9 @@ class FileController extends AbstractController
         try {
             $model = \App\Entities\File::find($id);
             if (!$model->hasRelationship()) {
-                return parent::destroy($id);
+                if($this->deleteFile($model)){
+                    return parent::destroy($id);
+                }
             }
             $error['message'] = "Can't delete the record since this option is already assigned. ".
                 "Please remove the relationship before deleting this record";
