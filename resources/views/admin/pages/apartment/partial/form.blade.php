@@ -110,6 +110,7 @@
                     class="form-control{{ $errors && $errors->has('parking_slots') ? ' is-invalid' : '' }}"
                     name="parking_slots"
                     value="{{ isset($record) && $record->parking_slots ? $record->parking_slots : old('parking_slots') }}"
+                    maxlength="2"
                     required autofocus>
 
                 @if ($errors && $errors->has('parking_slots'))
@@ -124,7 +125,9 @@
                 <label for="beds" class="col-form-label">{{ __('Beds Count') }}</label>
                 <input id="beds" type="text"
                     class="form-control{{ $errors && $errors->has('beds') ? ' is-invalid' : '' }}" name="beds"
-                    value="{{ isset($record) && $record->beds ? $record->beds : old('beds') }}" required>
+                    value="{{ isset($record) && $record->beds ? $record->beds : old('beds') }}"
+                    maxlength="2"
+                    required>
 
                 @if ($errors && $errors->has('beds'))
                 <span class="invalid-feedback" role="alert">
@@ -140,6 +143,7 @@
                     class="form-control{{ $errors && $errors->has('bath_rooms') ? ' is-invalid' : '' }}"
                     name="bath_rooms"
                     value="{{ isset($record) && $record->bath_rooms ? $record->bath_rooms : old('bath_rooms') }}"
+                    maxlength="2"
                     required>
 
                 @if ($errors && $errors->has('bath_rooms'))

@@ -15,9 +15,9 @@ class UpdateApartmentRequest extends AbstractRequest
             'address'           => 'required|max:255',
             'type'              => 'required',
             'map_url'           => 'required',
-            'parking_slots'     => 'required|integer|max:99',
-            'beds'              => 'required|integer|max:99',
-            'bath_rooms'        => 'required|integer|max:99',
+            'parking_slots'     => 'required|integer|max:99|min:0',
+            'beds'              => 'required|integer|max:99|min:0',
+            'bath_rooms'        => 'required|integer|max:99|min:0',
             'files'             => 'required',
             'options'           => 'required',
             'price'           => 'required',
@@ -30,7 +30,10 @@ class UpdateApartmentRequest extends AbstractRequest
     public function messages()
     {
         return [
-            'files'             => 'Images field is required'
+            'files'             => 'Images field is required',
+            'parking_slots.integer'=> 'Parking slots must be a number',
+            'beds.integer'      => 'Beds rooms must be a number',
+            'bath_rooms.integer'=> 'Bath rooms must be a number',
         ];
     }
 }
