@@ -22,6 +22,7 @@ class StoreApartmentRequest extends AbstractRequest
             'options'           => 'required',
             'price'           => 'required',
             'rms_key'           => 'required|max:50',
+            'slug'              => 'required|max:100|unique:apartments,slug',
             // 'rms_key'           => 'required|max:50|unique:apartments,rms_key',
         ];
     }

@@ -304,6 +304,20 @@
                 @endif
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="slug" class="col-form-label">{{ __('Slug') }}</label>
+                <input id="slug" type="text"
+                       class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}" name="slug"
+                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}" required>
+
+                @if ($errors && $errors->has('slug'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('slug') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
     </div>
 
     <div class="row">

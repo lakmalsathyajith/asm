@@ -23,6 +23,7 @@ class Apartment extends Model
         'state',
         'rms_apartment_id',
         'meta',
+        'slug',
     ];
 
     public function contents()

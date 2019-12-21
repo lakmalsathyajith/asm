@@ -106,6 +106,7 @@ class ApartmentController extends AbstractController
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
                 'meta' => $requestData['meta'],
+                'slug' => $requestData['slug'],
             ];
 
             $data = $this->activeRepo->create($data);
@@ -218,6 +219,7 @@ class ApartmentController extends AbstractController
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
                 'meta' => $requestData['meta'],
+                'slug' => $requestData['slug'],
             ];
 
             $apartment = $this->activeRepo->get($id);
