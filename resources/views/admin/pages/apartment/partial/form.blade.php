@@ -289,6 +289,24 @@
     </div>
 
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
+                <textarea id="meta"
+                          name="meta"
+                          placeholder="meta1, meta2, meta3"
+                          class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}">{{ isset($record) && $record->meta ? $record->meta : old('meta') }}</textarea>
+
+                @if ($errors && $errors->has('meta'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('meta') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
             <div class="form-group">
                 <button type="submit" {{ isset($counts) && count($counts) >0 ? 'disabled' : '' }}

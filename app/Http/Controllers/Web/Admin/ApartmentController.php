@@ -104,7 +104,8 @@ class ApartmentController extends AbstractController
                 'rms_apartment_id' => $requestData['rms_apartment_id'],
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
-                'price' => $requestData['price']
+                'price' => $requestData['price'],
+                'meta' => $requestData['meta'],
             ];
 
             $data = $this->activeRepo->create($data);
@@ -215,7 +216,8 @@ class ApartmentController extends AbstractController
                 'rms_apartment_id' => $requestData['rms_apartment_id'],
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
-                'price' => $requestData['price']
+                'price' => $requestData['price'],
+                'meta' => $requestData['meta'],
             ];
 
             $apartment = $this->activeRepo->get($id);
