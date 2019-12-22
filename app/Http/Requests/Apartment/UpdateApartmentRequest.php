@@ -22,7 +22,7 @@ class UpdateApartmentRequest extends AbstractRequest
             'options'           => 'required',
             'price'           => 'required',
             'rms_key'           => "required|max:50",
-            'slug'              => "required|max:100|unique:apartments,slug,{$this->route()->apartment},id",
+            'slug'              => "max:100|unique:apartments,slug,{$this->route()->apartment},id",
             // 'rms_key'           => "required|max:50|unique:apartments,rms_key,{$this->route()->apartment},id",
         ];
     }
