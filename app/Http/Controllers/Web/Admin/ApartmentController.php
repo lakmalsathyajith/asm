@@ -106,6 +106,7 @@ class ApartmentController extends AbstractController
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
                 'meta' => $requestData['meta'],
+                'meta_description' => $requestData['meta_description'],
                 'slug' => $requestData['slug'],
             ];
 
@@ -219,6 +220,7 @@ class ApartmentController extends AbstractController
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
                 'meta' => $requestData['meta'],
+                'meta_description' => $requestData['meta_description'],
                 'slug' => $requestData['slug'],
             ];
 

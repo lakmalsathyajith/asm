@@ -292,10 +292,9 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
-                <textarea id="meta"
-                          name="meta"
-                          placeholder="meta1, meta2, meta3"
-                          class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}">{{ isset($record) && $record->meta ? $record->meta : old('meta') }}</textarea>
+                <input id="meta" type="text"
+                       class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}" name="meta"
+                       value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" required autofocus>
 
                 @if ($errors && $errors->has('meta'))
                 <span class="invalid-feedback" role="alert">
@@ -314,6 +313,23 @@
                 @if ($errors && $errors->has('slug'))
                     <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('slug') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="meta_description" class="col-form-label">{{ __('Meta Description') }}</label>
+                <textarea id="meta_description"
+                          name="meta_description"
+                          class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->meta_description ? $record->meta_description : old('meta_description') }}</textarea>
+
+                @if ($errors && $errors->has('meta_description'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('meta_description') }}</strong>
                 </span>
                 @endif
             </div>
