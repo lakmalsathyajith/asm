@@ -12,6 +12,7 @@ return [
   'Call_us'                   =>'联系我们',
   'Mail_us'                    =>'电邮我们',
   'Phone'                      =>'电话号码',
-  'Mobile'                    =>'手机号码'
-
+  'Mobile'                    =>'手机号码',
+  'Copyright' => '版权',
+  'Created_by' => '由...制作'
 ];

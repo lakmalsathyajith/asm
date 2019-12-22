@@ -527,7 +527,12 @@ export default {
     }
   },
   mounted() {
-    this.getApartment(this.$attrs.id);
+
+      let apartMentObj = {
+          id: this.$attrs.id,
+          lang: this.$attrs.lang,
+      };
+      this.getApartment(apartMentObj);
     setTimeout(() => {
       let swiper = new Swiper('.swiper-container', {
         effect: 'fade',

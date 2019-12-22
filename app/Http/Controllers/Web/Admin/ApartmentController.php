@@ -175,6 +175,7 @@ class ApartmentController extends AbstractController
                 'sub_type' => 'How Much'
             ],
         ];
+        $data['id'] = $apartment->id;
         $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';

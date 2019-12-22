@@ -31,17 +31,17 @@ export const getApartmentsList = ({ commit, dispatch }) => {
  * @param payload
  */
 export const getApartment = ({ commit, dispatch }, payload) => {
-  isLoading(dispatch, true);
-  Vue.axios
-    .get('/apartments/' + payload)
-    .then(res => {
-      commit(SELECTED_APARTMENT, res.data);
-      isLoading(dispatch, false);
-    })
-    .catch(err => {
-      console.log('---err----', err);
-      isLoading(dispatch, false);
-    });
+    isLoading(dispatch, true);
+    Vue.axios
+        .get('/apartments/' + payload.id + "?locale=" + payload.lang)
+        .then(res => {
+            commit(SELECTED_APARTMENT, res.data);
+            isLoading(dispatch, false);
+        })
+        .catch(err => {
+            console.log('---err----', err);
+            isLoading(dispatch, false);
+        });
 };
 
 /**

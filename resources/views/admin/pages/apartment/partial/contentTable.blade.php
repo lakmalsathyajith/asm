@@ -16,6 +16,7 @@
                 </thead>
                 <tbody>
                 @foreach($record->contents as $content)
+                    {{$id}}
                     <tr id="content_{{ $content->id }}">
                         <th scope="row">{{ $content->id }}</th>
                         <td>{{ $content->name }}</td>
@@ -26,7 +27,7 @@
                         <td>{{ $content->created_at }}</td>
                         <td>
                             <div class="float-right">
-                                <a href="{{ route('content.edit', ['content' => $content->id]) }}">
+                                <a href="{{ route('content.edit', ['content' => $content->id, 'apartment'=>$id]) }}">
                                     <div class="btn btn-xs">
                                             <i class="far fa-edit"></i>
                                     </div>
@@ -56,6 +57,7 @@
                                         'content-sub-type' => strtolower($noContent['sub_type']),
                                         'locale' => $noContent['locale'],
                                         'step' => 5,
+                                         'apartment'=>$id
                                     ])}}">
                                         <div class="btn btn-xs">
                                                 <i class="far fa-plus-square"></i>
