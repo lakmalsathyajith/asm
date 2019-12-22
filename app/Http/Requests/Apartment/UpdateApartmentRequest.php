@@ -25,10 +25,6 @@ class UpdateApartmentRequest extends AbstractRequest
             // 'rms_key'           => "required|max:50|unique:apartments,rms_key,{$this->route()->apartment},id",
         ];
 
-        if($this->request->has('slug') && $this->request->get('slug')) {
-            $rules['slug'] = "max:100|unique:apartments,slug,{$this->route()->apartment},id";
-        }
-
         return $rules;
     }
 

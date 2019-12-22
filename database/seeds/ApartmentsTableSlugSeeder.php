@@ -13,9 +13,7 @@ class ApartmentsTableSlugSeeder extends Seeder
     public function run()
     {
         Apartment::all()->each(function($apartment){
-            $slug = strtolower($apartment->name).' - '.strtolower($apartment->address);
-            $apartment->slug = $slug;
-            $apartment->save();
+            $apartment->touch();
         });
     }
 }

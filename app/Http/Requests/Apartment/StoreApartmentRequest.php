@@ -25,10 +25,6 @@ class StoreApartmentRequest extends AbstractRequest
             // 'rms_key'           => 'required|max:50|unique:apartments,rms_key',
         ];
 
-        if($this->request->has('slug') && $this->request->get('slug')) {
-            $rules['slug'] = 'max:100|unique:apartments,slug';
-        }
-
         return $rules;
     }
 
