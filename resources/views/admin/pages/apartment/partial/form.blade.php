@@ -288,13 +288,15 @@
         </div>
     </div>
 
+    <hr/>
+
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
                 <input id="meta" type="text"
                        class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}" name="meta"
-                       value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" required autofocus>
+                       value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" autofocus>
 
                 @if ($errors && $errors->has('meta'))
                 <span class="invalid-feedback" role="alert">
@@ -308,7 +310,7 @@
                 <label for="slug" class="col-form-label">{{ __('Slug') }}</label>
                 <input id="slug" type="text"
                        class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}" name="slug"
-                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}" required>
+                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}">
 
                 @if ($errors && $errors->has('slug'))
                     <span class="invalid-feedback" role="alert">

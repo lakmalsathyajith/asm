@@ -91,6 +91,10 @@ class ApartmentController extends AbstractController
         $requestData = $request->all();
         $data = null;
 
+        $slug = isset($requestData['slug'])
+            ? $requestData['slug']
+            : $requestData['name']. ' - '. $requestData['address'];
+
         try {
             $data = [
                 'name' => $requestData['name'],
@@ -105,9 +109,13 @@ class ApartmentController extends AbstractController
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
-                'meta' => $requestData['meta'],
-                'meta_description' => $requestData['meta_description'],
-                'slug' => $requestData['slug'],
+                'meta' => isset($requestData['meta'])
+                    ? $requestData['meta']
+                    : null,
+                'meta_description' => isset($requestData['meta_description'])
+                    ? $requestData['meta_description']
+                    : null,
+                'slug' => $slug,
             ];
 
             $data = $this->activeRepo->create($data);
@@ -204,6 +212,9 @@ class ApartmentController extends AbstractController
     public function update($id, UpdateApartmentRequest $request)
     {
         $requestData = $request->all();
+        $slug = isset($requestData['slug'])
+            ? $requestData['slug']
+            : $requestData['name']. ' - '. $requestData['address'];
 
         try {
             $data = [
@@ -219,9 +230,13 @@ class ApartmentController extends AbstractController
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
-                'meta' => $requestData['meta'],
-                'meta_description' => $requestData['meta_description'],
-                'slug' => $requestData['slug'],
+                'meta' => isset($requestData['meta'])
+                    ? $requestData['meta']
+                    : null,
+                'meta_description' => isset($requestData['meta_description'])
+                    ? $requestData['meta_description']
+                    : null,
+                'slug' => $slug,
             ];
 
             $apartment = $this->activeRepo->get($id);

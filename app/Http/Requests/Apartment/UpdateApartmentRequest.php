@@ -10,7 +10,7 @@ class UpdateApartmentRequest extends AbstractRequest
     // validation rules
     public function rules()
     {
-        return [
+        $rules =  [
             'name'              => "required|min:3|max:100",
             'address'           => 'required|max:255',
             'type'              => 'required',
@@ -22,9 +22,14 @@ class UpdateApartmentRequest extends AbstractRequest
             'options'           => 'required',
             'price'           => 'required',
             'rms_key'           => "required|max:50",
-            'slug'              => "required|max:100|unique:apartments,slug,{$this->route()->apartment},id",
             // 'rms_key'           => "required|max:50|unique:apartments,rms_key,{$this->route()->apartment},id",
         ];
+
+        if($this->request->has('slug') && $this->request->get('slug')) {
+            $rules['slug'] = "max:100|unique:apartments,slug,{$this->route()->apartment},id";
+        }
+
+        return $rules;
     }
 
     // validation messages
