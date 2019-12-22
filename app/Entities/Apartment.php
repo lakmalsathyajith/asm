@@ -21,7 +21,10 @@ class Apartment extends Model
         'rms_key',
         'suburb',
         'state',
-        'rms_apartment_id'
+        'rms_apartment_id',
+        'meta',
+        'meta_description',
+        'slug',
     ];
 
     public function contents()

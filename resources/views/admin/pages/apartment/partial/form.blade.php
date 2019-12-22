@@ -110,6 +110,7 @@
                     class="form-control{{ $errors && $errors->has('parking_slots') ? ' is-invalid' : '' }}"
                     name="parking_slots"
                     value="{{ isset($record) && $record->parking_slots ? $record->parking_slots : old('parking_slots') }}"
+                    maxlength="2"
                     required autofocus>
 
                 @if ($errors && $errors->has('parking_slots'))
@@ -124,7 +125,9 @@
                 <label for="beds" class="col-form-label">{{ __('Beds Count') }}</label>
                 <input id="beds" type="text"
                     class="form-control{{ $errors && $errors->has('beds') ? ' is-invalid' : '' }}" name="beds"
-                    value="{{ isset($record) && $record->beds ? $record->beds : old('beds') }}" required>
+                    value="{{ isset($record) && $record->beds ? $record->beds : old('beds') }}"
+                    maxlength="2"
+                    required>
 
                 @if ($errors && $errors->has('beds'))
                 <span class="invalid-feedback" role="alert">
@@ -140,6 +143,7 @@
                     class="form-control{{ $errors && $errors->has('bath_rooms') ? ' is-invalid' : '' }}"
                     name="bath_rooms"
                     value="{{ isset($record) && $record->bath_rooms ? $record->bath_rooms : old('bath_rooms') }}"
+                    maxlength="2"
                     required>
 
                 @if ($errors && $errors->has('bath_rooms'))
@@ -278,6 +282,54 @@
                 @if ($errors && $errors->has('price'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('price') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
+                <input id="meta" type="text"
+                       class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}" name="meta"
+                       value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" required autofocus>
+
+                @if ($errors && $errors->has('meta'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('meta') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="slug" class="col-form-label">{{ __('Slug') }}</label>
+                <input id="slug" type="text"
+                       class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}" name="slug"
+                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}" required>
+
+                @if ($errors && $errors->has('slug'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('slug') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="meta_description" class="col-form-label">{{ __('Meta Description') }}</label>
+                <textarea id="meta_description"
+                          name="meta_description"
+                          class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->meta_description ? $record->meta_description : old('meta_description') }}</textarea>
+
+                @if ($errors && $errors->has('meta_description'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('meta_description') }}</strong>
                 </span>
                 @endif
             </div>
