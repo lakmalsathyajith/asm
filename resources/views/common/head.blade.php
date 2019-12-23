@@ -15,8 +15,13 @@
     <meta property="og:site_name" content="Apartment Stays Melbourne" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="- Apartment Stays Melbourne" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="meta tags, meta tag, meta tags seo, meta tags definition, what is a meta tag" />
+    @if(isset($meta))
+        <meta name="description" content="{{$meta['description']}}" />
+        <meta name="keywords" content="{{$meta['keywords']}}" />
+    @else
+        <meta name="description" content="" />
+        <meta name="keywords" content="meta tags, meta tag, meta tags seo, meta tags definition, what is a meta tag" />
+    @endif
     <meta name="robots" content="index, follow" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

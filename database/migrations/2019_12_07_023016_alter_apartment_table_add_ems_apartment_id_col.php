@@ -14,7 +14,7 @@ class AlterApartmentTableAddEmsApartmentIdCol extends Migration
     public function up()
     {
         Schema::table('apartments', function (Blueprint $table) {
-            $table->integer('rms_apartment_id')->after('rms_key')->default('0')->nullable();
+            //$table->integer('rms_apartment_id')->after('rms_key')->default('0')->nullable();
         });
     }
 
