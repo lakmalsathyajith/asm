@@ -307,23 +307,6 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="slug" class="col-form-label">{{ __('Slug') }}</label>
-                <input id="slug" type="text"
-                       class="form-control{{ $errors && $errors->has('slug') ? ' is-invalid' : '' }}" name="slug"
-                       value="{{ isset($record) && $record->slug ? $record->slug : old('slug') }}">
-
-                @if ($errors && $errors->has('slug'))
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('slug') }}</strong>
-                </span>
-                @endif
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
                 <label for="meta_description" class="col-form-label">{{ __('Meta Description') }}</label>
                 <textarea id="meta_description"
                           name="meta_description"

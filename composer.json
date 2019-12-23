@@ -15,7 +15,8 @@
         "laravel/passport": "4.0.*",
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "paragonie/random_compat": "2.*"
+        "paragonie/random_compat": "2.*",
+        "spatie/laravel-sluggable": "^2.2"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
