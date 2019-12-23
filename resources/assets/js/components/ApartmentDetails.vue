@@ -529,7 +529,7 @@ export default {
   mounted() {
 
       let apartMentObj = {
-          id: this.$attrs.id,
+          id: this.$attrs.slug,
           lang: this.$attrs.lang,
       };
       this.getApartment(apartMentObj);

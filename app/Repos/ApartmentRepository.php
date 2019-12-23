@@ -14,4 +14,9 @@ class ApartmentRepository extends AbstractRepository implements ApartmentInterfa
     {
         parent::__construct($model);
     }
+
+    public function getBySlug($slug){
+
+        return $this->model->where('slug', $slug)->first();
+    }
 }

@@ -51,7 +51,8 @@ class ApartmentController extends AbstractApiController
             ->with('files')
             ->with('options')
             ->with('type')
-            ->findOrFail($id);
+            ->where('slug', $id)
+            ->first();
     }
 
     /**

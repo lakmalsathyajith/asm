@@ -46,7 +46,13 @@ Route::get('/apartment-listing', function () {
 Route::get('/apartment/{id}', 'Web\Frontend\ApartmentController@show');
 
 Route::get('/typical-apartment', function () {
-    return view('pages.typicalApartments',['menu' => 'typical']);
+
+    //sample meta goes here
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+
+    return view('pages.typicalApartments',['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/booking-first', function () {
     return view('pages.bookingFirst',['menu' => 'rates']);

@@ -20,7 +20,8 @@ class ApartmentController extends AbstractController
 
     public function show($id)
     {
-        $data = $this->activeRepo->get($id);
+        //$data = $this->activeRepo->get($id);
+        $data = $this->activeRepo->getBySlug($id);
         $params = $this->request->route()->parameters;
         $meta = [];
         $meta['keywords'] = $data['meta'];
