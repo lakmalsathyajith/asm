@@ -4,10 +4,13 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Apartment extends Model
 {
     use SoftDeletes;
+    use HasSlug;
 
     protected $fillable = [
         'name',
@@ -21,8 +24,18 @@ class Apartment extends Model
         'rms_key',
         'suburb',
         'state',
-        'rms_apartment_id'
+        'rms_apartment_id',
+        'meta',
+        'meta_description',
+        'slug',
     ];
+
+    public function getSlugOptions()
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
 
     public function contents()
     {

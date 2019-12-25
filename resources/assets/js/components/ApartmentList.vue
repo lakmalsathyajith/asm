@@ -855,7 +855,7 @@
             >
               <div class="col-md-12 mobile-padding-0">
                 <div class="listing-wrap">
-                  <a :href="'./apartment/' + apartment.id + '?start=' + getFormatedDate(filter.checkIn) + '&end=' + 
+                  <a :href="'./apartment/' + apartment.slug + '?start=' + getFormatedDate(filter.checkIn) + '&end=' +
                         getFormatedDate(filter.checkOut) + '&adults=' + filter.adults + '&children=' + filter.children">
                     <div class="row">
                       <div class="col-md-7 apartment-listing-widget-left-col">
@@ -907,7 +907,7 @@
                         </div>
                       </div>
                       <div class="col-md-5 apartment-listing-widget-right-col modile-hide tab-view">
-                        <a :href="'./apartment/' + apartment.id+ '?start=' + getFormatedDate(filter.checkIn) + '&end=' + 
+                        <a :href="'./apartment/' + apartment.slug + '?start=' + getFormatedDate(filter.checkIn) + '&end=' +
                         getFormatedDate(filter.checkOut) + '&adults=' + filter.adults + '&children=' + filter.children">
                           <div class="facility-wrap">
                             <div class="row">

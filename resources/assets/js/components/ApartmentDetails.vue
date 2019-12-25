@@ -14,7 +14,7 @@
               <div class="nav-top-path">
                 <ul class="list-inline">
                   <li class="list-inline-item">
-                    {{lang=='en'?'Home':'家'}}
+                    {{ lang == 'en' ? 'Home' : '家' }}
                     <span>></span>
                   </li>
                   <li class="list-inline-item">
@@ -64,7 +64,13 @@
               <div class="listing-bottom-icons-wrap modile-hide tab-view">
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                    {{ selectedApartment && selectedApartment.type? lang=='en'? selectedApartment.type.name: selectedApartment.type.description:''}}
+                    {{
+                      selectedApartment && selectedApartment.type
+                        ? lang == 'en'
+                          ? selectedApartment.type.name
+                          : selectedApartment.type.description
+                        : ''
+                    }}
                   </li>
                   <li
                     class="list-inline-item apart-options"
@@ -91,7 +97,7 @@
                     &#124;
                   </li>
                   <li class="list-inline-item apart-options inner-other">
-                    {{lang=='en'?'Available now':'现在有空'}}
+                    {{ lang == 'en' ? 'Available now' : '现在有空' }}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -102,7 +108,11 @@
                         ? selectedApartment.price
                         : '0'
                     }}
-                    {{lang=='en'?'per week (Rate at 12 months)':'每周（12个月的费用）'}}
+                    {{
+                      lang == 'en'
+                        ? 'per week (Rate at 12 months)'
+                        : '每周（12个月的费用）'
+                    }}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -111,7 +121,8 @@
                     class="list-inline-item apart-options inner-other email-list"
                   >
                     <a href="#" @click="send_email()"
-                      ><i class="ti-email"></i> {{lang=='en'?'Email':'电子邮件'}}</a
+                      ><i class="ti-email"></i>
+                      {{ lang == 'en' ? 'Email' : '电子邮件' }}</a
                     >
                   </li>
                 </ul>
@@ -121,7 +132,13 @@
               >
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                     {{ selectedApartment && selectedApartment.type? lang=='en'? selectedApartment.type.name: selectedApartment.type.description:''}}
+                    {{
+                      selectedApartment && selectedApartment.type
+                        ? lang == 'en'
+                          ? selectedApartment.type.name
+                          : selectedApartment.type.description
+                        : ''
+                    }}
                   </li>
                   <li
                     class="list-inline-item apart-options"
@@ -148,7 +165,7 @@
 
                 <ul class="list-inline">
                   <li class="list-inline-item apart-options inner-other">
-                    {{lang=='en'?'Available now':'现在有空'}}
+                    {{ lang == 'en' ? 'Available now' : '现在有空' }}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -159,7 +176,11 @@
                         ? selectedApartment.price
                         : '0'
                     }}
-                    {{lang=='en'?'(Rate at 12 months)':'（12个月时的费率）'}}
+                    {{
+                      lang == 'en'
+                        ? '(Rate at 12 months)'
+                        : '（12个月时的费率）'
+                    }}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -168,7 +189,8 @@
                     class="list-inline-item apart-options inner-other email-list"
                   >
                     <a href="#" @click="send_email()"
-                      ><i class="ti-email"></i> {{lang=='en'?'Email':'电子邮件'}}</a
+                      ><i class="ti-email"></i>
+                      {{ lang == 'en' ? 'Email' : '电子邮件' }}</a
                     >
                   </li>
                 </ul>
@@ -179,9 +201,9 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel"
-                        >{{lang=='en'?'Check-In/Out':'入住/退房'}}</label
-                      >
+                      <label for="checkin" class="filter-widget-sublabel">{{
+                        lang == 'en' ? 'Check-In/Out' : '入住/退房'
+                      }}</label>
                       <HotelDatePicker
                         format="DD/MM/YYYY"
                         :showYear="true"
@@ -203,7 +225,9 @@
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
+                          <span>{{
+                            lang == 'en' ? 'Guest Number' : '入住人数'
+                          }}</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown"
@@ -216,7 +240,9 @@
                                   <label
                                     for="min_occupants"
                                     class="filter-widget-sublabel"
-                                    >{{lang=='en'?'Adults':'请选择'}}</label
+                                    >{{
+                                      lang == 'en' ? 'Adults' : '请选择'
+                                    }}</label
                                   >
                                   <div class="quantity">
                                     <input
@@ -249,7 +275,9 @@
                                   <label
                                     for="max_occupants"
                                     class="filter-widget-sublabel"
-                                    >{{lang=='en'?'Children':'小孩儿'}}</label
+                                    >{{
+                                      lang == 'en' ? 'Children' : '小孩儿'
+                                    }}</label
                                   >
                                   <div class="quantity">
                                     <input
@@ -289,9 +317,11 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="checkin" class="filter-widget-sublabel"
-                        >{{lang=='en'?'Per Week (Rate at 12 Months)':'每周（12个月的费率）'}}</label
-                      >
+                      <label for="checkin" class="filter-widget-sublabel">{{
+                        lang == 'en'
+                          ? 'Per Week (Rate at 12 Months)'
+                          : '每周（12个月的费率）'
+                      }}</label>
                       <p class="amount">
                         A${{
                           selectedApartment && selectedApartment.price
@@ -314,7 +344,7 @@
                           "
                           class="btn booking-btn"
                           v-on:click="bookNow"
-                          >{{lang=='en'?'Book Now':'现在预订'}}</a
+                          >{{ lang == 'en' ? 'Book Now' : '现在预订' }}</a
                         >
                       </div>
                     </div>
@@ -356,7 +386,9 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
+                    <span>{{
+                      lang == 'en' ? 'Guest Number' : '入住人数'
+                    }}</span>
                   </button>
                   <div
                     class="dropdown-menu filter-widget-dropdown"
@@ -369,7 +401,7 @@
                             <label
                               for="min_occupants"
                               class="filter-widget-sublabel"
-                              >{{lang=='en'?'Adults':'请选择'}}</label
+                              >{{ lang == 'en' ? 'Adults' : '请选择' }}</label
                             >
                             <div class="quantity">
                               <input
@@ -402,7 +434,7 @@
                             <label
                               for="max_occupants"
                               class="filter-widget-sublabel"
-                              >{{lang=='en'?'Children':'小孩儿'}}</label
+                              >{{ lang == 'en' ? 'Children' : '小孩儿' }}</label
                             >
                             <div class="quantity">
                               <input
@@ -477,7 +509,7 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default {
   name: 'apartmentDetails',
-   props: ['lang'],
+  props: ['lang'],
   data() {
     const today = new Date();
     let tomorrow = new Date();
@@ -520,12 +552,11 @@ export default {
     }
   },
   mounted() {
-
-      let apartMentObj = {
-          id: this.$attrs.id,
-          lang: this.lang,
-      };
-      this.getApartment(apartMentObj);
+    let apartMentObj = {
+      id: this.$attrs.slug,
+      lang: this.lang
+    };
+    this.getApartment(apartMentObj);
     setTimeout(() => {
       let swiper = new Swiper('.swiper-container', {
         effect: 'fade',
@@ -585,7 +616,6 @@ export default {
     },
     onAdultsChange(e) {
       this.filter.adults = parseInt(e.target.value);
-     
     },
     onChildrenChange(e) {
       this.filter.children = parseInt(e.target.value);
@@ -598,7 +628,7 @@ export default {
       this.filter.checkOut = newDate;
     },
     showMultiple(files, index) {
-      const vm =this;
+      const vm = this;
       vm.imgs = [];
       files.forEach(function(file) {
         vm.imgs.push(file.url);

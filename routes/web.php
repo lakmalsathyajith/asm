@@ -32,13 +32,27 @@ Route::get('/apartment-listing', function () {
     return view('pages.apartments.apartments',['menu' => 'rates']);
 });
 
-Route::get('/apartment/{id}', function (Request $request) {
+/*Route::get('/apartment/{id}', function (Request $request) {
     $params = $request->route()->parameters;
-    return view('pages.apartments.detail', ['params' => $params['id'],['menu' => 'rates']]);
-});
+    $meta = [];
+    $meta['keywords'] = "key1,key2,key3";
+    $meta['description'] = "this is a description";
+
+    dd("===",$params);
+
+    return view('pages.apartments.detail', ['params' => $params['id'],['menu' => 'rates'], 'meta' => $meta]);
+});*/
+
+Route::get('/apartment/{id}', 'Web\Frontend\ApartmentController@show');
 
 Route::get('/typical-apartment', function () {
-    return view('pages.typicalApartments',['menu' => 'typical']);
+
+    //sample meta goes here
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+
+    return view('pages.typicalApartments',['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/booking-first', function () {
     return view('pages.bookingFirst',['menu' => 'rates']);

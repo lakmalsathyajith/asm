@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 trait FileTrait
 {
+    protected static $disk = 'public';
+
     public static function getUploadedFileMeta($configs = [])
     {
         $fileMeta = array_merge([
@@ -34,12 +36,11 @@ trait FileTrait
     public static function uploadFile($meta)
     {
         $meta['user_id'] = Auth::id();
-        $disk = 'public';
         $fileName = $meta['uuid'] . '.' . $meta['extension'];
 
-        $relativePath = Storage::disk($disk)
+        $relativePath = Storage::disk(self::$disk)
             ->putFileAs($meta['folder'], new File($meta['path']), $fileName, 'public');
-        $url = Storage::disk($disk)
+        $url = Storage::disk(self::$disk)
             ->url($relativePath);
 
         $meta['url'] = $url;
@@ -49,5 +50,19 @@ trait FileTrait
 
     public function createThumb() {
 
+    }
+
+    public function deleteFile($model) {
+        $segments = [];
+        if(isset($model->url)) {
+            $segments = explode('storage/', $model->url);
+        }
+
+        if(isset($segments) && isset($segments[1])) {
+            return Storage::disk(self::$disk)
+                ->delete($segments[1]);
+        }
+
+        return false;
     }
 }
