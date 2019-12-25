@@ -509,7 +509,7 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default {
   name: 'apartmentDetails',
-  props: ['lang'],
+  props: ['lang','slug'],
   data() {
     const today = new Date();
     let tomorrow = new Date();
@@ -519,7 +519,7 @@ export default {
       slide: 0,
       sliding: null,
       filter: {
-        apartment_id: this.$attrs.id,
+        apartment_id: this.slug,
         checkIn: today,
         checkOut: tomorrow,
         type: '',
@@ -553,7 +553,7 @@ export default {
   },
   mounted() {
     let apartMentObj = {
-      id: this.$attrs.slug,
+      id: this.slug,
       lang: this.lang
     };
     this.getApartment(apartMentObj);
@@ -648,7 +648,6 @@ export default {
       console.log('-----', message);
     },
     getContentBySubType(subType) {
-      console.log(this.selectedApartment);
       let contentObj =
         this.selectedApartment &&
         this.selectedApartment.contents &&

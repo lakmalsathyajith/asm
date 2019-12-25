@@ -9,7 +9,7 @@ return [
   'Privacy'                     => 'Privacy',
   'Conditions'                  => 'Conditions',
   'Locate_us'                   =>'Locate Us',
-  'Call_us '                   =>'Call us',
+  'Call_us'                   =>'Call us',
   'Mail_us'                    =>'Mail us',
   'Phone'                      =>'Phone',
   'Mobile'                      =>'Mobile',

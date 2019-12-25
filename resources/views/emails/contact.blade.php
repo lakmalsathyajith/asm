@@ -102,7 +102,7 @@ vertical-align:middle;">
             <table border="0 " cellpadding="10 " cellspacing="0 " width="100% ">
                 <tbody><tr>
                     <td colspan="2 " valign="middle " id="credit " style=" border:0; color: #777; font-family: Arial; font-size:
-                                    12px; line-height:125%; text-align:center; ">©2019 {{ config('app.name', 'ASM') }}</td>
+                                    12px; line-height:125%; text-align:center; ">© {{date("Y")}} {{ config('app.name', 'ASM') }}</td>
                 </tr>
             </tbody></table>
         </td>

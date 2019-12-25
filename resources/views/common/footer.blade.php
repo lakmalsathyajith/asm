@@ -76,7 +76,7 @@
                                         alt="apartmentstays"></div>
                             </div>
                             <div class="widget-title">
-                            {{ __('footer.Call_us') }}
+                            {{ __('footer.Mail_us') }}
                             </div>
                             <div class="widget-body">
                                 <div class="widget-icon"><img
@@ -121,7 +121,7 @@
             <div class="row">
                 <diV class="col-md-6">
                     <div class="copy-text">
-                        <P>{{ __('footer.Copyright') }} © 2019 Apartment Stays Melbourne Pty Ltd.</P>
+                        <P>{{ __('footer.Copyright') }} © {{date("Y")}} Apartment Stays Melbourne Pty Ltd.</P>
                     </div>
 
                 </diV>

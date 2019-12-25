@@ -125,7 +125,6 @@
                     $('.modal-backdrop').remove();
                     return this.loginResponse.errors && this.loginResponse.errors.length===0;
                 }else{
-                    console.log('false');
                     return false
                 }
             }
