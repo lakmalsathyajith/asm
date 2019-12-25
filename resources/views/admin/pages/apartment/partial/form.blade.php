@@ -290,36 +290,47 @@
 
     <hr/>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
-                <input id="meta" type="text"
-                       class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}" name="meta"
-                       value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" autofocus>
+    @if($locales)
+        @foreach($locales as $name => $value)
+            <?php
+            $selectedMeta = Arr::first($record->metas ? $record->metas : [], function($val, $key) use($value) {
+                    return ($val->locale === $value);
+                })
+            ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="{{'meta_'.$value.'_name'}}" class="col-form-label">{{ __('Meta ('.$name.')') }}</label>
+                        <input id="{{'meta_'.$value.'_name'}}" type="text"
+                               class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}"
+                               name="{{'meta['.$value.'][name]'}}"
+                               value="{{ isset($selectedMeta) && $selectedMeta->name ? $selectedMeta->name : old('meta['.$value.'][name]') }}"
+                               autofocus>
 
-                @if ($errors && $errors->has('meta'))
-                <span class="invalid-feedback" role="alert">
+                        @if ($errors && $errors->has('meta'))
+                            <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('meta') }}</strong>
                 </span>
-                @endif
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="meta_description" class="col-form-label">{{ __('Meta Description') }}</label>
-                <textarea id="meta_description"
-                          name="meta_description"
-                          class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->meta_description ? $record->meta_description : old('meta_description') }}</textarea>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="{{'meta_'.$value.'_description'}}" class="col-form-label">{{ __('Meta Description ('.$name.')') }}</label>
+                        <textarea id="{{'meta_'.$value.'_description'}}"
+                                  name="{{'meta['.$value.'][description]'}}"
+                                  class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($selectedMeta) && $selectedMeta->description ? $selectedMeta->description : old('meta['.$value.'][description]') }}</textarea>
 
-                @if ($errors && $errors->has('meta_description'))
-                    <span class="invalid-feedback" role="alert">
+                        @if ($errors && $errors->has('meta_description'))
+                            <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('meta_description') }}</strong>
                 </span>
-                @endif
+                        @endif
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        @endforeach
+    @endif
 
     <div class="row">
         <div class="col-md-12">
