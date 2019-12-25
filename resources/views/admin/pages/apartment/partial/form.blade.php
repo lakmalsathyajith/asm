@@ -293,7 +293,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="meta" class="col-form-label">{{ __('Meta') }}</label>
+                <label for="meta" class="col-form-label">{{ __('Meta Tags') }}</label>
                 <input id="meta" type="text"
                        class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}" name="meta"
                        value="{{ isset($record) && $record->meta ? $record->meta : old('meta') }}" autofocus>
