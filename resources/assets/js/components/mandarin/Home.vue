@@ -60,32 +60,32 @@
                             <span class="slider-green-text">根据你的床铺需求</span>
                             我们可以任意按排以下床型
                           </h1>
-                          <!-- <div class="banner-small-text-box">
+                          <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">King size beds</h3>
+                              <h3 class="sub-heading-white-normal">大床</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$620</span> per week
+                                每周
+                                <span class="bold-700">$620</span> 起
                               </h4>
                             </div>
 
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box border-right-white">
-                              <h3 class="sub-heading-white-normal">Single size beds</h3>
+                              <h3 class="sub-heading-white-normal">单人床</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$699</span> per week
+                                每周
+                                <span class="bold-700">$699</span> 起
                               </h4>
                             </div>
                             <span class="devide mobile-only">|</span>
                             <div class="banner-text-box">
-                              <h3 class="sub-heading-white-normal">Bunk beds</h3>
+                              <h3 class="sub-heading-white-normal">双层床</h3>
                               <h4 class="sub-heading-01">
-                                from
-                                <span class="bold-700">$965</span> per week
+                                每周
+                                <span class="bold-700">$965</span> 起
                               </h4>
                             </div>
-                          </div> -->
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -263,7 +263,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>来宾号码</span>
+                              <span入住人数</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -411,7 +411,7 @@
                               aria-haspopup="true"
                               aria-expanded="false"
                             >
-                              <span>来宾号码</span>
+                              <span>入住人数</span>
                             </button>
                             <div
                               class="dropdown-menu filter-widget-dropdown"
@@ -1342,9 +1342,10 @@ export default {
         this.filter.checkIn != "" &&
         this.filter.checkOut != ""
       ) {
-        window.location =
-          "./apartment-listing?type=" +
-          this.filter.type == ''?'Any':this.filter.type +
+         let type = window.location = this.filter.type == '' ? 'Any' : this.filter.type;
+        window.location = window.location.origin +
+          '/apartment-listing?type=' +
+          type +
           "&start=" +
           moment(this.filter.checkIn).format("YYYY-MM-DD") +
           "&end=" +

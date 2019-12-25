@@ -135,7 +135,7 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <span>{{lang=='en'?'Guest Number':'来宾号码'}}</span>
+                      <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
                     </button>
                     <div
                       class="dropdown-menu filter-widget-dropdown"
@@ -496,7 +496,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <div class="dropdown filter-widget">
-                        <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Guest Number':'来宾号码'}}</label>
+                        <label for="checkin" class="filter-widget-sublabel">{{lang=='en'?'Guest Number':'入住人数'}}</label>
                         <button
                           class="btn dropdown-toggle guest-button-svg before-svg flter-button"
                           type="button"
@@ -505,7 +505,7 @@
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span>{{lang=='en'?'Guest Number':'来宾号码'}}</span>
+                          <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown"
@@ -890,7 +890,7 @@
 
                         <div class="listing-bottom-icons-wrap">
                           <ul class="list-inline">
-                            <li class="list-inline-item apart-type">{{ apartment.type.name }}</li>
+                            <li class="list-inline-item apart-type">{{lang=='en'?apartment.type.name:apartment.type.description}}</li>
                             <li class="list-inline-item apart-options">
                               <i class="option-bed"></i>
                               {{ apartment.beds }}
@@ -918,7 +918,7 @@
                               >
                                 <div :class="'facility icon '+ option.class_name"></div>
                                 <div class="facility-name">
-                                  <p>{{ option.name }}</p>
+                                  <p>{{lang=='en'?option.name:option.description}}</p>
                                 </div>
                               </div>
                             </div>

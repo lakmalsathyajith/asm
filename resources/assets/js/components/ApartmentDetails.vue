@@ -14,7 +14,7 @@
               <div class="nav-top-path">
                 <ul class="list-inline">
                   <li class="list-inline-item">
-                    Home
+                    {{lang=='en'?'Home':'家'}}
                     <span>></span>
                   </li>
                   <li class="list-inline-item">
@@ -64,11 +64,7 @@
               <div class="listing-bottom-icons-wrap modile-hide tab-view">
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                    {{
-                      selectedApartment &&
-                        selectedApartment.type &&
-                        selectedApartment.type.name
-                    }}
+                    {{ selectedApartment && selectedApartment.type? lang=='en'? selectedApartment.type.name: selectedApartment.type.description:''}}
                   </li>
                   <li
                     class="list-inline-item apart-options"
@@ -95,7 +91,7 @@
                     &#124;
                   </li>
                   <li class="list-inline-item apart-options inner-other">
-                    Available now
+                    {{lang=='en'?'Available now':'现在有空'}}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -106,7 +102,7 @@
                         ? selectedApartment.price
                         : '0'
                     }}
-                    per week (Rate at 12 months)
+                    {{lang=='en'?'per week (Rate at 12 months)':'每周（12个月的费用）'}}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -115,7 +111,7 @@
                     class="list-inline-item apart-options inner-other email-list"
                   >
                     <a href="#" @click="send_email()"
-                      ><i class="ti-email"></i> Email</a
+                      ><i class="ti-email"></i> {{lang=='en'?'Email':'电子邮件'}}</a
                     >
                   </li>
                 </ul>
@@ -125,11 +121,7 @@
               >
                 <ul class="list-inline">
                   <li class="list-inline-item apart-type">
-                    {{
-                      selectedApartment &&
-                        selectedApartment.type &&
-                        selectedApartment.type.name
-                    }}
+                     {{ selectedApartment && selectedApartment.type? lang=='en'? selectedApartment.type.name: selectedApartment.type.description:''}}
                   </li>
                   <li
                     class="list-inline-item apart-options"
@@ -156,7 +148,7 @@
 
                 <ul class="list-inline">
                   <li class="list-inline-item apart-options inner-other">
-                    Available now
+                    {{lang=='en'?'Available now':'现在有空'}}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -167,7 +159,7 @@
                         ? selectedApartment.price
                         : '0'
                     }}
-                    (Rate at 12 months)
+                    {{lang=='en'?'(Rate at 12 months)':'（12个月时的费率）'}}
                   </li>
                   <li class="list-inline-item apart-options inner-other">
                     &#124;
@@ -176,7 +168,7 @@
                     class="list-inline-item apart-options inner-other email-list"
                   >
                     <a href="#" @click="send_email()"
-                      ><i class="ti-email"></i> Email</a
+                      ><i class="ti-email"></i> {{lang=='en'?'Email':'电子邮件'}}</a
                     >
                   </li>
                 </ul>
@@ -188,7 +180,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="checkin" class="filter-widget-sublabel"
-                        >Check-In/Out</label
+                        >{{lang=='en'?'Check-In/Out':'入住/退房'}}</label
                       >
                       <HotelDatePicker
                         format="DD/MM/YYYY"
@@ -211,7 +203,7 @@
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span>Guest Number</span>
+                          <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
                         </button>
                         <div
                           class="dropdown-menu filter-widget-dropdown"
@@ -224,7 +216,7 @@
                                   <label
                                     for="min_occupants"
                                     class="filter-widget-sublabel"
-                                    >Adults</label
+                                    >{{lang=='en'?'Adults':'请选择'}}</label
                                   >
                                   <div class="quantity">
                                     <input
@@ -257,7 +249,7 @@
                                   <label
                                     for="max_occupants"
                                     class="filter-widget-sublabel"
-                                    >Children</label
+                                    >{{lang=='en'?'Children':'小孩儿'}}</label
                                   >
                                   <div class="quantity">
                                     <input
@@ -298,7 +290,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="checkin" class="filter-widget-sublabel"
-                        >Per Week (Rate at 12 Months)</label
+                        >{{lang=='en'?'Per Week (Rate at 12 Months)':'每周（12个月的费率）'}}</label
                       >
                       <p class="amount">
                         A${{
@@ -322,7 +314,7 @@
                           "
                           class="btn booking-btn"
                           v-on:click="bookNow"
-                          >Book Now</a
+                          >{{lang=='en'?'Book Now':'现在预订'}}</a
                         >
                       </div>
                     </div>
@@ -364,7 +356,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span>Guest Number</span>
+                    <span>{{lang=='en'?'Guest Number':'入住人数'}}</span>
                   </button>
                   <div
                     class="dropdown-menu filter-widget-dropdown"
@@ -377,7 +369,7 @@
                             <label
                               for="min_occupants"
                               class="filter-widget-sublabel"
-                              >Adults</label
+                              >{{lang=='en'?'Adults':'请选择'}}</label
                             >
                             <div class="quantity">
                               <input
@@ -410,7 +402,7 @@
                             <label
                               for="max_occupants"
                               class="filter-widget-sublabel"
-                              >Children</label
+                              >{{lang=='en'?'Children':'小孩儿'}}</label
                             >
                             <div class="quantity">
                               <input
@@ -485,6 +477,7 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default {
   name: 'apartmentDetails',
+   props: ['lang'],
   data() {
     const today = new Date();
     let tomorrow = new Date();
@@ -530,7 +523,7 @@ export default {
 
       let apartMentObj = {
           id: this.$attrs.id,
-          lang: this.$attrs.lang,
+          lang: this.lang,
       };
       this.getApartment(apartMentObj);
     setTimeout(() => {
@@ -625,6 +618,7 @@ export default {
       console.log('-----', message);
     },
     getContentBySubType(subType) {
+      console.log(this.selectedApartment);
       let contentObj =
         this.selectedApartment &&
         this.selectedApartment.contents &&

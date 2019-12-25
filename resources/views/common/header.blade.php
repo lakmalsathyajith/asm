@@ -65,7 +65,7 @@
                                         @if(app()->getLocale()=='en')
                                         <span class="flag-icon flag-icon-au"> </span><span> English</span>
                                         @elseif(app()->getLocale()=='zh')
-                                        <span class="flag-icon flag-icon-cn"> </span><span> 官话</span>
+                                        <span class="flag-icon flag-icon-cn"> </span><span>简体中文</span>
                                         @endif
                                     </a>
                                     <div class="dropdown-menu filter-widget-inner-drop-list home-flag-nav default-nav-dropdown"

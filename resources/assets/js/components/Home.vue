@@ -60,7 +60,7 @@
                             <span class="slider-green-text">Bedding combinations to suit all individual needs</span>
                             We can mix and match any of the following:
                           </h1>
-                          <!-- <div class="banner-small-text-box">
+                          <div class="banner-small-text-box">
                             <div class="banner-text-box border-right-white">
                               <h3 class="sub-heading-white-normal">King size beds</h3>
                               <h4 class="sub-heading-01">
@@ -85,7 +85,7 @@
                                 <span class="bold-700">$965</span> per week
                               </h4>
                             </div>
-                          </div> -->
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1345,9 +1345,10 @@ export default {
         this.filter.checkIn != "" &&
         this.filter.checkOut != ""
       ) {
-        window.location =
-          "./apartment-listing?type=" +
-          this.filter.type == ''?'Any':this.filter.type +
+        let type = window.location = this.filter.type == '' ? 'Any' : this.filter.type;
+        window.location = window.location.origin +
+          '/apartment-listing?type=' +
+          type +
           "&start=" +
           moment(this.filter.checkIn).format("YYYY-MM-DD") +
           "&end=" +

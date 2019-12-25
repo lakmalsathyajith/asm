@@ -225,7 +225,7 @@
                               <label
                                 for="checkin"
                                 class="filter-widget-sublabel"
-                                >来宾号码*</label
+                                >入住人数*</label
                               >
                               <button
                                 class="btn dropdown-toggle guest-button-svg flter-button"

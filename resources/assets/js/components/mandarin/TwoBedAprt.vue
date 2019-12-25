@@ -105,7 +105,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span>来宾号码</span>
+                    <span>入住人数</span>
                   </button>
                   <div
                     class="dropdown-menu filter-widget-dropdown"

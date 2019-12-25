@@ -45,18 +45,18 @@
                   <div class="about-right-wrap">
                     <div class="about-download-wrap">
                       <div class="head-name">
-                        <h4>Download</h4>
+                        <h4>下载</h4>
                       </div>
                       <div class="content">
                         <a>
                           <i class="ti-import"></i>
-                          <span class="download-text">Corporate Profile</span>
+                          <span class="download-text">公司简介</span>
                         </a>
                       </div>
                     </div>
                     <div class="about-follow-wrap">
                       <div class="head-name">
-                        <h4>Follow Us</h4>
+                        <h4>跟着我们</h4>
                       </div>
                       <div class="content">
                         <a>
@@ -255,7 +255,7 @@
                               <div class="panel-body-studio head-name">
                                 <h4>开放式公寓</h4>
                                 <a href="/studio-apartments">
-                                  <p class="txt-smallest">View</p>
+                                  <p class="txt-smallest">视图</p>
                                 </a>
                               </div>
                             </div>
@@ -263,7 +263,7 @@
                               <div class="panel-body-onebed head-name">
                                 <h4>一室公寓</h4>
                                 <a href="/one-bed-room-apartments">
-                                  <p class="txt-smallest">View</p>
+                                  <p class="txt-smallest">视图</p>
                                 </a>
                               </div>
                             </div>
@@ -271,7 +271,7 @@
                               <div class="panel-body-twobed head-name">
                                 <h4>两室公寓</h4>
                                 <a href="/two-bed-room-apartments">
-                                  <p class="txt-smallest">View</p>
+                                  <p class="txt-smallest">视图</p>
                                 </a>
                               </div>
                             </div>
@@ -429,7 +429,7 @@
                   <div class="right-bottom-image-wrap">
                     <div class="d-table w-100 h-100">
                       <div class="d-table-cell align-middle">
-                        <img src="images/about-us/about-circle.png" width="100%" />
+                        <img src="images/about-us/about-circle-mandarin.png" width="100%" />
                       </div>
                     </div>
                   </div>
