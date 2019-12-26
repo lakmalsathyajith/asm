@@ -68,6 +68,7 @@ class ApartmentController extends AbstractController
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
         $data['options'] = $this->option->pluck('name');
+        $data['locales'] = array_flip(config('app.locales'));
 
         $data['counts'] = [];
         foreach (['file', 'type', 'option'] as $value) {
@@ -90,6 +91,7 @@ class ApartmentController extends AbstractController
     {
         $requestData = $request->all();
         $data = null;
+        $meta = [];
 
         try {
             $data = [
@@ -105,17 +107,27 @@ class ApartmentController extends AbstractController
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
-                'meta' => isset($requestData['meta'])
-                    ? $requestData['meta']
-                    : null,
-                'meta_description' => isset($requestData['meta_description'])
-                    ? $requestData['meta_description']
-                    : null,
             ];
 
             $data = $this->activeRepo->create($data);
             $data->files()->sync($requestData['files']);
             $data->options()->sync($requestData['options']);
+
+            if(isset($requestData['meta']) && is_array($requestData['meta']) && count($requestData['meta']) > 0) {
+                foreach ($requestData['meta'] as $key => $values) {
+                    if(isset($values['name'])) {
+                        $granule = [];
+                        $granule['locale'] = $key;
+                        $granule['name'] = $values['name'];
+                        $granule['description'] = $values['description'];
+                        array_push($meta, $granule);
+                    }
+                }
+                if(count($meta) > 0) {
+                    $data->metas()->createMany($meta);
+                }
+            }
+
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -174,10 +186,14 @@ class ApartmentController extends AbstractController
         $data['title'] = '';
         $data['action'] = 'Update';
         $data['method'] = 'PUT';
-        $data['record'] = $apartment->load('contents');
+        $data['record'] = $apartment->load([
+            'contents',
+            'metas'
+        ]);
         $data['files'] = $this->file->pluck('name');
         $data['types'] = $this->type->pluck('name');
         $data['options'] = $this->option->pluck('name');
+        $data['locales'] = array_flip(config('app.locales'));
         $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray();
         $data['states'] = $states;
         $data['noRecord'] = [];
@@ -208,6 +224,7 @@ class ApartmentController extends AbstractController
     public function update($id, UpdateApartmentRequest $request)
     {
         $requestData = $request->all();
+        $meta = [];
 
         try {
             $data = [
@@ -223,18 +240,27 @@ class ApartmentController extends AbstractController
                 'state' => $requestData['state'],
                 'suburb' => $requestData['suburb'],
                 'price' => $requestData['price'],
-                'meta' => isset($requestData['meta'])
-                    ? $requestData['meta']
-                    : null,
-                'meta_description' => isset($requestData['meta_description'])
-                    ? $requestData['meta_description']
-                    : null,
             ];
 
             $apartment = $this->activeRepo->get($id);
             $this->activeRepo->update($apartment, $data);
             $apartment->files()->sync($requestData['files']);
             $apartment->options()->sync($requestData['options']);
+            $apartment->metas()->delete();
+            if(isset($requestData['meta']) && is_array($requestData['meta']) && count($requestData['meta']) > 0) {
+                foreach ($requestData['meta'] as $key => $values) {
+                    if(isset($values['name'])) {
+                        $granule = [];
+                        $granule['locale'] = $key;
+                        $granule['name'] = $values['name'];
+                        $granule['description'] = $values['description'];
+                        array_push($meta, $granule);
+                    }
+                }
+                if(count($meta) > 0) {
+                    $apartment->metas()->createMany($meta);
+                }
+            }
         } catch (\Exception $e) {
             return redirect()
                 ->back()
