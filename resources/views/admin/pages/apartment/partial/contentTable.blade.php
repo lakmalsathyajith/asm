@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                 @foreach($record->contents as $content)
-                    {{$id}}
+                    {{--{{$id}}--}}
                     <tr id="content_{{ $content->id }}">
                         <th scope="row">{{ $content->id }}</th>
                         <td>{{ $content->name }}</td>
