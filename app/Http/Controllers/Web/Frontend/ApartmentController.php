@@ -20,14 +20,24 @@ class ApartmentController extends AbstractController
 
     public function show($id)
     {
-        // $data = $this->activeRepo->get($id);
-        $data = $this->activeRepo->getBySlug($id);
+
+        $data = $this->activeRepo->with(['metas' => function($query) {
+            $locale = app()->getLocale();
+            $query->where('locale', $locale);
+        }])->where('slug', $id)->first();
+        
         $params = [];
         $params['id'] = $data['id'];
         $params['slug'] = $data['slug'];
+        
         $meta = [];
-        $meta['keywords'] = $data['meta'];
-        $meta['description'] = $data['meta_description'];
+        $meta['keywords'] = "";
+        $meta['description'] = "";
+        if(count($data->metas)>0){
+            $metaObj = $data->metas[0];
+            $meta['keywords'] = $metaObj->name;
+            $meta['description'] = $metaObj->description;
+        }
 
         return view('pages.apartments.detail', ['params' => $params, ['menu' => 'rates'], 'meta' => $meta]);
     }

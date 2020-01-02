@@ -57,4 +57,9 @@ class Apartment extends Model
     {
         return $this->belongsTo('App\Entities\Type');
     }
+
+    public function metas()
+    {
+        return $this->morphMany('App\Entities\Meta', 'metable');
+    }
 }
