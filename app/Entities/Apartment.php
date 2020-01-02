@@ -13,6 +13,7 @@ class Apartment extends Model
     use HasSlug;
 
     protected $fillable = [
+        'id',
         'name',
         'address',
         'type_id',

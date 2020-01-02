@@ -20,13 +20,15 @@ class ApartmentController extends AbstractController
 
     public function show($id)
     {
-        //$data = $this->activeRepo->get($id);
+        // $data = $this->activeRepo->get($id);
         $data = $this->activeRepo->getBySlug($id);
-        $params = $this->request->route()->parameters;
+        $params = [];
+        $params['id'] = $data['id'];
+        $params['slug'] = $data['slug'];
         $meta = [];
         $meta['keywords'] = $data['meta'];
         $meta['description'] = $data['meta_description'];
 
-        return view('pages.apartments.detail', ['params' => $params['id'], ['menu' => 'rates'], 'meta' => $meta]);
+        return view('pages.apartments.detail', ['params' => $params, ['menu' => 'rates'], 'meta' => $meta]);
     }
 }

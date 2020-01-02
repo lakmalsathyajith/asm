@@ -509,7 +509,7 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default {
   name: 'apartmentDetails',
-  props: ['lang','slug'],
+  props: ['lang','slug','id'],
   data() {
     const today = new Date();
     let tomorrow = new Date();
@@ -519,7 +519,7 @@ export default {
       slide: 0,
       sliding: null,
       filter: {
-        apartment_id: this.slug,
+        apartment_id: this.id,
         checkIn: today,
         checkOut: tomorrow,
         type: '',
