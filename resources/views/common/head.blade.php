@@ -20,7 +20,7 @@
         <meta name="keywords" content="{{$meta['keywords']}}" />
     @else
         <meta name="description" content="" />
-        <meta name="keywords" content="meta tags, meta tag, meta tags seo, meta tags definition, what is a meta tag" />
+        <meta name="keywords" content="" />
     @endif
     <meta name="robots" content="index, follow" />
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('locale/{locale}', function ($locale){
+
+Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
 });
 
-Route::get('/clear-cache', function() {
+Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     return "Cache is cleared";
@@ -26,10 +27,16 @@ Route::get('/clear-cache', function() {
 
 
 Route::get('/', function () {
-    return view('pages.home',['menu' => 'home']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.home', ['menu' => 'home', 'meta' => $meta]);
 });
 Route::get('/apartment-listing', function () {
-    return view('pages.apartments.apartments',['menu' => 'rates']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.apartments.apartments', ['menu' => 'rates', 'meta' => $meta]);
 });
 
 /*Route::get('/apartment/{id}', function (Request $request) {
@@ -52,49 +59,69 @@ Route::get('/typical-apartment', function () {
     $meta['keywords'] = "";
     $meta['description'] = "";
 
-    return view('pages.typicalApartments',['menu' => 'typical', 'meta' => $meta]);
+    return view('pages.typicalApartments', ['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/booking-first', function () {
-    return view('pages.bookingFirst',['menu' => 'rates']);
+    return view('pages.bookingFirst', ['menu' => 'rates']);
 });
 Route::get('/booking-second', function () {
-    return view('pages.bookingSecond',['menu' => 'rates']);
+    return view('pages.bookingSecond', ['menu' => 'rates']);
 });
 Route::get('/booking-third', function () {
-    return view('pages.bookingThird',['menu' => 'rates']);
+    return view('pages.bookingThird', ['menu' => 'rates']);
 });
 Route::get('/latest-property', function () {
     return view('pages.latestProperty');
 });
 Route::get('/studio-apartments', function () {
-    return view('pages.studioAprt',['menu' => 'typical']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.studioAprt', ['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/one-bed-room-apartments', function () {
-    return view('pages.oneBedAprt',['menu' => 'typical']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.oneBedAprt', ['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/two-bed-room-apartments', function () {
-    return view('pages.twobedApat',['menu' => 'typical']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.twobedApat', ['menu' => 'typical', 'meta' => $meta]);
 });
 Route::get('/my-shortlist', function () {
-    
-        
-        return view('pages.shortlist');
-   
+
+
+    return view('pages.shortlist');
 });
 Route::get('/faq', function () {
-    return view('pages.faq',['menu' => 'faq']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.faq', ['menu' => 'faq', 'meta' => $meta]);
 });
 Route::get('/about', function () {
-    return view('pages.about',['menu' => 'about']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.about', ['menu' => 'about', 'meta' => $meta]);
 });
 Route::get('/list-with-us', function () {
-    return view('pages.listWithUs',['menu' => 'list-with-us']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.listWithUs', ['menu' => 'list-with-us', 'meta' => $meta]);
 });
 Route::get('/contact', function () {
-    return view('pages.contact',['menu' => 'contact']);
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.contact', ['menu' => 'contact', 'meta' => $meta]);
 });
 
-Route::group(['prefix'=>'/booking','as'=>'booking.'], function(){
+Route::group(['prefix' => '/booking', 'as' => 'booking.'], function () {
     Route::get('/{id}/step-one', function (Request $request) {
         $params = $request->route()->parameters;
         return view('pages.bookingFirst', ['params' => $params['id']]);
