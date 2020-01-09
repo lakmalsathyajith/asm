@@ -49,5 +49,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('file', 'Api\V1\FileController@store')->name('file.store');
 
+    Route::get('blogs', 'Api\V1\BlogController@index')->name('blogs.index');
+
     Route::post('contact', 'Api\V1\ContactController@store')->name('contact.store');
 });

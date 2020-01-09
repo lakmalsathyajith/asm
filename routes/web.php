@@ -119,6 +119,7 @@ Route::resources(['admin/content' => 'Web\Admin\ContentController']);
 Route::resources(['admin/file' => 'Web\Admin\FileController']);
 Route::resources(['admin/option' => 'Web\Admin\OptionController']);
 Route::resources(['admin/type' => 'Web\Admin\TypeController']);
+Route::resources(['admin/blog' => 'Web\Admin\BlogController']);
 Route::get('admin/suburbs', 'Web\Admin\ApartmentController@getSuburb');
 
 // Booking routes
