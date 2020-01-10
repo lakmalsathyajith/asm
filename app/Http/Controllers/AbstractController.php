@@ -122,7 +122,7 @@ class AbstractController extends Controller
      */
     function getPaginated($query)
     {
-        $perPage = request()->get('per-page');
+        $perPage = request()->get('per-page', 10);
         return $query->paginate($perPage);
     }
 }

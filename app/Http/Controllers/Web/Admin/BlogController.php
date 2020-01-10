@@ -8,6 +8,7 @@ use App\Entities\Blog;
 use App\Entities\Content;
 use App\Http\Controllers\AbstractController;
 use App\Http\Requests\Blog\StoreBlogRequest;
+use App\Http\Requests\Blog\UpdateBlogRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -183,9 +184,45 @@ class BlogController extends AbstractController
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function update($id, Request $request)
+    public function update($id, UpdateBlogRequest $request)
     {
+        $requestData = $request->all();
+        $meta = [];
 
+        try {
+            $data = [
+                'name' => $requestData['name'],
+                'slug' => str_replace(' ', '_', $requestData['name']),
+                'description' => $requestData['description'],
+                'date' => $requestData['date'],
+            ];
+
+            $blog = $this->activeRepo->get($id);
+            $this->activeRepo->update($blog, $data);
+            $blog->files()->sync($requestData['files']);
+            $blog->metas()->delete();
+            if(isset($requestData['meta']) && is_array($requestData['meta']) && count($requestData['meta']) > 0) {
+                foreach ($requestData['meta'] as $key => $values) {
+                    if(isset($values['name'])) {
+                        $granule = [];
+                        $granule['locale'] = $key;
+                        $granule['name'] = $values['name'];
+                        $granule['description'] = $values['description'];
+                        array_push($meta, $granule);
+                    }
+                }
+                if(count($meta) > 0) {
+                    $blog->metas()->createMany($meta);
+                }
+            }
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('alertError', $e->getMessage());
+        }
+
+        return redirect(route('blog.index'));
     }
 
     /**
@@ -198,14 +235,11 @@ class BlogController extends AbstractController
     {
         $error = [];
         try {
-            $model = \App\Entities\File::find($id);
-            if (!$model->hasRelationship()) {
-                if($this->deleteFile($model)){
-                    return parent::destroy($id);
-                }
-            }
-            $error['message'] = "Can't delete the record since this option is already assigned. ".
-                "Please remove the relationship before deleting this record";
+            $model = $this->activeRepo->get($id);
+            $model->contents()->detach();
+            $model->files()->detach();
+            $model->metas()->delete();
+            return parent::destroy($id);
         } catch (\Exception $e) {
             $error['message'] = $e->getMessage();
         }
