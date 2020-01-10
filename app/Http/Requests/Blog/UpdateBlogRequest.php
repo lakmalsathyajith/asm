@@ -11,7 +11,8 @@ class UpdateBlogRequest extends AbstractRequest
     public function rules()
     {
         $rules =  [
-            'name'              => "required|min:3|max:100",
+            'name'              => "required|min:3|max:255",
+            'date'              => "required|date"
         ];
 
         return $rules;

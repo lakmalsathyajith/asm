@@ -41,21 +41,29 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="{{route('apartment.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-building"></i>
                         <p>
-                            Apartments
-                            <i class="right fas fa-angle-left"></i>
+                            Apartment
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('apartment.index')}}" class="nav-link">
-                                    <i class="fas fa-list-ul"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
+                </li>
+                {{--<li class="nav-item has-treeview">--}}
+                    {{--<a href="#" class="nav-link">--}}
+                        {{--<i class="nav-icon fas fa-building"></i>--}}
+                        {{--<p>--}}
+                            {{--Apartments--}}
+                            {{--<i class="right fas fa-angle-left"></i>--}}
+                        {{--</p>--}}
+                    {{--</a>--}}
+                    {{--<ul class="nav nav-treeview">--}}
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="{{route('apartment.index')}}" class="nav-link">--}}
+                                    {{--<i class="fas fa-list-ul"></i>--}}
+                                {{--<p>List</p>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
                         {{-- <li class="nav-item">
                             <a href="{{route('option.index')}}" class="nav-link">
                                     <i class="fas fa-medal"></i>
@@ -68,8 +76,8 @@
                                 <p>Type</p>
                             </a>
                         </li> --}}
-                    </ul>
-                </li>
+                    {{--</ul>--}}
+                {{--</li>--}}
                 {{-- <li class="nav-item">
                     <a href="{{route('content.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-file-code"></i>

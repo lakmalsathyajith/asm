@@ -15,41 +15,13 @@ class BlogController extends AbstractApiController
 
     function index()
     {
-        // dummy data set
-        $data = [
-            'pagination' => [
-                'totalRecords' => 20,
-                'perPage'  => 2,
-                'page' => 1
-            ],
-            'records' => [
-                [
-                    'title' => 'title 1',
-                    'slug'  => 'slug_1',
-                    'description' => 'This is the short description 1',
-                    'content' => '<p>This is the html content 1</p>>',
-                    'date' => '2010-12-15',
-                    'images' => [
+        $query = $this->activeRepo
+            ->with('contents')
+            ->with('files')
+            ->with('metas');
 
-                    ],
-                    'meta' => [
+        $data = $this->getPaginated($query);
 
-                    ]
-                ], [
-                    'title' => 'title 2',
-                    'slug'  => 'slug_2',
-                    'description' => 'This is the short description 2',
-                    'content' => '<p>This is the html content 2</p>>',
-                    'date' => '2010-12-16',
-                    'images' => [
-
-                    ],
-                    'meta' => [
-
-                    ]
-                ]
-            ]
-        ];
         return $this->returnResponse(
             $this->getResponseStatus('SUCCESS'),
             'records fetched successfully',

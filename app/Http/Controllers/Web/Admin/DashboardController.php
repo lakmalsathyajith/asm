@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Entities\Apartment;
+use App\Entities\Blog;
 use App\Entities\Booking;
 use App\Entities\User;
 use App\Http\Controllers\AbstractController;
@@ -30,6 +31,7 @@ class DashboardController extends AbstractController
         $data['apartments'] = Apartment::count();
         $data['bookings'] = Booking::where('status','COMPLETED')->count();
         $data['agents'] = User::where('type','AGENT')->count();
+        $data['blogs'] = Blog::count();
         return view('admin.pages.dashboard.dashboard', $data);
     }
 }
