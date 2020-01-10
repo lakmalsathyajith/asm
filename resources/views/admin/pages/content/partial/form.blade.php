@@ -256,10 +256,22 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <button type="submit"
-                        class="btn btn-primary float-right">
-                    {{ __($action) }}
-                </button>
+                <div class="float-right">
+                    @if(isset($links) && isset($links['back']))
+                        <div class="btn btn-secondary">
+                            <a href="{{ $links['back'] }}">Back</a>
+                        </div>
+                    @endif
+                    @if(isset($links) && isset($links['next']))
+                        <div class="btn btn-secondary">
+                            <a href="{{ $links['next'] }}">Skip</a>
+                        </div>
+                    @endif
+                    <button type="submit"
+                            class="btn btn-primary">
+                        {{ __($action) }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>

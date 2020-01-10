@@ -11,6 +11,7 @@ use App\Http\Controllers\AbstractController;
 use App\Http\Requests\Content\StoreContentRequest;
 use App\Http\Requests\Content\UpdateContentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class ContentController extends AbstractController
 {
@@ -61,6 +62,7 @@ class ContentController extends AbstractController
         $params['step'] = request()->query('step', null);
         $params['locale'] = request()->query('locale', null);
         $params['apartment'] = request()->query('apartment', null);
+        $params['submitted'] = request()->query('submitted', false);
         if(request()->query('name', null)) {
             $params['name'] = request()->query('name', null);
         }
@@ -79,6 +81,8 @@ class ContentController extends AbstractController
         $data['contentSubTypes'] = $this->content->getSubTypes($subtype);
         $data['locales'] = array_flip(config('app.locales'));
         $data['params'] = $params;
+        $this->generateLinks($params);
+        $data['links'] = $this->getLinks();
         return view('admin.pages.content.create', $data);
     }
 
@@ -152,6 +156,10 @@ class ContentController extends AbstractController
                     }
 
                     $requestData['params']['step']++;
+
+                    if(isset($record) && isset($record->id)) {
+                        $requestData['params']['submitted'] = true;
+                    }
                 }
 
                 if($requestData['params']['step'] < $lastStep) {
@@ -278,5 +286,47 @@ class ContentController extends AbstractController
             [$error],
             200
         );
+    }
+
+    public function generateLinks($params)
+    {
+        $baseUrl = null;
+        $links = [
+            'back'  => null,
+            'next'  => null,
+        ];
+
+        if($params['contentable-type'] === 'blog') {
+            $baseUrl = route('content.create');
+            if($params['step'] != 1 && !$params['submitted']) {
+                $links['back'] = url()->previous();
+            }
+
+            if(isset($params['step'])) {
+                if($params['step'] == 1) {
+                    $params['name'] = str_replace(
+                        $params['locale'],
+                        array_keys(config('app.locales'))[$params['step']],
+                        $params['name']);
+                    $params['slug'] = str_replace(
+                        $params['locale'],
+                        array_keys(config('app.locales'))[$params['step']],
+                        $params['slug']);
+                    $params['locale'] = array_keys(config('app.locales'))[$params['step']];
+
+                    $params['step']++;
+
+                    $links['next'] = $baseUrl.'?'.http_build_query($params);
+                } else if($params['step'] > 1) {
+                    $links['next'] = null;
+                }
+            }
+        }
+        session(['links' => $links]);
+    }
+
+    public function getLinks()
+    {
+        return session('links');
     }
 }
