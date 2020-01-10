@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Contracts\RepoInterfaces\ApartmentInterface;
+use App\Contracts\RepoInterfaces\BlogInterface;
 use App\Contracts\RepoInterfaces\BookingInterface;
 use App\Contracts\RepoInterfaces\ContentInterface;
 use App\Contracts\RepoInterfaces\FileInterface;
@@ -13,6 +14,7 @@ use App\Contracts\RepoInterfaces\OptionInterface;
 use App\Contracts\RepoInterfaces\TypeInterface;
 use App\Contracts\RepoInterfaces\UserInterface;
 use App\Repos\ApartmentRepository;
+use App\Repos\BlogRepository;
 use App\Repos\BookingRepository;
 use App\Repos\ContentRepository;
 use App\Repos\FileRepository;
@@ -54,5 +56,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(OccupantInterface::class, OccupantRepository::class);
         $this->app->bind(OccupantContactInterface::class, OccupantContactRepository::class);
         $this->app->bind(OccupantIdentityInterface::class, OccupantIdentityRepository::class);
+        $this->app->bind(BlogInterface::class, BlogRepository::class);
     }
 }

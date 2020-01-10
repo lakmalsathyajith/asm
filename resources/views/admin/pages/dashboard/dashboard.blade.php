@@ -18,7 +18,7 @@
             
             <div class="row">
                    
-                    <div class="col-lg-4 col-4">
+                    <div class="col-lg-3 col-4">
                       <!-- small box -->
                       <div class="small-box bg-info">
                         <div class="inner">
@@ -27,13 +27,13 @@
                           <p>Apartments</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-bag"></i>
+                          <i class="fa fa-building"></i>
                         </div>
                         <a href="{{route('apartment.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-4 col-4">
+                    <div class="col-lg-3 col-4">
                       <!-- small box -->
                       <div class="small-box bg-success">
                         <div class="inner">
@@ -42,13 +42,13 @@
                           <p>Bookings</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-stats-bars"></i>
+                          <i class="fa fa-calendar-check"></i>
                         </div>
                         <a href="{{route('booking.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-4 col-4">
+                    <div class="col-lg-3 col-4">
                       <!-- small box -->
                       <div class="small-box bg-warning">
                         <div class="inner">
@@ -57,11 +57,27 @@
                           <p>Agents</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-person-add"></i>
+                          <i class="fa fa-user"></i>
                         </div>
                         <a href="{{route('users.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-4">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>{{$blogs}}</h3>
+
+                            <p>Blogs</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-blog"></i>
+                        </div>
+                        <a href="{{route('blog.index')}}" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
                    
                   </div>
             

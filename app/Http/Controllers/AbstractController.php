@@ -69,9 +69,6 @@ class AbstractController extends Controller
 
         $model = $this->activeRepo->getModel();
         if (is_array($where) && count($where) > 0) {
-
-
-
             foreach ($where as $key => $value) {
                 $model = $model->where($value['key'], $value['op'], $value['val']);
             }
@@ -115,5 +112,17 @@ class AbstractController extends Controller
         } catch (\Exception $e) {
             return $this->returnResponse();
         }*/
+    }
+
+
+    /**
+     * Paginate the response
+     *
+     * @param $query
+     */
+    function getPaginated($query)
+    {
+        $perPage = request()->get('per-page');
+        return $query->paginate($perPage);
     }
 }
