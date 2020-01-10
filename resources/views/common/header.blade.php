@@ -39,6 +39,9 @@
                                 <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
                                     <a class="nav-link" href="/faq">{{ __('topmenu.Faq') }}</a>
                                 </li>
+                                <li class="nav-item {{ isset($menu) && $menu=='blog'?'active':'' }}">
+                                    <a class="nav-link" href="/blog">{{ __('topmenu.Blog') }}</a>
+                                </li>
                                 <li class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
                                     <a class="nav-link" href="/about">{{ __('topmenu.About_us') }}</a>
                                 </li>
@@ -134,6 +137,10 @@
                                                             class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
                                                             <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
                                                                 href="/apartment-listing">{{ __('topmenu.About_us') }}</a>
+                                                        </li>
+                                                        <li class="nav-item {{ isset($menu) && $menu=='blog'?'active':'' }}">
+                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
+                                                               href="/blog">{{ __('topmenu.Blog') }}</a>
                                                         </li>
                                                         {{-- <li class="nav-item {{ isset($menu) && $menu=='list-with-us'?'active':'' }}">
                                                         <a class="nav-link" href="/list-with-us">LIST WITH US</a>

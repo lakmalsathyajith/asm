@@ -6,6 +6,7 @@ import ratesAndAvailability from './modules/ratesAndAvailability';
 import booking from './modules/booking';
 import contact from './modules/contact';
 import login from './modules/login';
+import blog from './modules/blog';
 import globalMutations from "./globalMutations";
 
 Vue.use(Vuex);
@@ -20,7 +21,8 @@ const store = new Vuex.Store({
         ratesAndAvailability,
         booking,
         contact,
-        login
+        login,
+        blog
     }
 })
 

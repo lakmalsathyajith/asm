@@ -137,6 +137,14 @@ Route::group(['prefix' => '/booking', 'as' => 'booking.'], function () {
 });
 
 
+Route::get('/blog', function () {
+    $meta = [];
+    $meta['keywords'] = "";
+    $meta['description'] = "";
+    return view('pages.blog', ['menu' => 'blog', 'meta' => $meta]);
+});
+
+
 //Auth::routes();
 Route::get('admin/login', 'Web\Admin\Auth\LoginController@showLoginForm')->name('login');
 Route::post('admin/login', 'Web\Admin\Auth\LoginController@login');
