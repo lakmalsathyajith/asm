@@ -144,6 +144,11 @@ Route::get('/blog', function () {
     return view('pages.blog', ['menu' => 'blog', 'meta' => $meta]);
 });
 
+Route::get('/blog/{id}', function (Request $request) {
+    $params = $request->route()->parameters;
+    return view('pages.blogDetail', ['params' => $params['id']]);
+});
+
 
 //Auth::routes();
 Route::get('admin/login', 'Web\Admin\Auth\LoginController@showLoginForm')->name('login');

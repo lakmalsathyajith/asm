@@ -54,8 +54,9 @@ Vue.component('typical-apartment',require('./components/TypicalApartments.vue'))
 Vue.component('mandarin-typical-apartment',require('./components/mandarin/TypicalApartments.vue'));
 Vue.component('faq', require('./components/Faq.vue'));
 Vue.component('mandarin-faq', require('./components/mandarin/Faq.vue'));
-Vue.component('blog', require('./components/Blog.vue'));
-Vue.component('mandarin-blog', require('./components/Blog.vue'));
+Vue.component('blog', require('./components/blog/Blog.vue'));
+Vue.component('blog-detail', require('./components/blog/Detail.vue'));
+Vue.component('mandarin-blog', require('./components/blog/Blog.vue'));
 Vue.component('about', require('./components/About.vue'));
 Vue.component('mandarin-about', require('./components/mandarin/About.vue'));
 

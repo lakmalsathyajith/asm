@@ -2,7 +2,11 @@ import * as actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    contactResponse : [],
+    nextUrl : null,
+    currentPage : null,
+    lastPage : null,
+    blogList : [],
+    selectedBlog : {},
 };
 const getters = {};
 
