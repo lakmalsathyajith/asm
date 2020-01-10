@@ -6,9 +6,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Slug</th>
                     <th scope="col">Type</th>
-                    <th scope="col">Sub Type</th>
                     <th scope="col">Locale</th>
                     <th scope="col">Created At</th>
                     <th scope="col"></th>
@@ -16,20 +14,17 @@
                 </thead>
                 <tbody>
                 @foreach($record->contents as $content)
-                    {{$id}}
                     <tr id="content_{{ $content->id }}">
                         <th scope="row">{{ $content->id }}</th>
                         <td>{{ $content->name }}</td>
-                        <td>{{ $content->slug }}</td>
                         <td>{{ $content->type }}</td>
-                        <td>{{ $content->sub_type }}</td>
                         <td>{{ $content->locale }}</td>
                         <td>{{ $content->created_at }}</td>
                         <td>
                             <div class="float-right">
                                 <a href="{{ route('content.edit', [
                                 'contentable-id' => $record->id,
-                                'contentable-type' => 'apartment',
+                                'contentable-type' => 'blog',
                                 'content' => $content->id,
                                 ]) }}">
                                     <div class="btn btn-xs">
@@ -44,11 +39,9 @@
                     @foreach($noRecord as $noContent)
                         <tr>
                             <th scope="row">-</th>
-                            <td colspan="6">
+                            <td colspan="4">
                                 No content available for the language
-                                <strong>{{$noContent['locale']}}</strong>
-                                and Sub Type
-                                <strong>{{$noContent['sub_type']}}</strong>.
+                                <strong>{{$noContent['locale']}}</strong>.
 
                                 Add new content here
                             </td>
@@ -56,12 +49,13 @@
                                 <div class="float-right">
                                     <a href="{{ route('content.create', [
                                         'contentable-id' => $record->id,
-                                        'contentable-type' => 'apartment',
-                                        'content-type' => 'apartment',
-                                        'content-sub-type' => strtolower($noContent['sub_type']),
+                                        'contentable-type' => 'blog',
+                                        'content-type' => 'blog',
+                                        'content-sub-type' => null,
                                         'locale' => $noContent['locale'],
-                                        'step' => 5,
-                                         'apartment'=>$id
+                                        'name' => $record->name.' '.$noContent['locale'],
+                                        'slug' => $record->slug.'_'.$noContent['locale'],
+                                        'step' => 5
                                     ])}}">
                                         <div class="btn btn-xs">
                                                 <i class="far fa-plus-square"></i>

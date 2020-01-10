@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Contracts\RepoInterfaces\ApartmentInterface;
+use App\Contracts\RepoInterfaces\BlogInterface;
 use App\Contracts\RepoInterfaces\ContentInterface;
 use App\Entities\Apartment;
 use App\Entities\Content;
@@ -16,10 +17,12 @@ class ContentController extends AbstractController
 
     private $content;
     private $apartment;
+    private $blog;
 
     function __construct(
         ContentInterface $contentRepoInstance,
         ApartmentInterface $apartmentRepoInstance,
+        BlogInterface $blogRepoInstance,
         Content $content
     )
     {
@@ -27,6 +30,7 @@ class ContentController extends AbstractController
 
         $this->activeRepo = $contentRepoInstance;
         $this->apartment = $apartmentRepoInstance;
+        $this->blog = $blogRepoInstance;
         $this->content = $content;
     }
 
@@ -57,12 +61,22 @@ class ContentController extends AbstractController
         $params['step'] = request()->query('step', null);
         $params['locale'] = request()->query('locale', null);
         $params['apartment'] = request()->query('apartment', null);
+        if(request()->query('name', null)) {
+            $params['name'] = request()->query('name', null);
+        }
+        if(request()->query('slug', null)) {
+            $params['slug'] = request()->query('slug', null);
+        }
+
+        $subtype = isset($params['contentable-type'])
+            ? strtoupper($params['contentable-type'])
+            : null;
 
         $data['route'] = route('content.store');
         $data['title'] = '';
         $data['action'] = 'Create';
         $data['contentTypes'] = $this->content->getTypes();
-        $data['contentSubTypes'] = $this->content->getSubTypes();
+        $data['contentSubTypes'] = $this->content->getSubTypes($subtype);
         $data['locales'] = array_flip(config('app.locales'));
         $data['params'] = $params;
         return view('admin.pages.content.create', $data);
@@ -80,8 +94,12 @@ class ContentController extends AbstractController
 
         try {
             $data = [
-                'name' => $requestData['sub_type'],
-                'slug' => $requestData['sub_type'],
+                'name' => isset($requestData['params']) && isset($requestData['params']['name'])
+                    ? $requestData['params']['name']
+                    : $requestData['sub_type'],
+                'slug' => isset($requestData['params']) && isset($requestData['params']['slug'])
+                    ? $requestData['params']['slug']
+                    : $requestData['sub_type'],
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
@@ -95,25 +113,48 @@ class ContentController extends AbstractController
                 && isset($requestData['params']['contentable-id'])
                 && isset($requestData['params']['step'])){
 
+                $lastStep = 0;
+
                 if($requestData['params']['contentable-type'] === 'apartment') {
+                    $lastStep = 5;
                     $apartment = $this->apartment->get($requestData['params']['contentable-id']);
                     $apartment->contents()->syncWithoutDetaching([$record->id]);
-                }
 
-                if(isset($requestData['params']['step'])) {
-                    if($requestData['params']['step'] >= 2) {
-                        $requestData['params']['locale'] = array_keys(config('app.locales'))[1];
+                    if(isset($requestData['params']['step'])) {
+                        if($requestData['params']['step'] >= 2) {
+                            $requestData['params']['locale'] = array_keys(config('app.locales'))[1];
+                        }
+
+                        $requestData['params']['content-sub-type'] = 'details';
+                        if($requestData['params']['step'] % 2 === 1) {
+                            $requestData['params']['content-sub-type'] = 'how much';
+                        }
+
+                        $requestData['params']['step']++;
                     }
+                } else if($requestData['params']['contentable-type'] === 'blog') {
+                    $lastStep = 3;
+                    $blog = $this->blog->get($requestData['params']['contentable-id']);
+                    $blog->contents()->syncWithoutDetaching([$record->id]);
 
-                    $requestData['params']['content-sub-type'] = 'details';
-                    if($requestData['params']['step'] % 2 === 1) {
-                        $requestData['params']['content-sub-type'] = 'how much';
+                    if(isset($requestData['params']['step'])) {
+                        if($requestData['params']['step'] >= 1) {
+                            $requestData['params']['locale'] = array_keys(config('app.locales'))[1];
+                            $requestData['params']['name'] = str_replace(
+                                $record->locale,
+                                array_keys(config('app.locales'))[1],
+                                $requestData['params']['name']);
+                            $requestData['params']['slug'] = str_replace(
+                                $record->locale,
+                                array_keys(config('app.locales'))[1],
+                                $requestData['params']['slug']);
+                        }
                     }
 
                     $requestData['params']['step']++;
                 }
 
-                if($requestData['params']['step'] < 5) {
+                if($requestData['params']['step'] < $lastStep) {
                     return redirect()->route('content.create', $requestData['params']);
                 }
             }
@@ -125,8 +166,9 @@ class ContentController extends AbstractController
                 ->with('alertError', $e->getMessage());
         }
 
-        if (isset($requestData['params']) && !empty($requestData['params']['apartment'])) {
-            return redirect(route('apartment.edit', ['apartment' => $requestData['params']['apartment']]));
+        if (isset($requestData['params']) && !empty($requestData['params']['contentable-type'])) {
+            $returnTo = $requestData['params']['contentable-type'];
+            return redirect(route("$returnTo.edit", ["$returnTo" => $requestData['params']['contentable-id']]));
         } else {
             return redirect(route('content.index'));
         }
@@ -153,10 +195,10 @@ class ContentController extends AbstractController
      */
     public function edit(Content $content, Request $request)
     {
-        $params=['content' => $content->id];
-        if(isset($request->apartment)){
-            $params['apartment'] = $request->apartment;
-        }
+        $params['contentable-id'] = request()->query('contentable-id', null);
+        $params['contentable-type'] = request()->query('contentable-type', 'apartment');
+        $params['content'] = $content->id;
+
         $data['route'] = route('content.update', $params);
         $data['title'] = ' ';
         $data['action'] = 'Update';
@@ -165,6 +207,7 @@ class ContentController extends AbstractController
         $data['contentTypes'] = $this->content->getTypes();
         $data['contentSubTypes'] = $this->content->getSubTypes();
         $data['locales'] = array_flip(config('app.locales'));
+        $data['params'] = $params;
 
         return view('admin.pages.content.edit', $data);
     }
@@ -182,13 +225,16 @@ class ContentController extends AbstractController
 
         try {
             $data = [
-                'name' => $requestData['sub_type'],
-                'slug' => $requestData['sub_type'],
                 'type' => $requestData['type'],
                 'sub_type' => isset($requestData['sub_type']) ? $requestData['sub_type'] : null,
                 'content' => $requestData['content'],
                 'locale' => $requestData['locale'],
             ];
+
+            if(isset($requestData['sub_type'])) {
+                $data['name'] = $requestData['sub_type'];
+                $data['slug'] = $requestData['sub_type'];
+            }
 
             $this->activeRepo->findAndUpdate($id, $data);
         } catch (\Exception $e) {
@@ -198,8 +244,9 @@ class ContentController extends AbstractController
                 ->with('alertError', $e->getMessage());
         }
 
-        if (isset($requestData) && !empty($requestData['apartment'])) {
-            return redirect(route('apartment.edit', ['apartment' => $requestData['apartment']]));
+        if (isset($requestData['params']) && !empty($requestData['params']['contentable-type'])) {
+            $returnTo = $requestData['params']['contentable-type'];
+            return redirect(route("$returnTo.edit", ["$returnTo" => $requestData['params']['contentable-id']]));
         } else {
             return redirect(route('content.index'));
         }

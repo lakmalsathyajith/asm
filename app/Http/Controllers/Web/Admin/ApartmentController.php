@@ -211,7 +211,6 @@ class ApartmentController extends AbstractController
                 array_push($data['noRecord'], $s);
             }
         }
-        dd($data);
         return view('admin.pages.apartment.edit', $data);
     }
 

@@ -293,7 +293,7 @@
     @if($locales)
         @foreach($locales as $name => $value)
             <?php
-            $selectedMeta = Arr::first($record->metas ? $record->metas : [], function($val, $key) use($value) {
+            $selectedMeta = Arr::first(isset($record) && $record->metas ? $record->metas : [], function($val, $key) use($value) {
                     return ($val->locale === $value);
                 })
             ?>

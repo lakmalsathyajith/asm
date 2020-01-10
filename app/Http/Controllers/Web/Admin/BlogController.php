@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Contracts\RepoInterfaces\BlogInterface;
 use App\Contracts\RepoInterfaces\FileInterface;
+use App\Entities\Blog;
 use App\Entities\Content;
-use App\Entities\File;
 use App\Http\Controllers\AbstractController;
-use App\Http\Requests\File\StoreFileRequest;
-use App\Traits\FileTrait;
+use App\Http\Requests\Blog\StoreBlogRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends AbstractController
 {
 
+    private $file;
+    private $contentModel;
+
     function __construct(
-        FileInterface $fileRepoInstance
+        BlogInterface $blogRepoInstance,
+        FileInterface $fileRepoInstance,
+        Content $contentModel
     )
     {
         $this->middleware('auth');
 
-        $this->activeRepo = $fileRepoInstance;
+        $this->activeRepo = $blogRepoInstance;
+        $this->file = $fileRepoInstance;
+        $this->contentModel = $contentModel;
     }
 
     /**
@@ -29,13 +37,9 @@ class BlogController extends AbstractController
      */
     public function index()
     {
-        $data['route'] = route('file.store');
-        $data['action'] = 'Upload';
         $data['title'] = '';
-        $data['records'] = File::orderBy('id', 'desc')->where('is_temp','0')->get();
-        $data['view'] = request()->get('view', 'detailed');
-
-        return view('admin.pages.file.index', $data);
+        $data['records'] = Blog::orderBy('id', 'desc')->get();
+        return view('admin.pages.blog.index', $data);
     }
 
     /**
@@ -45,32 +49,74 @@ class BlogController extends AbstractController
      */
     public function create()
     {
-        $data['route'] = route('file.store');
+        $data['route'] = route('blog.store');
         $data['title'] = '';
-        $data['action'] = 'Upload';
-        return view('admin.pages.file.create', $data);
+        $data['action'] = 'create';
+        $data['files'] = $this->file->pluck('name');
+        $data['locales'] = array_flip(config('app.locales'));
+        return view('admin.pages.blog.create', $data);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreFileRequest|Request $request
+     * @param StoreBlogRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFileRequest $request)
+    public function store(StoreBlogRequest $request)
     {
+        $requestData = $request->all();
+        $data = null;
+        $meta = [];
+
         try {
-            $meta = $this->getUploadedFileMeta();
-            $uploaded = $this->uploadFile($meta);
-            $this->activeRepo->create($uploaded);
+            DB::beginTransaction();
+
+            $data = [
+                'name' => $requestData['name'],
+                'slug' => str_replace(' ', '_', $requestData['name']),
+                'description' => $requestData['description'],
+                'date' => $requestData['date'],
+            ];
+
+            $data = $this->activeRepo->create($data);
+            if(isset($requestData['files'])) {
+                $data->files()->sync($requestData['files']);
+            }
+
+            if(isset($requestData['meta']) && is_array($requestData['meta']) && count($requestData['meta']) > 0) {
+                foreach ($requestData['meta'] as $key => $values) {
+                    if(isset($values['name'])) {
+                        $granule = [];
+                        $granule['locale'] = $key;
+                        $granule['name'] = $values['name'];
+                        $granule['description'] = $values['description'];
+                        array_push($meta, $granule);
+                    }
+                }
+                if(count($meta) > 0) {
+                    $data->metas()->createMany($meta);
+                }
+            }
+
+            DB::commit();
         } catch (\Exception $e) {
+             DB::rollBack();
             return redirect()
                 ->back()
                 ->withInput()
                 ->with('alertError', $e->getMessage());
         }
 
-        return redirect(route('file.index'));
+        $queryParams['contentable-id'] = $data->id;
+        $queryParams['contentable-type'] = 'blog';
+        $queryParams['content-type'] = 'blog';
+        $queryParams['content-sub-type'] = null;
+        $queryParams['step'] = 1;
+        $queryParams['locale'] = array_keys(config('app.locales'))[0];
+        $queryParams['name'] = $data->name.' '.$queryParams['locale'];
+        $queryParams['slug'] = $data->slug.'_'.$queryParams['locale'];
+        return redirect()->route('content.create', $queryParams);
     }
 
     /**
@@ -87,13 +133,47 @@ class BlogController extends AbstractController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Content $content
+     * @param Blog $blog
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function edit(Content $content)
+    public function edit(Blog $blog)
     {
+        $data['route'] = route('blog.update', [
+            'blog' => $blog->id
+        ]);
+        $data['scope'] = [
+            ['locale' => array_keys(config('app.locales'))[0]],
+            ['locale' => array_keys(config('app.locales'))[1]],
+        ];
 
+        $data['title'] = '';
+        $data['action'] = 'Update';
+        $data['method'] = 'PUT';
+        $data['record'] = $blog->load([
+            'contents',
+            'metas'
+        ]);
+        $data['files'] = $this->file->pluck('name');
+        $data['locales'] = array_flip(config('app.locales'));
+        $states = DB::table('postal_codes')->distinct('state_name')->pluck('state_name')->toArray();
+        $data['states'] = $states;
+        $data['noRecord'] = [];
+        foreach ($data['scope'] as $s) {
+            $hasRec = false;
+            if(isset($data['record']->contents)) {
+                foreach ($data['record']->contents as $rec) {
+                    if($rec->locale === $s['locale']) {
+                        $hasRec = true;
+                        continue;
+                    }
+                }
+            }
+            if(!$hasRec) {
+                array_push($data['noRecord'], $s);
+            }
+        }
+        return view('admin.pages.blog.edit', $data);
     }
 
     /**

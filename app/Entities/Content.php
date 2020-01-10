@@ -27,7 +27,8 @@ class Content extends Model
         'General' => 'GENERAL',
         'Apartment' => 'APARTMENT',
         'Option' => 'OPTION',
-        'Page' => 'PAGE'
+        'Page' => 'PAGE',
+        'Blog'  => 'BLOG'
     ];
 
     protected $subTypes = [
@@ -35,6 +36,9 @@ class Content extends Model
             'Select Sub Type'   => null,
             'Details'   => 'DETAILS',
             'How Much'  => 'HOW_MUCH',
+        ],
+        'BLOG' => [
+            'No sub types are available for Blogs' => null
         ]
     ];
 
