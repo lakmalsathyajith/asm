@@ -13,6 +13,11 @@ class BlogController extends AbstractApiController
         $this->activeRepo = $blogRepoInstance;
     }
 
+    /**
+     * Return a listing
+     *
+     * @return string
+     */
     function index()
     {
         $query = $this->activeRepo
@@ -21,6 +26,30 @@ class BlogController extends AbstractApiController
             ->with('metas');
 
         $data = $this->getPaginated($query);
+
+        return $this->returnResponse(
+            $this->getResponseStatus('SUCCESS'),
+            'records fetched successfully',
+            $data
+        );
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param $slug
+     * @return string
+     * @internal param $id
+     */
+    public function show($slug)
+    {
+        $data = $this->activeRepo
+            ->with('contents')
+            ->with('files')
+            ->with('metas')
+            ->where('slug', $slug)
+            ->get();
 
         return $this->returnResponse(
             $this->getResponseStatus('SUCCESS'),
