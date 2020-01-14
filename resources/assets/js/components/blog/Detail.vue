@@ -31,8 +31,8 @@
                             </div>
                             <div class="col-md-11">
                                 <a class="fa fa-facebook" :href="'https://www.facebook.com/sharer/sharer.php?u='+postUrl" target="_blank" title="share on facebook"></a>
-                                <a class="fa fa-facebook" :href="'http://twitter.com/share?url='+encodeURIComponent(postUrl)" target="_blank" title="share on twitter"></a>
-                                <a class="fa fa-facebook" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
+                                <a class="fa fa-twitter" :href="'http://twitter.com/share?url='+encodeURIComponent(postUrl)" target="_blank" title="share on twitter"></a>
+                                <a class="fa fa-linkedin" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
                             </div>
                         </div>
                     </div>
