@@ -25,6 +25,16 @@
                                 </div>
                             </article>
                         </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                share:
+                            </div>
+                            <div class="col-md-11">
+                                <a class="fa fa-facebook" :href="'https://www.facebook.com/sharer/sharer.php?u='+postUrl" target="_blank" title="share on facebook"></a>
+                                <a class="fa fa-facebook" :href="'http://twitter.com/share?url='+encodeURIComponent(postUrl)" target="_blank" title="share on twitter"></a>
+                                <a class="fa fa-facebook" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
                         <a v-for="(obj, i) in blogList"
@@ -52,11 +62,16 @@
     export default {
         name: "blog-detail",
         data() {
-            return {};
+            return {
+                postUrl : window.location.href
+            };
         },
         created() {
         },
         mounted() {
+
+            console.log(window.location.href)
+
             this.getBlogs();
             this.getBlog(this.$attrs.id);
         },
