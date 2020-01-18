@@ -97,8 +97,9 @@
                 const scrollY = window.scrollY;
                 const visible = document.documentElement.clientHeight;
                 const pageHeight = document.documentElement.scrollHeight;
-                const bottomOfPage = visible + scrollY >= pageHeight;
-                return bottomOfPage || pageHeight < visible;
+                const footerHeight = document.getElementById('footer-menu').offsetHeight;
+                const bottomOfPage = visible + scrollY >= (pageHeight-footerHeight);
+                return bottomOfPage || (pageHeight-footerHeight) < visible;
             },
             ...mapActions('blog', ['getBlogs'])
         },

@@ -13,7 +13,7 @@ import {isLoading} from "../../helpers";
 export const getBlogs = ({commit, dispatch}, payload) => {
     isLoading(dispatch, true);
     let params = {
-        "per-page":8
+        "per-page":10
     };
     let splittedUrl = (payload) ? payload.split('/blogs') : [];
     let url = (splittedUrl[1]) ? `/blogs${splittedUrl[1]}` : `/blogs`;

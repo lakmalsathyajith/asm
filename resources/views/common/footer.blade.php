@@ -1,4 +1,4 @@
-<footer class="footer-menu">
+<footer class="footer-menu" id="footer-menu">
     <div class="container-fluid main-ftr">
         <div class="row">
             <div class="container ">
