@@ -1181,7 +1181,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
         </div>
       </div>
     </section>
-    <!-- <section class="property-news-section padding-tb-60">
+    <section class="property-news-section padding-tb-60">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center latst-prpt">
@@ -1189,17 +1189,58 @@ offer residential and corporate living solutions with weekly savings of hundreds
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <a v-for="(obj, i) in evenArray"
+               :key="i"
+               :href="'./blog/'+obj.slug" class="news-item-cover">
+              <div class="news-item">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 texts">
+                    <h5>{{obj.name}}</h5>
+                    <p>{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <div>{{obj.date}}</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <br>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <a v-for="(obj, i) in oddArray"
+               :key="i"
+               :href="'./blog/'+obj.slug" class="news-item-cover">
+              <div class="news-item">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 texts">
+                    <h5>{{obj.name}}</h5>
+                    <p>{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <div>{{obj.date}}</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <br>
+          </div>
+
+         <!-- <div class="col-md-6" v-for="(obj, i) in latestBlogs">
             <div class="news-box inline-flex">
-              <div class="news-img">
-                <img src="images/Image 15.png" />
+              <div class="news-image">
+                <img :src="`${(obj.files[0]) ? obj.files[0].url : 'images/Image 15.png'}`" />
               </div>
               <div class="news-content">
-                <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
-                 <p class="paraf-small" class="nws-para">
-                  Here are the suburbs with the cheapest rent close to 10kms of each
-                  major Australian city.
-                </p>
+                <h3 class="sub-heading">{{obj.name}}</h3>
+                 <p class="paraf-small nws-para">{{obj.description}}</p>
                 <h6>21 Sep 2019</h6>
               </div>
             </div>
@@ -1245,129 +1286,163 @@ offer residential and corporate living solutions with weekly savings of hundreds
                 <h6>21 Sep 2019</h6>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class="col-md-12">
           <div class="row">
             <div class="nws-read">
-              <a href="#.">Read More</a>
+              <a :href="'./blog'">Read More</a>
             </div>
           </div>
         </div>
       </div>
-    </section>-->
+    </section>
   </div>
 </template>
 
 <script>
-import moment from "moment";
-import HotelDatePicker from "vue-hotel-datepicker";
-import Swiper from 'swiper';
+    import {mapState, mapActions} from 'vuex';
+    import moment from "moment";
+    import HotelDatePicker from "vue-hotel-datepicker";
+    import Swiper from 'swiper';
 
-export default {
-  name: "home",
-  data() {
-    const today = new Date()
-    let tomorrow = new Date()
-    tomorrow.setDate(new Date().getDate()+1);
+    export default {
+        name: "home",
+        data() {
+            const today = new Date()
+            let tomorrow = new Date()
+            tomorrow.setDate(new Date().getDate() + 1);
 
-    return {
-      readMore: false,
-      filter: {
-        checkIn: today,
-        checkOut: tomorrow,
-        type: "",
-        adults: 1,
-        children: 0,
-        price_min: 'Any',
-        price_max: 'Any'
-      }
+            return {
+                readMore: false,
+                filter: {
+                    checkIn: today,
+                    checkOut: tomorrow,
+                    type: "",
+                    adults: 1,
+                    children: 0,
+                    price_min: 'Any',
+                    price_max: 'Any'
+                }
+            };
+        },
+        mounted() {
+            let swiper = new Swiper('.swiper-container', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                loop: true,
+                speed: 1000,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            });
+            this.getBlogs(this.nextUrl);
+        },
+        methods: {
+            qtyIncrease(type, min, max) {
+                if (type == 'adults') {
+                    if (this.filter.adults < max) {
+                        this.filter.adults++;
+                    }
+                } else if (type == 'children') {
+                    if (this.filter.children < max) {
+                        this.filter.children++;
+                    }
+                }
+            },
+            qtyDecrease(type, min, max) {
+                if (type == 'adults') {
+                    if (this.filter.adults > min) {
+                        this.filter.adults--;
+                    }
+                } else if (type == 'children') {
+                    if (this.filter.children > min) {
+                        this.filter.children--;
+                    }
+                }
+            },
+            selectType(type) {
+                this.filter.type = type;
+            },
+            setCheckinDate(newDate) {
+                this.filter.checkIn = newDate;
+            },
+            setCheckoutDate(newDate) {
+                this.filter.checkOut = newDate;
+            },
+
+            search() {
+                if (
+                    this.filter.checkIn != "" &&
+                    this.filter.checkOut != ""
+                ) {
+                    let type = window.location = this.filter.type == '' ? 'Any' : this.filter.type;
+                    window.location = window.location.origin +
+                        '/apartment-listing?type=' +
+                        type +
+                        "&start=" +
+                        moment(this.filter.checkIn).format("YYYY-MM-DD") +
+                        "&end=" +
+                        moment(this.filter.checkOut).format("YYYY-MM-DD") +
+                        "&adults=" +
+                        this.filter.adults +
+                        "&children=" +
+                        this.filter.children +
+                        "&price_min=" +
+                        this.filter.price_min +
+                        "&price_max=" +
+                        this.filter.price_max;
+                }
+            },
+            ...mapActions('blog', ['getBlogs'])
+        },
+        computed: {
+            oddArray() {
+                let tempArr = [];
+                this.blogList.length > 0 && this.blogList.some((e, i) => {
+                    if (i % 2 !== 0){
+                        if(i < 4){
+                            e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                            tempArr.push(e);
+                        }else{
+                            return true
+                        }
+                    }
+                });
+                return tempArr;
+            },
+            evenArray() {
+                let tempArr = [];
+                this.blogList.length > 0 && this.blogList.some((e, j) => {
+                    if (j % 2 === 0){
+                        if(j < 4){
+                            e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                            tempArr.push(e);
+                        }else{
+                            return true
+                        }
+                    }
+                });
+                return tempArr;
+            },
+            ...mapState("blog", ["blogList", "nextUrl", "currentPage", "lastPage"])
+        },
+        components: {
+            HotelDatePicker
+        }
     };
-  },
-  mounted() {
-    let swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-      loop: true,
-      speed: 1000,
-      centeredSlides: true,
-      autoplay: {
-        delay: 6000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-    });
-  },
-  methods: {
-    qtyIncrease(type, min, max) {
-      if (type == 'adults') {
-        if (this.filter.adults < max) {
-          this.filter.adults++;
-        }
-      } else if (type == 'children') {
-        if (this.filter.children < max) {
-          this.filter.children++;
-        }
-      }
-    },
-    qtyDecrease(type, min, max) {
-      if (type == 'adults') {
-        if (this.filter.adults > min) {
-          this.filter.adults--;
-        }
-      } else if (type == 'children') {
-        if (this.filter.children > min) {
-          this.filter.children--;
-        }
-      }
-    },
-    selectType(type) {
-      this.filter.type = type;
-    },
-    setCheckinDate(newDate) {
-      this.filter.checkIn = newDate;
-    },
-    setCheckoutDate(newDate) {
-      this.filter.checkOut = newDate;
-    },
-
-    search() {
-      if (
-        this.filter.checkIn != "" &&
-        this.filter.checkOut != ""
-      ) {
-        let type = window.location = this.filter.type == '' ? 'Any' : this.filter.type;
-        window.location = window.location.origin +
-          '/apartment-listing?type=' +
-          type +
-          "&start=" +
-          moment(this.filter.checkIn).format("YYYY-MM-DD") +
-          "&end=" +
-          moment(this.filter.checkOut).format("YYYY-MM-DD") +
-          "&adults=" +
-          this.filter.adults +
-          "&children=" +
-          this.filter.children +
-          "&price_min=" +
-          this.filter.price_min +
-          "&price_max=" +
-          this.filter.price_max;
-      }
-    }
-  },
-  components: {
-    HotelDatePicker
-  }
-};
 </script>
 
    

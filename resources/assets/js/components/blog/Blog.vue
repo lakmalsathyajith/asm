@@ -4,8 +4,8 @@
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9">
-                            <div class="bottom-full-width-border">
+                        <div class="col-md-12">
+                            <div class="">
                                 <div class="head-name">
                                     <h3>Latest Property News</h3>
                                 </div>
@@ -20,25 +20,41 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <a v-for="(obj, i) in evenArray"
                                :key="i"
-                               :href="'./blog/'+obj.slug">
-                                <div class="text">
-                                    <div :style="{ width:'100px', height:'100px', backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }">
+                               :href="'./blog/'+obj.slug" class="news-item-cover">
+                                <div class="news-item">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-7 texts">
+                                            <h5>{{obj.name}}</h5>
+                                            <p>{{obj.description}}</p>
+                                            <date>{{obj.date}}</date>
+                                        </div>
                                     </div>
-                                    <h4>{{obj.name}}</h4>
-                                    <p>{{obj.description}}</p>
-                                </div>
+                                 </div>
                             </a>
                             <br>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <a v-for="(obj, i) in oddArray"
                                :key="i"
-                               class="text" :href="'./blog/'+obj.slug">
-                                <div class="text">
-                                    <div :style="{width:'100px', height:'100px', backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }">
+                               :href="'./blog/'+obj.slug" class="news-item-cover">
+                                <div class="news-item">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-7 texts">
+                                            <h5>{{obj.name}}</h5>
+                                            <p>{{obj.description}}</p>
+                                            <date>{{obj.date}}</date>
+                                        </div>
                                     </div>
-                                    <h4>{{obj.name}}</h4>
-                                    <p>{{obj.description}}</p>
                                 </div>
                             </a>
                             <br>
@@ -52,6 +68,7 @@
 <script>
 
     import {mapState, mapActions} from 'vuex';
+    import moment from "moment";
 
     export default {
         name: "blog",
@@ -89,6 +106,7 @@
             oddArray() {
                 let tempArr = [];
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
+                    e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                     if (i % 2 !== 0)
                         tempArr.push(e);
                 });
@@ -97,6 +115,7 @@
             evenArray() {
                 let tempArr = [];
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
+                    e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                     if (i % 2 === 0)
                         tempArr.push(e);
                 });

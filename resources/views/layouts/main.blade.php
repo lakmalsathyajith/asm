@@ -5,6 +5,7 @@
 
 <head>
     @include('common.head')
+
 </head>
 
 <body>
