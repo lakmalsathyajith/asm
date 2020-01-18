@@ -1184,8 +1184,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
     <section class="property-news-section padding-tb-60">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center latst-prpt">
-            <h2>Latest Property News</h2>
+          <div class="col-md-12 text-center blog-hm-head">
+            <h2 class="main-heading">Blog</h2>
           </div>
         </div>
         <div class="row">
@@ -1202,9 +1202,9 @@ offer residential and corporate living solutions with weekly savings of hundreds
                   </div>
 
                   <div class="col-md-7 texts">
-                    <h5>{{obj.name}}</h5>
-                    <p>{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
-                    <div>{{obj.date}}</div>
+                    <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
+                    <p class="paraf-small">{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <date class="paraf-smallest">{{obj.date}}</date>
                   </div>
                 </div>
               </div>
@@ -1223,9 +1223,10 @@ offer residential and corporate living solutions with weekly savings of hundreds
                   </div>
 
                   <div class="col-md-7 texts">
-                    <h5>{{obj.name}}</h5>
-                    <p>{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
-                    <div>{{obj.date}}</div>
+                    <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
+                    <p class="paraf-small">{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <!-- <div class="paraf-smallest">{{obj.date}}</div> -->
+                    <date class="paraf-smallest">{{obj.date}}</date>
                   </div>
                 </div>
               </div>
@@ -1290,8 +1291,8 @@ offer residential and corporate living solutions with weekly savings of hundreds
         </div>
         <div class="col-md-12">
           <div class="row">
-            <div class="nws-read">
-              <a :href="'./blog'">Read More</a>
+            <div class="nws-read welcome-para">
+              <a :href="'./blog'" class="paraf read-more-link more">Read More</a>
             </div>
           </div>
         </div>
@@ -1348,11 +1349,7 @@ offer residential and corporate living solutions with weekly savings of hundreds
                     prevEl: '.swiper-button-prev'
                 }
             });
-            const payload = {
-                nextUrl : this.nextUrl,
-                lazy : false
-            };
-            this.getBlogs(payload);
+            this.getBlogs(this.nextUrl);
         },
         methods: {
             qtyIncrease(type, min, max) {

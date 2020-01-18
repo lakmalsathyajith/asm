@@ -47,8 +47,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 pl-0">
-                                        <h6>{{obj.name}}</h6>
-                                       <div class="date">Date :  {{obj.date}}</div>
+                                        <h6 class="paraf txt-bold inner-blog-head">{{obj.name}}</h6>
+                                       <date class="paraf-smallest inner-date">Date :  {{obj.date}}</date>
                                     </div>
                                 </div>
                             </div>

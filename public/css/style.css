@@ -9,7 +9,9 @@ body {
 #app {
   min-height: 500px !important;
 }
-
+.txt-bold{
+ font-weight: bold;
+}
 .agent-logo-wrap,
 .agent-tittle {
   text-align: center;
@@ -1461,7 +1463,7 @@ section.booking-form-section {
   margin: 0px auto;
 }
 
-.nws-read a {
+/* .nws-read a {
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 0.56px;
@@ -1469,7 +1471,7 @@ section.booking-form-section {
   color: #003241 !important;
   text-transform: uppercase;
   opacity: 1;
-}
+} */
 
 .footer-menu .main-ftr {
   background-color: #003241;
@@ -5157,7 +5159,31 @@ div#confirm-modal {
 .row.bottom-full-width-border.filter-middle .v-select.btn {
   border-radius: 0 !important;
 }
+/*--------------sameera blg style---------------------*/
 
+.news-item .blog-head{
+  margin-bottom: 6px !important;
+  color: #003241 !important;
+  transition: all 0.5s;
+  margin-top: 5px !important;
+}
+.news-item .blog-head:hover{
+  color: #00BAFF !important;
+}
+.news-item .paraf{
+  color: #525252 !important;
+ 
+}
+.news-item .inner-blog-head{
+  font-size: 14px !important;
+  color: #003241 !important;
+}
+.news-item .inner-date{
+  font-size: 11px !important;
+}
+.blog-hm-head{
+  padding-bottom: 30px;
+}
 
 /* ------------ shake animation --------------------- */
 
@@ -5207,9 +5233,17 @@ div#confirm-modal {
   text-overflow: ellipsis;
 }
 .news-item .date{
-  font-size: 12px;
-  color: #222;
+ font-size: 11px !important;
+  color: #707070 !important;
+  font-size: 11px !important;
+ color: #707070 !important;
   margin-top: 5px;
+  line-height: 21px !important;
+  height: 62px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+  margin-bottom: 5px !important;
+  font-size: 13px !important;
 }
 
 .news-image{
@@ -5239,10 +5273,10 @@ div#confirm-modal {
 .share-links{
   margin-top: 25px;
 }
-.share-links a{
+/* .share-links a{
   color: #222;
   padding: 0 15px;
-}
+} */
 
 .mini-news-item  .news-image {
   width:100%;

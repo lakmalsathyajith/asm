@@ -7,7 +7,7 @@
                         <div class="col-md-12">
                             <div class="">
                                 <div class="head-name">
-                                    <h3>Latest Property News</h3>
+                                    <h3>Blog</h3>
                                 </div>
                             </div>
                         </div>
@@ -29,9 +29,9 @@
                                         </div>
 
                                         <div class="col-md-7 texts">
-                                            <h5>{{obj.name}}</h5>
-                                            <p>{{obj.description}}</p>
-                                            <div class="date">{{obj.date}}</div>
+                                          <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
+                                           <p class="paraf-small">{{obj.description}}</p>
+                                           <date class="paraf-smallest">{{obj.date}}</date>
                                         </div>
                                     </div>
                                  </div>
