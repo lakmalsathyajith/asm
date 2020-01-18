@@ -116,18 +116,21 @@
             oddArray() {
                 let tempArr = [];
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
-                    e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+
+                    let el = {...e};
+                    el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                     if (i % 2 !== 0)
-                        tempArr.push(e);
+                        tempArr.push(el);
                 });
                 return tempArr;
             },
             evenArray() {
                 let tempArr = [];
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
-                    e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                    let el = {...e};
+                    el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                     if (i % 2 === 0)
-                        tempArr.push(e);
+                        tempArr.push(el);
                 });
                 return tempArr;
             },
