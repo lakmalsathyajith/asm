@@ -75,7 +75,11 @@
         created() {
         },
         mounted() {
-            this.getBlogs();
+            const payload = {
+                nextUrl : this.nextUrl,
+                lazy : false
+            }
+            this.getBlogs(payload);
             this.getBlog(this.$attrs.id);
         },
         methods: {

@@ -31,7 +31,7 @@
                                         <div class="col-md-7 texts">
                                             <h5>{{obj.name}}</h5>
                                             <p>{{obj.description}}</p>
-                                            <date>{{obj.date}}</date>
+                                            <div class="date">{{obj.date}}</div>
                                         </div>
                                     </div>
                                  </div>
@@ -52,7 +52,7 @@
                                         <div class="col-md-7 texts">
                                             <h5>{{obj.name}}</h5>
                                             <p>{{obj.description}}</p>
-                                            <date>{{obj.date}}</date>
+                                            <div class="date">{{obj.date}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +80,12 @@
         watch: {
             bottom(bottom) {
                 if (bottom && (!this.currentPage || (!!this.currentPage && (this.currentPage !== this.lastPage)))) {
-                    this.getBlogs(this.nextUrl);
+                    const payload = {
+                        nextUrl : this.nextUrl,
+                        lazy : true
+                    }
+
+                    this.getBlogs(payload);
                 }
             }
         },
@@ -90,7 +95,11 @@
             });
         },
         mounted() {
-            this.getBlogs(this.nextUrl);
+            const payload = {
+                nextUrl : this.nextUrl,
+                lazy : false
+            }
+            this.getBlogs(payload);
         },
         methods: {
             bottomVisible() {
