@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="col-md-7 pl-0">
                                         <h6>{{obj.name}}</h6>
-                                       <date>Date :  {{obj.date}}</date>
+                                       <div class="date">Date :  {{obj.date}}</div>
                                     </div>
                                 </div>
                             </div>
