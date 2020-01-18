@@ -144,10 +144,12 @@ Route::get('/blog', function () {
     return view('pages.blog', ['menu' => 'blog', 'meta' => $meta]);
 });
 
-Route::get('/blog/{id}', function (Request $request) {
+/*Route::get('/blog/{id}', function (Request $request) {
     $params = $request->route()->parameters;
     return view('pages.blogDetail', ['params' => $params['id']]);
-});
+});*/
+
+Route::get('/blog/{id}', 'Web\Frontend\BlogController@show');
 
 
 //Auth::routes();
