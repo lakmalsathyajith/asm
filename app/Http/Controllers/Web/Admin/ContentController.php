@@ -176,7 +176,7 @@ class ContentController extends AbstractController
 
         if (isset($requestData['params']) && !empty($requestData['params']['contentable-type'])) {
             $returnTo = $requestData['params']['contentable-type'];
-            return redirect(route("$returnTo.edit", ["$returnTo" => $requestData['params']['contentable-id']]));
+            return redirect(route("$returnTo.index"));
         } else {
             return redirect(route('content.index'));
         }

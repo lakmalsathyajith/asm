@@ -11,8 +11,10 @@ class StoreBlogRequest extends AbstractRequest
     public function rules()
     {
         $rules =  [
-            'name'              => 'required|min:3|max:255',
-            'date'              => "required|date"
+            'name'              => 'required|min:3|max:250',
+            'date'              => "required|date",
+            'description'       => 'required|max:250',
+            'files'             => 'required',
         ];
 
         return $rules;

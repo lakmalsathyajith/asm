@@ -33,9 +33,9 @@
                             @foreach($records as $record)
                                 <tr id="blog_{{ $record->id }}">
                                     <th scope="row">{{ $record->id }}</th>
-                                    <td>{{ $record->name }}</td>
-                                    <td>{{ $record->slug }}</td>
-                                    <td>{{ $record->description }}</td>
+                                    <td>{{ \App\Traits\StringTrait::subString($record->name, 30) }}</td>
+                                    <td class="text-break">{{ \App\Traits\StringTrait::subString($record->slug, 30) }}</td>
+                                    <td>{{ \App\Traits\StringTrait::subString($record->description, 30) }}</td>
                                     <td>{{ $record->date }}</td>
                                     <td>{{ $record->created_at?$record->created_at->diffForHumans():'-' }}</td>
                                     <td>

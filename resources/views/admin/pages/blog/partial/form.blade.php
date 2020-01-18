@@ -31,7 +31,9 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-form-label ">{{ __('Name') }}</label>
+                <label for="name" class="col-form-label ">{{ __('Name') }}
+                    <span class="text-danger">*</span>
+                </label>
                 <input id="name" type="text"
                     class="form-control{{ $errors && $errors->has('name') ? ' is-invalid' : '' }}"
                     name="name"
@@ -47,11 +49,14 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="date" class="col-form-label ">{{ __('Date') }}</label>
+                <label for="date" class="col-form-label ">{{ __('Date') }}
+                    <span class="text-danger">*</span>
+                </label>
                 <input id="date" type="date"
                        class="form-control{{ $errors && $errors->has('date') ? ' is-invalid' : '' }}"
                        name="date"
-                       value="{{ isset($record) && $record->date ? $record->date : old('date') }}"
+                       value="{{ isset($record) && $record->date ? $record->date : (old('date') ?  old('date') : date("Y-m-d"))}}"
+                       max="{{date("Y-m-d")}}"
                        required autofocus>
 
                 @if ($errors && $errors->has('date'))
@@ -66,7 +71,9 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="description" class="col-form-label">{{ __('Description') }}</label>
+                <label for="description" class="col-form-label">{{ __('Description') }}
+                    <span class="text-danger">*</span>
+                </label>
                 <textarea id="description"
                           name="description"
                           class="form-control{{ $errors && $errors->has('description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->description ? $record->description : old('description') }}</textarea>
@@ -83,7 +90,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="files" class="col-form-label">{{ __('Images') }}</label>
+                <label for="files" class="col-form-label">{{ __('Images') }}
+                    <span class="text-danger">*</span>
+                </label>
                 <select id="files"
                         class="select2bs4 multi-select form-control {{ $errors && $errors->has('files') ? ' is-invalid' : '' }}"
                         name="files[]" multiple="multiple" data-placeholder="Select Images for the Apartment">
