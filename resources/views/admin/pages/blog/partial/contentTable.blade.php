@@ -16,7 +16,7 @@
                 @foreach($record->contents as $content)
                     <tr id="content_{{ $content->id }}">
                         <th scope="row">{{ $content->id }}</th>
-                        <td>{{ $content->name }}</td>
+                        <td>{{ \App\Traits\StringTrait::subString($content->name, 100) }}</td>
                         <td>{{ $content->type }}</td>
                         <td>{{ $content->locale }}</td>
                         <td>{{ $content->created_at }}</td>
