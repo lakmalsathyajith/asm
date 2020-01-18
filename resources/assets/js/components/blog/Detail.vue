@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
-                        <a v-for="(obj, i) in blogList"
+                        <a v-for="(obj, i) in oddArray"
                            :key="i"
                            :href="'./'+obj.slug" class="news-item-cover mini-news-item">
                             <div class="news-item">
@@ -75,9 +75,6 @@
         created() {
         },
         mounted() {
-
-            console.log(window.location.href)
-
             this.getBlogs();
             this.getBlog(this.$attrs.id);
         },
