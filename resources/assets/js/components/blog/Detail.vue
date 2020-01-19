@@ -26,13 +26,13 @@
                             </article>
                         </div>
                         <div class="row share-links">
-                            <div class="col-md-1">
+                            <div class="col-md-1 share-text">
                                 Share:
                             </div>
                             <div class="col-md-11">
-                                <a class="fa fa-facebook" :href="'https://www.facebook.com/sharer/sharer.php?u='+postUrl" target="_blank" title="share on facebook"></a>
-                                <a class="fa fa-twitter" :href="'http://twitter.com/share?url='+encodeURIComponent(postUrl)" target="_blank" title="share on twitter"></a>
-                                <a class="fa fa-linkedin" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
+                                <a class="fa fa-facebook share-icon" :href="'https://www.facebook.com/sharer/sharer.php?u='+postUrl" target="_blank" title="share on facebook"></a>
+                                <a class="fa fa-twitter share-icon left-margin" :href="'http://twitter.com/share?url='+encodeURIComponent(postUrl)" target="_blank" title="share on twitter"></a>
+                                <a class="fa fa-linkedin share-icon left-margin" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                         <div :style="{  backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : '/images/home/onebed-thumb.jpg'})` }" class="news-image">
                                         </div>
                                     </div>
-                                    <div class="col-md-7 pl-0">
+                                    <div class="col-md-7 pl-0 mobile-desc">
                                         <h6 class="paraf txt-bold inner-blog-head">{{obj.name}}</h6>
                                        <date class="paraf-smallest inner-date">Date :  {{obj.date}}</date>
                                     </div>
