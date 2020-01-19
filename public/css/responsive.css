@@ -727,6 +727,16 @@ i.fa.fa-mobile-phone {
   .news-item .texts {
     text-align: center !important;
   }
+  .share-links{
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .news-item{
+    text-align: center !important;
+  }
+  .mobile-desc{
+    padding-top: 15px;
+  }
 }
 
 /* ## Device = Most of the Smartphones Mobiles - Portrait */
