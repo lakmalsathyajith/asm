@@ -25,6 +25,8 @@ class BlogController extends AbstractApiController
             ->with('files')
             ->with('metas');
 
+        $query = $query->orderBy('id', 'desc');
+
         $data = $this->getPaginated($query);
 
         return $this->returnResponse(
