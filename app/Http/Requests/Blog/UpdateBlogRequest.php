@@ -24,6 +24,9 @@ class UpdateBlogRequest extends AbstractRequest
     public function messages()
     {
         return [
+            'name.required' => 'The title field is required.',
+            'name.min' => 'The title must be at least 3 characters.',
+            'name.max' => 'The title may not be greater than 250 characters.'
         ];
     }
 }
