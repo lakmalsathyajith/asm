@@ -13,11 +13,11 @@
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item navigation-path-name">
-                      <a href="/typical-apartment">Our Typical Apartments</a>
+                      <a href="/typical-apartment">Blog</a>
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item">
-                      <span class="current-page">One Bedroom Apartments</span>
+                      <span class="current-page">..............</span>
                     </li>
                   </ul>
                 </div>

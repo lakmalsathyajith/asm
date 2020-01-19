@@ -739,11 +739,11 @@ i.fa.fa-mobile-phone {
   }
   .news-main-image {
     width: 100%;
-    -webkit-background-size: contain;
-    background-size: contain;
-    background-position: top;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 170px;
+    height: 210px;
     border-radius: 12px;
     margin-bottom: 25px;
 }
@@ -1500,16 +1500,27 @@ i.fa.fa-mobile-phone {
   }
   .news-main-image {
     width: 100%;
-    -webkit-background-size: contain;
-    background-size: contain;
-    background-position: top;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 170px;
+    height: 210px;
     border-radius: 12px;
     margin-bottom: 25px;
 }
 .head-name .blog-inner-head{
   text-align: center !important;
+}
+.item-full-text p span{
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
+.news-image{
+  height: 237px !important;
 }
   /*Start booking form*/
   /*End booking form*/

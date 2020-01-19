@@ -5202,6 +5202,33 @@ div#confirm-modal {
 .left-margin{
   margin-left: 15px;
 }
+.item-full-text p{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
+.item-full-text p span{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
+.item-full-text ul li{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
 /* ------------ shake animation --------------------- */
 
 .shake {
