@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-form-label ">{{ __('Name') }}
+                <label for="name" class="col-form-label ">{{ __('Title') }}
                     <span class="text-danger">*</span>
                 </label>
                 <input id="name" type="text"
