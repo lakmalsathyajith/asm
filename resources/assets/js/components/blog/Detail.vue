@@ -1,11 +1,39 @@
 <template>
     <section class="shortlist-section faq-section padding-tb-60">
+
+             <div class="container-fluid p-0">
+        <div class="nav-top-path-wrap bottom-full-width-border">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="nav-top-path">
+                  <ul class="list-inline">
+                    <li class="list-inline-item navigation-path-name">
+                      <a href="/">Home</a>
+                      <span class="navigation-path">></span>
+                    </li>
+                    <li class="list-inline-item navigation-path-name">
+                      <a href="/typical-apartment">Our Typical Apartments</a>
+                      <span class="navigation-path">></span>
+                    </li>
+                    <li class="list-inline-item">
+                      <span class="current-page">One Bedroom Apartments</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class=""><div class="head-name">
-                            <h3>{{selectedBlog.name}}</h3>
+                            <h3 class="blog-inner-head">{{selectedBlog.name}}</h3>
                         </div>
                         </div>
                     </div>

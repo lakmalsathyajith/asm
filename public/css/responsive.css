@@ -737,6 +737,16 @@ i.fa.fa-mobile-phone {
   .mobile-desc{
     padding-top: 15px;
   }
+  .news-main-image {
+    width: 100%;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 170px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
 }
 
 /* ## Device = Most of the Smartphones Mobiles - Portrait */
@@ -1473,9 +1483,34 @@ i.fa.fa-mobile-phone {
   .studio-middle-panel-wrap .studio-benifit-list {
     padding-left: 10px;
   }
+  
+
   .news-item .texts {
     text-align: center !important;
   }
+  .share-links{
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .news-item{
+    text-align: center !important;
+  }
+  .mobile-desc{
+    padding-top: 15px;
+  }
+  .news-main-image {
+    width: 100%;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 170px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+.head-name .blog-inner-head{
+  text-align: center !important;
+}
   /*Start booking form*/
   /*End booking form*/
 }

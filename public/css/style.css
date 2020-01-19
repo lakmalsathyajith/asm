@@ -1832,7 +1832,7 @@ section.booking-form-section {
 }
 
 .studio-apartment-section {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 30px;
 }
 
@@ -2789,7 +2789,8 @@ select {
 /* shortlist section*/
 
 .shortlist-section {
-  padding-top: 60px;
+  /* padding-top: 60px; */
+  padding-top: 40px;
 }
 
 .shortlist-section .head-name h3 {
@@ -2856,7 +2857,7 @@ section.top-search-wrap .dropdown.filter-widget button {
 }
 
 .mobile-aprt-list-section {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .price-tag {
