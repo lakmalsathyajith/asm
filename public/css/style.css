@@ -1832,7 +1832,7 @@ section.booking-form-section {
 }
 
 .studio-apartment-section {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 30px;
 }
 
@@ -2789,7 +2789,8 @@ select {
 /* shortlist section*/
 
 .shortlist-section {
-  padding-top: 60px;
+  /* padding-top: 60px; */
+  padding-top: 40px;
 }
 
 .shortlist-section .head-name h3 {
@@ -2856,7 +2857,7 @@ section.top-search-wrap .dropdown.filter-widget button {
 }
 
 .mobile-aprt-list-section {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .price-tag {
@@ -5184,7 +5185,50 @@ div#confirm-modal {
 .blog-hm-head{
   padding-bottom: 30px;
 }
+.share-icon{
+  border: 1px solid #E8E8E8;
+   padding: 10px 15px 10px 14px;;
+    border-radius: 26px;
+}
+.share-text{
+  padding: 10px 0px;
+  font-weight: bold;
+}
 
+.share-icon::before{
+  font-size: 14px !important;
+  color: #414141 !important;
+}
+.left-margin{
+  margin-left: 15px;
+}
+.item-full-text p{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
+.item-full-text p span{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
+.item-full-text ul li{
+
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 16px !important;
+  color: #525252 !important;
+  line-height: 25px !important;
+  letter-spacing: 0.16px !important;
+  
+}
 /* ------------ shake animation --------------------- */
 
 .shake {
@@ -5217,33 +5261,24 @@ div#confirm-modal {
 
 /* Temp fixes */
 
-.news-item-cover {
-
-}
 .news-item{
   margin-bottom: 20px;
   color: #222222;
 }
 .news-item p{
-  font-size: 13px;
+ 
   font-weight: 400;
-  color: #676767;
-  height: 59px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.news-item .date{
- font-size: 11px !important;
-  color: #707070 !important;
-  font-size: 11px !important;
- color: #707070 !important;
-  margin-top: 5px;
   line-height: 21px !important;
   height: 62px;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-bottom: 5px !important;
   font-size: 13px !important;
+}
+.news-item date{
+  font-size: 11px !important;
+  color: #707070 !important;
+  margin-top: 5px;
 }
 
 .news-image{
