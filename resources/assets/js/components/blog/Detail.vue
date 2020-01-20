@@ -13,11 +13,11 @@
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item navigation-path-name">
-                      <a href="/typical-apartment">Blog</a>
+                      <a href="/blog">Blog</a>
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item">
-                      <span class="current-page">..............</span>
+                      <span class="current-page">{{selectedBlog.name}}</span>
                     </li>
                   </ul>
                 </div>
