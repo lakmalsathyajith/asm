@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-12">
                   <div class="about-main-head">
-                    <h3>About Us</h3>
+                    <h2 class="main-heading">About Us</h2>
                   </div>
                 </div>
                 <div class="col-md-8">
