@@ -17,9 +17,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <a v-for="(obj, i) in evenArray"
-                               :key="i"
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" v-for="(obj, i) in evenArray"
+                               :key="i">
+                            <a 
                                :href="'./blog/'+obj.slug" class="news-item-cover">
                                 <div class="news-item">
                                     <div class="row">
@@ -35,27 +35,6 @@
                                         </div>
                                     </div>
                                  </div>
-                            </a>
-                            <br>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <a v-for="(obj, i) in oddArray"
-                               :key="i"
-                               :href="'./blog/'+obj.slug" class="news-item-cover">
-                                <div class="news-item">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-7 texts">
-                                            <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
-                                            <p class="paraf-small">{{obj.description}}</p>
-                                           <date class="paraf-smallest">{{obj.date}}</date>
-                                        </div>
-                                    </div>
-                                </div>
                             </a>
                             <br>
                         </div>
@@ -129,8 +108,7 @@
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
                     let el = {...e};
                     el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
-                    if (i % 2 === 0)
-                        tempArr.push(el);
+                    tempArr.push(el);
                 });
                 return tempArr;
             },
