@@ -32,6 +32,8 @@ class BlogController extends AbstractController
         $meta = [];
         $meta['keywords'] = "";
         $meta['description'] = "";
+        $meta['title'] = $data['name'];
+        $meta['image'] = $data['files'][0]['url'];
         if(count($data->metas)>0){
             $metaObj = $data->metas[0];
             $meta['keywords'] = $metaObj->name;

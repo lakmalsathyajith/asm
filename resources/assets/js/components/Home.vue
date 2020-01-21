@@ -1349,7 +1349,11 @@ offer residential and corporate living solutions with weekly savings of hundreds
                     prevEl: '.swiper-button-prev'
                 }
             });
-            this.getBlogs(this.nextUrl);
+            const payload = {	
+                nextUrl : this.nextUrl,	
+                lazy : false	
+            };	
+            this.getBlogs(payload);
         },
         methods: {
             qtyIncrease(type, min, max) {
