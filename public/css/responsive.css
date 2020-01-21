@@ -595,7 +595,7 @@ i.fa.fa-mobile-phone {
     width: 30%;
   }
   section.top-search-wrap {
-    padding-top: 20px;
+    padding-top: 0px;
   }
   .datepicker__input:first-child {
     text-indent: 4px !important;
@@ -626,7 +626,7 @@ i.fa.fa-mobile-phone {
     width: 100% !important;
   }
   .nav-top-path-wrap {
-    margin-top: 20px;
+    margin-top: 0px;
   }
   .faq-tab-wrap .nav-tabs {
     width: 90%;
@@ -722,7 +722,7 @@ i.fa.fa-mobile-phone {
   }
   .faq-section .head-name h3 {
     padding-bottom: 0px !important;
-    text-align: left !important;
+    text-align: left;
   }
   .news-item .texts {
     text-align: center !important;
@@ -744,7 +744,7 @@ i.fa.fa-mobile-phone {
     background-position: center;
     background-repeat: no-repeat;
     height: 210px;
-    border-radius: 12px;
+    border-radius: 0px;
     margin-bottom: 25px;
 }
 }
@@ -1505,7 +1505,7 @@ i.fa.fa-mobile-phone {
     background-position: center;
     background-repeat: no-repeat;
     height: 210px;
-    border-radius: 12px;
+    border-radius: 0px;
     margin-bottom: 25px;
 }
 .head-name .blog-inner-head{
@@ -1521,6 +1521,12 @@ i.fa.fa-mobile-phone {
 }
 .news-image{
   height: 237px !important;
+}
+.blog-inner-hr{
+  margin: 30px 0px;
+}
+.faq-sub-heading p{
+  text-align: center;
 }
   /*Start booking form*/
   /*End booking form*/

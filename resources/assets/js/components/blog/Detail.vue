@@ -52,6 +52,7 @@
                                     <div v-html="content"></div>
                                 </div>
                             </article>
+                            <hr class="blog-article-inner-hr">
                         </div>
                         <div class="row share-links">
                             <div class="col-md-1 share-text">
@@ -65,6 +66,15 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+                        <div class="more-blog-head-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                     <h4 class="paraf txt-bold">More Blogs</h4>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
                         <a v-for="(obj, i) in oddArray"
                            :key="i"
                            :href="'./'+obj.slug" class="news-item-cover mini-news-item">
@@ -78,9 +88,12 @@
                                         <h6 class="paraf txt-bold inner-blog-head">{{obj.name}}</h6>
                                        <date class="paraf-smallest inner-date">Date :  {{obj.date}}</date>
                                     </div>
+                                    
                                 </div>
+                                <hr class="blog-inner-hr">
                             </div>
                         </a>
+                        
                         <br>
                     </div>
                 </div>

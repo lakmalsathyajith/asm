@@ -120,35 +120,25 @@
 
                                                         <li class="nav-item">
                                                             <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                                href="/apartment-listing">{{ __('topmenu.Our_apartments') }}</a>
+                                                                href="/apartment-listing">{{ __('topmenu.rates_and_availability') }}</a>
                                                         </li>
-                                                        <li
-                                                            class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
-                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                                href="/apartment-listing">{{ __('topmenu.Our_apartments') }}</a>
+                                                        <li class="nav-item {{ isset($menu) && $menu=='typical'?'active':'' }}">
+                                                            <a class="nav-link" href="/typical-apartment">{{ __('topmenu.Our_apartments') }}</a>
                                                         </li>
-
-                                                        <li
-                                                            class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
-                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                                href="/apartment-listing">{{ __('topmenu.Faq') }}</a>
-                                                        </li>
-                                                        <li
-                                                            class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
-                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                                href="/apartment-listing">{{ __('topmenu.About_us') }}</a>
+                                                        <li class="nav-item {{ isset($menu) && $menu=='faq'?'active':'' }}">
+                                                            <a class="nav-link" href="/faq">{{ __('topmenu.Faq') }}</a>
                                                         </li>
                                                         <li class="nav-item {{ isset($menu) && $menu=='blog'?'active':'' }}">
-                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                               href="/blog">{{ __('topmenu.Blog') }}</a>
+                                                            <a class="nav-link" href="/blog">{{ __('topmenu.Blog') }}</a>
+                                                        </li>
+                                                        <li class="nav-item {{ isset($menu) && $menu=='about'?'active':'' }}">
+                                                            <a class="nav-link" href="/about">{{ __('topmenu.About_us') }}</a>
                                                         </li>
                                                         {{-- <li class="nav-item {{ isset($menu) && $menu=='list-with-us'?'active':'' }}">
                                                         <a class="nav-link" href="/list-with-us">LIST WITH US</a>
                                                         </li> --}}
-                                                        <li
-                                                            class="nav-item {{ isset($menu) && $menu=='contact'?'active':'' }}">
-                                                            <a class="nav-link {{ isset($menu) && $menu=='rates'?'active':'' }}"
-                                                                href="/apartment-listing">{{ __('topmenu.Contact') }}</a>
+                                                        <li class="nav-item {{ isset($menu) && $menu=='contact'?'active':'' }}">
+                                                            <a class="nav-link" href="/contact">{{ __('topmenu.Contact') }}</a>
                                                         </li>
                                                     </ul>
 
