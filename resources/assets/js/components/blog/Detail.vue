@@ -37,6 +37,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+                        <h4>More Blogs</h4>
                         <a v-for="(obj, i) in oddArray"
                            :key="i"
                            :href="'./'+obj.slug" class="news-item-cover mini-news-item">
@@ -88,12 +89,15 @@
         computed: {
             oddArray() {
                 let tempArr = [];
+                let count = 0;
                 this.blogList.length > 0 && this.blogList.some((e, i) => {
-                        if(i < 5){
+                        if(count > 5)
+                            return true;
+
+                        if(e.id !== this.selectedBlog.id){
                             e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                             tempArr.push(e);
-                        }else{
-                            return true
+                            count++;
                         }
                 });
                 return tempArr;
