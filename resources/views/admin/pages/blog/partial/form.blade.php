@@ -71,7 +71,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="description" class="col-form-label">{{ __('Description') }}
+                <label for="description" class="col-form-label">{{ __('Short Description') }}
                     <span class="text-danger">*</span>
                 </label>
                 <textarea id="description"
@@ -98,7 +98,8 @@
                         name="files[]" multiple="multiple" data-placeholder="Select Images for the Apartment">
                     @foreach($files as $value => $label)
                         <option
-                                {{ isset($record) && \App\Traits\HelperTrait::isSelected($record->files, $value) ? 'selected="selected"' : ''}}
+                                {{ isset($record) && \App\Traits\HelperTrait::isSelected($record->files, $value) ? 'selected="selected"' :
+                                (old('files') && is_array(old('files')) && in_array($value, old('files')) ? 'selected="selected"' : '')}}
                                 value="{{ $value }}">
                             {{ $label }}
                         </option>
@@ -130,7 +131,8 @@
                         <input id="{{'meta_'.$value.'_name'}}" type="text"
                                class="form-control{{ $errors && $errors->has('meta') ? ' is-invalid' : '' }}"
                                name="{{'meta['.$value.'][name]'}}"
-                               value="{{ isset($selectedMeta) && $selectedMeta->name ? $selectedMeta->name : old('meta['.$value.'][name]') }}"
+                               value="{{ isset($selectedMeta) && $selectedMeta->name ? $selectedMeta->name :
+                               (old('meta') && isset(old('meta')[$value]) && isset(old('meta')[$value]['name'])) ? old('meta')[$value]['name'] : null}}"
                                autofocus>
 
                         @if ($errors && $errors->has('meta'))
@@ -145,7 +147,7 @@
                         <label for="{{'meta_'.$value.'_description'}}" class="col-form-label">{{ __('Meta Description ('.$name.')') }}</label>
                         <textarea id="{{'meta_'.$value.'_description'}}"
                                   name="{{'meta['.$value.'][description]'}}"
-                                  class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($selectedMeta) && $selectedMeta->description ? $selectedMeta->description : old('meta['.$value.'][description]') }}</textarea>
+                                  class="form-control{{ $errors && $errors->has('meta_description') ? ' is-invalid' : '' }}">{{ isset($selectedMeta) && $selectedMeta->description ? $selectedMeta->description : (old('meta') && isset(old('meta')[$value]) && isset(old('meta')[$value]['description'])) ? old('meta')[$value]['description'] : null }}</textarea>
 
                         @if ($errors && $errors->has('meta_description'))
                             <span class="invalid-feedback" role="alert">
