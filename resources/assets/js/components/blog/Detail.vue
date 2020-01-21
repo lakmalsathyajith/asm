@@ -26,8 +26,6 @@
           </div>
         </div>
       </div>
-
-
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -91,7 +89,6 @@
                                 <hr class="blog-inner-hr">
                             </div>
                         </a>
-
                         <br>
                     </div>
                 </div>

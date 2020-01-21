@@ -20,7 +20,6 @@ class BlogController extends AbstractController
 
     public function show($id)
     {
-
         $data = $this->activeRepo->with(['metas' => function($query) {
             $locale = app()->getLocale();
             $query->where('locale', $locale);
@@ -33,7 +32,9 @@ class BlogController extends AbstractController
         $meta['keywords'] = "";
         $meta['description'] = "";
         $meta['title'] = $data['name'];
-        $meta['image'] = $data['files'][0]['url'];
+        if(isset($data['files']) && isset($data['files'][0])){
+            $meta['image'] = $data['files'][0]['url'];
+        }
         if(count($data->metas)>0){
             $metaObj = $data->metas[0];
             $meta['keywords'] = $metaObj->name;
