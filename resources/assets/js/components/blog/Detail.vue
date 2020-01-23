@@ -26,8 +26,6 @@
           </div>
         </div>
       </div>
-
-
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -72,9 +70,7 @@
                                      <h4 class="paraf txt-bold">More Blogs</h4>
                                 </div>
                             </div>
-                           
                         </div>
-                        
                         <a v-for="(obj, i) in oddArray"
                            :key="i"
                            :href="'./'+obj.slug" class="news-item-cover mini-news-item">
@@ -88,12 +84,11 @@
                                         <h6 class="paraf txt-bold inner-blog-head">{{obj.name}}</h6>
                                        <date class="paraf-smallest inner-date">Date :  {{obj.date}}</date>
                                     </div>
-                                    
+
                                 </div>
                                 <hr class="blog-inner-hr">
                             </div>
                         </a>
-                        
                         <br>
                     </div>
                 </div>
@@ -129,12 +124,15 @@
         computed: {
             oddArray() {
                 let tempArr = [];
+                let count = 0;
                 this.blogList.length > 0 && this.blogList.some((e, i) => {
-                        if(i < 5){
+                        if(count > 5)
+                            return true;
+
+                        if(e.id !== this.selectedBlog.id){
                             e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                             tempArr.push(e);
-                        }else{
-                            return true
+                            count++;
                         }
                 });
                 return tempArr;

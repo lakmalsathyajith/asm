@@ -5322,7 +5322,6 @@ div#confirm-modal {
 .blog-inner-head{
   text-transform: capitalize !important;
 }
-/* .blog-inner-hr{
-  width: 100%;
-  text-align: left;
-} */
+.blog-inner-hr{
+  margin-top: 22px !important;
+}
