@@ -5177,6 +5177,8 @@ div#confirm-modal {
 .news-item .inner-blog-head{
   font-size: 14px !important;
   color: #003241 !important;
+  transition: all 0.5s;
+  margin-bottom: 8px !important;
 }
 .news-item .inner-date{
   font-size: 11px !important;
@@ -5266,9 +5268,9 @@ div#confirm-modal {
 .news-item{
   margin-bottom: 22px;
   color: #222222;
+  transition: all 0.5s;
 }
 .news-item p{
- 
   font-weight: 400;
   line-height: 21px !important;
   height: 62px;
@@ -5298,7 +5300,7 @@ div#confirm-modal {
   background-size: cover;
   background-position: center;
   height: 500px;
-  border-radius: 0px;
+  border-radius: 5px;
   margin-bottom: 25px;
 }
 
@@ -5324,4 +5326,17 @@ div#confirm-modal {
 }
 .blog-inner-hr{
   margin-top: 22px !important;
+}
+.news-item:hover .texts .blog-head,.news-item:hover .inner-blog-head{
+  color: #00baff !important;
+} 
+.news-item:hover .news-image{
+  opacity: 0.6;
+ 
+}
+.news-item .news-image{
+   transition: all 0.5s;
+}
+.item-full-text{
+  width: 95% !important;
 }
