@@ -14,5 +14,6 @@ return [
   'Phone'                      =>'Phone',
   'Mobile'                      =>'Mobile',
   'Copyright' => 'Copyright',
-  'Created_by' => 'Created by'
+  'Created_by' => 'Created by',
+  'Blog' => 'Blog'
 ];

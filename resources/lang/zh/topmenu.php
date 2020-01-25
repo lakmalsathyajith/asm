@@ -7,5 +7,6 @@ return [
   'Blog'                          => 'Blog',
   'About_us'                     => '关于我们',
   'Contact'                     => '联络我们',
-  'Agent_login'                  => '中介登入'
+  'Agent_login'                  => '中介登入',
+  'Blog' => '博客'
 ];

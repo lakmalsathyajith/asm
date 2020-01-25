@@ -24,7 +24,7 @@ class ApartmentController extends AbstractController
         $data = $this->activeRepo->with(['metas' => function($query) {
             $locale = app()->getLocale();
             $query->where('locale', $locale);
-        }])->where('slug', $id)->first();
+        }])->where(is_numeric($id)?'id':'slug', $id)->first();
         
         $params = [];
         $params['id'] = $data['id'];

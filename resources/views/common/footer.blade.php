@@ -9,7 +9,7 @@
                             <li class="list-inline-item"><a href="/typical-apartment">{{ __('footer.Our_apartments') }}</a></li>
                             <li class="list-inline-item"><a href="/faq">{{ __('footer.Faq') }}</a></li>
                             <li class="list-inline-item"><a href="/about">{{ __('footer.About_us') }}</a></li>
-                            {{-- <li class="list-inline-item"><a href="/list-with-us">List with Us</a></li> --}}
+                            <li class="list-inline-item"><a href="/blog">{{ __('footer.Blog') }}</a></li>
                             <li class="list-inline-item"><a href="/contact">{{ __('footer.Contact') }}</a></li>
                         </ul>
                     </div>

@@ -7,5 +7,6 @@ return [
     'Blog' => 'Blog',
     'About_us' => 'About us',
     'Contact' => 'Contact',
-    'Agent_login' => 'Agent Login'
+    'Agent_login' => 'Agent Login',
+    'Blog' => 'Blog'
 ];

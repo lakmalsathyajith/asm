@@ -51,7 +51,7 @@ class ApartmentController extends AbstractApiController
             ->with('files')
             ->with('options')
             ->with('type')
-            ->where('slug', $id)
+            ->where(is_numeric($id)?'id':'slug', $id)
             ->first();
     }
 

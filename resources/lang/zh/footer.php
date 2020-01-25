@@ -14,5 +14,6 @@ return [
   'Phone'                      =>'电话号码',
   'Mobile'                    =>'手机号码',
   'Copyright' => '版权',
-  'Created_by' => '由...制作'
+  'Created_by' => '由...制作',
+  'Blog' => '博客'
 ];

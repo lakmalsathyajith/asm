@@ -63,7 +63,6 @@ export const getFilteredApartments = ({ commit, dispatch }, payload) => {
       additional3: 0,
       additional4: 0,
       additional5: 0,
-      test: '',
       ShowAreas: ''
     }
   };
