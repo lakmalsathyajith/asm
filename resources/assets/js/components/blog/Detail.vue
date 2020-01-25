@@ -52,7 +52,8 @@
                             </article>
                             <hr class="blog-article-inner-hr">
                         </div>
-                        <div class="row share-links">
+                        <div class="col-md-12">
+                             <div class="row share-links">
                             <div class="col-md-1 share-text">
                                 Share:
                             </div>
@@ -62,6 +63,8 @@
                                 <a class="fa fa-linkedin share-icon left-margin" :href="'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(postUrl)" target="_blank" title="Share on LinkedIn"></a>
                             </div>
                         </div>
+                        </div>
+                       
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
                         <div class="more-blog-head-wrap">
