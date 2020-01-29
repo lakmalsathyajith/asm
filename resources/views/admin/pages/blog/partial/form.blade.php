@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="col-form-label ">{{ __('Title') }}
+                <label for="name" class="col-form-label ">{{ __('Title (English)') }}
                     <span class="text-danger">*</span>
                 </label>
                 <input id="name" type="text"
@@ -49,6 +49,61 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
+                <label for="name_zh" class="col-form-label ">{{ __('Title (Chinese)') }}
+                </label>
+                <input id="name_zh" type="text"
+                       class="form-control{{ $errors && $errors->has('name_zh') ? ' is-invalid' : '' }}"
+                       name="name_zh"
+                       value="{{ isset($record) && $record->name_zh ? $record->name_zh : old('name_zh') }}"
+                       required autofocus>
+
+                @if ($errors && $errors->has('name_zh'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('name_zh') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="description" class="col-form-label">{{ __('Short Description (English)') }}
+                    <span class="text-danger">*</span>
+                </label>
+                <textarea id="description"
+                          name="description"
+                          class="form-control{{ $errors && $errors->has('description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->description ? $record->description : old('description') }}</textarea>
+
+                @if ($errors && $errors->has('description'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('description') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="description_zh" class="col-form-label">{{ __('Short Description (Chinese)') }}
+                    <span class="text-danger">*</span>
+                </label>
+                <textarea id="description_zh"
+                          name="description_zh"
+                          class="form-control{{ $errors && $errors->has('description_zh') ? ' is-invalid' : '' }}">{{ isset($record) && $record->description_zh ? $record->description_zh : old('description_zh') }}</textarea>
+
+                @if ($errors && $errors->has('description_zh'))
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('description_zh') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
                 <label for="date" class="col-form-label ">{{ __('Date') }}
                     <span class="text-danger">*</span>
                 </label>
@@ -62,25 +117,6 @@
                 @if ($errors && $errors->has('date'))
                     <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('date') }}</strong>
-                </span>
-                @endif
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="description" class="col-form-label">{{ __('Short Description') }}
-                    <span class="text-danger">*</span>
-                </label>
-                <textarea id="description"
-                          name="description"
-                          class="form-control{{ $errors && $errors->has('description') ? ' is-invalid' : '' }}">{{ isset($record) && $record->description ? $record->description : old('description') }}</textarea>
-
-                @if ($errors && $errors->has('description'))
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('description') }}</strong>
                 </span>
                 @endif
             </div>
