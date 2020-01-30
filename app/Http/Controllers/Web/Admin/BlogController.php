@@ -75,8 +75,10 @@ class BlogController extends AbstractController
 
             $data = [
                 'name' => $requestData['name'],
+                'name_zh' => $requestData['name_zh'],
                 'slug' => str_replace(' ', '_', $requestData['name']),
                 'description' => $requestData['description'],
+                'description_zh' => $requestData['description_zh'],
                 'date' => $requestData['date'],
             ];
 
@@ -192,8 +194,10 @@ class BlogController extends AbstractController
         try {
             $data = [
                 'name' => $requestData['name'],
+                'name_zh' => $requestData['name_zh'],
                 'slug' => str_replace(' ', '_', $requestData['name']),
                 'description' => $requestData['description'],
+                'description_zh' => $requestData['description_zh'],
                 'date' => $requestData['date'],
             ];
 
