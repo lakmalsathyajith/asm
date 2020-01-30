@@ -1,9 +1,10 @@
 @extends('layouts.main')
 @section('content')
-@if(app()->getLocale()=='en')
-<home></home>
-@elseif(app()->getLocale()=='zh')
-<mandarin-home></mandarin-home>
+    {{$lang = app()->getLocale()}}
+@if($lang=='en')
+<home lang="{{$lang}}"></home>
+@elseif($lang=='zh')
+<mandarin-home lang="{{$lang}}"></mandarin-home>
 @endif
 
 @stop

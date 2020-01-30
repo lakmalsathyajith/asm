@@ -1178,85 +1178,129 @@
         </div>
       </div>
     </section>
-    <!-- <section class="property-news-section padding-tb-60">
+    <section class="property-news-section padding-tb-60">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center latst-prpt">
-            <h2>Latest Property News</h2>
+          <div class="col-md-12 text-center blog-hm-head">
+            <h2 class="main-heading">Blog</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <div class="news-box inline-flex">
-              <div class="news-img">
-                <img src="images/Image 15.png" />
+
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <a v-for="(obj, i) in evenArray"
+               :key="i"
+               :href="'./blog/'+obj.slug" class="news-item-cover">
+              <div class="news-item">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 texts">
+                    <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
+                    <p class="paraf-small">{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <date class="paraf-smallest">{{obj.date}}</date>
+                  </div>
+                </div>
               </div>
-              <div class="news-content">
-                <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
-                 <p class="paraf-small" class="nws-para">
-                  Here are the suburbs with the cheapest rent close to 10kms of each
-                  major Australian city.
-                </p>
-                <h6>21 Sep 2019</h6>
-              </div>
-            </div>
+            </a>
+            <br>
           </div>
-          <div class="col-md-6">
-            <div class="news-box inline-flex">
-              <div class="news-img">
-                <img src="images/Image 15.png" />
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <a v-for="(obj, i) in oddArray"
+               :key="i"
+               :href="'./blog/'+obj.slug" class="news-item-cover">
+              <div class="news-item">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div :style="{ backgroundImage: `url(${(obj.files[0]) ? obj.files[0].url : 'images/home/onebed-thumb.jpg'})` }" class="news-image">
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 texts">
+                    <h5 class="paraf txt-bold blog-head">{{obj.name}}</h5>
+                    <p class="paraf-small">{{(obj.description.length > 150) ? obj.description.substring(0,150) + '...' : obj.description}}</p>
+                    <!-- <div class="paraf-smallest">{{obj.date}}</div> -->
+                    <date class="paraf-smallest">{{obj.date}}</date>
+                  </div>
+                </div>
               </div>
-              <div class="news-content">
-                <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
-                <p
-                  class="nws-para"
-                >Here are the suburbs with the cheapest rent close to 10kms of each</p>
-                <h6>21 Sep 2019</h6>
-              </div>
-            </div>
+            </a>
+            <br>
           </div>
-          <div class="col-md-6">
-            <div class="news-box inline-flex">
-              <div class="news-img">
-                <img src="images/Image 15.png" />
-              </div>
-              <div class="news-content">
-                <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
-                <p
-                  class="nws-para"
-                >Here are the suburbs with the cheapest rent close to 10kms of each</p>
-                <h6>21 Sep 2019</h6>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="news-box inline-flex">
-              <div class="news-img">
-                <img src="images/Image 15.png" />
-              </div>
-              <div class="news-content">
-                <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
-                <p
-                  class="nws-para"
-                >Here are the suburbs with the cheapest rent close to 10kms of each</p>
-                <h6>21 Sep 2019</h6>
-              </div>
-            </div>
-          </div>
+
+          <!-- <div class="col-md-6" v-for="(obj, i) in latestBlogs">
+             <div class="news-box inline-flex">
+               <div class="news-image">
+                 <img :src="`${(obj.files[0]) ? obj.files[0].url : 'images/Image 15.png'}`" />
+               </div>
+               <div class="news-content">
+                 <h3 class="sub-heading">{{obj.name}}</h3>
+                  <p class="paraf-small nws-para">{{obj.description}}</p>
+                 <h6>21 Sep 2019</h6>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="news-box inline-flex">
+               <div class="news-img">
+                 <img src="images/Image 15.png" />
+               </div>
+               <div class="news-content">
+                 <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
+                 <p
+                   class="nws-para"
+                 >Here are the suburbs with the cheapest rent close to 10kms of each</p>
+                 <h6>21 Sep 2019</h6>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="news-box inline-flex">
+               <div class="news-img">
+                 <img src="images/Image 15.png" />
+               </div>
+               <div class="news-content">
+                 <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
+                 <p
+                   class="nws-para"
+                 >Here are the suburbs with the cheapest rent close to 10kms of each</p>
+                 <h6>21 Sep 2019</h6>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="news-box inline-flex">
+               <div class="news-img">
+                 <img src="images/Image 15.png" />
+               </div>
+               <div class="news-content">
+                 <h3 class="sub-heading">Find your next cheap rental within 10kms of the city</h3>
+                 <p
+                   class="nws-para"
+                 >Here are the suburbs with the cheapest rent close to 10kms of each</p>
+                 <h6>21 Sep 2019</h6>
+               </div>
+             </div>
+           </div>-->
         </div>
         <div class="col-md-12">
           <div class="row">
-            <div class="nws-read">
-              <a href="#.">Read More</a>
+            <div class="nws-read welcome-para">
+              <a :href="'./blog'" class="paraf read-more-link more">Read More</a>
             </div>
           </div>
         </div>
       </div>
-    </section>-->
+    </section>
   </div>
 </template>
 
 <script>
+
+    import {mapState, mapActions} from 'vuex';
 import moment from "moment";
 import HotelDatePicker from "vue-hotel-datepicker";
 import Swiper from 'swiper';
@@ -1281,29 +1325,34 @@ export default {
       }
     };
   },
-  mounted() {
-    let swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-      loop: true,
-      speed: 1000,
-      centeredSlides: true,
-      autoplay: {
-        delay: 6000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-    });
-  },
+    mounted() {
+        let swiper = new Swiper('.swiper-container', {
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            loop: true,
+            speed: 1000,
+            centeredSlides: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+        const payload = {
+            nextUrl: this.nextUrl,
+            lazy: false
+        };
+        this.getBlogs(payload);
+    },
   methods: {
     qtyIncrease(type, min, max) {
       if (type == 'adults') {
@@ -1359,8 +1408,46 @@ export default {
           "&price_max=" +
           this.filter.price_max;
       }
-    }
+    },
+      ...mapActions('blog', ['getBlogs'])
   },
+    computed: {
+        oddArray() {
+            const lang = this.$attrs.lang;
+            let tempArr = [];
+            this.blogList.length > 0 && this.blogList.some((e, i) => {
+                if (i % 2 !== 0){
+                    if(i < 4){
+                        e.name = (lang === 'zh' && e.name_zh) ? e.name_zh : e.name
+                        e.description = (lang === 'zh' && e.description_zh) ? e.description_zh : e.description
+                        e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                        tempArr.push(e);
+                    }else{
+                        return true
+                    }
+                }
+            });
+            return tempArr;
+        },
+        evenArray() {
+            const lang = this.$attrs.lang;
+            let tempArr = [];
+            this.blogList.length > 0 && this.blogList.some((e, j) => {
+                if (j % 2 === 0){
+                    if(j < 4){
+                        e.name = (lang === 'zh' && e.name_zh) ? e.name_zh : e.name
+                        e.description = (lang === 'zh' && e.description_zh) ? e.description_zh : e.description
+                        e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                        tempArr.push(e);
+                    }else{
+                        return true
+                    }
+                }
+            });
+            return tempArr;
+        },
+        ...mapState("blog", ["blogList", "nextUrl", "currentPage", "lastPage"])
+    },
   components: {
     HotelDatePicker
   }
