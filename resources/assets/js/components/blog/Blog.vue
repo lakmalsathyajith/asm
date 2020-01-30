@@ -92,21 +92,14 @@
             ...mapActions('blog', ['getBlogs'])
         },
         computed: {
-            oddArray() {
-                let tempArr = [];
-                this.blogList.length > 0 && this.blogList.forEach((e, i) => {
-
-                    let el = {...e};
-                    el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
-                    if (i % 2 !== 0)
-                        tempArr.push(el);
-                });
-                return tempArr;
-            },
             evenArray() {
+
+                const lang = this.$attrs.lang;
                 let tempArr = [];
                 this.blogList.length > 0 && this.blogList.forEach((e, i) => {
                     let el = {...e};
+                    el.name = (lang === 'zh' && el.name_zh) ? el.name_zh : el.name
+                    el.description = (lang === 'zh' && el.description_zh) ? el.description_zh : el.description
                     el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
                     tempArr.push(el);
                 });

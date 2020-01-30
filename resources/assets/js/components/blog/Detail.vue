@@ -126,22 +126,34 @@
         },
         computed: {
             oddArray() {
+
+                const lang = this.$attrs.lang;
                 let tempArr = [];
                 let count = 0;
                 this.blogList.length > 0 && this.blogList.some((e, i) => {
-                        if(count > 5)
-                            return true;
+                    let el = {...e};
+                    el.name = (lang === 'zh' && el.name_zh) ? el.name_zh : el.name;
+                    el.description = (lang === 'zh' && el.description_zh) ? el.description_zh : el.description;
+                    if (count > 5)
+                        return true;
 
-                        if(e.id !== this.selectedBlog.id){
-                            e.date = moment(e.date, "YYYY-MMM-DD").format("DD MMM YYYY");
-                            tempArr.push(e);
-                            count++;
-                        }
+                    if (el.id !== this.selectedBlog.id) {
+                        el.date = moment(el.date, "YYYY-MMM-DD").format("DD MMM YYYY");
+                        tempArr.push(el);
+                        count++;
+                    }
                 });
                 return tempArr;
             },
             content() {
-                return (this.selectedBlog.contents) ? this.selectedBlog.contents[0].content : "";
+                const {selectedBlog} = this;
+                const lang = this.$attrs.lang;
+                selectedBlog.name = (lang === 'zh' && selectedBlog.name_zh) ? selectedBlog.name_zh : selectedBlog.name;
+                const contentLang = (selectedBlog.contents && selectedBlog.contents.length) ? selectedBlog.contents.filter((content) => {
+                    return content.locale ===  lang
+                }) : [];
+
+                return (contentLang.length>0) ? contentLang[0].content : selectedBlog.contents && selectedBlog.contents[0].content;
             },
             ...mapState("blog", ["selectedBlog", "blogList"])
         }
