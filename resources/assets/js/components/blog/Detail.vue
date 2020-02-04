@@ -9,11 +9,11 @@
                 <div class="nav-top-path">
                   <ul class="list-inline">
                     <li class="list-inline-item navigation-path-name">
-                      <a href="/">Home</a>
+                      <a href="/">{{ lang && lang === 'zh' ? '家' : 'Home' }}</a>
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item navigation-path-name">
-                      <a href="/blog">Blog</a>
+                      <a href="/blog">{{ lang && lang === 'zh' ? '博客' : 'Blog' }}</a>
                       <span class="navigation-path">></span>
                     </li>
                     <li class="list-inline-item">
@@ -55,7 +55,7 @@
                         <div class="col-md-12">
                              <div class="row share-links">
                             <div class="col-md-1 share-text">
-                                Share:
+                                {{ lang && lang === 'zh' ? '分享:' : 'Share:' }}
                             </div>
                             <div class="col-md-11">
                                 <a class="fa fa-facebook share-icon" :href="'https://www.facebook.com/sharer/sharer.php?u='+postUrl" target="_blank" title="share on facebook"></a>
@@ -70,7 +70,7 @@
                         <div class="more-blog-head-wrap">
                             <div class="row">
                                 <div class="col-md-12">
-                                     <h4 class="paraf txt-bold">More Blogs</h4>
+                                     <h4 class="paraf txt-bold">{{ lang && lang === 'zh' ? '更多博客' : 'More Blogs' }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,8 @@
         name: "blog-detail",
         data() {
             return {
-                postUrl : window.location.href
+                postUrl : window.location.href,
+                lang: 'en'
             };
         },
         created() {
@@ -118,6 +119,7 @@
                 nextUrl : this.nextUrl,
                 lazy : false
             }
+            this.lang = this.$attrs.lang;
             this.getBlogs(payload);
             this.getBlog(this.$attrs.id);
         },

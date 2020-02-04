@@ -31,7 +31,7 @@ class BlogController extends AbstractController
         $meta = [];
         $meta['keywords'] = "";
         $meta['description'] = "";
-        $meta['title'] = $data['name'];
+        $meta['title'] = app()->getLocale() == 'en'? $data['name']: $data['name_zh'];
         if(isset($data['files']) && isset($data['files'][0])){
             $meta['image'] = $data['files'][0]['url'];
         }

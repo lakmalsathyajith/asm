@@ -6,7 +6,7 @@
     <link rel="canonical" href="{{url()->current()}}" />
 
     <!-- seo tags -->
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="{{ app()->getLocale() }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:site_name" content="Apartment Stays Melbourne" />
