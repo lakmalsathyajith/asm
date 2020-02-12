@@ -207,6 +207,8 @@
                       <HotelDatePicker
                         format="DD/MM/YYYY"
                         :showYear="true"
+                        :startDate="startDate()"
+                        :endDate="endDate()"
                         :starting-date-value="filter.checkIn"
                         :ending-date-value="filter.checkOut"
                         @check-in-changed="setCheckinDate"
@@ -509,7 +511,7 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default {
   name: 'apartmentDetails',
-  props: ['lang','slug','id'],
+  props: ['lang','slug','id', 'type_id', 'area_id'],
   data() {
     const today = new Date();
     let tomorrow = new Date();
@@ -522,6 +524,8 @@ export default {
         apartment_id: this.id,
         checkIn: today,
         checkOut: tomorrow,
+        type_id: this.type_id,
+        area_id: this.area_id,
         type: '',
         adults: 1,
         children: 0,
@@ -666,6 +670,12 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+    startDate(){
+      return moment(this.filter.checkIn, 'YYYY-MM-DD').toDate();
+    },
+    endDate(){
+      return moment(this.filter.checkOut, 'YYYY-MM-DD').toDate();
     },
     ...mapActions('ratesAndAvailability', ['getApartment']),
     ...mapActions('booking', ['booking'])

@@ -42,6 +42,8 @@ class PostBookingApiRequestProcessor extends AbstractAPiRequestProcessor
                         'Agency' => false,
                         'RoomTypeId' => isset($customFields['apartment']) && isset($customFields['apartment']['rms_apartment_id'])
                             ? $customFields['apartment']['rms_apartment_id'] : 0,
+                        'AreaId' => isset($customFields['apartment']) && isset($customFields['apartment']['rms_key'])
+                            ? $customFields['apartment']['rms_key'] : 0,
                         'ArrivalDate' => isset($customFields['check_in']) ?
                             DateTrait::formatDate($customFields['check_in'], 'Y-m-d\TH:i:s') : null,
                         'DepartureDate' => isset($customFields['check_out']) ?

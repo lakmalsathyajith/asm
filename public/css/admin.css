@@ -73,3 +73,20 @@ body.sidebar-collapse a.brand-link.brand-not-expand {
 .bg-warning, .bg-warning>a {
   color: #ffffff!important;
 }
+.card-tools .btn.btn-tool {
+  background-color: #88a85a;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.card-tools .btn.btn-tool i {
+  margin-right: 5px;
+}
+
+.card-tools .btn.btn-tool a:hover {
+  color: #fff !important;
+}
+
+.card-tools .btn.btn-tool:hover {
+  background-color: #00405e;
+}

@@ -337,6 +337,7 @@
                   <div class="filter-widget">
                     <a
                       class="btn booking-btn filter-border-none-btn top-filter-search-btn"
+                      :disabled="!(filter.checkIn && filter.checkOut && filter.adults)"
                       @click="submitFilter"
                     >{{lang=='en'?'Search':'搜索'}}</a>
                   </div>
@@ -1169,7 +1170,10 @@ export default {
         let text = $(".apartment-type-wrap .dropdown-item." + this.filter.type).text();
         this.searchText = text;
       }
-      this.getFilteredApartments(this.filter);
+      if(filter.checkIn && filter.checkOut && filter.adults){
+        this.getFilteredApartments(this.filter);
+      }
+      
     },
     getStates() {
       Vue.axios

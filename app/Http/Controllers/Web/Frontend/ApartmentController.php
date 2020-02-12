@@ -29,6 +29,8 @@ class ApartmentController extends AbstractController
         $params = [];
         $params['id'] = $data['id'];
         $params['slug'] = $data['slug'];
+        $params['type_id'] = $data['rms_key'];
+        $params['area_id'] = $data['rms_apartment_id'];
         
         $meta = [];
         $meta['keywords'] = "";
