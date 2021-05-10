@@ -20,7 +20,7 @@
     "bootstrap-vue": "^2.1.0",
     "filepond": "^4.7.4",
     "jquery": "^3.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "popper.js": "^1.12",
     "swiper": "^5.2.1",
